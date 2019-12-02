@@ -1,5 +1,8 @@
+=============
 Shot Manager
 =============
+:Author: Pablo Tochez Anderson
+:Date: December 3rd, 2019
 
 .. contents::
 
@@ -24,6 +27,14 @@ Batch Output
 
 Nodes
 -----
+
+
+Shot List Node
+==============
+Path Constructor Node
+=====================
+Collections Inspector Node
+==========================
 
 Pandora Integration
 -------------------
