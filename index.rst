@@ -1,7 +1,7 @@
 =============
 Shot Manager
 =============
-:Author: Pablo Tochez Anderson
+:Author: Pablo Tochez A. Other Realms
 :Date: December 3rd, 2019
 
 .. contents:: 
