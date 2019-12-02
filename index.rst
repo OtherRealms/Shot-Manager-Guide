@@ -14,7 +14,7 @@ Shot Manager should be intalled like any .zip addon [Blender 2.8 Install Addons 
 
 Creating A Shot
 ---------------
-.. image:: https://github.com/OtherRealms/Shot-Manager-/blob/master/Panel2.JPG
+.. image:: https://photos.app.goo.gl/YuP1FgR5fnyq1YEx6
 
 
 Settings
