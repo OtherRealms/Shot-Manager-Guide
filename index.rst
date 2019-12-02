@@ -28,8 +28,12 @@ Shot data
 ---------------
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/specifics.JPG
 
-Each shot contains its own data set that may include any of the followin:
+Each shot contains its own data set that may include any of the following:
 
+* **Start Frame**
+* **End Frame**
+* **Linked Markers** a seond layer of start/end frames created when linking to a selected Timeline Marker
+* **Frame Offset** if the start or end frame is liked to a marker, you can offset frames from the linked marker postion.
 * **Shot Name**, A unique name for your shot, this will also be an output sub-directory and filename for the shot.
 * **Camera object**, automatically set as render camera when shot is selected.
 * **Notes**, for shot descriptions.
