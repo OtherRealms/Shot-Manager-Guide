@@ -4,7 +4,7 @@ Shot Manager
 :Author: Pablo Tochez Anderson
 :Date: December 3rd, 2019
 
-.. contents::
+.. contents:: 
 
 Getting Started
 ---------------
@@ -14,7 +14,7 @@ Shot Manager should be intalled like any .zip addon [Blender 2.8 Install Addons 
 
 Creating A Shot
 ---------------
-.. image::
+.. image:: https://github.com/OtherRealms/Shot-Manager-/blob/master/Panel2.JPG
 
 
 Settings
