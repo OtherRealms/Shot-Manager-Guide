@@ -45,7 +45,7 @@ Each shot contains its own data set that may include any of the following:
 
 Settings
 --------
-.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/specifics.JPG
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/settings.JPG
 * **Switch to Primary**, make primary layer the active view layer when choosing shots.
 * **Keep in range**, view timeline to playhead when choosing shots.
 * **Unsaved layers default**,None, On and Off. The deafault state of view layers if they have no saved state for the active shot. Choose Off to avoid unsaved view layers from rendering. 
