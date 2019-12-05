@@ -52,7 +52,12 @@ Settings
 
 Output Summary
 -------------
-.. image:: 
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Output.JPG
+
+Scene, Root path, View Layers and other important output setting useful for checking before renders. These settings are not necessarily shot specific.
+The **Root Folder** will be the starting directory for shots. Shot names are appended onto this path in subfolders.
+The displayed 'RENDER PATH' shows the absolute path Blender will render to for the main output.
+View Layers represent their actual render state and not their saved state. Use the small gear, button to reveal and modify their pass information without needing to change the active View Layer. 
 
 Data
 ----
