@@ -47,9 +47,12 @@ Settings
 --------
 Coming soon
 
-OutputSummary
+Output Summary
 -------------
 Coming soon
+
+Data
+----
 
 Batch Output
 ------------
@@ -70,7 +73,10 @@ Coming soon
 
 Collections Inspector Node
 ==========================
+Coming soon
 
+Multi-Switch
+============
 Coming soon
 
 Pandora Integration
