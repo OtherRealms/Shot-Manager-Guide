@@ -52,7 +52,7 @@ Settings
 
 Output Summary
 -------------
-Coming soon
+.. image:: 
 
 Data
 ----
