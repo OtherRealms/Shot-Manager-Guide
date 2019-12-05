@@ -35,8 +35,8 @@ Each shot contains its own data set that may include any of the following:
 * **Linked Marker** a second layer for the start/end frames are created when linking to a selected Timeline Marker
 * **Frame Offset** if the start or end frame is liked to a marker, you can offset frames from the linked marker postion.
 * **Shot Name**, A unique name for your shot, this will also be an output sub-directory and filename for the shot.
-* **Camera object**, automatically set as render camera when shot is selected.
 * **Notes**, for shot descriptions.
+* **Camera object**, automatically set as render camera when shot is selected. Arrow button, select as active object.
 * **Primary Layer**, select a View Layer that will become activated when selecting the shot. **Note:** If the view layer is re-named you will loose this data.
 * **Transparent Background**, set film transparency for the shot.
 * **View Layers**,these are the view layers that can be have their name and 'state'(Render/Non-renderable) set for the specific shot. **Clear** will empty your saved states.
@@ -45,7 +45,10 @@ Each shot contains its own data set that may include any of the following:
 
 Settings
 --------
-Coming soon
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/specifics.JPG
+* **Switch to Primary**, make primary layer the active view layer when choosing shots.
+* **Keep in range**, view timeline to playhead when choosing shots.
+* **Unsaved layers default**,None, On and Off. The deafault state of view layers if they have no saved state for the active shot. Choose Off to avoid unsaved view layers from rendering. 
 
 Output Summary
 -------------
