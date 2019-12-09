@@ -61,6 +61,14 @@ View Layers represent their actual render state and not their saved state. Use t
 
 Data
 ----
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/data.JPG
+**Export JSON**, Export shot data to json to backup or transfer shots. 
+
+**Import JSON**,Import shot data from a saved json file. Missing linked frame markers will be converted to manual framae ranges.
+
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Import.JPG
+**Ignore existing** to only import shots with names that don't match your scenes exisitng shots.
+
 
 Batch Output
 ------------
