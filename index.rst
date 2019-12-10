@@ -70,11 +70,20 @@ Data
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Import.JPG
 
 **Ignore existing** to only import shots with names that don't match your scenes exisitng shots.
-
+**Detele All Shots**, will clear all your saved shots.
 
 Batch Output
 ------------
-Coming soon
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Queue.JPG
+
+Only queued shots will be exported. Export formats currently include fbx, obj, abc(Alembic), dae(Collada), .blend as well as .bat(Windows) files for command line rendering, either as separate files or single batch file.
+
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Batch.JPG
+
+Choose output format and setting in the directory window. The settings panel appears on the left in Blender 2.80.
+
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/batch2.JPG
+
 
 Nodes
 -----
