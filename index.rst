@@ -94,7 +94,7 @@ The Shot List node is central to the Shot Manager nodes and is required for Cont
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/ShotlistNode.JPG
 
-**Path:**, The displayed path is where projects are rendered to. The target folder and filename is automatically named after the active shot and file paths are converted to absolutes. 
+**Path:** The displayed path is the projects output directory. The target folder and filenames are automatically named after the active shot. File paths are converted to absolute paths. If the Contructor nodes aren't connected to the Path Format socket, the path consists of; Root directory + shot name(folder)+ shot name + '_'(filename). However the scene render path in Blender's output settings will vary when 'Seperate Layers' is active. 
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/ShotlistNode2.JPG
 
