@@ -91,9 +91,10 @@ Compositor Nodes
 Shot List Node
 ==============
 The Shot List node is central to the Shot Manager nodes and is required for Contructor nodes and Multi-Switches.
-.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/ShotlistNode.JPG
-**Path:**, The displayed path is where projects are rendered to. The target folder and filename is automatically named after the active shot and file paths are converted to absolutes. 
 
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/ShotlistNode.JPG
+
+**Path:**, The displayed path is where projects are rendered to. The target folder and filename is automatically named after the active shot and file paths are converted to absolutes. 
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/ShotlistNode2.JPG
 
