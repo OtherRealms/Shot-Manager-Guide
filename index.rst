@@ -16,7 +16,7 @@ Creating A Shot
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/makeshots.JPG
 The main interface is found in the Properties panel under the Output tab. 
 
-* The first tick box will toggle the affect of Shot Manager on you scene. Untick if you need to turn off its influence.
+* **Enable**. The first tick box will toggle the affect of Shot Manager on you scene. Untick if you need to turn off its influence, particularily if rendering alternative frame ranges or View Layers.
 * **Add new** , adds a new shot to your list.
 * Arrows Up and Down  will sort your shots, but ultimately have no affect on your project.
 * The Tick Box on the Left of your shot name will add it to the output/render queue.
@@ -51,7 +51,7 @@ Settings
 * **Unsaved layers default**,None, On and Off. The deafault state of view layers if they have no saved state for the active shot. Choose Off to prevent unsaved view layers from rendering. 
 
 Output Summary
--------------
+--------------
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Output.JPG
 
 Scene, Root path, View Layers and other important output setting useful for checking before renders. These settings are not necessarily shot specific.
@@ -90,11 +90,27 @@ Compositor Nodes
 
 Shot List Node
 ==============
-The Shot List node is central to the Shot Manager nodes and is required for Contructor nodes and Multi-Switches.
+**IMPORTANT!** for compositor nodes to have any effect, compositor 'Use Nodes' must be enabled.
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/ShotlistNode.JPG
 
+The Shot List node is central to the Shot Manager nodes and is required for Contructor nodes and Multi-Switches. **A maximum of one shotlist node should exist.**
+
 **Path:** The displayed path is the projects output directory. The target folder and filenames are automatically named after the active shot. File paths are converted to absolute paths. If the Contructor nodes aren't connected to the Path Format socket, the path consists of; Root directory + shot name(folder)+ shot name + '_'(filename). However the scene render path in Blender's output settings will vary when 'Seperate Layers' is active. 
+
+**Make Multi-Switch** will create a new node group dynamaically linked to active shots.
+**Refresh**, non-essential node update. Although shot Manager nodes are updated upon shot change, setting or property changes, changes outside of Shot Manager won't be reflected immediately. For example adding new light passes to a View Layer. Shot Manager will update before any rendering. 
+
+**Seperate View Layers**
+Automatically generate noes to ouput view layers for external compositing. NOTE: nodes are generated upon any update made within the add-on, therefore generated nodes should not be directly edited.Output files will be named according to the layer name. The scene render output will match the first created ouput path to avoid writing extra frames output from the Composite node.
+
+**Seperate Passes**
+Optionally seperate view layer light passes. The scene render output will match the first created ouput socket (typically 'Image') to avoid writing extra frames output from the Composite node.
+
+**Sync Output Paths**. Only Available if Seperate Layers is disabled. Ouput nodes created by the user are updated so their base path matches the output path set by the Shotlist node and the active shot.
+
+
+
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/ShotlistNode2.JPG
 
