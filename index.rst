@@ -99,11 +99,18 @@ The Shot List node is central to the Shot Manager nodes and is required for Cont
 **Path:** The displayed path is the projects output directory. The target folder and filenames are automatically named after the active shot. File paths are converted to absolute paths. If the Contructor nodes aren't connected to the Path Format socket, the path consists of; Root directory + shot name(folder)+ shot name + '_'(filename). However the scene render path in Blender's output settings will vary when 'Seperate Layers' is active. 
 
 **Make Multi-Switch** will create a new node group dynamaically linked to active shots.
+
 **Refresh**, non-essential node update. Although shot Manager nodes are updated upon shot change, setting or property changes, changes outside of Shot Manager won't be reflected immediately. For example adding new light passes to a View Layer. Shot Manager will update before any rendering. 
 
 **Sync Output Paths**. Only Available if Seperate Layers is disabled. Ouput nodes created by the user are updated so their base path matches the output path set by the Shotlist node and the active shot.
 
+**Shot List and saved states**. Here you can select and queue shots for bath export. Each shot diplays the saved states for View Layers. These states can be toggled (renderable/non-renderable), removed or added. 
 
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/remap.JPG
+
+**? Missing** Deleted or re-named shots will be displayed as red. Choose how you would like to remap the saved slot by removing or associating with an unsaved view layer.
+
+**Path Format**. String input socket for path 'Constuctor' nodes.
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/ShotlistNode2.JPG
 
@@ -112,11 +119,7 @@ Automatically generate noes to ouput view layers for external compositing. NOTE:
 
 **Seperate Passes**
 Optionally seperate view layer light passes. The scene render output will match the first created ouput socket (typically 'Image') to avoid writing extra frames output from the Composite node.
-
-
-
-
-
+**Exclude** passes from being output, not case sensative.
 
 
 Path Constructor Node
