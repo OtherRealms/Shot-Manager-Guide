@@ -7,8 +7,8 @@ Shot Manager
 
 Getting Started
 ---------------
-Shot Manager is an addon for Blender 2.8 and above. Created as a  tool by myself Pablo TochezA. [contact@pablotochez.com]  in order assist in the organisation of complex files containing multiple shots, view layers and cameras. I am by no means a programmer but rather an artist with some basic coding knowledge for making  time saving tools and digital artworks.
-Shot Manager should be intalled like any .zip addon [Blender 2.8 Install Addons 00:38-https://youtu.be/14G_YIVdBd0?t=38].
+Shot Manager is an add-on for Blender 2.8 and above. Created as a  tool by myself Pablo TochezA. [contact@pablotochez.com]  in order assist in the organization of complex files containing multiple shots, view layers and cameras. I am an artist with some coding knowledge for making  time saving tools and digital artworks.
+Shot Manager should be installed like any .zip add-on [Blender 2.8 Install Add-ons 00:38-https://youtu.be/14G_YIVdBd0?t=38].
 
 
 Creating A Shot
@@ -16,7 +16,7 @@ Creating A Shot
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/makeshots.JPG
 The main interface is found in the Properties panel under the Output tab. 
 
-* **Enable**. The first tick box will toggle the affect of Shot Manager on you scene. Untick if you need to turn off its influence, particularily if rendering alternative frame ranges or View Layers.
+* **Enable**. The first tick box will toggle the affect of Shot Manager on you scene. Un-tick if you need to turn off its influence, particularly if rendering alternative frame ranges or View Layers.
 * **Add new** , adds a new shot to your list.
 * Arrows Up and Down  will sort your shots, but ultimately have no affect on your project.
 * The Tick Box on the Left of your shot name will add it to the output/render queue.
@@ -33,7 +33,7 @@ Each shot contains its own data set that may include any of the following:
 * **Start Frame**
 * **End Frame**
 * **Linked Marker** a second layer for the start/end frames are created when linking to a selected Timeline Marker
-* **Frame Offset** if the start or end frame is liked to a marker, you can offset frames from the linked marker postion.
+* **Frame Offset** if the start or end frame is liked to a marker, you can offset frames from the linked marker position.
 * **Shot Name**, A unique name for your shot, this will also be an output sub-directory and filename for the shot.
 * **Notes**, for shot descriptions.
 * **Camera object**, automatically set as render camera when shot is selected. Arrow button, select as active object.
@@ -48,7 +48,7 @@ Settings
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/settings.JPG
 * **Switch to Primary**, make primary layer the active view layer when choosing shots.
 * **Keep in range**, view timeline to playhead when choosing shots.
-* **Unsaved layers default**,None, On and Off. The deafault state of view layers if they have no saved state for the active shot. Choose Off to prevent unsaved view layers from rendering. 
+* **Unsaved layers default**,None, On and Off. The default state of view layers if they have no saved state for the active shot. Choose Off to prevent unsaved view layers from rendering. 
 
 Output Summary
 --------------
@@ -65,12 +65,12 @@ Data
 
 **Export JSON**, Export shot data to json to backup or transfer shots. 
 
-**Import JSON**,Import shot data from a saved json file. Missing linked frame markers will be converted to manual framae ranges.
+**Import JSON**,Import shot data from a saved json file. Missing linked frame markers will be converted to manual frame ranges.
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Import.JPG
 
-**Ignore existing** to only import shots with names that don't match your scenes exisitng shots.
-**Detele All Shots**, will clear all your saved shots.
+**Ignore existing** to only import shots with names that don't match your scenes existing shots.
+**Delete All Shots**, will clear all your saved shots.
 
 Batch Output
 ------------
@@ -94,32 +94,32 @@ Shot List Node
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/ShotlistNode.JPG
 
-The Shot List node is central to the Shot Manager nodes and is required for Contructor nodes and Multi-Switches. **A maximum of one shotlist node should exist.**
+The Shot List node is central to the Shot Manager nodes and is required for Constructor nodes and Multi-Switches. **A maximum of one shot list node should exist.**
 
-**Path:** The displayed path is the projects output directory. The target folder and filenames are automatically named after the active shot. File paths are converted to absolute paths. If the Contructor nodes aren't connected to the Path Format socket, the path consists of; Root directory + shot name(folder)+ shot name + '_'(filename). However the scene render path in Blender's output settings will vary when 'Seperate Layers' is active. 
+**Path:** The displayed path is the projects output directory. The target folder and filenames are automatically named after the active shot. File paths are converted to absolute paths. If the Constructor nodes aren't connected to the Path Format socket, the path consists of; Root directory + shot name(folder)+ shot name + '_'(filename). However the scene render path in Blender's output settings will vary when 'Separate Layers' is active. 
 
-**Make Multi-Switch** will create a new node group dynamaically linked to active shots.
+**Make Multi-Switch** will create a new node group dynamically linked to active shots.
 
 **Refresh**, non-essential node update. Although shot Manager nodes are updated upon shot change, setting or property changes, changes outside of Shot Manager won't be reflected immediately. For example adding new light passes to a View Layer. Shot Manager will update before any rendering. 
 
-**Sync Output Paths**. Only Available if Seperate Layers is disabled. Ouput nodes created by the user are updated so their base path matches the output path set by the Shotlist node and the active shot.
+**Sync Output Paths**. Only Available if Separate Layers is disabled. Output nodes created by the user are updated so their base path matches the output path set by the Shot List node and the active shot.
 
-**Shot List and saved states**. Here you can select and queue shots for bath export. Each shot diplays the saved states for View Layers. These states can be toggled (renderable/non-renderable), removed or added. 
+**Shot List and saved states**. Here you can select and queue shots for bath export. Each shot displays the saved states for View Layers. These states can be toggled (renderable/non-renderable), removed or added. 
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/remap.JPG
 
-**? Missing** Deleted or re-named shots will be displayed as red. Choose how you would like to remap the saved slot by removing or associating with an unsaved view layer.
+**? Missing** ,Deleted or re-named shots will be displayed as red. Choose how you would like to remap the saved slot by removing or associating with an unsaved view layer.
 
 **Path Format**. String input socket for path 'Constuctor' nodes.
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/ShotlistNode2.JPG
 
-**Seperate View Layers**
-Automatically generate noes to ouput view layers for external compositing. NOTE: nodes are generated upon any update made within the add-on, therefore generated nodes should not be directly edited.Output files will be named according to the layer name. The scene render output will match the first created ouput path to avoid writing extra frames output from the Composite node.
+**Separate View Layers**
+Automatically generate noes to output view layers for external compositing. NOTE: nodes are generated upon any update made within the add-on, therefore generated nodes should not be directly edited. Output files will be named according to the layer name. The scene render output will match the first created output path to avoid writing extra frames output from the Composite node.
 
-**Seperate Passes**
-Optionally seperate view layer light passes. The scene render output will match the first created ouput socket (typically 'Image') to avoid writing extra frames output from the Composite node.
-**Exclude** passes from being output, not case sensative.
+**Separate Passes**
+Optionally separate view layer light passes. The scene render output will match the first created ouput socket (typically 'Image') to avoid writing extra frames output from the Composite node.
+**Exclude** passes from being output, not case sensitive.
 
 
 Path Constructor Node
