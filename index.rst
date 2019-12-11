@@ -101,18 +101,23 @@ The Shot List node is central to the Shot Manager nodes and is required for Cont
 **Make Multi-Switch** will create a new node group dynamaically linked to active shots.
 **Refresh**, non-essential node update. Although shot Manager nodes are updated upon shot change, setting or property changes, changes outside of Shot Manager won't be reflected immediately. For example adding new light passes to a View Layer. Shot Manager will update before any rendering. 
 
+**Sync Output Paths**. Only Available if Seperate Layers is disabled. Ouput nodes created by the user are updated so their base path matches the output path set by the Shotlist node and the active shot.
+
+
+
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/ShotlistNode2.JPG
+
 **Seperate View Layers**
 Automatically generate noes to ouput view layers for external compositing. NOTE: nodes are generated upon any update made within the add-on, therefore generated nodes should not be directly edited.Output files will be named according to the layer name. The scene render output will match the first created ouput path to avoid writing extra frames output from the Composite node.
 
 **Seperate Passes**
 Optionally seperate view layer light passes. The scene render output will match the first created ouput socket (typically 'Image') to avoid writing extra frames output from the Composite node.
 
-**Sync Output Paths**. Only Available if Seperate Layers is disabled. Ouput nodes created by the user are updated so their base path matches the output path set by the Shotlist node and the active shot.
 
 
 
 
-.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/ShotlistNode2.JPG
+
 
 Path Constructor Node
 =====================
