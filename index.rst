@@ -2,7 +2,7 @@
 Shot Manager
 =============
 :Date: December 3rd, 2019
-:Version: 0.5.6
+:Version: 0.5.7
 .. contents:: 
 
 Getting Started
