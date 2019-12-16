@@ -137,9 +137,9 @@ Coming soon
 
 Pandora Integration
 -------------------
-Know Issues
+Known Issues
 -----------
-**Missing file explorer options** . This can occur when going between versions of Blender. SOLUTION- Disable 'Load UI' when opening. 
+**Missing file explorer options** . This can occur when going between versions of Blender. SOLUTION- Restart Blender , disable 'Load UI' first when opening. 
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Load%20ui.JPG 
 
