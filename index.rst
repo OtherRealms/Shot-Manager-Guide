@@ -8,7 +8,7 @@ Shot Manager
 Getting Started
 ---------------
 Shot Manager is an add-on for Blender 2.8 and above. Created as a  tool by myself Pablo TochezA. [contact@pablotochez.com]  in order assist in the organization of complex files containing multiple shots, view layers and cameras. I am an artist with some coding knowledge for making  time saving tools and digital artworks.
-Shot Manager should be installed like any .zip add-on [Blender 2.8 Install Add-ons 00:38-https://youtu.be/14G_YIVdBd0?t=38]. **Make sure you remove any previously installed versions first.**
+Shot Manager should be installed like any .zip add-on [Blender 2.8 Install Add-ons 00:38-https://youtu.be/14G_YIVdBd0?t=38]. **Make sure you remove any previously installed versions first.** You will not loose shot data un-installing the addon/
 
 
 Creating A Shot
@@ -137,4 +137,11 @@ Coming soon
 
 Pandora Integration
 -------------------
+Know Issues
+-----------
+**Missing file explorer options** . This can occur when going between versions of Blender. SOLUTION- Disable 'Load UI' when opening. 
+
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Load%20ui.JPG 
+
+
 
