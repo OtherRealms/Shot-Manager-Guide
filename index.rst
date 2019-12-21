@@ -34,7 +34,7 @@ Each shot contains its own data set that may include any of the following:
 * **End Frame**
 * **Linked Marker** a second layer for the start/end frames are created when linking to a selected Timeline Marker
 * **Frame Offset** if the start or end frame is liked to a marker, you can offset frames from the linked marker position.
-* **Shot Name**, A unique name for your shot, this will also be an output sub-directory and filename for the shot.
+* **Shot Name**, A unique name for your shot, this will also be an output sub-directory and filename for the shot.(Best practice is to avoid spaces)
 * **Notes**, for shot descriptions.
 * **Camera object**, automatically set as render camera when shot is selected. Arrow button, select as active object.
 * **Primary Layer**, select a View Layer that will become activated when selecting the shot. **Note:** If the view layer is re-named you will loose this data.
@@ -90,7 +90,7 @@ Compositor Nodes
 
 Shot List Node
 ==============
-**IMPORTANT!** for compositor nodes to have any effect, compositor 'Use Nodes' must be enabled.
+**IMPORTANT!** for compositor nodes to have any effect, compositor 'Use Nodes' must be enabled. Node groups containing Shot Manager nodes are currently unsupported.
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/ShotlistNode.JPG
 
@@ -125,7 +125,17 @@ Optionally separate view layer light passes. The scene render output will match 
 Path Constructor Node
 =====================
 
-Coming soon
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Path%20Contructor.JPG
+
+Use Path Contructor Nodes to create you own render path format, followed by the shot name. Options; 
+
+*Root Folder, the same folder set in the main panel. Must only be used as the first linked node.
+*.Blend File, add the Blender filename to the path. Useful for iterations.
+*Scene, scene name
+*Shot Name
+*Camera, render camera name
+*Custom, enter a custom name.(Best practice is to avoid spaces)
+
 
 Collections Inspector Node
 ==========================
