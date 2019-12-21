@@ -127,14 +127,14 @@ Path Constructor Node
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Path%20Contructor.JPG
 
-Use Path Contructor Nodes to create you own render path format, followed by the shot name. Options; 
+Use Path Contructor Nodes to create you own render path format, followed by the shot name. Connect to the Shot List 'Path Format' socket. Options; 
 
-*Root Folder, the same folder set in the main panel. Must only be used as the first linked node.
-*.Blend File, add the Blender filename to the path. Useful for iterations.
-*Scene, scene name
-*Shot Name
-*Camera, render camera name
-*Custom, enter a custom name.(Best practice is to avoid spaces)
+* Root Folder, the same folder set in the main panel. Must only be used as the first linked node.
+* .Blend File, add the Blender filename to the path. Useful for iterations.
+* Scene, scene name
+* Shot Name
+* Camera, render camera name
+* Custom, enter a custom name.(Best practice is to avoid spaces)
 
 
 Collections Inspector Node
