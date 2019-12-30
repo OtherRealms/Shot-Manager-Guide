@@ -2,7 +2,7 @@
 Shot Manager
 =============
 :Date: December 3rd, 2019
-:Version: 0.5.7
+:Version: 0.5.8
 .. contents:: 
 
 Getting Started
@@ -153,6 +153,7 @@ Pandora is a free open source render ditribution software developed by Richard F
 Shot Manager provides a Blender specific submitter that reads the correct frame range, shot name, camera and render settings from your shot. Pandora requires at least one Coordinator enabled PC and one Slave PC in its network.
 
 **Submitting a Shot**
+
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/PSubmitter.JPG
 
 Queue a single shot by activating it and choosing 'Submit Shot'. Submit mutliple shots by enabling them in the shot list and choose 'Batch Submit Shots'. Job name and project name are required. Jobs names will be replaced with shot name when batch submitting. Pandora will save a copy of the project and queue jobs in Pandora Handler. 
