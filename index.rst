@@ -2,14 +2,14 @@
 Shot Manager
 =============
 :Date: December 3rd, 2019
-:Version: 0.5.8
+:Version: 0.5.9
 .. contents:: 
 
 Getting Started
 ---------------
-Shot Manager is an add-on for Blender 2.8 and above. Created as a  tool by myself Pablo TochezA. [contact@pablotochez.com]  in order assist in the organization of complex files containing multiple shots, view layers and cameras. I am an artist with some coding knowledge for making  time saving tools and digital artworks.
+Shot Manager is an add-on for Blender 2.8 and above. Created as a  tool by myself Pablo TochezA. [contact@pablotochez.com]  in order assist in the organization of complex files containing multiple shots, view layers and cameras. I am an artist with some coding knowledge for making time saving tools and digital artworks.
 Shot Manager should be installed like any .zip add-on [Blender 2.8 Install Add-ons 00:38-https://youtu.be/14G_YIVdBd0?t=38]. **Make sure you remove any previously installed versions first.** You will not loose shot data un-installing the addon/
-
+This documentation is intended for th epaid version available on Blender Market, however features included in the lite version are included.
 
 Creating A Shot
 ---------------
@@ -39,6 +39,8 @@ Each shot contains its own data set that may include any of the following:
 * **Camera object**, automatically set as render camera when shot is selected. Arrow button, select as active object.
 * **Primary Layer**, select a View Layer that will become activated when selecting the shot. **Note:** If the view layer is re-named you will loose this data.
 * **Transparent Background**, set film transparency for the shot.
+* **Render Engine**, set render engine for specifiaclly for the shot, supports in-built options.
+* **Render Samples**, overide samples, 0 = no overide.
 * **View Layers**,these are the view layers that can be have their name and 'state'(Render/Non-renderable) set for the specific shot. **Clear** will empty your saved states.
 
 
