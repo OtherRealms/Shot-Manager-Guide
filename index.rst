@@ -142,7 +142,8 @@ Use Path Contructor Nodes to create you own render path format, followed by the 
 
 Collections Inspector Node
 ==========================
-Coming soon
+
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Collections.JPG
 
 Multi-Switch
 ============
