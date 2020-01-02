@@ -120,7 +120,8 @@ The Shot List node is central to the Shot Manager nodes and is required for Cons
 Automatically generate noes to output view layers for external compositing. NOTE: nodes are generated upon any update made within the add-on, therefore generated nodes should not be directly edited. Output files will be named according to the layer name.  **You May want to delete the Composite node** when seperating layers.
 
 **Separate Passes**
-Optionally separate view layer light passes. The scene render output will match the first created ouput socket (typically 'Image') to avoid writing extra frames output from the Composite node.
+Optionally separate view layer light passes.
+
 **Exclude** passes from being output, not case sensitive.
 
 
