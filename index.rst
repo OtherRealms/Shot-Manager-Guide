@@ -149,7 +149,7 @@ An alternative interface for overseeing and modifying collection states per View
 Output Viewer Node
 ==================
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Output_Viewer.JPG
-Use to count matching output files in all output paths. If a folder or file is detected you may click the folder icon to open the dirctory in your OS explorer or click the image icon to load it in an open Blender Image Editor. Files are counted after rendering or when the refresh button is clicked.
+Use to count matching output files in all output paths. If a folder or file is detected you may click the folder icon to open the directory in your OS explorer or click the image icon to load it in an open Blender Image Editor. Files are counted after rendering or when the refresh button is clicked.
 
 Multi-Switch
 ============
