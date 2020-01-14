@@ -142,12 +142,19 @@ Use Path Contructor Nodes to create you own render path format, followed by the 
 
 Collections Inspector Node
 ==========================
-
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Collections.JPG
+
+An alternative interface for overseeing and modifying collection states per View Layer. This aims to bring back the kind of oversight possible in Blender 2.7 where layer visibility, holdout and indirect states were layed out in view layer settings. It can also be used to keep track of very complex scenes with many nested collections. Setting the View Layer to 'Active View' will use the currently active view layer. Changing the view layer in the drop down menu will not change your currently active view layer. This can be quicker in large scenes to avoid loading objects.
+
+Output Viewer Node
+==================
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Output_Viewer.JPG
+Use to count matching output files in all output paths. If a folder or file is detected you may click the folder icon to open the dirctory in your OS explorer or click the image icon to load it in an open Blender Image Editor. Files are counted after rendering or when the refresh button is clicked.
 
 Multi-Switch
 ============
-Coming soon
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/MultiSwitch.JPG
+The Multi-Switch is a handy node group that generates inputs per shot. The active input is connected internally depending on the active shot. This allows the user to have multiple node graphs pointing to the Composite Node and only render the relevant one to the active shot. **Do not modify this node's name, group name or internal nodes. Requires a Shotlist Node** 
 
 Pandora Integration(Windows)
 ----------------------------
