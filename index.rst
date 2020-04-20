@@ -2,7 +2,7 @@
 Shot Manager
 =============
 :Date: January 14th, 2020
-:Version: 0.5.9
+:Version: 0.6.1
 .. contents:: 
 
 Getting Started
@@ -78,13 +78,15 @@ Batch Output
 ------------
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Queue.JPG
 
-Only queued shots will be exported. Export formats currently include fbx, obj, abc(Alembic), dae(Collada), .blend as well as .bat(Windows) files for command line rendering, either as separate files or single batch file.
+Only queued shots will be exported. Export formats currently include fbx, obj, abc(Alembic), dae(Collada), .blend as well as .bat(Windows) files for command line rendering, either as separate files or single batch file. 
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Batch.JPG
 
 Choose output format and setting in the directory window. The settings panel appears on the left in Blender 2.80.
 
-.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/batch2.JPG
+FBX exporter does not use the FBX export/import addon but rather a modified export script.
+
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/embed_shots_a.JPG
 
 
 Compositor Nodes
@@ -138,6 +140,7 @@ Use Path Contructor Nodes to create you own render path format, followed by the 
 * Shot Name
 * Camera, render camera name
 * Custom, enter a custom name.(Best practice is to avoid spaces)
+* Output Node, uses the custom name of the output node, useful for exporting EXR's without overiding the default output/composite (which will use the supbpath 'Main'), or to avoid duplicate filenames when using multiple output nodes.
 
 
 Collections Inspector Node
