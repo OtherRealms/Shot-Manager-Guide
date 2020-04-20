@@ -51,6 +51,7 @@ Settings
 * **Switch to Primary**, make primary layer the active view layer when choosing shots.
 * **Keep in range**, view timeline to playhead when choosing shots.
 * **Unsaved layers default**,None, On and Off. The default state of view layers if they have no saved state for the active shot. Choose Off to prevent unsaved view layers from rendering. 
+* **Seperator** , a custom seperator to add between filenames and frame suffix, default is '_'
 
 Output Summary
 --------------
@@ -87,6 +88,9 @@ Choose output format and setting in the directory window. The settings panel app
 FBX exporter does not use the FBX export/import addon but rather a modified export script.
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/embed_shots_a.JPG
+
+Embedded shots can store frame ranges and shot names as animation layers and extracted in other software,ie Unity.
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/embed_shots_b.JPG
 
 
 Compositor Nodes
@@ -140,7 +144,7 @@ Use Path Contructor Nodes to create you own render path format, followed by the 
 * Shot Name
 * Camera, render camera name
 * Custom, enter a custom name.(Best practice is to avoid spaces)
-* Output Node, uses the custom name of the output node, useful for exporting EXR's without overiding the default output/composite (which will use the supbpath 'Main'), or to avoid duplicate filenames when using multiple output nodes.
+* Output Node, uses the custom name of the output node, useful for exporting EXR's without overiding the default output/composite (which will use the custom 'main output text'), or to avoid duplicate filenames when using multiple output nodes.
 
 
 Collections Inspector Node
