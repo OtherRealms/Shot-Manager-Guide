@@ -100,7 +100,12 @@ Embedded shots can store frame ranges and shot names as animation layers and ext
 **Batch Render Shots** ,Render all queued/enabled shots.
 
 **Internal Shot List**, Render shots from the currently open Blend file(Less memory efficient).  
+
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/batch%20renderB.JPG
+
 **External Blend** , Open a shotlist from an external Blend file(uses the files active scene). Shots can be queued once loaded.
+
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/batch%20renderA.JPG
 
 
 Compositor Nodes
