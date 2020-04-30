@@ -18,6 +18,7 @@ The main interface is found in the Properties panel under the Output tab.
 
 * **Enable**. The first tick box will toggle the affect of Shot Manager on you scene. Un-tick if you need to turn off its influence, particularly if rendering alternative frame ranges or View Layers.
 * **Add new** , adds a new shot to your list.
+* **Duplicate** , Duplicate active shot.
 * Arrows Up and Down  will sort your shots, but ultimately have no affect on your project.
 * The Tick Box on the Left of your shot name will add it to the output/render queue.
 * Click '-' to delete the shot 
