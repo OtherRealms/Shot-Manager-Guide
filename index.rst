@@ -70,6 +70,7 @@ Data
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/data.JPG
 
 **Export JSON**, Export shot data to json to backup or transfer shots. 
+**Include Shot Manager Settings**, include settings from settings panel.
 
 **Import JSON**,Import shot data from a saved json file. Missing linked frame markers will be converted to manual frame ranges.
 
@@ -93,6 +94,7 @@ FBX exporter does not use the FBX export/import addon but rather a modified expo
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/embed_shots_a.JPG
 
 Embedded shots can store frame ranges and shot names as animation layers and extracted in other software,ie Unity.
+
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/embed_shots_b.JPG
 
 **Batch Render Shots** ,Render all queued/enabled shots.
@@ -175,6 +177,8 @@ Pandora Integration(Windows)
 ----------------------------
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Pandora.JPG
 
+Tutorial and trouble shooting: https://youtu.be/LgR-uqd4h9o
+
 Pandora is a free open source render ditribution software developed by Richard Frangenberg https://prism-pipeline.com/pandora/ .
 Shot Manager provides a Blender specific submitter that reads the correct frame range, shot name, camera and render settings from your shot. Pandora requires at least one Coordinator enabled PC and one Slave PC in its network.
 
@@ -186,6 +190,9 @@ Queue a single shot by activating it and choosing 'Submit Shot'. Submit mutliple
 
 **Trouble Shooting**. Pandora Core has an issue where it will often lose track of components; Coordinator.exe and Slave.exe. Therefore, the status shown in the panel might not match the actual states of these processes. This occurs especially when a process has been closed or crashed, outside of control from its settings component. Use 'Reset Pandora' to clear Coordinator and Slave states on the local machine. Make sure to close those processes(.exe) if already running, otherwise you might launch duplicate processes.
 
+B-Renderon! Integration
+-----------------------
+Launch B-Renderon with shots loaded as seperate blend files. Requires B-renderon v2 or above. The executable path for B-renderon must first be entered in Blender Preferences -> add-ons -> Shot Manager settings   
 
 Known Issues
 ------------
