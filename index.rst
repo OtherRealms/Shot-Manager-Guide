@@ -39,6 +39,7 @@ Each shot contains its own data set that may include any of the following:
 * **Camera object**, automatically set as render camera when shot is selected. Arrow button, select as active object.
 * **Primary Layer**, select a View Layer that will become activated when selecting the shot. **Note:** If the view layer is re-named you will loose this data.
 * **Transparent Background**, set film transparency for the shot.
+* **Overide Resolution** , shot specific output resolution.
 * **Render Engine**, set render engine for specifiaclly for the shot, supports in-built options.
 * **Render Samples**, overide samples, 0 = no overide.
 * **View Layers**,these are the view layers that can be have their name and 'state'(Render/Non-renderable) set for the specific shot. **Clear** will empty your saved states.
@@ -52,6 +53,7 @@ Settings
 * **Keep in range**, view timeline to playhead when choosing shots.
 * **Unsaved layers default**,None, On and Off. The default state of view layers if they have no saved state for the active shot. Choose Off to prevent unsaved view layers from rendering. 
 * **Seperator** , a custom seperator to add between filenames and frame suffix, default is '_'
+* **Path Type** , Absolute or relative output path creation.
 
 Output Summary
 --------------
@@ -91,6 +93,11 @@ FBX exporter does not use the FBX export/import addon but rather a modified expo
 
 Embedded shots can store frame ranges and shot names as animation layers and extracted in other software,ie Unity.
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/embed_shots_b.JPG
+
+**Batch Render Shots** ,Render all queued/enabled shots.
+
+**Internal Shot List**, Render shots from the currently open Blend file(Less memory efficient).  
+**External Blend** , Open a shotlist from an external Blend file(uses the files active scene). Shots can be queued once loaded.
 
 
 Compositor Nodes
