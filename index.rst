@@ -145,6 +145,10 @@ Optionally separate view layer light passes.
 
 **Exclude** passes from being output, not case sensitive.
 
+**EXR output**
+.. image:: https://github.com/OtherRealms/Shot-Manager-/blob/master/EXR_layers.JPG
+
+When using "Seperate Passes" with and EXR format, add and define output EXR file names. Filter Render Passes using exclusion keywords separated by commas, no spaces, not case-senisitve. Including filename options 'Shot Name' and 'View Layer' name will be added to the given filename.  
 
 Path Constructor Node
 =====================
@@ -195,7 +199,7 @@ Queue a single shot by activating it and choosing 'Submit Shot'. Submit mutliple
 
 **Multi-Layer EXR**
 
-Pandora does not officially support multi-layered EXR renders and output nodes using this format. This is to streamline the application for the Prism Pipeline, Shot Manager however offers in-built support for automatically outputing passes with some filtering options using the Shot List node. If rendering Multi-Layered EXRs you'll need to replaces a python file in for each render node; 
+Pandora does not officially support multi-layered EXR renders and output nodes using this format. This is to streamline the application for the Prism Pipeline, Shot Manager however offers in-built support for automatically outputing passes with some filtering options using the Shot List node. If rendering Multi-Layered EXRs you'll need to replaces a python file in for ***each render node*** to bypass Pandora's limitation; 
 find --Install directory--"\Pandora\Plugins\Apps\Blender\Scripts\Pandora_Blender_externalAccess_Functions.py". Make a Backup of this file.
 Replace with ShotManager.zip(extract)"\Shot Manager addon\shot_manager_pro\Pro\Pandora_Blender_externalAccess_Functions.py"
 
