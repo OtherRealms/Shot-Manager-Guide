@@ -146,9 +146,10 @@ Optionally separate view layer light passes.
 **Exclude** passes from being output, not case sensitive.
 
 **EXR output**
+
 .. image:: https://github.com/OtherRealms/Shot-Manager-/blob/master/EXR_layers.JPG
 
-When using "Seperate Passes" with and EXR format, add and define output EXR file names. Filter Render Passes using exclusion keywords separated by commas, no spaces, not case-senisitve. Including filename options 'Shot Name' and 'View Layer' name will be added to the given filename.  
+When using "Separate Passes" with and EXR format, add and define output EXR file names. Filter Render Passes using exclusion keywords separated by commas, no spaces, not case-senisitve. Including filename options 'Shot Name' and 'View Layer' name will be added to the given filename.  
 
 Path Constructor Node
 =====================
