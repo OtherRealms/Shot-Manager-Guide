@@ -2,7 +2,7 @@
 Shot Manager
 =============
 :Date: January 14th, 2020
-:Version: 0.6.1
+:Version: 0.6.3
 .. contents:: 
 
 Getting Started
@@ -191,7 +191,13 @@ Shot Manager provides a Blender specific submitter that reads the correct frame 
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/PSubmitter.JPG
 
-Queue a single shot by activating it and choosing 'Submit Shot'. Submit mutliple shots by enabling them in the shot list and choose 'Batch Submit Shots'. Job name and project name are required. Jobs names will be replaced with shot name when batch submitting. Pandora will save a copy of the project and queue jobs in Pandora Handler. 
+Queue a single shot by activating it and choosing 'Submit Shot'. Submit mutliple shots by enabling them in the shot list and choose 'Batch Submit Shots'. Job name and project name are required. Jobs names will be replaced with shot name when batch submitting. Pandora will save local copies of the project and queue jobs in Pandora Handler. Using this submitter will force **absolute** file paths, ensure remote nodes have network access to all required paths.
+
+**Multi-Layer EXR**
+
+Pandora does not officially support multi-layered EXR renders and output nodes using this format. This is to streamline the application for the Prism Pipeline, Shot Manager however offers in-built support for automatically outputing passes with some filtering options using the Shot List node. If rendering Multi-Layered EXRs you'll need to replaces a python file in for each render node; 
+find --Install directory--"\Pandora\Plugins\Apps\Blender\Scripts\Pandora_Blender_externalAccess_Functions.py". Make a Backup of this file.
+Replace with ShotManager.zip(extract)"\Shot Manager addon\shot_manager_pro\Pro\Pandora_Blender_externalAccess_Functions.py"
 
 **Trouble Shooting**. Pandora Core has an issue where it will often lose track of components; Coordinator.exe and Slave.exe. Therefore, the status shown in the panel might not match the actual states of these processes. This occurs especially when a process has been closed or crashed, outside of control from its settings component. Use 'Reset Pandora' to clear Coordinator and Slave states on the local machine. Make sure to close those processes(.exe) if already running, otherwise you might launch duplicate processes.
 
