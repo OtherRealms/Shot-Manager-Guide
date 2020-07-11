@@ -200,9 +200,11 @@ Queue a single shot by activating it and choosing 'Submit Shot'. Submit mutliple
 
 **Multi-Layer EXR**
 
-Pandora does not officially support multi-layered EXR renders and output nodes using this format. This is to streamline the application for the Prism Pipeline, Shot Manager however offers in-built support for automatically outputing passes with some filtering options using the Shot List node. If rendering Multi-Layered EXRs you'll need to replaces a python file in for ***each render node*** to bypass Pandora's limitation; 
+Pandora does not officially support multi-layered EXR renders and output nodes using this format. This is to streamline the application for the Prism Pipeline, Shot Manager however offers in-built support for automatically outputing passes with some filtering options using the Shot List node. 
+
+To render Multi-Layered EXRs you'll need to replace a python file in on **each render node** to bypass Pandora's limitation; 
 find --Install directory--"\Pandora\Plugins\Apps\Blender\Scripts\Pandora_Blender_externalAccess_Functions.py". Make a Backup of this file.
-Replace with ShotManager.zip(extract)"\Shot Manager addon\shot_manager_pro\Pro\Pandora_Blender_externalAccess_Functions.py"
+Replace with ShotManager.zip(extract)"\Shot Manager addon\shot_manager_pro\Pro\Pandora_Blender_externalAccess_Functions.py" .Remember to submit with a **new project** name not previously used, or manually delete older jobs.
 
 **Trouble Shooting**. Pandora Core has an issue where it will often lose track of components; Coordinator.exe and Slave.exe. Therefore, the status shown in the panel might not match the actual states of these processes. This occurs especially when a process has been closed or crashed, outside of control from its settings component. Use 'Reset Pandora' to clear Coordinator and Slave states on the local machine. Make sure to close those processes(.exe) if already running, otherwise you might launch duplicate processes.
 
