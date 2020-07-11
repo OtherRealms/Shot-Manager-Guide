@@ -1,8 +1,9 @@
 =============
 Shot Manager
 =============
-:Date: January 14th, 2020
+
 :Version: 0.6.2
+
 .. contents:: 
 
 Getting Started
