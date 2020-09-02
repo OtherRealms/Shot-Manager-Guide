@@ -184,10 +184,10 @@ Multi-Switch
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/MultiSwitch.JPG
 The Multi-Switch is a handy node group that generates inputs per shot. The active input is connected internally depending on the active shot. This allows the user to have multiple node graphs pointing to the Composite Node and only render the relevant one to the active shot. **Do not modify this node's name, group name or internal nodes. Requires a Shotlist Node** 
 
-Pandora Integration(Windows)
+Pandora Integration 1.0.3(Windows)
 ----------------------------
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Pandora.JPG
-
+**Currently versions newer 1.0.3 ecounter issues with Blender compatibility and are not recommended for use with Shot Manager.**
 Tutorial and trouble shooting: https://youtu.be/LgR-uqd4h9o
 
 Pandora is a free open source render ditribution software developed by Richard Frangenberg https://prism-pipeline.com/pandora/ .
