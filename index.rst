@@ -2,13 +2,13 @@
 Shot Manager
 =============
 
-:Version: 0.6.2
+:Version: 0.6.3
 
 .. contents:: 
 
 Getting Started
 ---------------
-Shot Manager is an add-on for Blender 2.8 and above. Created as a  tool by myself Pablo TochezA. [contact@pablotochez.com]  in order assist in the organization of complex files containing multiple shots, view layers and cameras. I am an artist with some coding knowledge for making time saving tools and digital artworks.
+Shot Manager is an add-on for Blender 2.8 and above. Created as a  tool by myself Pablo TochezA. [contact@pablotochez.com]  in order to assist in the organization of complex files containing multiple shots, view layers and cameras. I am an artist with some coding knowledge for making time saving tools and digital artworks.
 Shot Manager should be installed like any .zip add-on [Blender 2.8 Install Add-ons 00:38-https://youtu.be/14G_YIVdBd0?t=38]. **Make sure you remove any previously installed versions first.** You will not loose shot data un-installing the addon/
 This documentation is intended for th epaid version available on Blender Market, however features included in the lite version are included.
 
@@ -26,6 +26,10 @@ The main interface is found in the Properties panel under the Output tab.
 * **Queue all** to add all shots to output/render queue.
 To activate a shot simply select it in the list!
 
+Main vs List
+------------
+The 'Main' shot is intended for general editing and previewing and is not considered for batch rendering or exporting. Settings can be copied to and from the Main shot and Shot List.
+
 Shot data
 ---------------
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/specifics.JPG
@@ -42,7 +46,7 @@ Each shot contains its own data set that may include any of the following:
 * **Primary Layer**, select a View Layer that will become activated when selecting the shot. **Note:** If the view layer is re-named you will loose this data.
 * **Transparent Background**, set film transparency for the shot.
 * **Overide Resolution** , shot specific output resolution.
-* **Render Engine**, set render engine for specifiaclly for the shot, supports in-built options.
+* **Render Engine**, set render engine for specifiaclly for the shot, now supports addon engines.
 * **Render Samples**, overide samples, 0 = no overide.
 * **View Layers**,these are the view layers that can be have their name and 'state'(Render/Non-renderable) set for the specific shot. **Clear** will empty your saved states.
 
@@ -143,10 +147,12 @@ Automatically generate noes to output view layers for external compositing. NOTE
 
 **Separate Passes**
 Optionally separate view layer light passes.
+**Shot Name in Prefix (non-EXR MultiLayer)**
+if using Seperarate View Layers, the option to add the shot names into the output file pre-fix is available.
 
 **Exclude** passes from being output, not case sensitive.
 
-**EXR output**
+**EXR MultiLayer output**
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/EXR_layers.JPG 
 
@@ -184,10 +190,9 @@ Multi-Switch
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/MultiSwitch.JPG
 The Multi-Switch is a handy node group that generates inputs per shot. The active input is connected internally depending on the active shot. This allows the user to have multiple node graphs pointing to the Composite Node and only render the relevant one to the active shot. **Do not modify this node's name, group name or internal nodes. Requires a Shotlist Node** 
 
-Pandora Integration 1.0.3(Windows)
+Pandora Integration 1.1.0.8(Windows)
 ----------------------------
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Pandora.JPG
-**Currently versions newer 1.0.3 ecounter issues with Blender compatibility and are not recommended for use with Shot Manager.**
 Tutorial and trouble shooting: https://youtu.be/LgR-uqd4h9o
 
 Pandora is a free open source render ditribution software developed by Richard Frangenberg https://prism-pipeline.com/pandora/ .
