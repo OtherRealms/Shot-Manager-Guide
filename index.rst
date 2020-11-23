@@ -1,6 +1,7 @@
 =============
 Shot Manager
 =============
+https://twitter.com/OTrealms
 
 :Version: 0.6.4
 
@@ -18,15 +19,6 @@ Creating A Shot
 The main interface is found in the Properties panel under the Output tab. 
 
 * **Enable**. The first tick box will toggle the affect of Shot Manager on you scene. Un-tick if you need to turn off its influence, particularly if rendering alternative frame ranges or View Layers.
-
-Main vs List
-------------
-The 'Main' shot is intended for general editing and previewing and is not considered for batch rendering or exporting. Settings can be copied to and from the Main shot and Shot List. List Shot Defaults are inherited from the Main shot.
-
-Still Mode
-------------
-For rendering single frames. Works with batch render. Uses an alternative frame to the normal start and end parameters. Will output from all available output nodes.
-
 * **Add new** , adds a new shot to your list.
 * **Duplicate** , Duplicate active shot.
 * Arrows Up and Down  will sort your shots, but ultimately have no affect on your project.
@@ -34,6 +26,16 @@ For rendering single frames. Works with batch render. Uses an alternative frame 
 * Click '-' to delete the shot 
 * **Queue all** to add all shots to output/render queue.
 To activate a shot simply select it in the list!
+
+Main vs List
+------------
+The 'Main' shot is intended for general editing and previewing and is not considered for batch rendering or exporting. Settings can be copied to and from the Main shot and Shot List. 'List' shot defaults are inherited from the Main shot.
+
+Still Mode
+------------
+For rendering single frames. Works with batch render. Uses an alternative frame to the normal start and end parameters. Will output from all available output nodes.
+
+
 
 
 
@@ -59,6 +61,12 @@ Each shot contains its own data set that may include any of the following:
 * **Overide Resolution** , shot specific output resolution.
 * **Collection Overrides**, toggle use of collection overrides.
 
+Collection Overrides
+--------------------
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/overrides.JPG
+Ensure that the Collection Overrides property is enabled.
+Currently material overrides are available per collection, per shot. Add and override and select collection, then add a material and slot. Override data is stored in the collections not shots, therefore can't be exported as a Json file or copied from another shot.
+Also editable in the Collections Inspector Node including overrides for all shots.
 
 Settings
 --------
@@ -83,7 +91,7 @@ Data
 ----
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/data.JPG
 
-**Export JSON**, Export shot data to json to backup or transfer shots. 
+**Export JSON**, Export shot data to json to backup or transfer shots. Does not include collection overrides.
 **Include Shot Manager Settings**, include settings from settings panel.
 
 **Import JSON**,Import shot data from a saved json file. Missing linked frame markers will be converted to manual frame ranges.
