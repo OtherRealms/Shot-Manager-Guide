@@ -50,13 +50,14 @@ Each shot contains its own data set that may include any of the following:
 * **Shot Name**, A unique name for your shot, this will also be an output sub-directory and filename for the shot.(Best practice is to avoid spaces)
 * **Notes**, for shot descriptions.
 * **Camera object**, automatically set as render camera when shot is selected. Arrow button, select as active object.
+* **Render Engine**, set render engine for specifiaclly for the shot, now supports addon engines.
+* **Render Samples**, If using Render Engine override. Override samples, 0 = no overide.
+* **World** , World data, inherits from Main if empty.
 * **Primary Layer**, select a View Layer that will become activated when selecting the shot. **Note:** If the view layer is re-named you will loose this data.
+* **View Layers**,these are the view layers that can be have their name and 'state'(Render/Non-renderable) set for the specific shot. **Clear** will empty your saved states.
 * **Transparent Background**, set film transparency for the shot.
 * **Overide Resolution** , shot specific output resolution.
-* **Render Engine**, set render engine for specifiaclly for the shot, now supports addon engines.
-* **Render Samples**, overide samples, 0 = no overide.
-* **View Layers**,these are the view layers that can be have their name and 'state'(Render/Non-renderable) set for the specific shot. **Clear** will empty your saved states.
-
+* **Collection Overrides**, toggle use of collection overrides.
 
 
 Settings
@@ -64,7 +65,8 @@ Settings
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/settings.JPG
 * **Switch to Primary**, make primary layer the active view layer when choosing shots.
 * **Keep in range**, view timeline to playhead when choosing shots.
-* **Unsaved layers default**,None, On and Off. The default state of view layers if they have no saved state for the active shot. Choose Off to prevent unsaved view layers from rendering. 
+* **jump to First Frame**, place playhead at start of frame range when choosing shots.
+* **Unsaved layers default**,Main, None, On and Off. The default state of view layers if they have no saved state for the active shot. Main inherits from 'Main' shot. None leaves the current states. Choose Off to prevent unsaved view layers from rendering. On will make all layeres renderable.
 * **Seperator** , a custom seperator to add between filenames and frame suffix, default is '_'
 * **Path Type** , Absolute or relative output path creation.
 
