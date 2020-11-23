@@ -2,7 +2,7 @@
 Shot Manager
 =============
 
-:Version: 0.6.3
+:Version: 0.6.4
 
 .. contents:: 
 
@@ -14,10 +14,19 @@ This documentation is intended for th epaid version available on Blender Market,
 
 Creating A Shot
 ---------------
-.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/makeshots.JPG
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Makeshots.PNG
 The main interface is found in the Properties panel under the Output tab. 
 
 * **Enable**. The first tick box will toggle the affect of Shot Manager on you scene. Un-tick if you need to turn off its influence, particularly if rendering alternative frame ranges or View Layers.
+
+Main vs List
+------------
+The 'Main' shot is intended for general editing and previewing and is not considered for batch rendering or exporting. Settings can be copied to and from the Main shot and Shot List. List Shot Defaults are inherited from the Main shot.
+
+Still Mode
+------------
+For rendering single frames. Works with batch render. Uses an alternative frame to the normal start and end parameters. Will output from all available output nodes.
+
 * **Add new** , adds a new shot to your list.
 * **Duplicate** , Duplicate active shot.
 * Arrows Up and Down  will sort your shots, but ultimately have no affect on your project.
@@ -26,9 +35,7 @@ The main interface is found in the Properties panel under the Output tab.
 * **Queue all** to add all shots to output/render queue.
 To activate a shot simply select it in the list!
 
-Main vs List
-------------
-The 'Main' shot is intended for general editing and previewing and is not considered for batch rendering or exporting. Settings can be copied to and from the Main shot and Shot List.
+
 
 Shot data
 ---------------
