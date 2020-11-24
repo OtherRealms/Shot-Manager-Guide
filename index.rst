@@ -14,7 +14,7 @@ Shot Manager should be installed like any .zip add-on [Blender 2.8 Install Add-o
 This documentation is intended for th epaid version available on Blender Market, however features included in the lite version are included.
 
 Creating A Shot
----------------
+===============
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Makeshots.PNG
 The main interface is found in the Properties panel under the Output tab. 
 
@@ -28,11 +28,11 @@ The main interface is found in the Properties panel under the Output tab.
 To activate a shot simply select it in the list!
 
 Main vs List
-------------
+============
 The 'Main' shot is intended for general editing and previewing and is not considered for batch rendering or exporting. Settings can be copied to and from the Main shot and Shot List. 'List' shot defaults are inherited from the Main shot.
 
 Still Mode
-------------
+==========
 For rendering single frames. Works with batch render. Uses an alternative frame to the normal start and end parameters. Will output from all available output nodes.
 
 
@@ -62,15 +62,15 @@ Each shot contains its own data set that may include any of the following:
 * **Collection Overrides**, toggle use of collection overrides.
 
 Collection Overrides
---------------------
---------------------
+====================
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/overrides.JPG
 Ensure that the Collection Overrides property is enabled. Only first level view layer collections are available.
 Currently material overrides are available per collection, per shot. Add and override and select collection, then add a material and slot. Override data is stored in the collections not shots, therefore can't be exported as a Json file or copied from another shot.
-Also editable in the Collections Inspector Node including overrides for all shots. Using overrides may be slower when switching shots and there are large amounts of collections and objects.
+Also editable in the Collections Inspector Node including overrides for all shots.
+Using overrides may be slower when switching shots and there are large amounts of collections and objects.
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/material_override.JPG
-The orginal material can be restored using th erevert button foun in the objects material tab. Useful if an object has been moved out of a collection and you want to restore its pre-override material. 
+The orginal material can be restored using the revert button foun in the objects material tab. Useful if an object has been moved out of a collection and you want to restore its pre-override material. 
 
 
 Settings
@@ -83,17 +83,8 @@ Settings
 * **Seperator** , a custom seperator to add between filenames and frame suffix, default is '_'
 * **Path Type** , Absolute or relative output path creation.
 
-Output Summary
---------------
-.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Output.JPG
-
-Scene, Root path, View Layers and other important output setting useful for checking before renders. These settings are not necessarily shot specific.
-The **Root Folder** will be the starting directory for shots. Shot names are appended onto this path in subfolders.
-The displayed 'RENDER PATH' shows the absolute path Blender will render to for the main output.
-View Layers represent their actual render state and not their saved state. Use the small gear, button to reveal and modify their pass information without needing to change the active View Layer. 
-
 Data
-----
+====
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/data.JPG
 
 **Export JSON**, Export shot data to json to backup or transfer shots. Does not include collection overrides.
@@ -106,8 +97,25 @@ Data
 **Ignore existing** to only import shots with names that don't match your scenes existing shots.
 **Delete All Shots**, will clear all your saved shots.
 
+Shot Manager Output
+-------------------
+Shots can be rendered using the regular render animations or still operators (ctr+F12/F12). However only the active shot will be rendered. To bect render simply use ctr+shift+F12.
+
+
+Output Summary
+==============
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Output.JPG
+
+Scene, Root path, View Layers and other important output setting useful for checking before renders. These settings are not necessarily shot specific.
+The **Root Folder** will be the starting directory for shots. Shot names are appended onto this path in subfolders.
+The displayed 'RENDER PATH' shows the absolute path Blender will render to for the main output.
+View Layers represent their actual render state and not their saved state. Use the small gear, button to reveal and modify their pass information without needing to change the active View Layer. 
+
+
+
 Batch Output
-------------
+============
+
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Queue.JPG
 
 Only queued shots will be exported. Export formats currently include fbx, obj, abc(Alembic), dae(Collada), .blend as well as .bat(Windows) files for command line rendering, either as separate files or single batch file. 
@@ -126,7 +134,7 @@ Embedded shots can store frame ranges and shot names as animation layers and ext
 
 **Batch Render Shots** ,Render all queued/enabled shots.
 
-**Internal Shot List**, Render shots from the currently open Blend file(Less memory efficient).  
+**Internal Shot List**, Render shots from the currently open Blend file(Less memory efficient than external).  
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/batch%20renderB.JPG
 
@@ -134,6 +142,34 @@ Embedded shots can store frame ranges and shot names as animation layers and ext
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/batch%20renderA.JPG
 
+
+Pandora Integration 1.1.0.8(Windows)
+====================================
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Pandora.JPG
+Tutorial and trouble shooting: https://youtu.be/LgR-uqd4h9o
+
+Pandora is a free open source render ditribution software developed by Richard Frangenberg https://prism-pipeline.com/pandora/ .
+Shot Manager provides a Blender specific submitter that reads the correct frame range, shot name, camera and render settings from your shot. Pandora requires at least one Coordinator enabled PC and one Slave PC in its network.
+
+**Submitting a Shot**
+
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/PSubmitter.JPG
+
+Queue a single shot by activating it and choosing 'Submit Shot'. Submit mutliple shots by enabling them in the shot list and choose 'Batch Submit Shots'. Job name and project name are required. Jobs names will be replaced with shot name when batch submitting. Pandora will save local copies of the project and queue jobs in Pandora Handler. Using this submitter will force **absolute** file paths, ensure remote nodes have network access to all required paths.
+
+**Multi-Layer EXR**
+
+Pandora does not officially support multi-layered EXR renders and output nodes using this format. This is to streamline the application for the Prism Pipeline, Shot Manager however offers in-built support for automatically outputing passes with some filtering options using the Shot List node. 
+
+To render Multi-Layered EXRs you'll need to replace a python file in on **each render node** to bypass Pandora's limitation; 
+find --Install directory--"\Pandora\Plugins\Apps\Blender\Scripts\Pandora_Blender_externalAccess_Functions.py". Make a Backup of this file.
+Replace with ShotManager.zip(extract)"\Shot Manager addon\shot_manager_pro\Pro\Pandora_Blender_externalAccess_Functions.py" .Remember to submit with a **new project** name not previously used, or manually delete older jobs.
+
+**Trouble Shooting**. Pandora Core has an issue where it will often lose track of components; Coordinator.exe and Slave.exe. Therefore, the status shown in the panel might not match the actual states of these processes. This occurs especially when a process has been closed or crashed, outside of control from its settings component. Use 'Reset Pandora' to clear Coordinator and Slave states on the local machine. Make sure to close those processes(.exe) if already running, otherwise you might launch duplicate processes.
+
+B-Renderon! Integration
+=======================
+Launch B-Renderon with shots loaded as seperate blend files. Requires B-renderon v2 or above. The executable path for B-renderon must first be entered in Blender Preferences -> add-ons -> Shot Manager settings   
 
 Compositor Nodes
 ----------------
@@ -212,33 +248,6 @@ Multi-Switch
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/MultiSwitch.JPG
 The Multi-Switch is a handy node group that generates inputs per shot. The active input is connected internally depending on the active shot. This allows the user to have multiple node graphs pointing to the Composite Node and only render the relevant one to the active shot. **Do not modify this node's name, group name or internal nodes. Requires a Shotlist Node** 
 
-Pandora Integration 1.1.0.8(Windows)
-----------------------------
-.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Pandora.JPG
-Tutorial and trouble shooting: https://youtu.be/LgR-uqd4h9o
-
-Pandora is a free open source render ditribution software developed by Richard Frangenberg https://prism-pipeline.com/pandora/ .
-Shot Manager provides a Blender specific submitter that reads the correct frame range, shot name, camera and render settings from your shot. Pandora requires at least one Coordinator enabled PC and one Slave PC in its network.
-
-**Submitting a Shot**
-
-.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/PSubmitter.JPG
-
-Queue a single shot by activating it and choosing 'Submit Shot'. Submit mutliple shots by enabling them in the shot list and choose 'Batch Submit Shots'. Job name and project name are required. Jobs names will be replaced with shot name when batch submitting. Pandora will save local copies of the project and queue jobs in Pandora Handler. Using this submitter will force **absolute** file paths, ensure remote nodes have network access to all required paths.
-
-**Multi-Layer EXR**
-
-Pandora does not officially support multi-layered EXR renders and output nodes using this format. This is to streamline the application for the Prism Pipeline, Shot Manager however offers in-built support for automatically outputing passes with some filtering options using the Shot List node. 
-
-To render Multi-Layered EXRs you'll need to replace a python file in on **each render node** to bypass Pandora's limitation; 
-find --Install directory--"\Pandora\Plugins\Apps\Blender\Scripts\Pandora_Blender_externalAccess_Functions.py". Make a Backup of this file.
-Replace with ShotManager.zip(extract)"\Shot Manager addon\shot_manager_pro\Pro\Pandora_Blender_externalAccess_Functions.py" .Remember to submit with a **new project** name not previously used, or manually delete older jobs.
-
-**Trouble Shooting**. Pandora Core has an issue where it will often lose track of components; Coordinator.exe and Slave.exe. Therefore, the status shown in the panel might not match the actual states of these processes. This occurs especially when a process has been closed or crashed, outside of control from its settings component. Use 'Reset Pandora' to clear Coordinator and Slave states on the local machine. Make sure to close those processes(.exe) if already running, otherwise you might launch duplicate processes.
-
-B-Renderon! Integration
------------------------
-Launch B-Renderon with shots loaded as seperate blend files. Requires B-renderon v2 or above. The executable path for B-renderon must first be entered in Blender Preferences -> add-ons -> Shot Manager settings   
 
 Known Issues
 ------------
