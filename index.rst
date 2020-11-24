@@ -63,10 +63,15 @@ Each shot contains its own data set that may include any of the following:
 
 Collection Overrides
 --------------------
+--------------------
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/overrides.JPG
 Ensure that the Collection Overrides property is enabled. Only first level view layer collections are available.
 Currently material overrides are available per collection, per shot. Add and override and select collection, then add a material and slot. Override data is stored in the collections not shots, therefore can't be exported as a Json file or copied from another shot.
-Also editable in the Collections Inspector Node including overrides for all shots.
+Also editable in the Collections Inspector Node including overrides for all shots. Using overrides may be slower when switching shots and there are large amounts of collections and objects.
+
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/material_override.JPG
+The orginal material can be restored using th erevert button foun in the objects material tab. Useful if an object has been moved out of a collection and you want to restore its pre-override material. 
+
 
 Settings
 --------
