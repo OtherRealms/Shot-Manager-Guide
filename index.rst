@@ -103,7 +103,7 @@ Shots can be rendered using the regular render animations or still operators (ct
 
 Output Summary
 ==============
-.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Output.JPG
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/summary.JPG
 
 Scene, Render path, View Layers and other important output setting useful for checking before renders. These settings are not necessarily shot specific.
 The displayed 'RENDER PATH' shows the absolute path Blender will render to for the main output.
