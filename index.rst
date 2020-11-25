@@ -13,12 +13,17 @@ Shot Manager is an add-on for Blender 2.8 and above. Created as a  tool by mysel
 Shot Manager should be installed like any .zip add-on [Blender 2.8 Install Add-ons 00:38-https://youtu.be/14G_YIVdBd0?t=38]. **Make sure you remove any previously installed versions first.** You will not loose shot data un-installing the addon/
 This documentation is intended for th epaid version available on Blender Market, however features included in the lite version are included.
 
+Main vs List
+============
+The 'Main' shot is intended for general editing and previewing and is not considered for batch rendering or exporting. Settings can be copied to and from the Main shot and Shot List. 'List' shot defaults are inherited from the Main shot.
+
 Creating A Shot
 ===============
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Makeshots.PNG
-The main interface is found in the Properties panel under the Output tab. 
+The main interface is found in the Properties panel under the Output tab.
 
 * **Enable**. The first tick box will toggle the affect of Shot Manager on you scene. Un-tick if you need to turn off its influence, particularly if rendering alternative frame ranges or View Layers.
+* **Root Folder** will be the starting directory for shots. Shot names are appended onto this path in subfolders.
 * **Add new** , adds a new shot to your list.
 * **Duplicate** , Duplicate active shot.
 * Arrows Up and Down  will sort your shots, but ultimately have no affect on your project.
@@ -27,16 +32,10 @@ The main interface is found in the Properties panel under the Output tab.
 * **Queue all** to add all shots to output/render queue.
 To activate a shot simply select it in the list!
 
-Main vs List
-============
-The 'Main' shot is intended for general editing and previewing and is not considered for batch rendering or exporting. Settings can be copied to and from the Main shot and Shot List. 'List' shot defaults are inherited from the Main shot.
 
 Still Mode
 ==========
 For rendering single frames. Works with batch render. Uses an alternative frame to the normal start and end parameters. Will output from all available output nodes.
-
-
-
 
 
 Shot data
@@ -106,8 +105,7 @@ Output Summary
 ==============
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Output.JPG
 
-Scene, Root path, View Layers and other important output setting useful for checking before renders. These settings are not necessarily shot specific.
-The **Root Folder** will be the starting directory for shots. Shot names are appended onto this path in subfolders.
+Scene, Render path, View Layers and other important output setting useful for checking before renders. These settings are not necessarily shot specific.
 The displayed 'RENDER PATH' shows the absolute path Blender will render to for the main output.
 View Layers represent their actual render state and not their saved state. Use the small gear, button to reveal and modify their pass information without needing to change the active View Layer. 
 
