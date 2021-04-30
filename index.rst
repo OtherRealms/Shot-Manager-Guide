@@ -3,7 +3,7 @@ Shot Manager
 =============
 https://twitter.com/OTrealms
 
-:Version: 0.6.4
+:Version: 0.7.2
 
 .. contents:: 
 
@@ -11,7 +11,9 @@ Getting Started
 ---------------
 Shot Manager is an add-on for Blender 2.8 and above. Created as a  tool by myself Pablo TochezA. [contact@pablotochez.com]  in order to assist in the organization of complex files containing multiple shots, view layers and cameras. I am an artist with some coding knowledge for making time saving tools and digital artworks.
 Shot Manager should be installed like any .zip add-on [Blender 2.8 Install Add-ons 00:38-https://youtu.be/14G_YIVdBd0?t=38]. **Make sure you remove any previously installed versions first.** You will not loose shot data un-installing the addon/
-This documentation is intended for th epaid version available on Blender Market, however features included in the lite version are included.
+This documentation is intended for the paid version available on Blender Market, however features included in the lite version are included.
+
+version 0.7 and above do not support version of Blender below 2.90.
 
 Main vs List
 ============
@@ -37,6 +39,10 @@ Still Mode
 ==========
 For rendering single frames. Works with batch render. Uses an alternative frame to the normal start and end parameters. Will output from all available output nodes.
 
+Generate View Layers Mode
+=========================
+This mode enables settings; Switch to Primary Layer, Generate Primary Layers and Unsaved View Layers Default to 'Primary Layer'.
+The workflow is designed for users who wish to create unique View Layers with each shot, so as to have different collection visible. This workflow is most commonly used in product rendering and visualisation. The newly created view layer will be set as the layer's Primary layer. The prmimary layer in combination with the other settings mentioned, will become the active View Layer and default as renderable when the shot is selected. It is therefore not neccessary to alter the View Layer save/render states for the shot.
 
 Shot data
 ---------------
@@ -58,7 +64,10 @@ Each shot contains its own data set that may include any of the following:
 * **View Layers**,these are the view layers that can be have their name and 'state'(Render/Non-renderable) set for the specific shot. **Clear** will empty your saved states.
 * **Transparent Background**, set film transparency for the shot.
 * **Overide Resolution** , shot specific output resolution.
-* **Collection Overrides**, toggle use of collection overrides.
+* **Bloom**, Eevee only.
+* **View Layers**, View layers states (unsaved/renderable/not-renderable),'AB' icon means: Rename the Primary Layer to match the shot's name. 'Broken Link' icon means: the shot has an identical name to this View Layer, set as Primary.
+* **Material Overrides**, toggle use of collection overrides.
+
 
 Collection Overrides
 ====================
@@ -76,9 +85,10 @@ Settings
 --------
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/settings.JPG
 * **Switch to Primary**, make primary layer the active view layer when choosing shots.
+* **Generate Primary Layers**, a new View Layer will be created with the name of the newly made shot and associated as a Primary Layer
 * **Keep in range**, view timeline to playhead when choosing shots.
-* **jump to First Frame**, place playhead at start of frame range when choosing shots.
-* **Unsaved layers default**,Main, None, On and Off. The default state of view layers if they have no saved state for the active shot. Main inherits from 'Main' shot. None leaves the current states. Choose Off to prevent unsaved view layers from rendering. On will make all layeres renderable.
+* **Jump to First Frame**, place playhead at start of frame range when choosing shots.
+* **Unsaved layers default**,On,Off, Primary Layer and None. The default state of view layers if they have no saved state for the active shot. 'On' will make all unsaved layers renderable by default with each shot change/trigger. 'Off' will default to un-renderable, choose 'Off' to prevent unsaved view layers from rendering.'Primary Layer' will also switch all unsaved layers to un-renderable, except for the Shot's Primary Layer. 'None' leaves the current states, no influence form the add-on. 
 * **Seperator** , a custom seperator to add between filenames and frame suffix, default is '_'
 * **Path Type** , Absolute or relative output path creation.
 
@@ -182,8 +192,8 @@ The Shot List node is central to the Shot Manager nodes and is required for Cons
 
 **Path:** The displayed path is the projects output directory. The target folder and filenames are automatically named after the active shot. File paths are converted to absolute paths. If the Constructor nodes aren't connected to the Path Format socket, the path consists of; Root directory + shot name(folder)+ shot name + '_'(filename). However the scene render path in Blender's output settings will vary when 'Separate Layers' is active. 
 
-**Make Multi-Switch** will create a new node group dynamically linked to active shots.
-
+**Multi-Switch** will create a new node group dynamically linked to active shots.
+**Primary-Switch** will create a new Render Layer node which automatically switches the input View Layer to the active Shot's Primary Layer, else mute.
 **Refresh**, non-essential node update. Although shot Manager nodes are updated upon shot change, setting or property changes, changes outside of Shot Manager won't be reflected immediately. For example adding new light passes to a View Layer. Shot Manager will update before any rendering. 
 
 **Sync Output Paths**. Only Available if Separate Layers is disabled. Output nodes created by the user are updated so their base path matches the output path set by the Shot List node and the active shot.
@@ -192,7 +202,6 @@ The Shot List node is central to the Shot Manager nodes and is required for Cons
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/remap.JPG
 
-**? Missing** ,Deleted or re-named shots will be displayed as red. Choose how you would like to remap the saved slot by removing or associating with an unsaved view layer.
 
 **Path Format**. String input socket for path 'Constuctor' nodes.
 
@@ -206,13 +215,15 @@ Optionally separate view layer light passes.
 **Shot Name in Prefix (non-EXR MultiLayer)**
 if using Seperarate View Layers, the option to add the shot names into the output file pre-fix is available.
 
-**Exclude** passes from being output, not case sensitive.
+**Preview** Make the output group an 8bit png for preview renders.
+
+**Exclude/Include** passes from being output, not case sensitive. Pass names should be seperated by commas.
 
 **EXR MultiLayer output**
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/EXR_layers.JPG 
 
-When using "Separate Passes" with and EXR format, add and define output EXR file names. Filter Render Passes using exclusion keywords separated by commas, no spaces, not case-senisitve. Including filename options 'Shot Name' and 'View Layer' name will be added to the given filename.  
+When using "Separate Passes", Output Groups add and define output file names. Filter Render Passes using exclusion keywords separated by commas, no spaces, not case-senisitve. Including filename options 'Shot Name' and 'View Layer' name will be added to the given filename.  
 
 Path Constructor Node
 =====================
