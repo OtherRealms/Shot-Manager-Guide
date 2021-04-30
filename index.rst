@@ -13,7 +13,7 @@ Shot Manager is an add-on for Blender 2.8 and above. Created as a  tool by mysel
 Shot Manager should be installed like any .zip add-on [Blender 2.8 Install Add-ons 00:38-https://youtu.be/14G_YIVdBd0?t=38]. **Make sure you remove any previously installed versions first.** You will not loose shot data un-installing the addon/
 This documentation is intended for the paid version available on Blender Market, however features included in the lite version are included.
 
-version 0.7 and above do not support version of Blender below 2.90.
+Version 0.7 and above do not support versions of Blender below 2.90.
 
 Main vs List
 ============
@@ -61,7 +61,6 @@ Each shot contains its own data set that may include any of the following:
 * **Render Samples**, If using Render Engine override. Override samples, 0 = no overide.
 * **World** , World data, inherits from Main if empty.
 * **Primary Layer**, select a View Layer that will become activated when selecting the shot. **Note:** If the view layer is re-named you will loose this data.
-* **View Layers**,these are the view layers that can be have their name and 'state'(Render/Non-renderable) set for the specific shot. **Clear** will empty your saved states.
 * **Transparent Background**, set film transparency for the shot.
 * **Overide Resolution** , shot specific output resolution.
 * **Bloom**, Eevee only.
@@ -88,7 +87,7 @@ Settings
 * **Generate Primary Layers**, a new View Layer will be created with the name of the newly made shot and associated as a Primary Layer
 * **Keep in range**, view timeline to playhead when choosing shots.
 * **Jump to First Frame**, place playhead at start of frame range when choosing shots.
-* **Unsaved layers default**,On,Off, Primary Layer and None. The default state of view layers if they have no saved state for the active shot. 'On' will make all unsaved layers renderable by default with each shot change/trigger. 'Off' will default to un-renderable, choose 'Off' to prevent unsaved view layers from rendering.'Primary Layer' will also switch all unsaved layers to un-renderable, except for the Shot's Primary Layer. 'None' leaves the current states, no influence form the add-on. 
+* **Unsaved layers default**, (On, Off, Primary Layer and None). The default state of View Layers if they have no saved state for the active shot. 'On' will make all unsaved layers renderable by default with each shot change/trigger. 'Off' will default to un-renderable, choose 'Off' to prevent unsaved view layers from rendering.'Primary Layer' will also switch all unsaved layers to un-renderable, except for the Shot's Primary Layer. 'None' leaves the current states, no influence form the add-on. 
 * **Seperator** , a custom seperator to add between filenames and frame suffix, default is '_'
 * **Path Type** , Absolute or relative output path creation.
 
