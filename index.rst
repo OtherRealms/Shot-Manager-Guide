@@ -159,7 +159,7 @@ Batch Output
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Queue.JPG
 
-Only queued shots will be exported. Export formats currently include fbx, obj, abc(Alembic), dae(Collada), .blend as well as .bat(Windows) files for command line rendering, either as separate files or single batch file. 
+Only queued shots will be exported. Export formats currently include fbx, obj, abc(Alembic), usd(Universal Scene Description), dae(Collada), .blend as well as .bat(Windows) files for command line rendering, either as separate files or single batch file. Batch export only uses the active scene's queued shots and does not support shots from external Blend files.
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Batch.JPG
 
@@ -184,33 +184,32 @@ Embedded shots can store frame ranges and shot names as animation layers and ext
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/batch%20renderA.JPG
 
 
-Pandora Integration 1.1.0.8(Windows)
+Deadline 10.0+ Integration (Windows)
 ====================================
-.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Pandora.JPG
-Tutorial and trouble shooting: https://youtu.be/LgR-uqd4h9o
+Thinkbox Deadline is a distributed rendering and management software. Shot Manager provides a custom plug-in for Deadline and submitter within Blender. 
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Deadline.JPG
+The Deadline Repository must be installed on a shared location. The Deadline render Client must be installed on all machines.
+Simply click **Install Integration** in the Deadline subpanel to install the plugin. This will transfer required files to the repository>custom>plugins folder.
 
-Pandora is a free open source render ditribution software developed by Richard Frangenberg https://prism-pipeline.com/pandora/ .
-Shot Manager provides a Blender specific submitter that reads the correct frame range, shot name, camera and render settings from your shot. Pandora requires at least one Coordinator enabled PC and one Slave PC in its network.
+
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Deadline_submit.JPG
 
 **Submitting a Shot**
+All enabled shots for enabled scenes in the render list will be submitted. Ensure that the **Temp Path** is not empty and set to the desired location. This does not need to be a shared directory. 
+* **Queue Name** The folder name for containing job files, using unique names avoids overwriting older submissions.
+* **Initial Status** Determines the initial status for jobs. Active will start rendering immediately.
+* **Department** Extra info visible in Monitor.
+* **Priotity** Determines the order in which renders will execute. Lower values indicate higher priority in the job list.
+* **Machine Limit** Limit the number of machines dedicated to the submitted jobs.
+* **Submit Files** Make a copy of the Blend file accessible for all render nodes. The Blend file is therefore not required to be in a shared location however all dependencies such as textures must be accessible. Large projects can may require frequent house keeping.
 
-.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/PSubmitter.JPG
 
-Queue a single shot by activating it and choosing 'Submit Shot'. Submit mutliple shots by enabling them in the shot list and choose 'Batch Submit Shots'. Job name and project name are required. Jobs names will be replaced with shot name when batch submitting. Pandora will save local copies of the project and queue jobs in Pandora Handler. Using this submitter will force **absolute** file paths, ensure remote nodes have network access to all required paths.
-
-**Multi-Layer EXR**
-
-Pandora does not officially support multi-layered EXR renders and output nodes using this format. This is to streamline the application for the Prism Pipeline, Shot Manager however offers in-built support for automatically outputing passes with some filtering options using the Shot List node. 
-
-To render Multi-Layered EXRs you'll need to replace a python file in on **each render node** to bypass Pandora's limitation; 
-find --Install directory--"\Pandora\Plugins\Apps\Blender\Scripts\Pandora_Blender_externalAccess_Functions.py". Make a Backup of this file.
-Replace with ShotManager.zip(extract)"\Shot Manager addon\shot_manager_pro\Pro\Pandora_Blender_externalAccess_Functions.py" .Remember to submit with a **new project** name not previously used, or manually delete older jobs.
-
-**Trouble Shooting**. Pandora Core has an issue where it will often lose track of components; Coordinator.exe and Slave.exe. Therefore, the status shown in the panel might not match the actual states of these processes. This occurs especially when a process has been closed or crashed, outside of control from its settings component. Use 'Reset Pandora' to clear Coordinator and Slave states on the local machine. Make sure to close those processes(.exe) if already running, otherwise you might launch duplicate processes.
 
 B-Renderon! Integration
 =======================
-Launch B-Renderon with shots loaded as seperate blend files. Requires B-renderon v2 or above. The executable path for B-renderon must first be entered in Blender Preferences -> add-ons -> Shot Manager settings   
+Launch B-Renderon with shots loaded as seperate blend files. Requires B-renderon v2.2 or above. The executable path for B-renderon must first be entered in Blender Preferences -> add-ons -> Shot Manager settings   
+**Force Cycles Device** to ensure the correct CPU/GPU configuration is applied to renders, assuming the submission maching is or is identical to the render machine.
+
 
 Compositor Nodes
 ----------------
