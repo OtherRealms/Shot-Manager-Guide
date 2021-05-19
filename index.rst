@@ -22,6 +22,7 @@ The 'Main' shot is intended for general editing and previewing and is not consid
 Creating A Shot
 ===============
 ..image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Makeshots.PNG
+
 The main interface is found in the Properties panel under the Output tab.
 
 * **Enable**. The first tick box will toggle the affect of Shot Manager on you scene. Un-tick if you need to turn off its influence, particularly if rendering alternative frame ranges or View Layers.
@@ -110,6 +111,7 @@ Also editable in the Collections Inspector Node including overrides for all shot
 Using overrides may be slower when switching shots and there are large amounts of collections and objects. **Note**: If using multple scenes and collections are linked, some unexpected overrides can occur if the scenes have shot names that are identical. 
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/material_override.JPG
+
 **Restore**
 The orginal material can be restored using the revert button found in the objects material tab. Useful if an object has been moved out of a collection and you want to restore its pre-override material. 
 
@@ -117,6 +119,7 @@ The orginal material can be restored using the revert button found in the object
 Settings
 --------
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/settings.JPG
+
 * **Switch to Primary**, make primary layer the active view layer when choosing shots.
 * **Generate Primary Layers**, a new View Layer will be created with the name of the newly made shot and associated as a Primary Layer
 * **Keep in range**, view timeline to playhead when choosing shots.
@@ -146,6 +149,7 @@ Shots can be rendered using the regular render animations or still operators (ct
 
 Output Summary
 ==============
+
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/summary.JPG
 
 Scene, Render path, View Layers and other important output setting useful for checking before renders. These settings are not necessarily shot specific.
