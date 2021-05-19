@@ -25,15 +25,27 @@ Creating A Shot
 The main interface is found in the Properties panel under the Output tab.
 
 * **Enable**. The first tick box will toggle the affect of Shot Manager on you scene. Un-tick if you need to turn off its influence, particularly if rendering alternative frame ranges or View Layers.
-* **Root Folder** will be the starting directory for shots. Shot names are appended onto this path in subfolders.
+* **Root Folder** will be the starting directory for shots.
+* **Use Suffix** Add the shot's suffix to the shot's filepath.
+* **Main/List** Select the shot type. Main is for general 
+editing and not bound to shot data however some shot properties are inherited from the Main if not set.
+To activate a shot simply select it in the list.
+Shot names are appended onto this path in subfolders.
 * **Add new** , adds a new shot to your list.
 * **Duplicate** , Duplicate active shot.
-* Arrows Up and Down  will sort your shots, but ultimately have no affect on your project.
-* The Tick Box on the Left of your shot name will add it to the output/render queue.
-* Click '-' to delete the shot 
-* **Queue all** to add all shots to output/render queue.
-To activate a shot simply select it in the list!
+* **Index**, An alternative way of defining the active shot.
+* **Queue All/None Toggle** to add all shots to output/render queue.
+* **Invert Queue Toggle** Invert the enabled shots.
 
+* **Enable/Queue Shot** The Tick Box on the Left of your shot name will add it to the output/render queue.
+* Arrows Up and Down will sort your shots, but ultimately have no affect on your project.
+* **Camera Select** Select the camera if it has been defined in its properties.
+* **Colour Set** Assign a colour tag to the shot for filtering. 
+* Click 'X' to delete the shot. 
+
+Filtering
+=========
+Shots can be filtered from the list by keyword or by colour set. Colour sets can be assigne on each shot withing the list panel and filetered in the dropdown below the list(properties panel) or above in the quick panel. Filtering does not affect the render queue and is only for visibility.
 
 Still Mode
 ==========
@@ -45,39 +57,61 @@ This mode enables settings; Switch to Primary Layer, Generate Primary Layers and
 The workflow is designed for users who wish to create unique View Layers with each shot, so as to have different collection visible. This workflow is most commonly used in product rendering and visualisation. The newly created view layer will be set as the layer's Primary layer. The prmimary layer in combination with the other settings mentioned, will become the active View Layer and default as renderable when the shot is selected. It is therefore not neccessary to alter the View Layer save/render states for the shot.
 
 Shot data
----------------
-.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/specifics.JPG
+==========
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/ShotProps.JPG
 
 Each shot contains its own data set that may include any of the following:
 
 * **Start Frame**
 * **End Frame**
-* **Linked Marker** a second layer for the start/end frames are created when linking to a selected Timeline Marker
-* **Frame Offset** if the start or end frame is liked to a marker, you can offset frames from the linked marker position.
+
+Properties
+--------------
+
 * **Shot Name**, A unique name for your shot, this will also be an output sub-directory and filename for the shot.(Best practice is to avoid spaces)
+* **Use Suffix** Add a suffix to the shot's filepath.
 * **Notes**, for shot descriptions.
 * **Camera object**, automatically set as render camera when shot is selected. Arrow button, select as active object.
 * **Render Engine**, set render engine for specifiaclly for the shot, now supports addon engines.
 * **Render Samples**, If using Render Engine override. Override samples, 0 = no overide.
 * **World** , World data, inherits from Main if empty.
-* **Primary Layer**, select a View Layer that will become activated when selecting the shot. **Note:** If the view layer is re-named you will loose this data.
+* **Primary Layer**, select a View Layer that will become activated when selecting the shot if 'Switch to Primary' is enabled in settings. Also used as a default render layer if 'Unpinned default' is set to 'Primary Only' (View layer tab).
 * **Transparent Background**, set film transparency for the shot.
 * **Overide Resolution** , shot specific output resolution.
 * **Bloom**, Eevee only.
-* **View Layers**, View layers states (unsaved/renderable/not-renderable),'AB' icon means: Rename the Primary Layer to match the shot's name. 'Broken Link' icon means: the shot has an identical name to this View Layer, set as Primary.
+
+
+View Layers
+------------
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/ViewLayers.JPG
+
+* **Primary Layer**, select a View Layer that will become activated when selecting the shot if 'Switch to Primary' is enabled in settings. 
+
+View layers pinned states include ;unpinned/not renderable
+,unpinned/renderable,pinned/renderable, pinned/unrenderable.
+
+* **Unpinned default**, See **Settings** > View Layer Default.
+* **Un/Pin All** Save or unpin all view layer states.
+* **Enabled and Primary Only** Only displays the renderable view layers for the active shot.
+**'AB' icon** means: Rename the Primary Layer to match the shot's name. 
+** Link** icon indicates the the view layer is the shot's primary layer and can be clicked to reassign the layer.
+**'Broken Link'** icon means: the shot has an identical name to this View Layer, set as Primary.
+
+
+Material Overrides
+------------------
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/overrides.JPG
+
 * **Material Overrides**, toggle use of collection overrides.
 
-
-Collection Overrides
-====================
-.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/overrides.JPG
-Ensure that the Collection Overrides property is enabled. Only first level view layer collections are available.
-Currently material overrides are available per collection, per shot. Add and override and select collection, then add a material and slot. Override data is stored in the collections not shots, therefore can't be exported as a Json file or copied from another shot.
+Ensure that the Collection Overrides property is enabled. Only **first level** view layer collections are available not the scene collection or child collcetions.
+Material overrides are available per collection, per shot. Add and override and select collection, then add a material and slot. Override data is stored in the collections not shots, therefore can't be exported as a Json file or copied from another shot.
 Also editable in the Collections Inspector Node including overrides for all shots.
-Using overrides may be slower when switching shots and there are large amounts of collections and objects.
+Using overrides may be slower when switching shots and there are large amounts of collections and objects. **Note**: If using multple scenes and collections are linked, some unexpected overrides can occur if the scenes have shot names that are identical. 
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/material_override.JPG
-The orginal material can be restored using the revert button foun in the objects material tab. Useful if an object has been moved out of a collection and you want to restore its pre-override material. 
+**Restore**
+The orginal material can be restored using the revert button found in the objects material tab. Useful if an object has been moved out of a collection and you want to restore its pre-override material. 
 
 
 Settings
@@ -87,7 +121,7 @@ Settings
 * **Generate Primary Layers**, a new View Layer will be created with the name of the newly made shot and associated as a Primary Layer
 * **Keep in range**, view timeline to playhead when choosing shots.
 * **Jump to First Frame**, place playhead at start of frame range when choosing shots.
-* **Unsaved layers default**, (On, Off, Primary Layer and None). The default state of View Layers if they have no saved state for the active shot. 'On' will make all unsaved layers renderable by default with each shot change/trigger. 'Off' will default to un-renderable, choose 'Off' to prevent unsaved view layers from rendering.'Primary Layer' will also switch all unsaved layers to un-renderable, except for the Shot's Primary Layer. 'None' leaves the current states, no influence form the add-on. 
+* **View layer default**, (On, Off, Primary Layer and None). The default state of View Layers if they have no saved state for the active shot. 'On' will make all unsaved layers renderable by default with each shot change/trigger. 'Off' will default to un-renderable, choose 'Off' to prevent unsaved view layers from rendering.'Primary Layer' will also switch all unsaved layers to un-renderable, except for the Shot's Primary Layer. 'None' leaves the current states, no influence form the add-on. 
 * **Seperator** , a custom seperator to add between filenames and frame suffix, default is '_'
 * **Path Type** , Absolute or relative output path creation.
 
