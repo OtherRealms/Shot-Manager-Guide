@@ -21,7 +21,7 @@ The 'Main' shot is intended for general editing and previewing and is not consid
 
 Creating A Shot
 ===============
-..image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Makeshots.PNG
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Makeshots.PNG
 
 The main interface is found in the Properties panel under the Output tab.
 
