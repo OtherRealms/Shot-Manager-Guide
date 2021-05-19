@@ -3,7 +3,7 @@ Shot Manager
 =============
 https://twitter.com/OTrealms
 
-:Version: 0.7.2
+:Version: 0.7.3
 
 .. contents:: 
 
@@ -21,7 +21,7 @@ The 'Main' shot is intended for general editing and previewing and is not consid
 
 Creating A Shot
 ===============
-.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Makeshots.PNG
+..image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Makeshots.PNG
 The main interface is found in the Properties panel under the Output tab.
 
 * **Enable**. The first tick box will toggle the affect of Shot Manager on you scene. Un-tick if you need to turn off its influence, particularly if rendering alternative frame ranges or View Layers.
