@@ -187,7 +187,9 @@ Embedded shots can store frame ranges and shot names as animation layers and ext
 Deadline 10.0+ Integration (Windows)
 ====================================
 Thinkbox Deadline is a distributed rendering and management software. Shot Manager provides a custom plug-in for Deadline and submitter within Blender. 
+
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Deadline.JPG
+
 The Deadline Repository must be installed on a shared location. The Deadline render Client must be installed on all machines.
 Simply click **Install Integration** in the Deadline subpanel to install the plugin. This will transfer required files to the repository>custom>plugins folder.
 
