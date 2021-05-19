@@ -5,7 +5,7 @@ https://twitter.com/OTrealms
 
 :Version: 0.7.3
 
-..contents:: 
+.. contents:: 
 
 Getting Started
 ---------------
