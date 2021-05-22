@@ -142,24 +142,16 @@ Data
 **Ignore existing** to only import shots with names that don't match your scenes existing shots.
 **Delete All Shots**, will clear all your saved shots.
 
-Shot Manager Output
--------------------
-Shots can be rendered using the regular render animations or still operators (ctr+F12/F12). However only the active shot will be rendered. To bect render simply use ctr+shift+F12.
-
-
-Output Summary
-==============
-
-.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/summary.JPG
-
-Scene, Render path, View Layers and other important output setting useful for checking before renders. These settings are not necessarily shot specific.
-The displayed 'RENDER PATH' shows the absolute path Blender will render to for the main output.
-View Layers represent their actual render state and not their saved state. Use the small gear, button to reveal and modify their pass information without needing to change the active View Layer. 
 
 
 
-Batch Output
+
+
+Output
 ============
+
+Export As Files
+----------------
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Queue.JPG
 
@@ -187,6 +179,14 @@ Embedded shots can store frame ranges and shot names as animation layers and ext
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/batch%20renderA.JPG
 
+Render Queue
+------------
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Render%20Queue.JPG
+
+SM Batch Render
+---------------
+Shots can be rendered using the regular render animations or still operators (ctr+F12/F12). However only the active shot will be rendered. To batch render simply use ctr+shift+F12 or use the 'Render Queued Shots' Button. This will perform a background render thread for each shot sequentially in the render queue. 
+
 
 Deadline 10.0+ Integration (Windows)
 ====================================
@@ -205,9 +205,13 @@ All enabled shots for enabled scenes in the render list will be submitted. Ensur
 * **Queue Name** The folder name for containing job files, using unique names avoids overwriting older submissions.
 * **Initial Status** Determines the initial status for jobs. Active will start rendering immediately.
 * **Department** Extra info visible in Monitor.
-* **Priotity** Determines the order in which renders will execute. Lower values indicate higher priority in the job list.
 * **Machine Limit** Limit the number of machines dedicated to the submitted jobs.
-* **Submit Files** Make a copy of the Blend file accessible for all render nodes. The Blend file is therefore not required to be in a shared location however all dependencies such as textures must be accessible. Large projects can may require frequent house keeping.
+* **Priotity** Determines the order in which renders will execute. Lower values indicate higher priority in the job list.
+* **Chunk Size** The number of frames to render per task. Less means more sharing across render nodes. Use higher values for simulations and larger files with long build times
+* **Start Job Delay** Specifies the time, in minutes, a Slave has to start a render job before it times out.
+* **Auto Time-Out** Automatically figure out if it has been rendering too long based on some Repository Configuration settings and the render times of previously completed tasks.
+* **Force Sequential** Forces a slave to render the tasks of a job in order. If an earlier task is ever requeued, the slave won’t go back to that task until it has finished the remaining tasks in order.
+* **Submit Files** Make a copy of the Blend file accessible for all render nodes. The Blend file is therefore not required to be in a shared location however all dependencies such as textures must be accessible and should be given absolute filepaths. Large projects can may require frequent house keeping.
 
 
 
