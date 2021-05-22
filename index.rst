@@ -148,10 +148,10 @@ Data
 
 
 Output
-============
+------
 
 Export As Files
-----------------
+===============
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Queue.JPG
 
@@ -171,7 +171,7 @@ Embedded shots can store frame ranges and shot names as animation layers and ext
 
 
 Render Queue
-------------
+============
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Render%20Queue.JPG
 
 * **Temp Path** The directory that will store temporary job files for the intergrations/ submitters. Click trash can to clear files recognised by Shot Manager.
@@ -204,6 +204,7 @@ Simply click **Install Integration** in the Deadline subpanel to install the plu
 
 **Submitting a Shot**
 All enabled shots for enabled scenes in the render list will be submitted. Ensure that the **Temp Path** is not empty and set to the desired location. This does not need to be a shared directory. 
+
 * **Queue Name** The folder name for containing job files, using unique names avoids overwriting older submissions.
 * **Initial Status** Determines the initial status for jobs. Active will start rendering immediately.
 * **Department** Extra info visible in Monitor.
