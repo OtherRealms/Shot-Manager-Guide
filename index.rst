@@ -174,9 +174,20 @@ Render Queue
 ------------
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Render%20Queue.JPG
 
+* **Temp Path** The directory that will store temporary job files for the intergrations/ submitters. Click trash can to clear files recognised by Shot Manager.
+
+* **Add Scene/Add Blend** Either add scene's and their associated shotlists from the open project or another external Blend file via json. Local shots will be automatically linked so any changes will be reflected in the queue. 
+
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/External.JPG
+
+External Scenes can be filtered by listing names to include.
+
+* **Reload External Scenes** External shots must be reloaded to refect any updates to the shotlist and frame ranges. Only already loaded scenes will be included and any shotlist overrides will be reset. 
+
 SM Batch Render
----------------
-Shots can be rendered using the regular render animations or still operators (ctr+F12/F12). However only the active shot will be rendered. To batch render simply use ctr+shift+F12 or use the 'Render Queued Shots' Button. This will perform a background render thread for each shot sequentially in the render queue. 
+===============
+
+Shots can be rendered using the regular render animations or still operators (ctr+F12/F12). However only the active shot will be rendered. To batch render simply use ctr+shift+F12 or use the 'Render Queued Shots' Button. This will perform a background render thread for each shot sequentially in the render queue. For single machine rendering. TIP: If RAM is an issue, make an empty Scene as the master scene for queueing and rendering. 
 
 
 Deadline 10.0+ Integration (Windows)
