@@ -217,6 +217,15 @@ All enabled shots for enabled scenes in the render list will be submitted. Ensur
 * **Submit Files** Make a copy of the Blend file accessible for all render nodes. The Blend file is therefore not required to be in a shared location however all dependencies such as textures must be accessible and should be given absolute filepaths. Large projects can may require frequent house keeping.
 
 
+**Choosing Blender Version**
+This is configure in Deadline Monitor > Tools > Configure Plugins. You must enable Super User Modes to access these settings.
+
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/plugin_deadline.JPG
+
+
+
+
+
 
 B-Renderon! Integration
 =======================
