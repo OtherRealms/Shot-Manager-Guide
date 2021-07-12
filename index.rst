@@ -28,10 +28,7 @@ The main interface is found in the Properties panel under the Output tab.
 * **Enable**. The first tick box will toggle the affect of Shot Manager on you scene. Un-tick if you need to turn off its influence, particularly if rendering alternative frame ranges or View Layers.
 * **Root Folder** will be the starting directory for shots.
 * **Use Suffix** Add the shot's suffix to the shot's filepath.
-* **Main/List** Select the shot type. Main is for general 
-editing and not bound to shot data however some shot properties are inherited from the Main if not set.
-To activate a shot simply select it in the list.
-Shot names are appended onto this path in subfolders.
+* **Main/List** Select the shot type. Main is for general editing and not bound to shot data however some shot properties are inherited from the Main if not set. To activate a shot simply select it in the list. Shot names are appended onto this path in subfolders.
 * **Add new** , adds a new shot to your list.
 * **Duplicate** , Duplicate active shot.
 * **Index**, An alternative way of defining the active shot.
