@@ -225,9 +225,12 @@ This is configured in Deadline Monitor > Tools > Configure Plugins. You must ena
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/plugin_deadline.JPG
 
+Errors
+==============
 * **'Error encountered when loading the configured Client Certificate'** This is a certificate issue with your install of Deadline, please see: https://forums.thinkboxsoftware.com/t/basic-setup-issue/24229/9
- When installing the Deadline repository it is simpolest to leave 'use SSL' unticked, and set 'full read/write access' in the install wizard.
-
+ When installing the Deadline repository it is simplest to leave 'use SSL' unticked, and set 'full read/write access' in the install wizard.
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Deadline_access.JPG
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Deadline_cert.JPG
 
 
 B-Renderon! Integration
