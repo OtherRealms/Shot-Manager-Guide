@@ -3,7 +3,7 @@ Shot Manager
 =============
 https://twitter.com/OTrealms
 
-:Version: 0.7.3
+:Version: 0.7.4
 
 .. contents:: 
 
@@ -14,6 +14,7 @@ Shot Manager should be installed like any .zip add-on [Blender 2.8 Install Add-o
 This documentation is intended for the paid version available on Blender Market, however features included in the lite version are included.
 
 Version 0.7 and above do not support versions of Blender below 2.90.
+Material overrides is now legacy and will only work if legacy mode is enabled.
 
 Main vs List
 ============
@@ -62,6 +63,11 @@ Each shot contains its own data set that may include any of the following:
 
 * **Start Frame**
 * **End Frame**
+
+* **Apply Settings** Use the current scene settings to pre-fill shot data
+* **Copy From Shot** Copy data from another shot. Select source shot name followed by specific data or 'All'. **Apply to all queued shots** will copy the source data to all queued /enabled shots.
+* **Move Shot to index** Move thre active shot to another index for fast reordering.
+
 
 Properties
 --------------
@@ -219,8 +225,8 @@ This is configured in Deadline Monitor > Tools > Configure Plugins. You must ena
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/plugin_deadline.JPG
 
-
-
+* **'Error encountered when loading the configured Client Certificate'** This is a certificate issue with your install of Deadline, please see: https://forums.thinkboxsoftware.com/t/basic-setup-issue/24229/9
+ When installing the Deadline repository it is simpolest to leave 'use SSL' unticked, and set 'full read/write access' in the install wizard.
 
 
 
