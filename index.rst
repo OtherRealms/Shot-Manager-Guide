@@ -215,7 +215,7 @@ All enabled shots for enabled scenes in the render list will be submitted. Ensur
 
 
 **Choosing Blender Version**
-This is configure in Deadline Monitor > Tools > Configure Plugins. You must enable Super User Modes to access these settings.
+This is configured in Deadline Monitor > Tools > Configure Plugins. You must enable Super User Modes to access these settings.
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/plugin_deadline.JPG
 
