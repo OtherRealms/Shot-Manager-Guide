@@ -22,7 +22,7 @@ The 'Main' shot is intended for general editing and previewing and is not consid
 
 Creating A Shot
 ===============
-.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Makeshots.PNG
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Makeshots.JPG
 
 The main interface is found in the Properties panel under the Output tab.
 
@@ -30,8 +30,12 @@ The main interface is found in the Properties panel under the Output tab.
 * **Root Folder** will be the starting directory for shots.
 * **Use Suffix** Add the shot's suffix to the shot's filepath.
 * **Main/List** Select the shot type. Main is for general editing and not bound to shot data however some shot properties are inherited from the Main if not set. To activate a shot simply select it in the list. Shot names are appended onto this path in subfolders.
-* **Add new** , adds a new shot to your list.
-* **Duplicate** , Duplicate active shot.
+1. **Add new** , adds a new shot to your list.
+2. **Duplicate** , Duplicate active shot.
+3. **Join** , Combine two shot including frame renges and options for viewlayer, rules and whether on not to delete the target.
+4. **Split** , Divide a shot, creating a duplicate at the given frame.
+5. **Alias** , Make a new alias shot.
+6. **Move Shot to index** Move thre active shot to another index for fast reordering.
 * **Index**, An alternative way of defining the active shot.
 * **Queue All/None Toggle** to add all shots to output/render queue.
 * **Invert Queue Toggle** Invert the enabled shots.
@@ -42,35 +46,55 @@ The main interface is found in the Properties panel under the Output tab.
 * **Colour Set** Assign a colour tag to the shot for filtering. 
 * Click 'X' to delete the shot. 
 
-Filtering
-=========
-Shots can be filtered from the list by keyword or by colour set. Colour sets can be assigne on each shot withing the list panel and filetered in the dropdown below the list(properties panel) or above in the quick panel. Filtering does not affect the render queue and is only for visibility.
+Filtering and Colour Sets
+-------------------------
+Shots can be filtered from the list by keyword or by colour set. 
+Filtering does not affect the render queue and is only for visibility,sequence playback and scrubbing. 
+
+Colour sets can be assigned to each shot withing the list panel and filtered in the dropdown below the list(properties panel) or above in the quick panel. They will also determine the strip colour in the Shot Overlay. 
 
 Still Mode
-==========
+----------
 For rendering single frames. Works with batch render. Uses an alternative frame to the normal start and end parameters. Will output from all available output nodes.
 
+Alias Shots
+-----------
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Alias.JPG
+
+Alias shots reference an existing shot for all properties unless they use overriden start and end frame (single frame in Still Mode) or camera. Theses can be used for multi-cam setups where multiple cameras are used to render a scene but retain the same base filename and filepath. 
+
+NOTE: If not overriding frame range to unique frames, these images will save over eachother when batch rendering unless path constructor nodes are used, in which case using the camera name input can give a unique path or filename. 
+
+Alias shots can also be use re-render sections of shots without loosing their oringinal frame range.
+
+
+
 Generate View Layers Mode
-=========================
+-------------------------
 This mode enables settings; Switch to Primary Layer, Generate Primary Layers and Unsaved View Layers Default to 'Primary Layer'.
 The workflow is designed for users who wish to create unique View Layers with each shot, so as to have different collection visible. This workflow is most commonly used in product rendering and visualisation. The newly created view layer will be set as the layer's Primary layer. The prmimary layer in combination with the other settings mentioned, will become the active View Layer and default as renderable when the shot is selected. It is therefore not neccessary to alter the View Layer save/render states for the shot.
 
+
+
 Shot data
-==========
+---------
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/ShotProps.JPG
+
+* **Apply Settings** Use the current scene settings to pre-fill shot data
+* **Copy From Shot** Copy data from another shot. Select source shot name followed by specific data or 'All'. **Apply to all queued shots** will copy the source data to all queued /enabled shots.
+
+Time
+=====
 
 Each shot contains its own data set that may include any of the following:
 
 * **Start Frame**
 * **End Frame**
-
-* **Apply Settings** Use the current scene settings to pre-fill shot data
-* **Copy From Shot** Copy data from another shot. Select source shot name followed by specific data or 'All'. **Apply to all queued shots** will copy the source data to all queued /enabled shots.
-* **Move Shot to index** Move thre active shot to another index for fast reordering.
+* **Single Frame**, Still Mode.
 
 
 Properties
---------------
+==========
 
 * **Shot Name**, A unique name for your shot, this will also be an output sub-directory and filename for the shot.(Best practice is to avoid spaces)
 * **Use Suffix** Add a suffix to the shot's filepath.
@@ -85,8 +109,8 @@ Properties
 * **Bloom**, Eevee only.
 
 
-View Layers
-------------
+View Layers 
+===========
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/ViewLayers.JPG
 
 * **Primary Layer**, select a View Layer that will become activated when selecting the shot if 'Switch to Primary' is enabled in settings. 
@@ -102,9 +126,11 @@ View layers pinned states include ;unpinned/not renderable
 **'Broken Link'** icon means: the shot has an identical name to this View Layer, set as Primary.
 
 
-Material Overrides
-------------------
+Material Overrides (LEGACY)
+============================
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/overrides.JPG
+
+**Legacy mode must be enable in the 'M.O.' tab in shot data.**
 
 * **Material Overrides**, toggle use of collection overrides.
 
@@ -118,9 +144,16 @@ Using overrides may be slower when switching shots and there are large amounts o
 **Restore**
 The orginal material can be restored using the revert button found in the objects material tab. Useful if an object has been moved out of a collection and you want to restore its pre-override material. 
 
+Rules 
+======
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/ShotRules.JPG
+
+Shot rules are a powerful way to override datablocks in Blender.
+Rules are defined in the Rule Book panel. Once created they can be added per shot. All rules are defined are in the rules except for NLA rules which have more settings in the shot rule list. NLA rules are also the only type that supports multiple assignments on a single shot.
+
 
 Settings
---------
+---------
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/settings.JPG
 
 * **Switch to Primary**, make primary layer the active view layer when choosing shots.
