@@ -72,11 +72,11 @@ Alias Shots
 -----------
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Alias.jpg
 
-Alias shots reference an existing shot for all properties unless they use overriden start and end frame (single frame in Still Mode) or camera. Theses can be used for multi-cam setups where multiple cameras are used to render a scene but retain the same base filename and filepath. 
+Alias shots reference an existing shot for all properties unless they use overriden start and end frames (single frame in Still Mode) or camera. These can be used for multi-cam setups where multiple cameras are used to render a scene but retain the same base filename and filepath. 
 
 NOTE: If not overriding frame range to unique frames, these images will save over eachother when batch rendering unless path constructor nodes are used, in which case using the camera name input can give a unique path or filename. 
 
-Alias shots can also be use re-render sections of shots without loosing their oringinal frame range.
+Alias shots can also be used to re-render sections of shots without loosing their oringinal frame range.
 
 
 
