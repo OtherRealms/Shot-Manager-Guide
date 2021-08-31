@@ -70,7 +70,7 @@ The workflow is designed for users who wish to create unique View Layers with ea
 
 Alias Shots
 -----------
-.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Alias.JPG
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Alias.jpg
 
 Alias shots reference an existing shot for all properties unless they use overriden start and end frame (single frame in Still Mode) or camera. Theses can be used for multi-cam setups where multiple cameras are used to render a scene but retain the same base filename and filepath. 
 
@@ -87,7 +87,7 @@ Shot data
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/ShotProps.JPG
 
 
-.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/ShotDataButtons.JPG
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/ShotDataButtons.jpg
 
 
 1. **Apply Settings** Use the current scene settings to pre-fill shot data
