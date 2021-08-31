@@ -18,7 +18,7 @@ Material overrides is now legacy and will only work if legacy mode is enabled.
 
 Main vs List
 ============
-The 'Main' shot is intended for general editing and previewing and is not considered for batch rendering or exporting. Settings can be copied to and from the Main shot and Shot List. 'List' shot defaults are inherited from the Main shot.
+The 'Main' shot is intended for general editing and previewing and is not considered for batch rendering or exporting. Settings can be copied to and from the Main shot and Shot List. Some 'List' shot defaults are inherited from the Main shot.
 
 Creating A Shot
 ===============
@@ -29,13 +29,16 @@ The main interface is found in the Properties panel under the Output tab.
 * **Enable**. The first tick box will toggle the affect of Shot Manager on you scene. Un-tick if you need to turn off its influence, particularly if rendering alternative frame ranges or View Layers.
 * **Root Folder** will be the starting directory for shots.
 * **Use Suffix** Add the shot's suffix to the shot's filepath.
-* **Main/List** Select the shot type. Main is for general editing and not bound to shot data however some shot properties are inherited from the Main if not set. To activate a shot simply select it in the list. Shot names are appended onto this path in subfolders.
+
 1. **Add new** , adds a new shot to your list.
 2. **Duplicate** , Duplicate active shot.
 3. **Join** , Combine two shot including frame renges and options for viewlayer, rules and whether on not to delete the target.
 4. **Split** , Divide a shot, creating a duplicate at the given frame.
 5. **Alias** , Make a new alias shot.
 6. **Move Shot to index** Move thre active shot to another index for fast reordering.
+
+
+* **Main/List** Select the shot type. Main is for general editing and not bound to shot data however some shot properties are inherited from the Main if not set. To activate a shot simply select it in the list. Shot names are appended onto this path in subfolders.
 * **Index**, An alternative way of defining the active shot.
 * **Queue All/None Toggle** to add all shots to output/render queue.
 * **Invert Queue Toggle** Invert the enabled shots.
@@ -57,6 +60,14 @@ Still Mode
 ----------
 For rendering single frames. Works with batch render. Uses an alternative frame to the normal start and end parameters. Will output from all available output nodes.
 
+
+Generated View Layers Mode
+-------------------------
+This mode enables settings; Switch to Primary Layer, Generate Primary Layers and Unsaved View Layers Default to 'Primary Layer'.
+The workflow is designed for users who wish to create unique View Layers with each shot, so as to have different collection visible. This workflow is most commonly used in product rendering and visualisation. The newly created view layer will be set as the layer's Primary layer. The prmimary layer in combination with the other settings mentioned, will become the active View Layer and default as renderable when the shot is selected. It is therefore not neccessary to alter the View Layer save/render states for the shot.
+
+
+
 Alias Shots
 -----------
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Alias.JPG
@@ -69,19 +80,18 @@ Alias shots can also be use re-render sections of shots without loosing their or
 
 
 
-Generate View Layers Mode
--------------------------
-This mode enables settings; Switch to Primary Layer, Generate Primary Layers and Unsaved View Layers Default to 'Primary Layer'.
-The workflow is designed for users who wish to create unique View Layers with each shot, so as to have different collection visible. This workflow is most commonly used in product rendering and visualisation. The newly created view layer will be set as the layer's Primary layer. The prmimary layer in combination with the other settings mentioned, will become the active View Layer and default as renderable when the shot is selected. It is therefore not neccessary to alter the View Layer save/render states for the shot.
-
-
 
 Shot data
 ---------
+
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/ShotProps.JPG
 
-* **Apply Settings** Use the current scene settings to pre-fill shot data
-* **Copy From Shot** Copy data from another shot. Select source shot name followed by specific data or 'All'. **Apply to all queued shots** will copy the source data to all queued /enabled shots.
+
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/ShotDataButtons.JPG
+
+
+1. **Apply Settings** Use the current scene settings to pre-fill shot data
+2. **Copy From Shot** Copy data from another shot. Select source shot name followed by specific data or 'All'. **Apply to all queued shots** will copy the source data to all queued /enabled shots.
 
 Time
 =====
