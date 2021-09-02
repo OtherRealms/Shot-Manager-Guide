@@ -161,6 +161,20 @@ Rules
 Shot rules are a powerful way to override datablocks in Blender.
 Rules are defined in the Rule Book panel. Once created they can be added per shot. All rules are defined are in the rules except for NLA rules which have more settings in the shot rule list. NLA rules are also the only type that supports multiple assignments on a single shot.
 
+Rule Book
+---------
+
+Rules allows per shot overrides of various datablocks, including Mesh, Camera, Light, Material and NLA. Most rules follow the principle of; overrides datablock A with datablock B, if a collection is defined, restrict to that collection. Rules defined in the Rule Book can then be re-used by assigning them to the shots indvividually.If the following shot doesn't have a rule, the datablock will be reset to its original. Caution: large scenes with many objects may take longer to switch between shots.
+
+NLA Rules
+=========
+NLA rules override animation actions per shot, therefore enabling the possibility of re-timing shots more easily without using the NLA editor. Its Recommended to animate in the dopesheet editor as the correct animation timing is displayed.
+
+* **Isolate Tracks** ,mute all tracks except for those used by this rule
+* **Tweak ** , switch all instances of the rule tweak mode on/off
+* **Actor** ,required, a single actor object to be assigned.
+* **Data** ,data type to derive animation data (Object/ShapeKeys)
+
 
 Settings
 ---------
@@ -245,6 +259,8 @@ Thinkbox Deadline is a distributed rendering and management software. Shot Manag
 The Deadline Repository must be installed on a shared location. The Deadline render Client must be installed on all machines.
 Simply click **Install Integration** in the Deadline subpanel to install the plugin. This will transfer required files to the repository>custom>plugins folder.
 
+Each render node should have the most recent version of Shot Manager installed.
+
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Deadline_submit.JPG
 
@@ -259,9 +275,7 @@ All enabled shots for enabled scenes in the render list will be submitted. Ensur
 * **Chunk Size** The number of frames to render per task. Less means more sharing across render nodes. Use higher values for simulations and larger files with long build times
 * **Start Job Delay** Specifies the time, in minutes, a Slave has to start a render job before it times out.
 * **Auto Time-Out** Automatically figure out if it has been rendering too long based on some Repository Configuration settings and the render times of previously completed tasks.
-* **Force Sequential** Forces a slave to render the tasks of a job in order. If an earlier task is ever requeued, the slave won’t go back to that task until it has finished the remaining tasks in order.
-* **Submit Files** Make a copy of the Blend file accessible for all render nodes. The Blend file is therefore not required to be in a shared location however all dependencies such as textures must be accessible and should be given absolute filepaths. Large projects can may require frequent house keeping.
-
+* **Force Sequential** Forces a slave to render the tasks of a job in order. If an earlier task is ever requeued, the slave won't go back to that task until it has finished the remaining tasks in order.
 
 **Choosing Blender Version**
 This is configured in Deadline Monitor > Tools > Configure Plugins. You must enable Super User Modes to access these settings.
