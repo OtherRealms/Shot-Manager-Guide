@@ -3,15 +3,15 @@ Shot Manager
 =============
 https://twitter.com/OTrealms
 
-:Version: 0.7.4
+:Version: 0.7.5
 
 .. contents:: 
 
 Getting Started
 ---------------
-Shot Manager is an add-on for Blender 2.8 and above. Created as a  tool by myself Pablo TochezA. [contact@pablotochez.com]  in order to assist in the organization of complex files containing multiple shots, view layers and cameras. I am an artist with some coding knowledge for making time saving tools and digital artworks.
-Shot Manager should be installed like any .zip add-on [Blender 2.8 Install Add-ons 00:38-https://youtu.be/14G_YIVdBd0?t=38]. **Make sure you remove any previously installed versions first.** You will not loose shot data un-installing the addon/
-This documentation is intended for the paid version available on Blender Market, however features included in the lite version are included.
+Shot Manager is an add-on for Blender 2.90 and above. Created as a  tool by myself Pablo Tochez A. [contact@pablotochez.com]  in order to assist in the organization of complex files containing multiple shots, view layers and cameras. I am an artist with some coding knowledge for making time saving tools and digital artworks.
+Shot Manager should be installed like any .zip add-on [Blender 2.8 Install Add-ons 00:38-https://youtu.be/14G_YIVdBd0?t=38]. **Make sure you remove any previously installed versions first and restart Blender.** You will not lose shot data un-installing the addon/
+This documentation is intended for the paid version available on Blender Market.
 
 Version 0.7 and above do not support versions of Blender below 2.90.
 Material overrides is now legacy and will only work if legacy mode is enabled.
@@ -58,11 +58,15 @@ Colour sets can be assigned to each shot withing the list panel and filtered in 
 
 Still Mode
 ----------
-For rendering single frames. Works with batch render. Uses an alternative frame to the normal start and end parameters. Will output from all available output nodes.
+Found in first shot creation popup and Settings tab. 
+
+For rendering single frames and works with batch renderers. It uses an alternative frame to the normal start and end parameters. Will output from all available output nodes.
 
 
 Generated View Layers Mode
 -------------------------
+Found in first shot creation popup and Settings tab.
+ 
 This mode enables settings; Switch to Primary Layer, Generate Primary Layers and Unsaved View Layers Default to 'Primary Layer'.
 The workflow is designed for users who wish to create unique View Layers with each shot, so as to have different collection visible. This workflow is most commonly used in product rendering and visualisation. The newly created view layer will be set as the layer's Primary layer. The prmimary layer in combination with the other settings mentioned, will become the active View Layer and default as renderable when the shot is selected. It is therefore not neccessary to alter the View Layer save/render states for the shot.
 
@@ -159,27 +163,50 @@ Rules
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/ShotRules.JPG
 
 Shot rules are a powerful way to override datablocks in Blender.
-Rules are defined in the Rule Book panel. Once created they can be added per shot. All rules are defined are in the rules except for NLA rules which have more settings in the shot rule list. NLA rules are also the only type that supports multiple assignments on a single shot.
+Rules are defined in the Rule Book panel. Once created they can be added per shot. All rules are defined are in the rules except for NLA rules which have more settings in the shot rule list. NLA rules are also the only type that supports multiple assignments on a single shot. 
+
+Actions = The holding datablock for any animation.
+
+**NLA Rules (Shot Data)**
+
+* **Track** , The NLA track to override. Note, only one Action (first strip) is used per track. Multiple Actions should be stacked on seperate tracks rather than inline as strips. 
+* **Tweak** , Enter Tweak Mode allowing edits to the associated action.
+* **Override Action** ,Actively override the action, otherwise use exisiting. 
+* **Replace Action** , The Action to be associated.
+* **Link Timing(left Arrow)** , If enabled the animation with offset with the shots start time.
+* **Offset** , add additional timing offset.
+* **Fit End(right arrow)** , extend the action to the shot end time
+* **Repeat** , NLA repeat function
+* **Scale** , NLA scale function
+
+
 
 Rule Book
 ---------
 
-Rules allows per shot overrides of various datablocks, including Mesh, Camera, Light, Material and NLA. Most rules follow the principle of; overrides datablock A with datablock B, if a collection is defined, restrict to that collection. Rules defined in the Rule Book can then be re-used by assigning them to the shots indvividually.If the following shot doesn't have a rule, the datablock will be reset to its original. Caution: large scenes with many objects may take longer to switch between shots.
+Rules allows per shot overrides of various datablocks, including Mesh, Camera, Light, Material and NLA. 
+Most rules follow the principle of; overrides datablock A with datablock B, if a collection is defined, restrict to that collection. Rules defined in the Rule Book can then be re-used by assigning them to the shots indvividually.If the following shot doesn't have a rule, the datablock will be reset to its original. Caution: large scenes with many objects may take longer to switch between shots.
 
-NLA Rules
+NLA Rules (Rule Book)
 =========
-NLA rules override animation actions per shot, therefore enabling the possibility of re-timing shots more easily without using the NLA editor. Its Recommended to animate in the dopesheet editor as the correct animation timing is displayed.
+NLA rules override animation actions per shot, therefore enabling the possibility of re-timing shots more easily without using the NLA editor. It is Recommended to animate in the dopesheet editor or action editor as the correct animation timing is displayed.
 
 * **Isolate Tracks** ,mute all tracks except for those used by this rule
-* **Tweak ** , switch all instances of the rule tweak mode on/off
+* **Tweak** , switch all instances of the rule tweak mode on/off
 * **Actor** ,required, a single actor object to be assigned.
 * **Data** ,data type to derive animation data (Object/ShapeKeys)
+
 
 
 Settings
 ---------
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/settings.JPG
 
+Scene
+=====
+
+
+* **Still Mode** , Use a single frame for shot timing.
 * **Switch to Primary**, make primary layer the active view layer when choosing shots.
 * **Generate Primary Layers**, a new View Layer will be created with the name of the newly made shot and associated as a Primary Layer
 * **Keep in range**, view timeline to playhead when choosing shots.
@@ -187,6 +214,23 @@ Settings
 * **View layer default**, (On, Off, Primary Layer and None). The default state of View Layers if they have no saved state for the active shot. 'On' will make all unsaved layers renderable by default with each shot change/trigger. 'Off' will default to un-renderable, choose 'Off' to prevent unsaved view layers from rendering.'Primary Layer' will also switch all unsaved layers to un-renderable, except for the Shot's Primary Layer. 'None' leaves the current states, no influence form the add-on. 
 * **Seperator** , a custom seperator to add between filenames and frame suffix, default is '_'
 * **Path Type** , Absolute or relative output path creation.
+* **Limit Playhead** ,Don’t allow frame to be selected with mouse outside of frame range
+* **Shot Sequence Playback** ,Switch shots in sequence while playing animation.
+* **Loop Sequence** ,After playing through each shot, loop back to the start.
+* **Sequence Scrubbing** ,Allow scrubbing through shots in sequence. Not compatible with 'Limit Playhead'
+* **Debug Mode** , For displaying extra debug messages in console
+
+
+
+Render
+======
+These settings are stored in your addon preferences.
+
+* **Temp Path** ,The directory that will store temporary job files for the intergrations/ submitters. Click trash can to clear files recognised by Shot Manager.
+* **Render As Copy** , Save a Blend file when using SM render scpecifically for rendering. Large files make take more time however it will prevent inconsistencies if the file is changed.
+* **Safe Mode** ,When bacth rendering, Blender will be run using factory startup settings, disbling 3rd party addon's that might interfere with the render process. Render devices are then forced and addons in the excpetions white list will be enabled.
+* **Add Exception** , Allow specific 3rd party addons to be enabled during batch render.
+
 
 Data
 ====
@@ -201,8 +245,6 @@ Data
 
 **Ignore existing** to only import shots with names that don't match your scenes existing shots.
 **Delete All Shots**, will clear all your saved shots.
-
-
 
 
 
@@ -233,8 +275,6 @@ Embedded shots can store frame ranges and shot names as animation layers and ext
 Render Queue
 ============
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Render%20Queue.JPG
-
-* **Temp Path** The directory that will store temporary job files for the intergrations/ submitters. Click trash can to clear files recognised by Shot Manager.
 
 * **Add Scene/Add Blend** Either add scene's and their associated shotlists from the open project or another external Blend file via json. Local shots will be automatically linked so any changes will be reflected in the queue. 
 
