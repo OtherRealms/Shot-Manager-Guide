@@ -255,11 +255,14 @@ Output
 Export As Files
 ===============
 
+Export shots enabled in the shot list sequentially as a given format.
+
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Queue.JPG
 
-Only queued shots will be exported. Export formats currently include fbx, obj, abc(Alembic), usd(Universal Scene Description), dae(Collada), .blend as well as .bat(Windows) files for command line rendering, either as separate files or single batch file. Batch export only uses the active scene's queued shots and does not support shots from external Blend files.
+Export formats currently include OpenGL, fbx, obj, abc(Alembic), usd(Universal Scene Description), dae(Collada), .blend as well as .bat(Windows) files for command line rendering, either as separate files or single batch file. 
+Batch export only uses the active scene's queued shots and does not support shots from external Blend files.
 
-.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Batch.JPG
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/BatchExport.JPG
 
 Choose output format and setting in the directory window. The settings panel appears on the left in Blender 2.80.
 
@@ -271,6 +274,9 @@ Embedded shots can store frame ranges and shot names as animation layers and ext
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/embed_shots_b.JPG
 
+OpenGL viewport render also used the export module as it cannot be done using the batch render function. 
+
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/openGL.JPG
 
 Render Queue
 ============
