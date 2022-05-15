@@ -32,7 +32,7 @@ The main interface is found in the Properties panel under the Output tab.
 
 1. **Add new** , adds a new shot to your list.
 2. **Duplicate** , Duplicate active shot.
-3. **Join** , Combine two shot including frame renges and options for viewlayer, rules and whether on not to delete the target.
+3. **Join** , Combine two shot including frame ranges and options for viewlayer, rules and whether on not to delete the target.
 4. **Split** , Divide a shot, creating a duplicate at the given frame.
 5. **Alias** , Make a new alias shot.
 6. **Move Shot to index** Move thre active shot to another index for fast reordering.
@@ -54,7 +54,7 @@ Filtering and Colour Sets
 Shots can be filtered from the list by keyword or by colour set. 
 Filtering does not affect the render queue and is only for visibility,sequence playback and scrubbing. 
 
-Colour sets can be assigned to each shot withing the list panel and filtered in the dropdown below the list(properties panel) or above in the quick panel. They will also determine the strip colour in the Shot Overlay. 
+Colour sets can be assigned to each shot withing the list panel and filtered in the dropdown below the list (properties panel) or above in the quick panel. They will also determine the strip colour in the Shot Overlay. 
 
 Still Mode
 ----------
@@ -68,7 +68,7 @@ Generated View Layers Mode
 Found in first shot creation popup and Settings tab.
  
 This mode enables settings; Switch to Primary Layer, Generate Primary Layers and Unsaved View Layers Default to 'Primary Layer'.
-The workflow is designed for users who wish to create unique View Layers with each shot, so as to have different collection visible. This workflow is most commonly used in product rendering and visualisation. The newly created view layer will be set as the layer's Primary layer. The prmimary layer in combination with the other settings mentioned, will become the active View Layer and default as renderable when the shot is selected. It is therefore not neccessary to alter the View Layer save/render states for the shot.
+The workflow is designed for users who wish to create unique View Layers with each shot, so as to have different collection visible. This workflow is most commonly used in product rendering and visualisation. The newly created view layer will be set as the layer's Primary layer. The primary layer in combination with the other settings mentioned, will become the active View Layer and default as renderable when the shot is selected. It is therefore not neccessary to alter the View Layer save/render states for the shot.
 
 
 
@@ -78,9 +78,9 @@ Alias Shots
 
 Alias shots reference an existing shot for all properties unless they use overriden start and end frames (single frame in Still Mode) or camera. These can be used for multi-cam setups where multiple cameras are used to render a scene but retain the same base filename and filepath. 
 
-NOTE: If not overriding frame range to unique frames, these images will save over eachother when batch rendering unless path constructor nodes are used, in which case using the camera name input can give a unique path or filename. 
+NOTE: If not overriding frame range to unique frames, these images will save over each other when batch rendering unless path constructor nodes are used, in which case using the camera name input can give a unique path or filename. 
 
-Alias shots can also be used to re-render sections of shots without loosing their oringinal frame range.
+Alias shots can also be used to re-render sections of shots without loosing their original frame range.
 
 
 
@@ -114,7 +114,7 @@ Properties
 * **Use Suffix** Add a suffix to the shot's filepath.
 * **Notes**, for shot descriptions.
 * **Camera object**, automatically set as render camera when shot is selected. Arrow button, select as active object.
-* **Render Engine**, set render engine for specifiaclly for the shot, now supports addon engines.
+* **Render Engine**, set render engine for specifically for the shot, now supports addon engines.
 * **Render Samples**, If using Render Engine override. Override samples, 0 = no overide.
 * **World** , World data, inherits from Main if empty.
 * **Primary Layer**, select a View Layer that will become activated when selecting the shot if 'Switch to Primary' is enabled in settings. Also used as a default render layer if 'Unpinned default' is set to 'Primary Only' (View layer tab).
@@ -136,7 +136,7 @@ View layers pinned states include ;unpinned/not renderable
 * **Un/Pin All** Save or unpin all view layer states.
 * **Enabled and Primary Only** Only displays the renderable view layers for the active shot.
 **'AB' icon** means: Rename the Primary Layer to match the shot's name. 
-** Link** icon indicates the the view layer is the shot's primary layer and can be clicked to reassign the layer.
+** Link** icon indicates the view layer is the shot's primary layer and can be clicked to reassign the layer.
 **'Broken Link'** icon means: the shot has an identical name to this View Layer, set as Primary.
 
 
@@ -148,7 +148,7 @@ Material Overrides (LEGACY)
 
 * **Material Overrides**, toggle use of collection overrides.
 
-Ensure that the Collection Overrides property is enabled. Only **first level** view layer collections are available not the scene collection or child collcetions.
+Ensure that the Collection Overrides property is enabled. Only **first level** view layer collections are available not the scene collection or child colletions.
 Material overrides are available per collection, per shot. Add and override and select collection, then add a material and slot. Override data is stored in the collections not shots, therefore can't be exported as a Json file or copied from another shot.
 Also editable in the Collections Inspector Node including overrides for all shots.
 Using overrides may be slower when switching shots and there are large amounts of collections and objects. **Note**: If using multple scenes and collections are linked, some unexpected overrides can occur if the scenes have shot names that are identical. 
@@ -171,7 +171,7 @@ Actions = The holding datablock for any animation.
 
 * **Track** , The NLA track to override. Note, only one Action (first strip) is used per track. Multiple Actions should be stacked on seperate tracks rather than inline as strips. 
 * **Tweak** , Enter Tweak Mode allowing edits to the associated action.
-* **Override Action** ,Actively override the action, otherwise use exisiting. 
+* **Override Action** , Actively override the action, otherwise use exisiting. 
 * **Replace Action** , The Action to be associated.
 * **Link Timing(left Arrow)** , If enabled the animation with offset with the shots start time.
 * **Offset** , add additional timing offset.
@@ -185,16 +185,16 @@ Rule Book
 ---------
 
 Rules allows per shot overrides of various datablocks, including Mesh, Camera, Light, Material and NLA. 
-Most rules follow the principle of; overrides datablock A with datablock B, if a collection is defined, restrict to that collection. Rules defined in the Rule Book can then be re-used by assigning them to the shots indvividually.If the following shot doesn't have a rule, the datablock will be reset to its original. Caution: large scenes with many objects may take longer to switch between shots.
+Most rules follow the principle of; overrides datablock A with datablock B, if a collection is defined, restrict to that collection. Rules defined in the Rule Book can then be re-used by assigning them to the shots indvividually. If the following shot doesn't have a rule, the datablock will be reset to its original. Caution: large scenes with many objects may take longer to switch between shots.
 
 NLA Rules (Rule Book)
 =========
-NLA rules override animation actions per shot, therefore enabling the possibility of re-timing shots more easily without using the NLA editor. It is Recommended to animate in the dopesheet editor or action editor as the correct animation timing is displayed.
+NLA rules override animation actions per shot, therefore enabling the possibility of re-timing shots more easily without using the NLA editor. It is recommended to animate in the dopesheet editor or action editor as the correct animation timing is displayed.
 
-* **Isolate Tracks** ,mute all tracks except for those used by this rule
+* **Isolate Tracks** , mute all tracks except for those used by this rule
 * **Tweak** , switch all instances of the rule tweak mode on/off
-* **Actor** ,required, a single actor object to be assigned.
-* **Data** ,data type to derive animation data (Object/ShapeKeys)
+* **Actor** , required, a single actor object to be assigned.
+* **Data** , data type to derive animation data (Object/ShapeKeys)
 
 
 
@@ -211,13 +211,13 @@ Scene
 * **Generate Primary Layers**, a new View Layer will be created with the name of the newly made shot and associated as a Primary Layer
 * **Keep in range**, view timeline to playhead when choosing shots.
 * **Jump to First Frame**, place playhead at start of frame range when choosing shots.
-* **View layer default**, (On, Off, Primary Layer and None). The default state of View Layers if they have no saved state for the active shot. 'On' will make all unsaved layers renderable by default with each shot change/trigger. 'Off' will default to un-renderable, choose 'Off' to prevent unsaved view layers from rendering.'Primary Layer' will also switch all unsaved layers to un-renderable, except for the Shot's Primary Layer. 'None' leaves the current states, no influence form the add-on. 
+* **View layer default**, (On, Off, Primary Layer and None). The default state of View Layers if they have no saved state for the active shot. 'On' will make all unsaved layers renderable by default with each shot change/trigger. 'Off' will default to un-renderable, choose 'Off' to prevent unsaved view layers from rendering. 'Primary Layer' will also switch all unsaved layers to un-renderable, except for the Shot's Primary Layer. 'None' leaves the current states, no influence form the add-on. 
 * **Seperator** , a custom seperator to add between filenames and frame suffix, default is '_'
 * **Path Type** , Absolute or relative output path creation.
-* **Limit Playhead** ,Don’t allow frame to be selected with mouse outside of frame range
-* **Shot Sequence Playback** ,Switch shots in sequence while playing animation.
-* **Loop Sequence** ,After playing through each shot, loop back to the start.
-* **Sequence Scrubbing** ,Allow scrubbing through shots in sequence. Not compatible with 'Limit Playhead'
+* **Limit Playhead** , Don't allow frame to be selected with mouse outside of frame range
+* **Shot Sequence Playback** , Switch shots in sequence while playing animation.
+* **Loop Sequence** , After playing through each shot, loop back to the start.
+* **Sequence Scrubbing** , Allow scrubbing through shots in sequence. Not compatible with 'Limit Playhead'
 * **Debug Mode** , For displaying extra debug messages in console
 
 
@@ -226,9 +226,9 @@ Render
 ======
 These settings are stored in your addon preferences.
 
-* **Temp Path** ,The directory that will store temporary job files for the intergrations/ submitters. Click trash can to clear files recognised by Shot Manager.
-* **Render As Copy** , Save a Blend file when using SM render scpecifically for rendering. Large files make take more time however it will prevent inconsistencies if the file is changed.
-* **Safe Mode** ,When bacth rendering, Blender will be run using factory startup settings, disbling 3rd party addon's that might interfere with the render process. Render devices are then forced and addons in the excpetions white list will be enabled.
+* **Temp Path** , The directory that will store temporary job files for the intergrations/ submitters. Click trash can to clear files recognised by Shot Manager.
+* **Render As Copy** , Save a Blend file when using SM render specifically for rendering. Large files make take more time however it will prevent inconsistencies if the file is changed.
+* **Safe Mode** , When bacth rendering, Blender will be run using factory startup settings, disabling 3rd party addon's that might interfere with the render process. Render devices are then forced and addons in the exceptions white list will be enabled.
 * **Add Exception** , Allow specific 3rd party addons to be enabled during batch render.
 
 
@@ -239,7 +239,7 @@ Data
 **Export JSON**, Export shot data to json to backup or transfer shots. Does not include collection overrides.
 **Include Shot Manager Settings**, include settings from settings panel.
 
-**Import JSON**,Import shot data from a saved json file. Missing linked frame markers will be converted to manual frame ranges.
+**Import JSON**, Import shot data from a saved json file. Missing linked frame markers will be converted to manual frame ranges.
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Import.JPG
 
@@ -400,7 +400,7 @@ Use Path Contructor Nodes to create you own render path format, followed by the 
 * Scene, scene name
 * Shot Name
 * Camera, render camera name
-* Custom, enter a custom name.(Best practice is to avoid spaces)
+* Custom, enter a custom name. (Best practice is to avoid spaces)
 * Output Node, uses the custom name of the output node, useful for exporting EXR's without overiding the default output/composite (which will use the custom 'main output text'), or to avoid duplicate filenames when using multiple output nodes.
 
 
