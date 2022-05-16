@@ -5,7 +5,7 @@ https://twitter.com/OTrealms
 
 :Version: 0.7.5
 
-.. contents:: 
+.. contents::
 
 Getting Started
 ---------------
@@ -14,7 +14,7 @@ Shot Manager should be installed like any .zip add-on [Blender 2.8 Install Add-o
 This documentation is intended for the paid version available on Blender Market.
 
 Version 0.7 and above do not support versions of Blender below 2.90.
-Material overrides is now legacy and will only work if legacy mode is enabled.
+Material overrides are now legacy and will only work if legacy mode is enabled.
 
 Main vs List
 ============
@@ -26,39 +26,39 @@ Creating A Shot
 
 The main interface is found in the Properties panel under the Output tab.
 
-* **Enable**. The first tick box will toggle the affect of Shot Manager on you scene. Un-tick if you need to turn off its influence, particularly if rendering alternative frame ranges or View Layers.
+* **Enable**. The first tick box will toggle the affect of Shot Manager on your scene. Un-tick if you need to turn off its influence, particularly if rendering alternative frame ranges or View Layers.
 * **Root Folder** will be the starting directory for shots.
 * **Use Suffix** Add the shot's suffix to the shot's filepath.
 
 1. **Add new** , adds a new shot to your list.
 2. **Duplicate** , Duplicate active shot.
-3. **Join** , Combine two shot including frame ranges and options for viewlayer, rules and whether on not to delete the target.
+3. **Join** , Combine two shots including frame ranges and options for view layer, rules and whether or not to delete the target.
 4. **Split** , Divide a shot, creating a duplicate at the given frame.
 5. **Alias** , Make a new alias shot.
-6. **Move Shot to index** Move thre active shot to another index for fast reordering.
+6. **Move Shot to index** Move the active shot to another index for fast reordering.
 
 
 * **Main/List** Select the shot type. Main is for general editing and not bound to shot data however some shot properties are inherited from the Main if not set. To activate a shot simply select it in the list. Shot names are appended onto this path in subfolders.
 * **Index**, An alternative way of defining the active shot.
-* **Queue All/None Toggle** to add all shots to output/render queue.
+* **Queue All/None Toggle** , add all shots to the output/render queue.
 * **Invert Queue Toggle** Invert the enabled shots.
 
 * **Enable/Queue Shot** The Tick Box on the Left of your shot name will add it to the output/render queue.
 * Arrows Up and Down will sort your shots, but ultimately have no affect on your project.
 * **Camera Select** Select the camera if it has been defined in its properties.
-* **Colour Set** Assign a colour tag to the shot for filtering. 
-* Click 'X' to delete the shot. 
+* **Colour Set** Assign a colour tag to the shot for filtering.
+* Click 'X' to delete the shot.
 
 Filtering and Colour Sets
 -------------------------
-Shots can be filtered from the list by keyword or by colour set. 
-Filtering does not affect the render queue and is only for visibility,sequence playback and scrubbing. 
+Shots can be filtered from the list by keyword or by colour set.
+Filtering does not affect the render queue and is only for visibility,sequence playback and scrubbing.
 
-Colour sets can be assigned to each shot withing the list panel and filtered in the dropdown below the list (properties panel) or above in the quick panel. They will also determine the strip colour in the Shot Overlay. 
+Colour sets can be assigned to each shot within the list panel and filtered in the dropdown below the list (properties panel) or above in the quick panel. They will also determine the strip colour in the Shot Overlay.
 
 Still Mode
 ----------
-Found in first shot creation popup and Settings tab. 
+Found in first shot creation popup and Settings tab.
 
 For rendering single frames and works with batch renderers. It uses an alternative frame to the normal start and end parameters. Will output from all available output nodes.
 
@@ -68,7 +68,7 @@ Generated View Layers Mode
 Found in first shot creation popup and Settings tab.
  
 This mode enables settings; Switch to Primary Layer, Generate Primary Layers and Unsaved View Layers Default to 'Primary Layer'.
-The workflow is designed for users who wish to create unique View Layers with each shot, so as to have different collection visible. This workflow is most commonly used in product rendering and visualisation. The newly created view layer will be set as the layer's Primary layer. The primary layer in combination with the other settings mentioned, will become the active View Layer and default as renderable when the shot is selected. It is therefore not neccessary to alter the View Layer save/render states for the shot.
+The workflow is designed for users who wish to create unique View Layers for each shot and to have different collections visible. This workflow is most commonly used in product rendering and visualization. The newly created view layer will be set as the layer's Primary layer. The primary layer in combination with the other settings mentioned, will become the active View Layer and default as renderable when the shot is selected. It is therefore not necessary to alter the View Layer save/render states for the shot.
 
 
 
@@ -76,11 +76,11 @@ Alias Shots
 -----------
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Alias.jpg
 
-Alias shots reference an existing shot for all properties unless they use overriden start and end frames (single frame in Still Mode) or camera. These can be used for multi-cam setups where multiple cameras are used to render a scene but retain the same base filename and filepath. 
+Alias shots reference an existing shot for all properties unless they use overridden start and end frames (single frame in Still Mode) or camera. These can be used for multi-cam setups where multiple cameras are used to render a scene but retain the same base filename and filepath.
 
-NOTE: If not overriding frame range to unique frames, these images will save over each other when batch rendering unless path constructor nodes are used, in which case using the camera name input can give a unique path or filename. 
+NOTE: If not overriding frame range to unique frames, these images will save over each other when batch rendering unless path constructor nodes are used, in which case using the camera name input can give a unique path or filename.
 
-Alias shots can also be used to re-render sections of shots without loosing their original frame range.
+Alias shots can also be used to re-render sections of shots without losing their original frame range.
 
 
 
@@ -113,21 +113,21 @@ Properties
 * **Shot Name**, A unique name for your shot, this will also be an output sub-directory and filename for the shot.(Best practice is to avoid spaces)
 * **Use Suffix** Add a suffix to the shot's filepath.
 * **Notes**, for shot descriptions.
-* **Camera object**, automatically set as render camera when shot is selected. Arrow button, select as active object.
+* **Camera object**, automatically set as the render camera when shot is selected. Arrow button, select as active object.
 * **Render Engine**, set render engine for specifically for the shot, now supports addon engines.
-* **Render Samples**, If using Render Engine override. Override samples, 0 = no overide.
+* **Render Samples**, If using Render Engine override. Override samples, 0 = no override.
 * **World** , World data, inherits from Main if empty.
 * **Primary Layer**, select a View Layer that will become activated when selecting the shot if 'Switch to Primary' is enabled in settings. Also used as a default render layer if 'Unpinned default' is set to 'Primary Only' (View layer tab).
 * **Transparent Background**, set film transparency for the shot.
-* **Overide Resolution** , shot specific output resolution.
+* **Override Resolution** , shot specific output resolution.
 * **Bloom**, Eevee only.
 
 
-View Layers 
+View Layers
 ===========
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/ViewLayers.JPG
 
-* **Primary Layer**, select a View Layer that will become activated when selecting the shot if 'Switch to Primary' is enabled in settings. 
+* **Primary Layer**, select a View Layer that will become activated when selecting the shot if 'Switch to Primary' is enabled in settings.
 
 View layers pinned states include ;unpinned/not renderable
 ,unpinned/renderable,pinned/renderable, pinned/unrenderable.
@@ -135,7 +135,7 @@ View layers pinned states include ;unpinned/not renderable
 * **Unpinned default**, See **Settings** > View Layer Default.
 * **Un/Pin All** Save or unpin all view layer states.
 * **Enabled and Primary Only** Only displays the renderable view layers for the active shot.
-**'AB' icon** means: Rename the Primary Layer to match the shot's name. 
+**'AB' icon** means: Rename the Primary Layer to match the shot's name.
 ** Link** icon indicates the view layer is the shot's primary layer and can be clicked to reassign the layer.
 **'Broken Link'** icon means: the shot has an identical name to this View Layer, set as Primary.
 
@@ -144,36 +144,36 @@ Material Overrides (LEGACY)
 ============================
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/overrides.JPG
 
-**Legacy mode must be enable in the 'M.O.' tab in shot data.**
+**Legacy mode must be enabled in the 'M.O.' tab in shot data.**
 
 * **Material Overrides**, toggle use of collection overrides.
 
-Ensure that the Collection Overrides property is enabled. Only **first level** view layer collections are available not the scene collection or child colletions.
+Ensure that the Collection Overrides property is enabled. Only **first level** view layer collections are available not the scene collection or child collections.
 Material overrides are available per collection, per shot. Add and override and select collection, then add a material and slot. Override data is stored in the collections not shots, therefore can't be exported as a Json file or copied from another shot.
 Also editable in the Collections Inspector Node including overrides for all shots.
-Using overrides may be slower when switching shots and there are large amounts of collections and objects. **Note**: If using multple scenes and collections are linked, some unexpected overrides can occur if the scenes have shot names that are identical. 
+Using overrides may be slower when switching shots and there are large amounts of collections and objects. **Note**: If using multiple scenes and collections are linked, some unexpected overrides can occur if the scenes have shot names that are identical.
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/material_override.JPG
 
 **Restore**
-The orginal material can be restored using the revert button found in the objects material tab. Useful if an object has been moved out of a collection and you want to restore its pre-override material. 
+The original material can be restored using the revert button found in the objects material tab. Useful if an object has been moved out of a collection and you want to restore its pre-override material.
 
-Rules 
+Rules
 ======
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/ShotRules.JPG
 
-Shot rules are a powerful way to override datablocks in Blender.
-Rules are defined in the Rule Book panel. Once created they can be added per shot. All rules are defined are in the rules except for NLA rules which have more settings in the shot rule list. NLA rules are also the only type that supports multiple assignments on a single shot. 
+Shot rules are a powerful way to override data blocks in Blender.
+Rules are defined in the Rule Book panel. Once created they can be added per shot. All rules are defined in the Rule Book except for NLA rules which have more settings in the shot rule list. NLA rules are also the only type that supports multiple assignments on a single shot.
 
-Actions = The holding datablock for any animation.
+Actions = The holding data block for any animation.
 
 **NLA Rules (Shot Data)**
 
-* **Track** , The NLA track to override. Note, only one Action (first strip) is used per track. Multiple Actions should be stacked on seperate tracks rather than inline as strips. 
+* **Track** , The NLA track to override. Note, only one Action (first strip) is used per track. Multiple Actions should be stacked on seperate tracks rather than inline as strips.
 * **Tweak** , Enter Tweak Mode allowing edits to the associated action.
-* **Override Action** , Actively override the action, otherwise use exisiting. 
+* **Override Action** , Actively override the action, otherwise use existing.
 * **Replace Action** , The Action to be associated.
-* **Link Timing(left Arrow)** , If enabled the animation with offset with the shots start time.
+* **Link Timing(left Arrow)** , If enabled the animation is offset with the shots start time.
 * **Offset** , add additional timing offset.
 * **Fit End(right arrow)** , extend the action to the shot end time
 * **Repeat** , NLA repeat function
@@ -184,8 +184,8 @@ Actions = The holding datablock for any animation.
 Rule Book
 ---------
 
-Rules allows per shot overrides of various datablocks, including Mesh, Camera, Light, Material and NLA. 
-Most rules follow the principle of; overrides datablock A with datablock B, if a collection is defined, restrict to that collection. Rules defined in the Rule Book can then be re-used by assigning them to the shots indvividually. If the following shot doesn't have a rule, the datablock will be reset to its original. Caution: large scenes with many objects may take longer to switch between shots.
+Rules allow per shot overrides of various data blocks, including Mesh, Camera, Light, Material and NLA.
+Most rules follow the principle of; overrides data block A with data block B, if a collection is defined, restrict to that collection. Rules defined in the Rule Book can then be re-used by assigning them to the shots individually. If the following shot doesn't have a rule, the data block will be reset to its original. Caution: large scenes with many objects may take longer to switch between shots.
 
 NLA Rules (Rule Book)
 =========
@@ -211,8 +211,8 @@ Scene
 * **Generate Primary Layers**, a new View Layer will be created with the name of the newly made shot and associated as a Primary Layer
 * **Keep in range**, view timeline to playhead when choosing shots.
 * **Jump to First Frame**, place playhead at start of frame range when choosing shots.
-* **View layer default**, (On, Off, Primary Layer and None). The default state of View Layers if they have no saved state for the active shot. 'On' will make all unsaved layers renderable by default with each shot change/trigger. 'Off' will default to un-renderable, choose 'Off' to prevent unsaved view layers from rendering. 'Primary Layer' will also switch all unsaved layers to un-renderable, except for the Shot's Primary Layer. 'None' leaves the current states, no influence form the add-on. 
-* **Seperator** , a custom seperator to add between filenames and frame suffix, default is '_'
+* **View layer default**, (On, Off, Primary Layer and None). The default state of View Layers if they have no saved state for the active shot. 'On' will make all unsaved layers renderable by default with each shot change/trigger. 'Off' will default to unrenderable, choose 'Off' to prevent unsaved view layers from rendering. 'Primary Layer' will also switch all unsaved layers to un-renderable, except for the Shot's Primary Layer. 'None' leaves the current state, no influence from the add-on.
+* **Separator** , a custom separator to add between filenames and frame suffix, default is '_'
 * **Path Type** , Absolute or relative output path creation.
 * **Limit Playhead** , Don't allow frame to be selected with mouse outside of frame range
 * **Shot Sequence Playback** , Switch shots in sequence while playing animation.
@@ -226,9 +226,9 @@ Render
 ======
 These settings are stored in your addon preferences.
 
-* **Temp Path** , The directory that will store temporary job files for the intergrations/ submitters. Click trash can to clear files recognised by Shot Manager.
+* **Temp Path** , The directory that will store temporary job files for the integrations/ submitters. Click trash can to clear files recognised by Shot Manager.
 * **Render As Copy** , Save a Blend file when using SM render specifically for rendering. Large files make take more time however it will prevent inconsistencies if the file is changed.
-* **Safe Mode** , When bacth rendering, Blender will be run using factory startup settings, disabling 3rd party addon's that might interfere with the render process. Render devices are then forced and addons in the exceptions white list will be enabled.
+* **Safe Mode** , When batch rendering, Blender will be run using factory startup settings, disabling 3rd party addons that might interfere with the render process. Render devices are then forced and addons in the exceptions white list will be enabled.
 * **Add Exception** , Allow specific 3rd party addons to be enabled during batch render.
 
 
@@ -237,13 +237,13 @@ Data
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/data.JPG
 
 **Export JSON**, Export shot data to json to backup or transfer shots. Does not include collection overrides.
-**Include Shot Manager Settings**, include settings from settings panel.
+**Include Shot Manager Settings**, include settings from the settings panel.
 
 **Import JSON**, Import shot data from a saved json file. Missing linked frame markers will be converted to manual frame ranges.
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Import.JPG
 
-**Ignore existing** to only import shots with names that don't match your scenes existing shots.
+**Ignore existing** to only import shots with names that don't match your scenes' existing shots.
 **Delete All Shots**, will clear all your saved shots.
 
 
@@ -259,7 +259,7 @@ Export shots enabled in the shot list sequentially as a given format.
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Queue.JPG
 
-Export formats currently include OpenGL, fbx, obj, abc(Alembic), usd(Universal Scene Description), dae(Collada), .blend as well as .bat(Windows) files for command line rendering, either as separate files or single batch file. 
+Export formats currently include OpenGL, fbx, obj, abc(Alembic), usd(Universal Scene Description), dae(Collada), .blend as well as .bat(Windows) files for command line rendering, either as separate files or single batch file.
 Batch export only uses the active scene's queued shots and does not support shots from external Blend files.
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/BatchExport.JPG
@@ -270,11 +270,11 @@ FBX exporter does not use the FBX export/import addon but rather a modified expo
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/embed_shots_a.JPG
 
-Embedded shots can store frame ranges and shot names as animation layers and extracted in other software,ie Unity.
+Embedded shots can store frame ranges and shot names as animation layers and extracted in other software,i.e. Unity.
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/embed_shots_b.JPG
 
-OpenGL viewport render also used the export module as it cannot be done using the batch render function. 
+OpenGL viewport render also uses the export module as it cannot be done using the batch render function.
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/openGL.JPG
 
@@ -282,23 +282,23 @@ Render Queue
 ============
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Render%20Queue.JPG
 
-* **Add Scene/Add Blend** Either add scene's and their associated shotlists from the open project or another external Blend file via json. Local shots will be automatically linked so any changes will be reflected in the queue. 
+* **Add Scene/Add Blend** Either add scene's and their associated shotlists from the open project or another external Blend file via json. Local shots will be automatically linked so any changes will be reflected in the queue.
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/External.JPG
 
 External Scenes can be filtered by listing names to include.
 
-* **Reload External Scenes** External shots must be reloaded to refect any updates to the shotlist and frame ranges. Only already loaded scenes will be included and any shotlist overrides will be reset. 
+* **Reload External Scenes** External shots must be reloaded to reflect any updates to the shotlist and frame ranges. Only already loaded scenes will be included and any shot list overrides will be reset.
 
 SM Batch Render
 ===============
 
-Shots can be rendered using the regular render animations or still operators (ctr+F12/F12). However only the active shot will be rendered. To batch render simply use ctr+shift+F12 or use the 'Render Queued Shots' Button. This will perform a background render thread for each shot sequentially in the render queue. For single machine rendering. TIP: If RAM is an issue, make an empty Scene as the master scene for queueing and rendering. 
+Shots can be rendered using the regular render animations or still operators (ctr+F12/F12). However only the active shot will be rendered. To batch render simply use ctr+shift+F12 or use the 'Render Queued Shots' Button. This will perform a background render thread for each shot sequentially in the render queue. For single machine rendering. TIP: If RAM is an issue, make an empty Scene as the master scene for queueing and rendering.
 
 
 Deadline 10.0+ Integration (Windows)
 ====================================
-Thinkbox Deadline is a distributed rendering and management software. Shot Manager provides a custom plug-in for Deadline and submitter within Blender. 
+Thinkbox Deadline is a distributed rendering and management software. Shot Manager provides a custom plug-in for Deadline and submitter within Blender.
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Deadline.JPG
 
@@ -311,7 +311,7 @@ Each render node should have the most recent version of Shot Manager installed.
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Deadline_submit.JPG
 
 **Submitting a Shot**
-All enabled shots for enabled scenes in the render list will be submitted. Ensure that the **Temp Path** is not empty and set to the desired location. This does not need to be a shared directory. 
+All enabled shots for enabled scenes in the render list will be submitted. Ensure that the **Temp Path** is not empty and set to the desired location. This does not need to be a shared directory.
 
 * **Queue Name** The folder name for containing job files, using unique names avoids overwriting older submissions.
 * **Initial Status** Determines the initial status for jobs. Active will start rendering immediately.
@@ -338,8 +338,8 @@ Errors
 
 B-Renderon! Integration
 =======================
-Launch B-Renderon with shots loaded as seperate blend files. Requires B-renderon v2.2 or above. The executable path for B-renderon must first be entered in Blender Preferences -> add-ons -> Shot Manager settings   
-**Force Cycles Device** to ensure the correct CPU/GPU configuration is applied to renders, assuming the submission maching is or is identical to the render machine.
+Launch B-Renderon with shots loaded as separate blend files. Requires B-renderon v2.2 or above. The executable path for B-renderon must first be entered in Blender Preferences -> add-ons -> Shot Manager settings   
+**Force Cycles Device** to ensure the correct CPU/GPU configuration is applied to renders, assuming the submission machine is or is identical to the render machine.
 
 
 Compositor Nodes
@@ -347,53 +347,53 @@ Compositor Nodes
 
 Shot List Node
 ==============
-**IMPORTANT!** for compositor nodes to have any effect, compositor 'Use Nodes' must be enabled. Node groups containing Shot Manager nodes are currently unsupported.
+**IMPORTANT!** For compositor nodes to have any effect, compositor 'Use Nodes' must be enabled. Node groups containing Shot Manager nodes are currently unsupported.
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/ShotlistNode.JPG
 
 The Shot List node is central to the Shot Manager nodes and is required for Constructor nodes and Multi-Switches. **A maximum of one shot list node should exist.**
 
-**Path:** The displayed path is the projects output directory. The target folder and filenames are automatically named after the active shot. File paths are converted to absolute paths. If the Constructor nodes aren't connected to the Path Format socket, the path consists of; Root directory + shot name(folder)+ shot name + '_'(filename). However the scene render path in Blender's output settings will vary when 'Separate Layers' is active. 
+**Path:** The displayed path is the project's output directory. The target folder and filenames are automatically named after the active shot. File paths are converted to absolute paths. If the Constructor nodes aren't connected to the Path Format socket, the path consists of; Root directory + shot name(folder)+ shot name + '_'(filename). However the scene render path in Blender's output settings will vary when 'Separate Layers' is active.
 
 **Multi-Switch** will create a new node group dynamically linked to active shots.
 **Primary-Switch** will create a new Render Layer node which automatically switches the input View Layer to the active Shot's Primary Layer, else mute.
-**Refresh**, non-essential node update. Although shot Manager nodes are updated upon shot change, setting or property changes, changes outside of Shot Manager won't be reflected immediately. For example adding new light passes to a View Layer. Shot Manager will update before any rendering. 
+**Refresh**, non-essential node update. Although shot Manager nodes are updated upon shot change, setting or property changes, changes outside of Shot Manager won't be reflected immediately. For example adding new light passes to a View Layer. Shot Manager will update before any rendering.
 
 **Sync Output Paths**. Only Available if Separate Layers is disabled. Output nodes created by the user are updated so their base path matches the output path set by the Shot List node and the active shot.
 
-**Shot List and saved states**. Here you can select and queue shots for bath export. Each shot displays the saved states for View Layers. These states can be toggled (renderable/non-renderable), removed or added. 
+**Shot List and saved states**. Here you can select and queue shots for bath export. Each shot displays the saved states for View Layers. These states can be toggled (renderable/non-renderable), removed or added.
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/remap.JPG
 
 
-**Path Format**. String input socket for path 'Constuctor' nodes.
+**Path Format**. String input socket for path 'Constructor' nodes.
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/ShotlistNode2.JPG
 
 **Separate View Layers**
-Automatically generate noes to output view layers for external compositing. NOTE: nodes are generated upon any update made within the add-on, therefore generated nodes should not be directly edited. Output files will be named according to the layer name.  **You May want to delete the Composite node** when seperating layers.
+Automatically generate nodes to output view layers for external compositing. NOTE: nodes are generated upon any update made within the add-on, therefore generated nodes should not be directly edited. Output files will be named according to the layer name.  **You May want to delete the Composite node** when separating layers.
 
 **Separate Passes**
 Optionally separate view layer light passes.
 **Shot Name in Prefix (non-EXR MultiLayer)**
-if using Seperarate View Layers, the option to add the shot names into the output file pre-fix is available.
+if using Separate View Layers, the option to add the shot names into the output file prefix is available.
 
-**Preview** Make the output group an 8bit png for preview renders.
+**Preview** Make the output group an 8 bit png for preview renders.
 
-**Exclude/Include** passes from being output, not case sensitive. Pass names should be seperated by commas.
+**Exclude/Include** passes from being output, not case sensitive. Pass names should be separated by commas.
 
 **EXR MultiLayer output**
 
-.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/EXR_layers.JPG 
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/EXR_layers.JPG
 
-When using "Separate Passes", Output Groups add and define output file names. Filter Render Passes using exclusion keywords separated by commas, no spaces, not case-senisitve. Including filename options 'Shot Name' and 'View Layer' name will be added to the given filename.  
+When using "Separate Passes", Output Groups add and define output file names. Filter Render Passes using exclusion keywords separated by commas, no spaces, not case-sensitive. Including filename options 'Shot Name' and 'View Layer' name will be added to the given filename.  
 
 Path Constructor Node
 =====================
 
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Path%20Contructor.JPG
 
-Use Path Contructor Nodes to create you own render path format, followed by the shot name. Connect to the Shot List 'Path Format' socket. Options; 
+Use Path Constructor Nodes to create your own render path format, followed by the shot name. Connect to the Shot List 'Path Format' socket. Options;
 
 * Root Folder, the same folder set in the main panel. Must only be used as the first linked node.
 * .Blend File, add the Blender filename to the path. Useful for iterations.
@@ -401,33 +401,34 @@ Use Path Contructor Nodes to create you own render path format, followed by the 
 * Shot Name
 * Camera, render camera name
 * Custom, enter a custom name. (Best practice is to avoid spaces)
-* Output Node, uses the custom name of the output node, useful for exporting EXR's without overiding the default output/composite (which will use the custom 'main output text'), or to avoid duplicate filenames when using multiple output nodes.
+* Output Node, uses the custom name of the output node, useful for exporting EXRs without overriding the default output/composite (which will use the custom 'main output text'), or to avoid duplicate filenames when using multiple output nodes.
 
 
 Collections Inspector Node
 ==========================
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Collections.JPG
 
-An alternative interface for overseeing and modifying collection states per View Layer. This aims to bring back the kind of oversight possible in Blender 2.7 where layer visibility, holdout and indirect states were layed out in view layer settings. It can also be used to keep track of very complex scenes with many nested collections. Setting the View Layer to 'Active View' will use the currently active view layer. Changing the view layer in the drop down menu will not change your currently active view layer. This can be quicker in large scenes to avoid loading objects.
+An alternative interface for overseeing and modifying collection states per View Layer. This aims to bring back the kind of oversight possible in Blender 2.7 where layer visibility, holdout and indirect states were laid out in view layer settings. It can also be used to keep track of very complex scenes with many nested collections. Setting the View Layer to 'Active View' will use the currently active view layer. Changing the view layer in the drop down menu will not change your currently active view layer. This can be quicker in large scenes to avoid loading objects.
 
 Output Viewer Node
 ==================
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Output_Viewer.JPG
-Use to count matching output files in all output paths. If a folder or file is detected you may click the folder icon to open the directory in your OS explorer or click the image icon to load it in an open Blender Image Editor. Files are counted after rendering or when the refresh button is clicked.
+Used to count matching output files in all output paths. If a folder or file is detected you may click the folder icon to open the directory in your OS explorer or click the image icon to load it in an open Blender Image Editor. Files are counted after rendering or when the refresh button is clicked.
 
 Multi-Switch
 ============
 .. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/MultiSwitch.JPG
-The Multi-Switch is a handy node group that generates inputs per shot. The active input is connected internally depending on the active shot. This allows the user to have multiple node graphs pointing to the Composite Node and only render the relevant one to the active shot. **Do not modify this node's name, group name or internal nodes. Requires a Shotlist Node** 
+The Multi-Switch is a handy node group that generates inputs per shot. The active input is connected internally depending on the active shot. This allows the user to have multiple node graphs pointing to the Composite Node and only render the relevant one to the active shot. **Do not modify this node's name, group name or internal nodes. Requires a Shot List Node**
 
 
 Known Issues
 ------------
 **Pandora Submitter**. 'Cannot read json file' error may occur, has no impact on the render.
 
-**Missing file explorer options** . This can occur when going between versions of Blender. SOLUTION- Restart Blender , disable 'Load UI' first when opening. 
+**Missing file explorer options** . This can occur when going between versions of Blender. SOLUTION- Restart Blender , disable 'Load UI' first when opening.
 
-.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Load%20ui.JPG 
+.. image:: https://raw.githubusercontent.com/OtherRealms/Shot-Manager-/master/Load%20ui.JPG
+
 
 
 
