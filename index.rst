@@ -3,7 +3,7 @@ Shot Manager
 =============
 https://twitter.com/OTrealms
 
-:Version: 0.7.6
+:Version: 0.7.5
 
 .. contents::
 
@@ -16,87 +16,38 @@ This documentation is intended for the paid version available on Blender Market.
 Version 0.7 and above do not support versions of Blender below 2.90.
 Material overrides are now legacy and will only work if legacy mode is enabled.
 
-
-Main Panel
-===============
-
-.. image:: Header.JPG
-
-The main interface is found in the Properties panel under the Output tab.
-
-* **Enable** , The first tick box will toggle the affect of Shot Manager on your scene. Un-tick if you need to turn off its influence, particularly if rendering alternative frame ranges or View Layers.
-* **Main/List** , Select the shot type. Main is for general editing and not bound to shot data however some shot properties are inherited from the Main if not set. To activate a shot simply select it in the list. Shot names are appended onto this path in subfolders.
-
 Main vs List
 ============
 The 'Main' shot is intended for general editing and previewing and is not considered for batch rendering or exporting. Settings can be copied to and from the Main shot and Shot List. Some 'List' shot defaults are inherited from the Main shot.
 
-
-Creating a Shot
+Creating A Shot
 ===============
+.. image:: Makeshots.JPG
 
-.. image:: ModesPopup.JPG
+The main interface is found in the Properties panel under the Output tab.
 
-When making your first shot, you'll be asked for optional modes. These are preset settings for various workflows.
+* **Enable**. The first tick box will toggle the affect of Shot Manager on your scene. Un-tick if you need to turn off its influence, particularly if rendering alternative frame ranges or View Layers.
+* **Root Folder** will be the starting directory for shots.
+* **Use Suffix** Add the shot's suffix to the shot's filepath.
 
-Still Mode
-==========
-Found in the Settings tab and the first shot creation popup box.
-
-Still Mode is useful when rendering single frames such as product visualisation. Still Mode is used by the batch rendering queue like regular shot and can be rendered using any module. It uses an alternative frame to the normal start and end parameters and will output from all available output nodes.
-
-
-Generated View Layers Mode
-==========================
-Found in first shot creation popup and Settings tab.
- 
-This mode enables the following settings:
-
-* Switch to Primary Layer, 
-* Generate Primary Layers 
-* View Layer Default to 'Primary Layer'.
-
-The workflow is designed for users who wish to create unique View Layers for each shot where different collections are visible per Shot. This workflow is most commonly used in product rendering and visualization. When making a new Shot, a Viewl Layer will be geneerated with the Shot's naming. The newly created View Layer will be set as the Shot's Primary Layer. The Primary Layer in combination with the other settings mentioned will become the active View Layer and will be renderable when the Shot is selected. It is therefore not necessary to alter the View Layer save/render states for the Shot.
-
-
-
-Shot Operations
-===============
-
-.. image:: ShotOps.JPG
-
-1. **Add new** , Adds a new shot to your list.
+1. **Add new** , adds a new shot to your list.
 2. **Duplicate** , Duplicate active shot.
-3. **Apply Settings** Use the current scene settings to pre-fill shot data
-4. **Alias** , Make a new alias shot.
-5. **Join** , Combine two shots including frame ranges and options for view layer, rules and whether or not to delete the target.
-6. **Split** , Divide a shot, creating a duplicate at the given frame.
-7. **Copy From Shot** , Copy data from another shot. Select source shot name followed by specific data or 'All'. **Apply to all queued shots** will copy the source data to all queued /enabled shots.
-8. **Move Shot to index** , Move the active shot to another index for fast reordering.
-9. **Delete** ,  Delete the selected shot.
+3. **Join** , Combine two shots including frame ranges and options for view layer, rules and whether or not to delete the target.
+4. **Split** , Divide a shot, creating a duplicate at the given frame.
+5. **Alias** , Make a new alias shot.
+6. **Move Shot to index** Move the active shot to another index for fast reordering.
 
-.. image:: Shotlist.JPG
 
-* **Queue Count** , Displays the number of shots in the local list enabled for render queue.s
-* **Index** , An alternative way of defining the active shot.
-* **Set** , Filter visible Shots by colour set.
+* **Main/List** Select the shot type. Main is for general editing and not bound to shot data however some shot properties are inherited from the Main if not set. To activate a shot simply select it in the list. Shot names are appended onto this path in subfolders.
+* **Index**, An alternative way of defining the active shot.
 * **Queue All/None Toggle** , add all shots to the output/render queue.
-* **Invert Queue Toggle** , Invert the enabled shots
+* **Invert Queue Toggle** Invert the enabled shots.
 
-**List Area**
-
-* **Enable/Queue Shot** , The Tick Box on the Left of your shot name will add it to the output/render queue.
+* **Enable/Queue Shot** The Tick Box on the Left of your shot name will add it to the output/render queue.
 * Arrows Up and Down will sort your shots, but ultimately have no affect on your project.
-* **Camera Select** , Select the camera if it has been defined in its properties.
-* **Colour Set** , Assign a colour tag to the shot for filtering.
-
-**Drop Down Area**
-
-* **Search** , Filter visible Shots by name or partial text.
-* **Reverse** , Reverse the displayed order of Shots.
-* **Show Suffix** , Add the Shot's suffix to it's displayed name.
-* **Show Camera** , Show the name of associated cameras.
-
+* **Camera Select** Select the camera if it has been defined in its properties.
+* **Colour Set** Assign a colour tag to the shot for filtering.
+* Click 'X' to delete the shot.
 
 Filtering and Colour Sets
 -------------------------
@@ -104,6 +55,20 @@ Shots can be filtered from the list by keyword or by colour set.
 Filtering does not affect the render queue and is only for visibility,sequence playback and scrubbing.
 
 Colour sets can be assigned to each shot within the list panel and filtered in the dropdown below the list (properties panel) or above in the quick panel. They will also determine the strip colour in the Shot Overlay.
+
+Still Mode
+----------
+Found in first shot creation popup and Settings tab.
+
+For rendering single frames and works with batch renderers. It uses an alternative frame to the normal start and end parameters. Will output from all available output nodes.
+
+
+Generated View Layers Mode
+--------------------------
+Found in first shot creation popup and Settings tab.
+ 
+This mode enables settings; Switch to Primary Layer, Generate Primary Layers and Unsaved View Layers Default to 'Primary Layer'.
+The workflow is designed for users who wish to create unique View Layers for each shot and to have different collections visible. This workflow is most commonly used in product rendering and visualization. The newly created view layer will be set as the layer's Primary layer. The primary layer in combination with the other settings mentioned, will become the active View Layer and default as renderable when the shot is selected. It is therefore not necessary to alter the View Layer save/render states for the shot.
 
 
 
@@ -119,11 +84,18 @@ Alias shots can also be used to re-render sections of shots without losing their
 
 
 
+
 Shot data
 ---------
 
 .. image:: ShotProps.JPG
 
+
+.. image:: ShotDataButtons.jpg
+
+
+1. **Apply Settings** Use the current scene settings to pre-fill shot data
+2. **Copy From Shot** Copy data from another shot. Select source shot name followed by specific data or 'All'. **Apply to all queued shots** will copy the source data to all queued /enabled shots.
 
 Time
 =====
@@ -160,13 +132,31 @@ View Layers
 View layers pinned states include ;unpinned/not renderable
 ,unpinned/renderable,pinned/renderable, pinned/unrenderable.
 
-* **Unpinned default**, See **Settings** > View Layer Default. 
+* **Unpinned default**, See **Settings** > View Layer Default.
 * **Un/Pin All** Save or unpin all view layer states.
 * **Enabled and Primary Only** Only displays the renderable view layers for the active shot.
 * **'AB' icon** means: Rename the Primary Layer to match the shot's name.
 * **Link** icon indicates the view layer is the shot's primary layer and can be clicked to reassign the layer.
 * **'Broken Link'** icon means: the shot has an identical name to this View Layer, set as Primary.
 
+
+Material Overrides (LEGACY)
+============================
+.. image:: overrides.JPG
+
+**Legacy mode must be enabled in the 'M.O.' tab in shot data.**
+
+* **Material Overrides**, toggle use of collection overrides.
+
+Ensure that the Collection Overrides property is enabled. Only **first level** view layer collections are available not the scene collection or child collections.
+Material overrides are available per collection, per shot. Add and override and select collection, then add a material and slot. Override data is stored in the collections not shots, therefore can't be exported as a Json file or copied from another shot.
+Also editable in the Collections Inspector Node including overrides for all shots.
+Using overrides may be slower when switching shots and there are large amounts of collections and objects. **Note**: If using multiple scenes and collections are linked, some unexpected overrides can occur if the scenes have shot names that are identical.
+
+.. image:: material_override.JPG
+
+**Restore**
+The original material can be restored using the revert button found in the objects material tab. Useful if an object has been moved out of a collection and you want to restore its pre-override material.
 
 Rule Book
 --------- 
@@ -190,102 +180,91 @@ These rules follow the principle of override data A with data B. Therefore, you 
 
 NLA Rules 
 =========
-NLA rules override animation tracks, strips and actions per shot, therefore, enabling the possibility of re-timing shots more easily without using the NLA editor. It is recommended to animate in the dopesheet editor or action editor as the correct animation timing is displayed. Note; multiple strips per track is not supported and can cause timeline errors, only the first strip will be considered. 
+NLA rules override animation tracks,strips and actions per shot, therefore, enabling the possibility of re-timing shots more easily without using the NLA editor. It is recommended to animate in the dopesheet editor or action editor as the correct animation timing is displayed. Note; multiple strips per track is not supported and can cause spacial errors, only the first strip will be considered. 
 
 
 **In the Rule Book**
 
-.. image:: NLA_rules.JPG
-
-
-* **Isolate Tracks** , Automatically mute all tracks except for those used overriden by Rules.
-* **Actor** , The Actor will be any animated object to derive NLA data from.
-* **Type** , The Data type to derive animation data ( Object / ShapeKeys )/
+* **Isolate Tracks** , mute all tracks except for those used by this rule
+* **Tweak** , switch all instances of the rule tweak mode on/off
+* **Actor** , required, a single actor object to be assigned.
+* **Type** , data type to derive animation data (Object/ShapeKeys)
 
 
 **In Shot Rules**
-
-.. image:: NLA_rules_shot.JPG
-
 NLA rules are more specifically defined in the shot's rule tab are also the only type that supports multiple assignments on a single shot.
 
 Action = The holding data block for any animation.
 
 * **Show All Tracks** ,List all of the actor's NLA tracks that haven't been overriden by this rule
 * **Tweak Default** , Automatically set the tracks strip to tweak mode for editing in the action editor.
-* **Add Track** , This will add a new empty animaiton track.
-* **Track** , Select an NLA track. Note, only one Action (first strip) is used per track. Multiple Actions should be stacked on seperate tracks rather than inline as strips. Re-using tracks per shot is OK, however there is an increased risk on larger projects as it depends on the Add-on being installed.
-* **Delete Track** , will remove a track from the objects animation data and along with any strips it contains.
-* **Override Track** , Create a new Shot Rule for this track.
-* **Enable** , Enable or ignore this Rule.
-* **Track Index** , move this Rule to another track.
-* **Delete Rule**, delete an instance of the Rule.
+* **Track** , The NLA track to override. Note, only one Action (first strip) is used per track. Multiple Actions should be stacked on seperate tracks rather than inline as strips.
 * **Tweak** , Enter Tweak Mode allowing edits to the associated action.
 * **Override Action** , Actively override the action, otherwise use existing.
 * **Replace Action** , The Action to be associated.
 * **Link Timing(left Arrow)** , If enabled the animation is offset with the shots start time.
 * **Offset** , add additional timing offset.
-* **Fit End (right arrow)** , stretch the action to the shot's end time.
-* **Blend** , Override the blending property.
-* **Extrapolation** , Override the extrapolation property.
-* **Repeat** , Override repeat function.
-* **Scale Time** , Override scale function. Not compatible with Fit End.
-* **Blender In**, Override blend in (seconds).
-* **Blender Out**, Override blend out (seconds).
-* **Reversed**, Override reversed setting.
-* **Auto Blend In/Out**, Override auto blend In/Out. Not compatible with manual blending.
+* **Fit End(right arrow)** , extend the action to the shot end time
+* **Repeat** , NLA repeat function
+* **Scale** , NLA scale function
 
-RNA Rules
-=========
 
-.. image:: RNA_rules.JPG
 
-RNA is Blender's python API accessible properties. 
-RNA Rules are able to override just about any data type in Blender. For example, scene render settings, object visibility and even custom properties. They are useful in extending the Shot data beyond the basic options. First choose the source type of the property you would like to override. If it is a scene or render setting choose 'SCENE'. For all other types, you will then need to choose the source data. Next specify the data path. The simplest way to find a data path is to right click a property in the interface and select 'Copy Data Path, then paste it into the Path text box. The path should be relative to the sources data type. One notable exception is the scene's frame rate which will not display it's path, for this, use Type: Scene Path: render.fps . 
+Settings
+---------
+.. image:: settings.JPG
 
-* **Type** , The data type of the property you would like to override.
-* **Source** , Point to the specific data object which contains the property to override.
-* **Path** , The properties data path relative to the source. Custom properties should use double quotations ie, ["Prop"]
-* **Value to Default** , Copy the current value to the default value.
-* **Default** , The default value to revert to when the rule is disabled or not assigned to the active Shot.
-* **Override** , The value to set this property to when enabled and assigned.
+Scene
+=====
 
-Python Rules
-============
 
-.. image:: Python_rules.JPG
+* **Still Mode** , Use a single frame for shot timing.
+* **Switch to Primary**, make primary layer the active view layer when choosing shots.
+* **Generate Primary Layers**, a new View Layer will be created with the name of the newly made shot and associated as a Primary Layer
+* **Keep in range**, view timeline to playhead when choosing shots.
+* **Jump to First Frame**, place playhead at start of frame range when choosing shots.
+* **View layer default**, (On, Off, Primary Layer and None). The default state of View Layers if they have no saved state for the active shot. 'On' will make all unsaved layers renderable by default with each shot change/trigger. 'Off' will default to unrenderable, choose 'Off' to prevent unsaved view layers from rendering. 'Primary Layer' will also switch all unsaved layers to un-renderable, except for the Shot's Primary Layer. 'None' leaves the current state, no influence from the add-on.
+* **Separator** , a custom separator to add between filenames and frame suffix, default is '_'
+* **Path Type** , Absolute or relative output path creation.
+* **Limit Playhead** , Don't allow frame to be selected with mouse outside of frame range
+* **Shot Sequence Playback** , Switch shots in sequence while playing animation.
+* **Loop Sequence** , After playing through each shot, loop back to the start.
+* **Sequence Scrubbing** , Allow scrubbing through shots in sequence. Not compatible with 'Limit Playhead'
+* **Debug Mode** , For displaying extra debug messages in console
 
-Python Rules contain python code to be executed every time an assigned Shot is activated. There is no need to import bpy. Names, 'context' and 'scene' are already provided. Please beware that very long code may slow down shot changes. Deep code might make Blender unstable. Python Rules are called after the majority of updates when activating a Shot. Keys should use single quotation ie. ['prop']
 
-* **Expression** , A single line of code.
-* **Text File** , Read python code from a text block.
 
-Macros
+Render
 ======
+These settings are stored in your addon preferences.
 
-.. image:: Macros.JPG
+* **Temp Path** , The directory that will store temporary job files for the integrations/ submitters. Click trash can to clear files recognised by Shot Manager.
+* **Render As Copy** , Save a Blend file when using SM render specifically for rendering. Large files make take more time however it will prevent inconsistencies if the file is changed.
+* **Safe Mode** , When batch rendering, Blender will be run using factory startup settings, disabling 3rd party addons that might interfere with the render process. Render devices are then forced and addons in the exceptions white list will be enabled.
+* **Add Exception** , Allow specific 3rd party addons to be enabled during batch render.
 
-Macros in Shot Manager are a list of RNA Rules to be executed manually on click. These are useful when working with multiple settings without needing to assign RNA Rules to Shots. For example, working with various file formats or framerates but using the same Shots. Macros require the setting 'Use RNA Default' to be disabled and will override this setting automatically. This will ensure the changes are actually affective. 
 
-All RNA Rules in the Rule Book will appear under the Macro. Enabled Rules will active the rules 'Override' value, disabled Rules will use the Rule's 'Default' value.
+Data
+====
+.. image:: data.JPG
 
-Macro's can also be executed from the Output tab, as they can be conveniently executed before rendering.
+**Export JSON**, Export shot data to json to backup or transfer shots. Does not include collection overrides.
+**Include Shot Manager Settings**, include settings from the settings panel.
 
-.. image:: ExecuteMacro.JPG
+**Import JSON**, Import shot data from a saved json file. Missing linked frame markers will be converted to manual frame ranges.
+
+.. image:: Import.JPG
+
+**Ignore existing** to only import shots with names that don't match your scenes' existing shots.
+**Delete All Shots**, will clear all your saved shots.
+
 
 
 
 Output
 ------
 
-Shots can be rendered using the regular Render Animation or still operators (Ctrl+F12/F12). However only the active shot will be rendered. Batch render or output files per shot, use one of the listed batch rendering options.
-
-* **Root Folder** will be the starting directory for shots.
-* **Use Suffix** Add the shot's suffix to the shot's filepath.
-* **Render As Copy** , Save a Blend file when using SM render specifically for rendering. Large files make take more time however it will prevent inconsistencies if the file is changed.
-
-
-Export Files
+Export As Files
 ===============
 
 Export shots enabled in the shot list sequentially as a given format.
@@ -307,31 +286,9 @@ Embedded shots can store frame ranges and shot names as animation layers and ext
 
 .. image:: embed_shots_b.JPG
 
-OpenGL Render (Playblast)
-==========================
-
-OpenGL viewport rendering also uses the Export module. Only the local scene's Shots can be batch rendered and this is not a background process.
+OpenGL viewport render also uses the export module as it cannot be done using the batch render function.
 
 .. image:: openGL.JPG
-
-
-
-JSON Backup
-===========
-.. image:: json.JPG
-
-It is a good idea to backup shots form time to time, especially when updating or re-installing the addon. A Json text file can store information about each shots's properties as well as general settings for the addon. However, it can not store data, sucha as cameras. Instead it will store the camera's name and try to find it when loading. Other data that are **not** stored are View Layer States(stored in the layers themselves), Rules and Macros.
-
-**Export JSON**, Export shot data to json to backup or transfer shots.
-
-**Include Shot Manager Settings**, include settings from the settings panel.
-
-**Import JSON**, Import shot data from a saved json file. Missing linked frame markers will be converted to manual frame ranges.
-
-.. image:: Import_json.JPG
-
-**Ignore existing**, only import shots with names that don't match your scenes' existing shots.
-
 
 Render Queue
 ============
@@ -348,11 +305,7 @@ External Scenes can be filtered by listing names to include.
 SM Batch Render
 ===============
 
-.. image:: SM_render.JPG
-
-SM Render is Shot Manger's local batch rendering module.It will perform a background render thread for each shot sequentially in the render queue. For single machine rendering. It is possible to render Shots from other scenes, as well as other Blend files. Render progress will be displayed in the render queue as well as 3d view overlay. TIP: If RAM is an issue, make an empty Scene as the master scene for queueing and rendering.
-
-To batch render simply use Ctrl+Shift+F12 or use the 'Render Queued Shots' Button. 
+Shots can be rendered using the regular render animations or still operators (ctr+F12/F12). However only the active shot will be rendered. To batch render simply use ctr+shift+F12 or use the 'Render Queued Shots' Button. This will perform a background render thread for each shot sequentially in the render queue. For single machine rendering. TIP: If RAM is an issue, make an empty Scene as the master scene for queueing and rendering.
 
 
 Deadline 10.0+ Integration (Windows)
@@ -373,11 +326,8 @@ Each render node should have the most recent version of Shot Manager installed.
 All enabled shots for enabled scenes in the render list will be submitted. Ensure that the **Temp Path** is not empty and set to the desired location. This does not need to be a shared directory.
 
 * **Queue Name** The folder name for containing job files, using unique names avoids overwriting older submissions.
-* **Force Render Device** , Force the current file's render device ie,CUDA Optix, CPU.
-* **Department** Extra info visible in Monitor.
-* **Pool** , Assign jobs to pools defined by Monitor's Pool Management.
-* **Secondary Pool** , Specifies the seconday pool that the job can spread to if machines are available.
 * **Initial Status** Determines the initial status for jobs. Active will start rendering immediately.
+* **Department** Extra info visible in Monitor.
 * **Machine Limit** Limit the number of machines dedicated to the submitted jobs.
 * **Priotity** Determines the order in which renders will execute. Lower values indicate higher priority in the job list.
 * **Chunk Size** The number of frames to render per task. Less means more sharing across render nodes. Use higher values for simulations and larger files with long build times
@@ -390,7 +340,7 @@ This is configured in Deadline Monitor > Tools > Configure Plugins. You must ena
 
 .. image:: plugin_deadline.JPG
 
-Deadline Errors
+Errors
 ==============
 * **'Error encountered when loading the configured Client Certificate'** This is a certificate issue with your install of Deadline, please see: https://forums.thinkboxsoftware.com/t/basic-setup-issue/24229/9 When installing the Deadline repository it is simplest to leave 'use SSL' unticked, and set 'full read/write access' in the install wizard.
 
@@ -402,40 +352,6 @@ B-Renderon! Integration
 =======================
 Launch B-Renderon with shots loaded as separate blend files. Requires B-renderon v2.2 or above. The executable path for B-renderon must first be entered in Blender Preferences -> add-ons -> Shot Manager settings   
 **Force Cycles Device** to ensure the correct CPU/GPU configuration is applied to renders, assuming the submission machine is or is identical to the render machine.
-
-
-Settings
----------
-.. image:: settings.JPG
-
-Render Settings
-===============
-These settings are stored in your addon preferences.
-
-* **Temp Path** , The directory that will store temporary job files for the integrations/ submitters. Click trash can to clear files recognised by Shot Manager.
-* **Render As Copy** , Save a Blend file when using SM render specifically for rendering. Large files make take more time however it will prevent inconsistencies if the file is changed.
-* **Safe Mode** , When batch rendering, Blender will be run using factory startup settings, disabling 3rd party addons that might interfere with the render process. Render devices are then forced and addons in the exceptions white list will be enabled.
-* **Add Exception** , Allow specific 3rd party addons to be enabled during batch render.
-
-
-General Settings
-================
-
-* **Still Mode** , Use a single frame for shot timing.
-* **Switch to Primary**, make primary layer the active view layer when choosing shots.
-* **Generate Primary Layers**, a new View Layer will be created with the name of the newly made shot and associated as a Primary Layer
-* **Keep in Range**, view timeline to playhead when choosing shots.
-* **Jump to First Frame**, place playhead at start of frame range when choosing shots.
-* **View Layer Default**, (On, Off, Primary Layer and None). The default state of View Layers if they have no saved state for the active shot. 'On' will make all unsaved layers renderable by default with each shot change/trigger. 'Off' will default to unrenderable, choose 'Off' to prevent unsaved view layers from rendering. 'Primary Layer' will also switch all unsaved layers to un-renderable, except for the Shot's Primary Layer. 'None' leaves the current state, no influence from the add-on.
-* **Separator** , a custom separator to add between filenames and frame suffix, default is '_'
-* **Path Type** , Absolute or relative output path creation.
-* **Limit Playhead** , Don't allow frame to be selected with mouse outside of frame range
-* **Shot Sequence Playback** , Switch shots in sequence while playing animation.
-* **Loop Sequence** , After playing through each shot, loop back to the start.
-* **Sequence Scrubbing** , Allow scrubbing through shots in sequence. Not compatible with 'Limit Playhead'
-* **Debug Mode** , For displaying extra debug messages in console
-
-* **Delete All Shots**, delete all of the shots or queued shots in the active scene.
 
 
 Compositor Nodes
