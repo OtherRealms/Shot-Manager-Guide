@@ -56,7 +56,7 @@ This mode enables the following settings:
 * Generate Primary Layers 
 * View Layer Default to 'Primary Layer'.
 
-The workflow is designed for users who wish to create unique View Layers for each shot where different collections are visible per Shot. This workflow is most commonly used in product rendering and visualization. When making a new Shot, a Viewl Layer will be geneerated with the Shot's naming. The newly created View Layer will be set as the Shot's Primary Layer. The Primary Layer in combination with the other settings mentioned will become the active View Layer and will be renderable when the Shot is selected. It is therefore not necessary to alter the View Layer save/render states for the Shot.
+The work flow is designed for users who wish to create unique View Layers for each shot where different collections are visible per Shot. This work flow is most commonly used in product rendering and visualization. When making a new Shot, a View Layer will be generated with the Shot's naming. The newly created View Layer will be set as the Shot's Primary Layer. The Primary Layer in combination with the other settings mentioned will become the active View Layer and will be renderable when the Shot is selected. It is therefore not necessary to alter the View Layer save/render states for the Shot.
 
 
 
@@ -111,7 +111,7 @@ Alias Shots
 -----------
 .. image:: Alias.jpg
 
-Alias shots reference an existing shot for all properties unless they use overridden start and end frames (single frame in Still Mode) or camera. These can be used for multi-cam setups where multiple cameras are used to render a scene but retain the same base filename and filepath.
+Alias shots reference an existing shot for all properties unless they use overridden start and end frames (single frame in Still Mode) or camera. These can be used for multi-cam set-ups where multiple cameras are used to render a scene but retain the same base filename and filepath.
 
 NOTE: If not overriding frame range to unique frames, these images will save over each other when batch rendering unless path constructor nodes are used, in which case using the camera name input can give a unique path or filename.
 
@@ -284,55 +284,6 @@ Shots can be rendered using the regular Render Animation or still operators (Ctr
 * **Use Suffix** Add the shot's suffix to the shot's filepath.
 * **Render As Copy** , Save a Blend file when using SM render specifically for rendering. Large files make take more time however it will prevent inconsistencies if the file is changed.
 
-
-Export Files
-===============
-
-Export shots enabled in the shot list sequentially as a given format.
-
-.. image:: Queue.JPG
-
-Export formats currently include OpenGL, fbx, obj, abc(Alembic), usd(Universal Scene Description), dae(Collada), .blend as well as .bat(Windows) files for command line rendering, either as separate files or single batch file.
-Batch export only uses the active scene's queued shots and does not support shots from external Blend files.
-
-.. image:: BatchExport.JPG
-
-Choose output format and setting in the directory window. The settings panel appears on the left in Blender 2.80.
-
-FBX exporter does not use the FBX export/import addon but rather a modified export script.
-
-.. image:: embed_shots_a.JPG
-
-Embedded shots can store frame ranges and shot names as animation layers and extracted in other software,i.e. Unity.
-
-.. image:: embed_shots_b.JPG
-
-OpenGL Render (Playblast)
-==========================
-
-OpenGL viewport rendering also uses the Export module. Only the local scene's Shots can be batch rendered and this is not a background process.
-
-.. image:: openGL.JPG
-
-
-
-JSON Backup
-===========
-.. image:: json.JPG
-
-It is a good idea to backup shots form time to time, especially when updating or re-installing the addon. A Json text file can store information about each shots's properties as well as general settings for the addon. However, it can not store data, sucha as cameras. Instead it will store the camera's name and try to find it when loading. Other data that are **not** stored are View Layer States(stored in the layers themselves), Rules and Macros.
-
-**Export JSON**, Export shot data to json to backup or transfer shots.
-
-**Include Shot Manager Settings**, include settings from the settings panel.
-
-**Import JSON**, Import shot data from a saved json file. Missing linked frame markers will be converted to manual frame ranges.
-
-.. image:: Import_json.JPG
-
-**Ignore existing**, only import shots with names that don't match your scenes' existing shots.
-
-
 Render Queue
 ============
 .. image:: Render_Queue.JPG
@@ -343,7 +294,16 @@ Render Queue
 
 External Scenes can be filtered by listing names to include.
 
-* **Reload External Scenes** External shots must be reloaded to reflect any updates to the shotlist and frame ranges. Only already loaded scenes will be included and any shot list overrides will be reset.
+* **Reload External Scenes** External shots must be reloaded to reflect any updates to the shot list and frame ranges. Only already loaded scenes will be included and any shot list overrides will be reset.
+
+
+OpenGL Render (Playblast)
+==========================
+
+OpenGL viewport rendering also uses the Export module. Only the local scene's Shots can be batch rendered and this is not a background process.
+
+.. image:: openGL.JPG
+
 
 SM Batch Render
 ===============
@@ -355,14 +315,14 @@ SM Render is Shot Manger's local batch rendering module.It will perform a backgr
 To batch render simply use Ctrl+Shift+F12 or use the 'Render Queued Shots' Button. 
 
 
-Deadline 10.0+ Integration (Windows)
+Deadline Integration (Windows)
 ====================================
-Thinkbox Deadline is a distributed rendering and management software. Shot Manager provides a custom plug-in for Deadline and submitter within Blender.
+Thinkbox Deadline is a distributed rendering and management software. Shot Manager provides a custom plug-in for Deadline 10.0+ and submitter within Blender.
 
 .. image:: Deadline.JPG
 
 The Deadline Repository must be installed on a shared location. The Deadline render Client must be installed on all machines.
-Simply click **Install Integration** in the Deadline subpanel to install the plugin. This will transfer required files to the repository>custom>plugins folder.
+Simply click **Install Integration** in the Deadline sub-panel to install the plug-in. This will transfer required files to the repository>custom>plugins folder.
 
 Each render node should have the most recent version of Shot Manager installed.
 
@@ -392,6 +352,7 @@ This is configured in Deadline Monitor > Tools > Configure Plugins. You must ena
 
 Deadline Errors
 ==============
+
 * **'Error encountered when loading the configured Client Certificate'** This is a certificate issue with your install of Deadline, please see: https://forums.thinkboxsoftware.com/t/basic-setup-issue/24229/9 When installing the Deadline repository it is simplest to leave 'use SSL' unticked, and set 'full read/write access' in the install wizard.
 
 .. image:: Deadline_access.JPG
@@ -400,8 +361,61 @@ Deadline Errors
 
 B-Renderon! Integration
 =======================
+
 Launch B-Renderon with shots loaded as separate blend files. Requires B-renderon v2.2 or above. The executable path for B-renderon must first be entered in Blender Preferences -> add-ons -> Shot Manager settings   
 **Force Cycles Device** to ensure the correct CPU/GPU configuration is applied to renders, assuming the submission machine is or is identical to the render machine.
+
+Export Files
+===============
+
+Export shots enabled in the shot list sequentially as a given format.
+
+.. image:: Queue.JPG
+
+Export formats currently include OpenGL, fbx, obj, abc(Alembic), usd(Universal Scene Description), dae(Collada), .blend as well as .bat(Windows) files for command line rendering, either as separate files or single batch file.
+Batch export only uses the active scene's queued shots and does not support shots from external Blend files.
+
+.. image:: BatchExport.JPG
+
+Choose output format and setting in the directory window. The settings panel appears on the left in Blender 2.80.
+
+FBX exporter does not use the FBX export/import addon but rather a modified export script.
+
+.. image:: embed_shots_a.JPG
+
+Embedded shots can store frame ranges and shot names as animation layers and extracted in other software,i.e. Unity.
+
+.. image:: embed_shots_b.JPG
+
+
+SM Tools
+--------
+
+View Layer Settings
+===================
+
+* **Delete All Shots**, delete all of the shots or queued shots in the active scene.
+
+.. image:: ViewLayerSettings.JPG
+
+This interface is for overseeing the states of View Layers, in particular, their render passes and light passes. It removes the need to switch between view layers in order to edit them. These settings are built into Blender and do not show overrides and are not in anyway related to Shot Manager.
+
+JSON Backup
+===========
+.. image:: json.JPG
+
+It is a good idea to backup Shots from time to time, especially when updating or re-installing the addon. A JSON text file can store information about each Shot's properties as well as general settings for the addon. However, it cannot store scene or object data, such as cameras. Instead it will store the camera's name and try to find it when loading. Other data that are **not** stored are View Layer States(stored in the layers themselves), Rules and Macros.
+
+**Export JSON**, Export shot data to json to backup or transfer shots.
+
+**Include Shot Manager Settings**, include settings from the settings panel.
+
+**Import JSON**, Import shot data from a saved json file. Missing linked frame markers will be converted to manual frame ranges.
+
+.. image:: Import_json.JPG
+
+**Ignore existing**, only import shots with names that don't match your scenes' existing shots.
+
 
 
 Settings
@@ -410,12 +424,13 @@ Settings
 
 Render Settings
 ===============
+
 These settings are stored in your addon preferences.
 
 * **Temp Path** , The directory that will store temporary job files for the integrations/ submitters. Click trash can to clear files recognised by Shot Manager.
 * **Render As Copy** , Save a Blend file when using SM render specifically for rendering. Large files make take more time however it will prevent inconsistencies if the file is changed.
-* **Safe Mode** , When batch rendering, Blender will be run using factory startup settings, disabling 3rd party addons that might interfere with the render process. Render devices are then forced and addons in the exceptions white list will be enabled.
-* **Add Exception** , Allow specific 3rd party addons to be enabled during batch render.
+* **Safe Mode** , When batch rendering, Blender will be run using factory start-up settings, disabling 3rd party add-ons that might interfere with the render process. Render devices are then forced and add-ons in the exceptions white list will be enabled.
+* **Add Exception** , Allow specific 3rd party add-ons to be enabled during batch render.
 
 
 General Settings
@@ -435,7 +450,7 @@ General Settings
 * **Sequence Scrubbing** , Allow scrubbing through shots in sequence. Not compatible with 'Limit Playhead'
 * **Debug Mode** , For displaying extra debug messages in console
 
-* **Delete All Shots**, delete all of the shots or queued shots in the active scene.
+
 
 
 Compositor Nodes
@@ -526,7 +541,6 @@ Known Issues
 **Missing file explorer options** . This can occur when going between versions of Blender. SOLUTION- Restart Blender , disable 'Load UI' first when opening.
 
 .. image:: Load_ui.JPG
-
 
 
 
