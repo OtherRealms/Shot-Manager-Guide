@@ -388,35 +388,6 @@ Embedded shots can store frame ranges and shot names as animation layers and ext
 .. image:: embed_shots_b.JPG
 
 
-SM Tools
---------
-
-View Layer Settings
-===================
-
-* **Delete All Shots**, delete all of the shots or queued shots in the active scene.
-
-.. image:: ViewLayerSettings.JPG
-
-This interface is for overseeing the states of View Layers, in particular, their render passes and light passes. It removes the need to switch between view layers in order to edit them. These settings are built into Blender and do not show overrides and are not in anyway related to Shot Manager.
-
-JSON Backup
-===========
-.. image:: json.JPG
-
-It is a good idea to backup Shots from time to time, especially when updating or re-installing the addon. A JSON text file can store information about each Shot's properties as well as general settings for the addon. However, it cannot store scene or object data, such as cameras. Instead it will store the camera's name and try to find it when loading. Other data that are **not** stored are View Layer States(stored in the layers themselves), Rules and Macros.
-
-**Export JSON**, Export shot data to json to backup or transfer shots.
-
-**Include Shot Manager Settings**, include settings from the settings panel.
-
-**Import JSON**, Import shot data from a saved json file. Missing linked frame markers will be converted to manual frame ranges.
-
-.. image:: Import_json.JPG
-
-**Ignore existing**, only import shots with names that don't match your scenes' existing shots.
-
-
 
 Settings
 ---------
@@ -451,6 +422,33 @@ General Settings
 * **Debug Mode** , For displaying extra debug messages in console
 
 
+SM Tools
+--------
+
+View Layer Settings
+===================
+
+* **Delete All Shots**, delete all of the shots or queued shots in the active scene.
+
+.. image:: ViewLayerSettings.JPG
+
+This interface is for overseeing the states of View Layers, in particular, their render passes and light passes. It removes the need to switch between view layers in order to edit them. These settings are built into Blender and do not show overrides and are not in anyway related to Shot Manager.
+
+JSON Backup
+===========
+.. image:: json.JPG
+
+It is a good idea to backup Shots from time to time, especially when updating or re-installing the addon. A JSON text file can store information about each Shot's properties as well as general settings for the addon. However, it cannot store scene or object data, such as cameras. Instead it will store the camera's name and try to find it when loading. Other data that are **not** stored are View Layer States(stored in the layers themselves), Rules and Macros.
+
+**Export JSON**, Export shot data to json to backup or transfer shots.
+
+**Include Shot Manager Settings**, include settings from the settings panel.
+
+**Import JSON**, Import shot data from a saved json file. Missing linked frame markers will be converted to manual frame ranges.
+
+.. image:: Import_json.JPG
+
+**Ignore existing**, only import shots with names that don't match your scenes' existing shots.
 
 
 Compositor Nodes
@@ -517,26 +515,40 @@ Use Path Constructor Nodes to create your own render path format, followed by th
 
 Collections Inspector Node
 ==========================
-.. image: Collections.JPG
+
+.. image:: Collections.JPG
 
 An alternative interface for overseeing and modifying collection states per View Layer. This aims to bring back the kind of oversight possible in Blender 2.7 where layer visibility, holdout and indirect states were laid out in view layer settings. It can also be used to keep track of very complex scenes with many nested collections. Setting the View Layer to 'Active View' will use the currently active view layer. Changing the view layer in the drop down menu will not change your currently active view layer. This can be quicker in large scenes to avoid loading objects.
 
 Output Viewer Node
 ==================
+
 .. image:: Output_Viewer.JPG
 
-Used to count matching output files in all output paths. If a folder or file is detected you may click the folder icon to open the directory in your OS explorer or click the image icon to load it in an open Blender Image Editor. Files are counted after rendering or when the refresh button is clicked.
+Used to count matching output files in all output paths. If a folder or file is detected you may click the folder icon to open the directory in your OS explorer or click the image icon to load it in a Blender Player. Files are counted when the refresh button is clicked. Only file containing the output filenames and extension are counted, therefore there may be other files in the directories that are not counted. 
+
+* **Refresh** , Update the Output Viewer list.
+* **Open Directory** , The folder exists and can be opened in an OS file explorer.
+* **View Output** , The images contained in the directory will be displayer and played using the scene's frame rate. Use numpad buttons 0-9 to control frame rate, 9 is slowest. Arrow keys left and right will pause and increment current frame. Press Enter to play animation. Esc key to close window.
 
 Multi-Switch
 ============
+
 .. image:: MultiSwitch.JPG
 
-The Multi-Switch is a handy node group that generates inputs per shot. The active input is connected internally depending on the active shot. This allows the user to have multiple node graphs pointing to the Composite Node and only render the relevant one to the active shot. **Do not modify this node's name, group name or internal nodes. Requires a Shot List Node**
+The Multi-Switch is a handy node group that generates inputs per shot. The active input is connected internally depending on the active shot. This allows the user to have multiple node graphs pointing to the Composite Node and only render the relevant one to the active shot. **Do not modify this node's name, group name or internal nodes. Requires a Shot List Node**.
+
+Primary-Switch
+==============
+
+.. image:: PrimarySwitch.JPG
+
+The Primary Switch is can be used in combination with Primary Layers. If a Shot has a Primary Layer (read more in View Layers->Primary layers), the input render layer will be set automatically to the Shot's Primary Layer. This approach is intented for simple nodegraphs where the Primary Layer is to be the main output. Note, this wil not garuntee that the Primary Layer will be enabled for render. For that, use Primary Enabled option in Unpinned Defaults or ensure the layer is pinned in the Shot's View Layer settings. 
 
 
 Known Issues
 ------------
-**Pandora Submitter**. 'Cannot read json file' error may occur, has no impact on the render.
+**Missing Overlay Edit Tool Icon** , This seems to be a permission issue more likely when using a shared directory. A fallback icon will be used instead. 
 
 **Missing file explorer options** . This can occur when going between versions of Blender. SOLUTION- Restart Blender , disable 'Load UI' first when opening.
 
