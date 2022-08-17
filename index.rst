@@ -456,60 +456,65 @@ Compositor Nodes
 
 Shot List Node
 ==============
-**IMPORTANT!** For compositor nodes to have any effect, compositor 'Use Nodes' must be enabled. Node groups containing Shot Manager nodes are currently unsupported.
+**NOTE** : For compositor nodes to have any effect, 'Use Nodes' must be enabled within the compositor. Node groups containing Shot Manager nodes may not be fully supported. The Shot List node is central to Shot Manager nodes and is required for other nodes to work. **A maximum of one shot list node should exist.**
 
 .. image:: ShotlistNode.JPG
 
-The Shot List node is central to the Shot Manager nodes and is required for Constructor nodes and Multi-Switches. **A maximum of one shot list node should exist.**
+* **Refresh**, non-essential node update. Although shot Manager nodes are updated upon shot change, setting or property changes, changes outside of Shot Manager won't be reflected immediately. For example adding new light passes to a View Layer. Shot Manager will update before any rendering.
 
-**Path:** The displayed path is the project's output directory. The target folder and filenames are automatically named after the active shot. File paths are converted to absolute paths. If the Constructor nodes aren't connected to the Path Format socket, the path consists of; Root directory + shot name(folder)+ shot name + '_'(filename). However the scene render path in Blender's output settings will vary when 'Separate Layers' is active.
+* **Multi-Switch** will create a new node group dynamically linked to active shots.
 
-**Multi-Switch** will create a new node group dynamically linked to active shots.
-**Primary-Switch** will create a new Render Layer node which automatically switches the input View Layer to the active Shot's Primary Layer, else mute.
-**Refresh**, non-essential node update. Although shot Manager nodes are updated upon shot change, setting or property changes, changes outside of Shot Manager won't be reflected immediately. For example adding new light passes to a View Layer. Shot Manager will update before any rendering.
+* **Primary-Switch** will create a new Render Layer node which automatically switches the input View Layer to the active Shot's Primary Layer, else mute.
 
-**Sync Output Paths**. Only Available if Separate Layers is disabled. Output nodes created by the user are updated so their base path matches the output path set by the Shot List node and the active shot.
-
-**Shot List and saved states**. Here you can select and queue shots for bath export. Each shot displays the saved states for View Layers. These states can be toggled (renderable/non-renderable), removed or added.
-
-.. image:: remap.JPG
+* **Path** The displayed path is the project's output directory. The target folder and filenames are automatically named after the active shot. If the Constructor nodes aren't connected to the Path Format socket, the path consists of; Root directory + shot name(folder)+ shot name + '_'(filename). However the scene render path in Blender's output settings will vary when Generated Outputs are used.
 
 
-**Path Format**. String input socket for path 'Constructor' nodes.
+* **Sync Output Nodes**. Output nodes created by the user are updated so their base path matches the output path set by the Shot List node and the active shot.
 
 .. image:: ShotlistNode2.JPG
 
-**Separate View Layers**
-Automatically generate nodes to output view layers for external compositing. NOTE: nodes are generated upon any update made within the add-on, therefore generated nodes should not be directly edited. Output files will be named according to the layer name.  **You May want to delete the Composite node** when separating layers.
+* **Generated Outputs**
 
-**Separate Passes**
-Optionally separate view layer light passes.
-**Shot Name in Prefix (non-EXR MultiLayer)**
-if using Separate View Layers, the option to add the shot names into the output file prefix is available.
+* * **Layers** , Automatically generate nodes to output view layers for external compositing. NOTE: nodes are generated upon any update made within the add-on, therefore generated nodes should not be directly edited. Output files will be named according to the layer name.
 
-**Preview** Make the output group an 8 bit png for preview renders.
+* * **Passes** , Optionally separate view layer's passes into respeitive output files. Multi-layer EXR files will alway have this enabled if using layer Outputs.
 
-**Exclude/Include** passes from being output, not case sensitive. Pass names should be separated by commas.
+* * **Override File Format** , This is a general override for all generated outputs. Further overrides can be added per output group. The main composite output file format is not affected. For example, setting Blender's output file format to JPEG and then overriding it here with PNG, will make the default fileformat for generated nodes PNG whilst the the main composite node will output JPEG. Not all formats are available.
 
-**EXR MultiLayer output**
+* **Include in Filename**, if using Generated Outputs, the option to add the shot suffix and view layer name (non-multi-layer EXR) onto the output file name.
+
+**Output Groups**
 
 .. image:: EXR_layers.JPG
 
-When using "Separate Passes", Output Groups add and define output file names. Filter Render Passes using exclusion keywords separated by commas, no spaces, not case-sensitive. Including filename options 'Shot Name' and 'View Layer' name will be added to the given filename.  
+When using Generated Outputs with Passes enabled, Output Groups define output file directories and are able to divide up passes into groups. Filter Render Passes using exclusion keywords separated by commas, no spaces, not case-sensitive. 
+* **Name** , Name to be used 
+
+* **File Format Override** , Override the default file format originally set by either the node's general override or by Blender's settings. Not all formats are available.
+
+
+* **Exclude/Include** , Passes from being output, not case sensitive. Pass names should be separated by commas.
+
+
+* **Path Format** , String input socket for path 'Constructor' nodes.
+
+**Filename Format** , String input socket for path 'Constructor' nodes.
+
+
 
 Path Constructor Node
 =====================
 
 .. image:: Path_Contructor.JPG
 
-Use Path Constructor Nodes to create your own render path format, followed by the shot name. Connect to the Shot List 'Path Format' socket. Options;
+Use Path Constructor Nodes to create your own render path format, followed by the shot name. Connect to the Shot List Node's 'Path Format' or 'Filename Format' socket. Options;
 
 * Root Folder, the same folder set in the main panel. Must only be used as the first linked node.
 * .Blend File, add the Blender filename to the path. Useful for iterations.
-* Scene, scene name
-* Shot Name
-* Camera, render camera name
-* Custom, enter a custom name. (Best practice is to avoid spaces)
+* Scene, current scene name.
+* Shot Name, use the shot's name.
+* Camera, render camera name.
+* Custom, enter a custom name. (Best practice is to avoid spaces, use _ instead)
 * Output Node, uses the custom name of the output node, useful for exporting EXRs without overriding the default output/composite (which will use the custom 'main output text'), or to avoid duplicate filenames when using multiple output nodes.
 
 
