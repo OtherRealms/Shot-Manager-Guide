@@ -167,6 +167,58 @@ View layers pinned states include ;unpinned/not renderable
 * **Link** icon indicates the view layer is the shot's primary layer and can be clicked to reassign the layer.
 * **'Broken Link'** icon means: the shot has an identical name to this View Layer, set as Primary.
 
+Overlay
+-------
+
+.. image:: Overlay.JPG 
+
+Visibilty
+==========
+
+.. image:: OverlayViz.JPG 
+
+Visibiltity settings are found in the 3D View header, header tool settings and side panel ('N' Panel).
+
+* **Collapsed** , Toggle between a stacked layout or colapse linear layout for the Shot Editor. 
+
+* **Zoom Width** ,  Scale Shot strip width.
+* **Zoom Height** , Scale Shot strip height.
+* **Slide** , Scale Shot Editor height.
+* **Scroll** ,  Scrol Shot Editor.
+* **Opacity** , Shot editor opacity, may be overriden by camera passerpartout settings when in camera view.
+* **DPI** , text and ui size. Added to Blender's UI Resolution Scale in Preferences. This setting is stored in the addon preferences and will be persistant.
+
+Shot Editor
+===========
+
+.. image:: ShotEditor.JPG 
+
+Many shot operation are available when using the Overlay in combination with the Shot Edit Tool. 
+
+* **Left Mouse Click** , on a shot strip or NLA strip (NLA Rules) to offset its timing, end handles to trim. Hold **SHIFT** to enable snapping to nearest shot. 
+
+* **Right Mouose Click** , on a strip or or NLA strip (NLA Rules) to popup context menu.
+
+* **Box Selection** ,Click + hold outside a strip or press 'B' to start a box selection. Drag the selection box over shot handles to select them for moving and trimming.
+
+* **Mouse Wheel** , scroll wheel to scale editor horizontally. Hold **SHIFT** to scale vertically.
+
+* **Press K** , knife tool. Slice Shots at mouse click, hold click a drag to place slice.
+
+* **Press J** , Join tool. Click and drag to merge a shot with it neighbour. A popup box with options will appear.
+* * **Delete Target** , Delete the target shot. Disable to keep the shot.
+
+* * **Assimilate Layers** , Add the target shot's View Layer states to the resulting combined shot.
+
+* * **Assimilate Rules** , Add the target shot's Rules to the combined shot. NLA rules may not be supported if there is an already existing rule.
+
+
+Text Overlays
+=============
+
+* **Shot Basics** , Displays the active Shot name and render camera as well as the relative Shot frame and seconds. SM batch render progress will also be displayed here.
+* **Output Summary** , Displays render information.
+* **Notes** , Shot notes will appear in the bottom centre of the 3D window. Shot notes can be found in the Shot's properties.
 
 Rule Book
 --------- 
@@ -174,7 +226,6 @@ Shot rules are a powerful way to override data blocks in Blender.
 Rules are defined in the Rule Book panel. Once created in the Rule Book, they can be assigned to shots. There are many different types of rules which target various data types.
 
 Most rules follow the principle of; override data A with data B, if a collection is defined, the affect will be restricted to that collection. Rules defined in the Rule Book can then be re-used by assigning them to the shots individually. If the following shot doesn't have a rule, the data block will be reset to its original or default state. Caution: large scenes with many objects may take longer to switch between shots.
-
 
 
 Material,Light, Camera & Mesh Rules 
@@ -269,7 +320,7 @@ Macros in Shot Manager are a list of RNA Rules to be executed manually on click.
 
 All RNA Rules in the Rule Book will appear under the Macro. Enabled Rules will active the rules 'Override' value, disabled Rules will use the Rule's 'Default' value.
 
-Macro's can also be executed from the Output tab, as they can be conveniently executed before rendering.
+Macro's can also be executed from the SM Tools panel.
 
 .. image:: ExecuteMacro.JPG
 
