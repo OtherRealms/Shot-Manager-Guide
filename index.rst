@@ -325,14 +325,18 @@ Macro's can also be executed from the SM Tools panel.
 .. image:: ExecuteMacro.JPG
 
 
-
 Output
 ------
 
+.. image:: Output.JPG
+
+
 Shots can be rendered using the regular Render Animation or still operators (Ctrl+F12/F12). However only the active shot will be rendered. Batch render or output files per shot, use one of the listed batch rendering options.
+
 
 * **Root Folder** will be the starting directory for shots.
 * **Use Suffix** Add the shot's suffix to the shot's filepath.
+* **Make Subfolders**, When enabled, add a unique subfolder to the output path with the shot's name, separating it from other shots. Disabling this will lead to shots being rendered to the same folder which potentially could cause accidental overwrites when using generated output nodes.
 * **Render As Copy** , Save a Blend file when using SM render specifically for rendering. Large files make take more time however it will prevent inconsistencies if the file is changed.
 
 Render Queue
@@ -363,7 +367,10 @@ SM Batch Render
 
 SM Render is Shot Manger's local batch rendering module.It will perform a background render thread for each shot sequentially in the render queue. For single machine rendering. It is possible to render Shots from other scenes, as well as other Blend files. Render progress will be displayed in the render queue as well as 3d view overlay. TIP: If RAM is an issue, make an empty Scene as the master scene for queueing and rendering.
 
-To batch render simply use Ctrl+Shift+F12 or use the 'Render Queued Shots' Button. 
+To batch render, Shot Manager will attempt to assign the hotkey Ctrl+Shift+F12, howver somtimes this may need to be manually assigned. A batch render button can also be found in the Render menu.
+
+.. image:: Render_Button.JPG
+
 
 
 Deadline Integration (Windows)
@@ -402,7 +409,7 @@ This is configured in Deadline Monitor > Tools > Configure Plugins. You must ena
 .. image:: plugin_deadline.JPG
 
 Deadline Errors
-==============
+===============
 
 * **'Error encountered when loading the configured Client Certificate'** This is a certificate issue with your install of Deadline, please see: https://forums.thinkboxsoftware.com/t/basic-setup-issue/24229/9 When installing the Deadline repository it is simplest to leave 'use SSL' unticked, and set 'full read/write access' in the install wizard.
 
@@ -413,7 +420,9 @@ Deadline Errors
 B-Renderon! Integration
 =======================
 
-Launch B-Renderon with shots loaded as separate blend files. Requires B-renderon v2.2 or above. The executable path for B-renderon must first be entered in Blender Preferences -> add-ons -> Shot Manager settings   
+.. image:: BRenderon.JPG
+
+Launch B-Renderon with shots pre-loaded. Temporary job files are created in the temp folder. These files are used to access individual shots from the project render file. The render file is created in the same directory as the source .blend file with the suffix '_renderfile'. Requires B-renderon v2.2 or above. The executable path for B-renderon must first be entered in Blender Preferences -> add-ons -> Shot Manager settings   
 **Force Cycles Device** to ensure the correct CPU/GPU configuration is applied to renders, assuming the submission machine is or is identical to the render machine.
 
 Export Files
@@ -430,13 +439,24 @@ Batch export only uses the active scene's queued shots and does not support shot
 
 Choose output format and setting in the directory window. The settings panel appears on the left in Blender 2.80.
 
-FBX exporter does not use the FBX export/import addon but rather a modified export script.
+* **FBX** 
+
+The FBX Exporter is a modified exporter capable of embedding shots. This is suitable for linear timelines as traditionaly used by game animators and later split into sections in a game engine. 
 
 .. image:: embed_shots_a.JPG
 
 Embedded shots can store frame ranges and shot names as animation layers and extracted in other software,i.e. Unity.
 
 .. image:: embed_shots_b.JPG
+
+
+* **BAT** 
+
+.. image:: BAT.JPG
+
+
+.bat files are used by Windows to execute command-line rendering. Either export separate files, per shot or, a single batch file containing an execution list. Simply open the file to begin the render process. Be sure not to move the source .blend files as references to those files will be lost.
+
 
 
 
