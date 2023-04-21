@@ -59,7 +59,6 @@ This mode enables the following settings:
 The work flow is designed for users who wish to create unique View Layers for each shot where different collections are visible per Shot. This work flow is most commonly used in product rendering and visualization. When making a new Shot, a View Layer will be generated with the Shot's naming. The newly created View Layer will be set as the Shot's Primary Layer. The Primary Layer in combination with the other settings mentioned will become the active View Layer and will be renderable when the Shot is selected. It is therefore not necessary to alter the View Layer save/render states for the Shot.
 
 
-
 Shot Operations
 ===============
 
@@ -96,6 +95,7 @@ Shot Operations
 * **Reverse** , Reverse the displayed order of Shots.
 * **Show Suffix** , Add the Shot's suffix to it's displayed name.
 * **Show Camera** , Show the name of associated cameras.
+* **Alias Shots** , Show/Hide alias Shots.
 
 
 Filtering and Colour Sets
@@ -104,7 +104,6 @@ Shots can be filtered from the list by keyword or by colour set.
 Filtering does not affect the render queue and is only for visibility,sequence playback and scrubbing.
 
 Colour sets can be assigned to each shot within the list panel and filtered in the dropdown below the list (properties panel) or above in the quick panel. They will also determine the strip colour in the Shot Overlay.
-
 
 
 Alias Shots
@@ -116,7 +115,6 @@ Alias shots reference an existing shot for all properties unless they use overri
 NOTE: If not overriding frame range to unique frames, these images will save over each other when batch rendering unless path constructor nodes are used, in which case using the camera name input can give a unique path or filename.
 
 Alias shots can also be used to re-render sections of shots without losing their original frame range.
-
 
 
 Shot data
@@ -140,11 +138,11 @@ Properties
 
 * **Shot Name**, A unique name for your shot, this will also be an output sub-directory and filename for the shot.(Best practice is to avoid spaces)
 * **Use Suffix** Add a suffix to the shot's filepath.
-* **Notes**, for shot descriptions.
 * **Camera object**, automatically set as the render camera when shot is selected. Arrow button, select as active object.
 * **Render Engine**, set render engine for specifically for the shot, now supports addon engines.
 * **Render Samples**, If using Render Engine override. Override samples, 0 = no override.
 * **World** , World data, inherits from Main if empty.
+* **Notes**, for shot descriptions.
 * **Primary Layer**, select a View Layer that will become activated when selecting the shot if 'Switch to Primary' is enabled in settings. Also used as a default render layer if 'Unpinned default' is set to 'Primary Only' (View layer tab).
 * **Transparent Background**, set film transparency for the shot.
 * **Override Resolution** , shot specific output resolution.
@@ -197,7 +195,7 @@ Many shot operation are available when using the Overlay in combination with the
 
 * **Left Mouse Click** , on a shot strip or NLA strip (NLA Rules) to offset its timing, end handles to trim. Hold **SHIFT** to enable snapping to nearest shot. 
 
-* **Right Mouose Click** , on a strip or or NLA strip (NLA Rules) to popup context menu.
+* **Right Mouse Click** , on a strip or or NLA strip (NLA Rules) to popup context menu.
 
 * **Box Selection** ,Click + hold outside a strip or press 'B' to start a box selection. Drag the selection box over shot handles to select them for moving and trimming.
 
@@ -212,6 +210,18 @@ Many shot operation are available when using the Overlay in combination with the
 
 * * **Assimilate Rules** , Add the target shot's Rules to the combined shot. NLA rules may not be supported if there is an already existing rule.
 
+Right Click Menus
+=================
+
+.. image:: RightClickOverlay.JPG 
+
+* * **1 Jump to Shot** , Available if not the active shot.
+* * **2 Shot Properties** , Edit basic shot properties.
+* * **3 NLA Properties** , Edit and add NLA tracks (Shot Rules).
+
+.. image:: RightClickOverlay_Track.JPG
+
+* * **3 NLA Track Properties** , Edit NLA overrides and strip settings (Shot Rules).
 
 Text Overlays
 =============
@@ -276,13 +286,14 @@ Action = The holding data block for any animation.
 * **Replace Action** , The Action to be associated.
 * **Link Timing(left Arrow)** , If enabled the animation is offset with the shots start time.
 * **Offset** , add additional timing offset.
-* **Fit End (right arrow)** , stretch the action to the shot's end time.
+* **Fit End (right arrow)** , stretch the strip to the shot's end time. Does not affect Action speed.
 * **Blend** , Override the blending property.
 * **Extrapolation** , Override the extrapolation property.
 * **Repeat** , Override repeat function.
 * **Scale Time** , Override scale function. Not compatible with Fit End.
 * **Blender In**, Override blend in (seconds).
 * **Blender Out**, Override blend out (seconds).
+* **Trim**, Trim start and end of strip. This sets built-in 'Manual Frame Range'.
 * **Reversed**, Override reversed setting.
 * **Auto Blend In/Out**, Override auto blend In/Out. Not compatible with manual blending.
 
@@ -328,21 +339,31 @@ Macro's can also be executed from the SM Tools panel.
 Output
 ------
 
-.. image:: Output.JPG
-
-
 Shots can be rendered using the regular Render Animation or still operators (Ctrl+F12/F12). However only the active shot will be rendered. Batch render or output files per shot, use one of the listed batch rendering options.
 
+Output Settings
+===============
+
+.. image:: Output.JPG
 
 * **Root Folder** will be the starting directory for shots.
-* **Use Suffix** Add the shot's suffix to the shot's filepath.
+* **Separator** , a custom separator to add between filenames and frame suffix, default is '_'.
+* **Path Type** , Absolute or relative output path creation.
+* **Temp Path** , The directory that will store temporary job files for the integrations/ submitters. Click trash can to clear files recognised by Shot Manager.
 * **Make Subfolders**, When enabled, add a unique subfolder to the output path with the shot's name, separating it from other shots. Disabling this will lead to shots being rendered to the same folder which potentially could cause accidental overwrites when using generated output nodes.
+* **Shot Subfolders** , Create subfolders for each each Shot's output. Helps to avoid clutter and potential overwriting.
+* **Use Suffix** ,Add the shot's suffix to the shot's filepath.
+* **Always Make Reports** , Generate CSV render reports at the start of every render.
+* **Use Default Report Path** , Use the default path (output directory) or define a custom report path.
 * **Render As Copy** , Save a Blend file when using SM render specifically for rendering. Large files make take more time however it will prevent inconsistencies if the file is changed.
+* **Safe Mode** , When batch rendering, Blender will be run using factory start-up settings, disabling 3rd party add-ons that might interfere with the render process. Render devices are then forced and add-ons in the exceptions white list will be enabled.
+* **Add Exception** , Allow specific 3rd party add-ons to be enabled during batch render.
 
 Render Queue
 ============
 .. image:: Render_Queue.JPG
 
+* **Make Pre-render Report** ,Render the first frame of each shot and generate a report CSV containing true render/shot settings from the render process.
 * **Add Scene/Add Blend** Either add scene's and their associated shotlists from the open project or another external Blend file via json. Local shots will be automatically linked so any changes will be reflected in the queue.
 
 .. image:: External.JPG
@@ -365,9 +386,9 @@ SM Batch Render
 
 .. image:: SM_render.JPG
 
-SM Render is Shot Manger's local batch rendering module.It will perform a background render thread for each shot sequentially in the render queue. For single machine rendering. It is possible to render Shots from other scenes, as well as other Blend files. Render progress will be displayed in the render queue as well as 3d view overlay. TIP: If RAM is an issue, make an empty Scene as the master scene for queueing and rendering.
+SM Render is Shot Manager's local batch rendering module. It will perform a background render thread for each shot sequentially in the render queue. For single machine rendering. It is possible to render Shots from other scenes, as well as other Blend files. Render progress will be displayed in the render queue as well as 3d view overlay. TIP: If RAM is an issue, make an empty Scene as the master scene for queueing and rendering.
 
-To batch render, Shot Manager will attempt to assign the hotkey Ctrl+Shift+F12, howver somtimes this may need to be manually assigned. A batch render button can also be found in the Render menu.
+To batch render, Shot Manager will attempt to assign the hotkey Ctrl+Shift+F12, however sometimes this may need to be manually assigned. A batch render button can also be found in the Render menu.
 
 .. image:: Render_Button.JPG
 
@@ -422,8 +443,11 @@ B-Renderon! Integration
 
 .. image:: BRenderon.JPG
 
-Launch B-Renderon with shots pre-loaded. Temporary job files are created in the temp folder. These files are used to access individual shots from the project render file. The render file is created in the same directory as the source .blend file with the suffix '_renderfile'. Requires B-renderon v2.2 or above. The executable path for B-renderon must first be entered in Blender Preferences -> add-ons -> Shot Manager settings   
-**Force Cycles Device** to ensure the correct CPU/GPU configuration is applied to renders, assuming the submission machine is or is identical to the render machine.
+Launch B-Renderon with shots pre-loaded. Temporary job files are created in the temp folder. These files are used to access individual shots from the project render file. The render file is created in the same directory as the source .blend file with the suffix '_renderfile'. Requires B-renderon v3 or above. The executable path for B-renderon must first be entered in Blender Preferences -> add-ons -> Shot Manager settings   
+
+**Queue Name** , Open B-Renderon with shots associated with a given queue.
+**Add to existing queue** , Append the shots to the given queue if mathing name, otherwise clear all shots and overwrite the queue.
+**Force Cycles Device** ,to ensure the correct CPU/GPU configuration is applied to renders, assuming the submission machine is or is identical to the render machine.
 
 Export Files
 ===============
@@ -464,19 +488,6 @@ Settings
 ---------
 .. image:: settings.JPG
 
-Render Settings
-===============
-
-These settings are stored in your addon preferences.
-
-* **Temp Path** , The directory that will store temporary job files for the integrations/ submitters. Click trash can to clear files recognised by Shot Manager.
-* **Render As Copy** , Save a Blend file when using SM render specifically for rendering. Large files make take more time however it will prevent inconsistencies if the file is changed.
-* **Safe Mode** , When batch rendering, Blender will be run using factory start-up settings, disabling 3rd party add-ons that might interfere with the render process. Render devices are then forced and add-ons in the exceptions white list will be enabled.
-* **Add Exception** , Allow specific 3rd party add-ons to be enabled during batch render.
-
-
-General Settings
-================
 
 * **Still Mode** , Use a single frame for shot timing.
 * **Switch to Primary**, make primary layer the active view layer when choosing shots.
@@ -532,44 +543,36 @@ Shot List Node
 .. image:: ShotlistNode.JPG
 
 * **Refresh**, non-essential node update. Although shot Manager nodes are updated upon shot change, setting or property changes, changes outside of Shot Manager won't be reflected immediately. For example adding new light passes to a View Layer. Shot Manager will update before any rendering.
+* **Multi-Switch** , will create a new node group dynamically linked to active shots.
+* **Primary-Switch** , will create a new Render Layer node which automatically switches the input View Layer to the active Shot's Primary Layer, else mute.
+* **Path** , The displayed path is the project's output directory. The target folder and filenames are automatically named after the active shot. If the Constructor nodes aren't connected to the Path Format socket, the path consists of; Root directory + shot name(folder)+ shot name + '_'(filename). However the scene render path in Blender's output settings will vary when Generated Outputs are used.
+* **Shot Subfolders** , Create containing sub folders for shot output files.
+* **Sync Output Nodes** ,Output nodes created by the user are updated so their base path matches the output path set by the Shot List node and the active shot.
 
-* **Multi-Switch** will create a new node group dynamically linked to active shots.
+* **Generated Outputs**
+* * **Layers** , Automatically generate nodes to output view layers for external compositing. NOTE: nodes are generated upon any update made within the add-on, therefore generated nodes should not be directly edited. Output files will be named according to the layer name.
+* * **Passes** , Optionally separate view layer's passes into respeitive output files. Multi-layer EXR files will alway have this enabled if using layer Outputs.
+* * **Override File Format** , This is a general override for all generated outputs. Further overrides can be added per output group. The main composite output file format is not affected. For example, setting Blender's output file format to JPEG and then overriding it here with PNG, will make the default fileformat for generated nodes PNG whilst the the main composite node will output JPEG. Not all formats are available.
 
-* **Primary-Switch** will create a new Render Layer node which automatically switches the input View Layer to the active Shot's Primary Layer, else mute.
 
-* **Path** The displayed path is the project's output directory. The target folder and filenames are automatically named after the active shot. If the Constructor nodes aren't connected to the Path Format socket, the path consists of; Root directory + shot name(folder)+ shot name + '_'(filename). However the scene render path in Blender's output settings will vary when Generated Outputs are used.
-
-
-* **Sync Output Nodes**. Output nodes created by the user are updated so their base path matches the output path set by the Shot List node and the active shot.
+* **Directory** , When using Generated Outputs:
+* * **Layer Sub Folder** ,Contain layer outputs in their own folders.
+* * **Suffix**, The option to add the shot suffix to filenames.
+* * **View Layer** , Addview layer name (non-multi-layer EXR) onto the output file name.
 
 .. image:: ShotlistNode2.JPG
 
-* **Generated Outputs**
-
-* * **Layers** , Automatically generate nodes to output view layers for external compositing. NOTE: nodes are generated upon any update made within the add-on, therefore generated nodes should not be directly edited. Output files will be named according to the layer name.
-
-* * **Passes** , Optionally separate view layer's passes into respeitive output files. Multi-layer EXR files will alway have this enabled if using layer Outputs.
-
-* * **Override File Format** , This is a general override for all generated outputs. Further overrides can be added per output group. The main composite output file format is not affected. For example, setting Blender's output file format to JPEG and then overriding it here with PNG, will make the default fileformat for generated nodes PNG whilst the the main composite node will output JPEG. Not all formats are available.
-
-* **Include in Filename**, if using Generated Outputs, the option to add the shot suffix and view layer name (non-multi-layer EXR) onto the output file name.
-
-**Output Groups**
+**Output Groups** ,When using Generated Outputs with Passes enabled, Output Groups define output file directories and are able to divide up passes into groups. Filter Render Passes using exclusion keywords separated by commas, no spaces, not case-sensitive. 
+* * **Name** , Name to be used 
+* * **File Format Override** , Override the default file format originally set by either the node's general override or by Blender's settings. Not all formats are available.
+* * **Passes Exclude/Include** , Filter passes from being output, not case sensitive. Pass names should be separated by commas.
+* * **Layers Exclude/Include** , Filter View Layers from being output, not case sensitive. Layer names should be separated by commas.
 
 .. image:: EXR_layers.JPG
 
-When using Generated Outputs with Passes enabled, Output Groups define output file directories and are able to divide up passes into groups. Filter Render Passes using exclusion keywords separated by commas, no spaces, not case-sensitive. 
-* **Name** , Name to be used 
+**Path Format Socket** , String input socket for path 'Constructor' nodes.
 
-* **File Format Override** , Override the default file format originally set by either the node's general override or by Blender's settings. Not all formats are available.
-
-
-* **Exclude/Include** , Passes from being output, not case sensitive. Pass names should be separated by commas.
-
-
-* **Path Format** , String input socket for path 'Constructor' nodes.
-
-**Filename Format** , String input socket for path 'Constructor' nodes.
+**Filename Format Socket** , String input socket for path 'Constructor' nodes.
 
 
 
