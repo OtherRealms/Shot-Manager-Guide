@@ -177,14 +177,14 @@ Visibilty
 
 Visibiltity settings are found in the 3D View header, header tool settings and side panel ('N' Panel).
 
-* **Collapsed** , Toggle between a stacked layout or colapse linear layout for the Shot Editor. 
+* **Collapsed** , Toggle between a stacked layout or collapse linear layout for the Shot Editor. 
 
 * **Zoom Width** ,  Scale Shot strip width.
 * **Zoom Height** , Scale Shot strip height.
 * **Slide** , Scale Shot Editor height.
-* **Scroll** ,  Scrol Shot Editor.
-* **Opacity** , Shot editor opacity, may be overriden by camera passerpartout settings when in camera view.
-* **DPI** , text and ui size. Added to Blender's UI Resolution Scale in Preferences. This setting is stored in the addon preferences and will be persistant.
+* **Scroll** ,  Scroll Shot Editor.
+* **Opacity** , Shot editor opacity, may be overridden by camera passerpartout settings when in camera view.
+* **DPI** , text and ui size. Added to Blender's UI Resolution Scale in Preferences. This setting is stored in the addon preferences and will be persistent.
 
 Shot Editor
 ===========
@@ -221,7 +221,7 @@ Right Click Menus
 
 .. image:: RightClickOverlay_Track.JPG
 
-* * **3 NLA Track Properties** , Edit NLA overrides and strip settings (Shot Rules).
+**NLA Track Properties** , Edit NLA overrides and strip settings (Shot Rules).
 
 Text Overlays
 =============
@@ -238,11 +238,11 @@ Rules are defined in the Rule Book panel. Once created in the Rule Book, they ca
 Most rules follow the principle of; override data A with data B, if a collection is defined, the affect will be restricted to that collection. Rules defined in the Rule Book can then be re-used by assigning them to the shots individually. If the following shot doesn't have a rule, the data block will be reset to its original or default state. Caution: large scenes with many objects may take longer to switch between shots.
 
 
-Material,Light, Camera & Mesh Rules 
+Material, Light, Camera & Mesh Rules 
 ===================================
 .. image:: ShotRules.JPG 
 
-These rules follow the principle of override data A with data B. Therefore, you are provided with two data slots, left (a) and right (b). A is considered the original data and will serve as the default fallback. When assigned to a shot, all objects containing data A will be overriden to contain data B. 
+These rules follow the principle of override data A with data B. Therefore, you are provided with two data slots, left (a) and right (b). A is considered the original data and will serve as the default fallback. When assigned to a shot, all objects containing data A will be overridden to contain data B. 
 
 * **Filter**, use the collections filter to limit overrides to objects within the filter collection.
 * **Type**, Material overrides have two source types. 'Data' refers to materials stored in the objects mesh data block. 'Object' refers to the containing object data. See Blender's documentation for material link. https://docs.blender.org/manual/en/latest/render/materials/assignment.html#material-slots
@@ -259,7 +259,7 @@ NLA rules override animation tracks, strips and actions per shot, therefore, ena
 .. image:: NLA_rules.JPG
 
 
-* **Isolate Tracks** , Automatically mute all tracks except for those used overriden by Rules.
+* **Isolate Tracks** , Automatically mute all tracks except for those used overridden by Rules.
 * **Actor** , The Actor will be any animated object to derive NLA data from.
 * **Type** , The Data type to derive animation data ( Object / ShapeKeys )/
 
@@ -272,7 +272,7 @@ NLA rules are more specifically defined in the shot's rule tab are also the only
 
 Action = The holding data block for any animation.
 
-* **Show All Tracks** ,List all of the actor's NLA tracks that haven't been overriden by this rule
+* **Show All Tracks** ,List all of the actor's NLA tracks that haven't been overridden by this rule
 * **Tweak Default** , Automatically set the tracks strip to tweak mode for editing in the action editor.
 * **Add Track** , This will add a new empty animaiton track.
 * **Track** , Select an NLA track. Note, only one Action (first strip) is used per track. Multiple Actions should be stacked on seperate tracks rather than inline as strips. Re-using tracks per shot is OK, however there is an increased risk on larger projects as it depends on the Add-on being installed.
@@ -327,7 +327,7 @@ Macros
 
 .. image:: Macros.JPG
 
-Macros in Shot Manager are a list of RNA Rules to be executed manually on click. These are useful when working with multiple settings without needing to assign RNA Rules to Shots. For example, working with various file formats or framerates but using the same Shots. Macros require the setting 'Use RNA Default' to be disabled and will override this setting automatically. This will ensure the changes are actually affective. 
+Macros in Shot Manager are a list of RNA Rules to be executed manually on click. These are useful when working with multiple settings without needing to assign RNA Rules to Shots. For example, working with various file formats or frame rates but using the same Shots. Macros require the setting 'Use RNA Default' to be disabled and will override this setting automatically. This will ensure the changes are actually affective. 
 
 All RNA Rules in the Rule Book will appear under the Macro. Enabled Rules will active the rules 'Override' value, disabled Rules will use the Rule's 'Default' value.
 
@@ -446,7 +446,7 @@ B-Renderon! Integration
 Launch B-Renderon with shots pre-loaded. Temporary job files are created in the temp folder. These files are used to access individual shots from the project render file. The render file is created in the same directory as the source .blend file with the suffix '_renderfile'. Requires B-renderon v3 or above. The executable path for B-renderon must first be entered in Blender Preferences -> add-ons -> Shot Manager settings   
 
 **Queue Name** , Open B-Renderon with shots associated with a given queue.
-**Add to existing queue** , Append the shots to the given queue if mathing name, otherwise clear all shots and overwrite the queue.
+**Add to existing queue** , Append the shots to the given queue if matching name, otherwise clear all shots and overwrite the queue.
 **Force Cycles Device** ,to ensure the correct CPU/GPU configuration is applied to renders, assuming the submission machine is or is identical to the render machine.
 
 Export Files
@@ -465,7 +465,7 @@ Choose output format and setting in the directory window. The settings panel app
 
 * **FBX** 
 
-The FBX Exporter is a modified exporter capable of embedding shots. This is suitable for linear timelines as traditionaly used by game animators and later split into sections in a game engine. 
+The FBX Exporter is a modified exporter capable of embedding shots. This is suitable for linear timelines as traditionally used by game animators and later split into sections in a game engine. 
 
 .. image:: embed_shots_a.JPG
 
@@ -492,15 +492,16 @@ Settings
 * **Still Mode** , Use a single frame for shot timing.
 * **Switch to Primary**, make primary layer the active view layer when choosing shots.
 * **Generate Primary Layers**, a new View Layer will be created with the name of the newly made shot and associated as a Primary Layer
-* **Keep in Range**, view timeline to playhead when choosing shots.
-* **Jump to First Frame**, place playhead at start of frame range when choosing shots.
 * **View Layer Default**, (On, Off, Primary Layer and None). The default state of View Layers if they have no saved state for the active shot. 'On' will make all unsaved layers renderable by default with each shot change/trigger. 'Off' will default to unrenderable, choose 'Off' to prevent unsaved view layers from rendering. 'Primary Layer' will also switch all unsaved layers to un-renderable, except for the Shot's Primary Layer. 'None' leaves the current state, no influence from the add-on.
 * **Separator** , a custom separator to add between filenames and frame suffix, default is '_'
 * **Path Type** , Absolute or relative output path creation.
-* **Limit Playhead** , Don't allow frame to be selected with mouse outside of frame range
+* **Sequence Scrubbing** , Allow scrubbing through shots in sequence. Not compatible with 'Limit Playhead'
 * **Shot Sequence Playback** , Switch shots in sequence while playing animation.
 * **Loop Sequence** , After playing through each shot, loop back to the start.
-* **Sequence Scrubbing** , Allow scrubbing through shots in sequence. Not compatible with 'Limit Playhead'
+* **Limit Playhead** , Don't allow frame to be selected with mouse outside of frame range
+* **Keep in Range**, view timeline to playhead when choosing shots.
+* **Jump to First Frame**, place playhead at start of frame range when choosing shots.
+* **Use RNA Defaults** , (Shot Rules) Use default values when a an RNA rule exists but but the value hasn't been set yet.
 * **Debug Mode** , For displaying extra debug messages in console
 
 
@@ -551,8 +552,8 @@ Shot List Node
 
 * **Generated Outputs**
 * * **Layers** , Automatically generate nodes to output view layers for external compositing. NOTE: nodes are generated upon any update made within the add-on, therefore generated nodes should not be directly edited. Output files will be named according to the layer name.
-* * **Passes** , Optionally separate view layer's passes into respeitive output files. Multi-layer EXR files will alway have this enabled if using layer Outputs.
-* * **Override File Format** , This is a general override for all generated outputs. Further overrides can be added per output group. The main composite output file format is not affected. For example, setting Blender's output file format to JPEG and then overriding it here with PNG, will make the default fileformat for generated nodes PNG whilst the the main composite node will output JPEG. Not all formats are available.
+* * **Passes** , Optionally separate view layer's passes into respective output files. Multi-layer EXR files will alway have this enabled if using layer Outputs.
+* * **Override File Format** , This is a general override for all generated outputs. Further overrides can be added per output group. The main composite output file format is not affected. For example, setting Blender's output file format to JPEG and then overriding it here with PNG, will make the default file format for generated nodes PNG whilst the the main composite node will output JPEG. Not all formats are available.
 
 
 * **Directory** , When using Generated Outputs:
@@ -622,7 +623,7 @@ Primary-Switch
 
 .. image:: PrimarySwitch.JPG
 
-The Primary Switch is can be used in combination with Primary Layers. If a Shot has a Primary Layer (read more in View Layers->Primary layers), the input render layer will be set automatically to the Shot's Primary Layer. This approach is intented for simple nodegraphs where the Primary Layer is to be the main output. Note, this wil not garuntee that the Primary Layer will be enabled for render. For that, use Primary Enabled option in Unpinned Defaults or ensure the layer is pinned in the Shot's View Layer settings. 
+The Primary Switch is can be used in combination with Primary Layers. If a Shot has a Primary Layer (read more in View Layers->Primary layers), the input render layer will be set automatically to the Shot's Primary Layer. This approach is intended for simple nodegraphs where the Primary Layer is to be the main output. Note, this wil not guaruntee that the Primary Layer will be enabled for render. For that, use Primary Enabled option in Unpinned Defaults or ensure the layer is pinned in the Shot's View Layer settings. 
 
 
 Known Issues
