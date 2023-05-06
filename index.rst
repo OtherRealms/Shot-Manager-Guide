@@ -25,11 +25,14 @@ Main Panel
 The main interface is found in the Properties panel under the Output tab.
 
 * **Enable** , The first tick box will toggle the affect of Shot Manager on your scene. Un-tick if you need to turn off its influence, particularly if rendering alternative frame ranges or View Layers.
-* **Main/List** , Select the shot type. Main is for general editing and not bound to shot data however some shot properties are inherited from the Main if not set. To activate a shot simply select it in the list. Shot names are appended onto this path in subfolders.
+* **DEFAULT/LIST** , Select the shot type. DEFAULT is for general editing. DEFAULT properties will be inherited by Shots if left empty or not overriden.
 
-Main vs List
-============
-The 'Main' shot is intended for general editing and previewing and is not considered for batch rendering or exporting. Settings can be copied to and from the Main shot and Shot List. Some 'List' shot defaults are inherited from the Main shot.
+DEFAULT vs LIST
+===============
+
+.. image:: ShotType.JPG
+
+The 'DEFAULT' shot is intended for general editing and previewing and is not considered for batch rendering or exporting. This is the basis for default shot parameters in Blender 0.7.7+. Any properties that are left empty ie. Camera will be inherited from the DEFAULT shot.
 
 
 Creating a Shot
@@ -144,9 +147,9 @@ Properties
 * **World** , World data, inherits from Main if empty.
 * **Notes**, for shot descriptions.
 * **Primary Layer**, select a View Layer that will become activated when selecting the shot if 'Switch to Primary' is enabled in settings. Also used as a default render layer if 'Unpinned default' is set to 'Primary Only' (View layer tab).
-* **Transparent Background**, set film transparency for the shot.
+* **Override Transparent Background**, set film transparency for the shot.
 * **Override Resolution** , shot specific output resolution.
-* **Bloom**, Eevee only.
+* **Override Bloom**, Eevee only.
 
 
 View Layers
@@ -170,6 +173,9 @@ Overlay
 
 .. image:: Overlay.JPG 
 
+Overlays include, output summary, notes, basic shot info and Shot Editor.
+
+
 Visibilty
 ==========
 
@@ -191,7 +197,13 @@ Shot Editor
 
 .. image:: ShotEditor.JPG 
 
-Many shot operation are available when using the Overlay in combination with the Shot Edit Tool. 
+Many shot operation are available when using the Overlay in combination with the Shot Edit Tool, found in the 3D view tool bar. 
+
+.. image:: ShotEditTool.JPG 
+
+If there were permission issues when installing, the Shot Edit Tool icon may appear as a pair of scissors.
+
+.. image:: Scissors.JPG
 
 * **Left Mouse Click** , on a shot strip or NLA strip (NLA Rules) to offset its timing, end handles to trim. Hold **SHIFT** to enable snapping to nearest shot. 
 
