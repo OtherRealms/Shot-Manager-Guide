@@ -161,7 +161,7 @@ View Layers
 View layers pinned states include ;unpinned/not renderable
 ,unpinned/renderable,pinned/renderable, pinned/unrenderable.
 
-* **Unpinned default**, See **Settings** > View Layer Default. 
+* **Unpinned default**, See **Settings** :ref:'link to a different section<settings>'
 * **Un/Pin All** Save or unpin all view layer states.
 * **Enabled and Primary Only** Only displays the renderable view layers for the active shot.
 * **'AB' icon** means: Rename the Primary Layer to match the shot's name.
@@ -504,7 +504,7 @@ Settings
 * **Still Mode** , Use a single frame for shot timing.
 * **Switch to Primary**, make primary layer the active view layer when choosing shots.
 * **Generate Primary Layers**, a new View Layer will be created with the name of the newly made shot and associated as a Primary Layer
-* **View Layer Default**, (On, Off, Primary Layer and None). The default state of View Layers if they have no saved state for the active shot. 'On' will make all unsaved layers renderable by default with each shot change/trigger. 'Off' will default to unrenderable, choose 'Off' to prevent unsaved view layers from rendering. 'Primary Layer' will also switch all unsaved layers to un-renderable, except for the Shot's Primary Layer. 'None' leaves the current state, no influence from the add-on.
+* **View Layer Default**, (On, Off, Primary Enabled and Default). The default state of View Layers if they have no saved state for the active shot. 'On' will make all unsaved layers renderable by default with each shot change/trigger. 'Off' will default to unrenderable, choose 'Off' to prevent unsaved view layers from rendering. 'Primary Enabled' will also switch all unsaved layers to un-renderable, except for the Shot's Primary Layer. 'Default' will derive unpinned states from the DEFAULT shot.
 * **Separator** , a custom separator to add between filenames and frame suffix, default is '_'
 * **Path Type** , Absolute or relative output path creation.
 * **Sequence Scrubbing** , Allow scrubbing through shots in sequence. Not compatible with 'Limit Playhead'
