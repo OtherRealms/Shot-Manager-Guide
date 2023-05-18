@@ -161,7 +161,7 @@ View Layers
 View layers pinned states include ;unpinned/not renderable
 ,unpinned/renderable,pinned/renderable, pinned/unrenderable.
 
-* **Unpinned default**, See **Settings** :ref:'link to a different section<settings>'
+* **Unpinned default**, See :ref:`Settings<settings>`
 * **Un/Pin All** Save or unpin all view layer states.
 * **Enabled and Primary Only** Only displays the renderable view layers for the active shot.
 * **'AB' icon** means: Rename the Primary Layer to match the shot's name.
@@ -494,7 +494,7 @@ Embedded shots can store frame ranges and shot names as animation layers and ext
 .bat files are used by Windows to execute command-line rendering. Either export separate files, per shot or, a single batch file containing an execution list. Simply open the file to begin the render process. Be sure not to move the source .blend files as references to those files will be lost.
 
 
-
+.. _settings:
 
 Settings
 ---------
