@@ -367,7 +367,7 @@ Output Settings
 * **Use Suffix** ,Add the shot's suffix to the shot's filepath.
 * **Always Make Reports** , Generate CSV render reports at the start of every render.
 * **Use Default Report Path** , Use the default path (output directory) or define a custom report path.
-* **Render As Copy** , Save a Blend file when using SM render specifically for rendering. Large files make take more time however it will prevent inconsistencies if the file is changed.
+* **Render As Copy** , Save a Blend file when using SM render specifically for rendering. Large files make take more time however it will prevent inconsistencies if the file is changed.IMPORTANT: Simulations using the Disk Cache option are not supported.
 * **Safe Mode** , When batch rendering, Blender will be run using factory start-up settings, disabling 3rd party add-ons that might interfere with the render process. Render devices are then forced and add-ons in the exceptions white list will be enabled.
 * **Add Exception** , Allow specific 3rd party add-ons to be enabled during batch render.
 
@@ -408,7 +408,7 @@ To batch render, Shot Manager will attempt to assign the hotkey Ctrl+Shift+F12, 
 
 Deadline Integration (Windows)
 ====================================
-Thinkbox Deadline is a distributed rendering and management software. Shot Manager provides a custom plug-in for Deadline 10.0+ and submitter within Blender.
+Thinkbox Deadline is a distributed rendering and management software. Shot Manager provides a custom plug-in for Deadline 10.3+ and submitter within Blender.
 
 .. image:: Deadline.JPG
 
