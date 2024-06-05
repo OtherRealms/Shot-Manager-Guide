@@ -12,12 +12,12 @@ Shot Manager is an add-on for Blender. Created as a tool by myself Pablo Tochez 
 
 Shot Manager should be installed like any .zip add-on [Blender 2.8 Install Add-ons 00:38-https://youtu.be/14G_YIVdBd0?t=38]. 
 
-**Make sure you remove any previously installed versions first and restart Blender.**
+ Make sure you remove any previously installed versions first and restart Blender.
 
- You will not lose shot data uninstalling the add-on/
+You will not lose shot data uninstalling the add-on/
 This documentation encompasses both the Lite and pro versions available on Blender Market.
 
-Version 2.0 and above do not support versions of Blender less than 4.0.
+ Version 2.0 and above do not support versions of Blender less than 4.0.
 
 Shot List Data-Block
 -------------------
@@ -95,6 +95,7 @@ Regular Shot:
 * Output Generators (PRO)
 
 Linked Shot:
+
 * Notes
 
 Linked Shots
@@ -103,7 +104,7 @@ Linked Shots
 
 Linked shots reference data from an existing shot for all properties unless overridden. These can be used for multi-cam set-ups where multiple cameras are used to render a scene but retain the same base filename and file path. Shots can be linked from any Shot List.
 
-NOTE: If not overriding frame range to unique frames, these images will overwrite each other when batch rendering unless Path Constructor nodes are used to make more unique file paths. For example, overriding the shot's Camera with a Camera Path Constructor, will give a unique path or filename.
+ NOTE: If not overriding frame range to unique frames, these images will overwrite each other when batch rendering unless Path Constructor nodes are used to make more unique file paths. For example, overriding the shot's Camera with a Camera Path Constructor, will give a unique path or filename.
 
 Linked shots can also be used to re-render sections of shots without losing their original frame range.
 
@@ -175,7 +176,7 @@ UI: Shots
 Filtering and Colour Sets
 -------------------------
 Shots can be filtered from the list by keyword or by colour set.
-NOTE: Filtering does not affect the render queue and is only for visibility, sequence playback and scrubbing.
+ NOTE: Filtering does not affect the render queue and is only for visibility, sequence playback and scrubbing.
 
 Colour sets can be assigned to each shot within the list panel and filtered in the dropdown below the list (properties panel) or above in the quick panel. They will also determine the strip colour in the Shot Overlay.
 
@@ -356,7 +357,7 @@ RNA Rules are able to override just about any data type in Blender. For example,
 First choose the source type of the property you would like to override, this will be the 'Domain'. If it is a scene or render setting choose 'SCENE'. For all other types, you may then need to choose a more specific domain. Next specify the data path.
 
 
-Note: that Domains such as Camera, Light and Mesh will point to shared data-block, not an object, for example, to override a Camera's position, use Domain = Object -> Path = 'location'. In Blender a data-block may have several users.
+ Note: that Domains such as Camera, Light and Mesh will point to shared data-block, not an object, for example, to override a Camera's position, use Domain = Object -> Path = 'location'. In Blender a data-block may have several users.
 
 To override the same camera's focal length the path should be 'data.lens', 
 To override all cameras sharing the same camera data-block, use Domain = Camera -> Path = lens.  
@@ -885,7 +886,7 @@ Enable **Show Anchors** to see how a stamp relates to its anchor. The anchor is 
 
 Image Relative vs pixel position. Every position and scale parameter has the option to use pixel coordinates or relative coordinates. 
 
-Note, these coordinates are always in addition to parent **Groups**. Image relative coordinates are useful when making an adaptable layout for various image ratios or for easily finding the centre of an image i.e 0,0 is the centre of the canvas when Image relative, otherwise the bottom left. 
+ Note: these coordinates are always in addition to parent **Groups**. Image relative coordinates are useful when making an adaptable layout for various image ratios or for easily finding the centre of an image i.e 0,0 is the centre of the canvas when Image relative, otherwise the bottom left. 
 
 If the stamp belongs to a group, 0,0 will be the group's centre anchor in both cases. Image Relative Scale always refers a 0-1 factor the canvas size otherwise XY pixel distance from centre i.e. x X 5 is 10 pixels across. The scaling centre can be offset when grouped.
 
@@ -896,7 +897,7 @@ Compositor Nodes
 For Shot Manager compositor nodes to have any effect, 'Use Nodes' should be enabled. Node groups containing Shot Manager nodes are partially supported. 
 **Generators** are nodes that relate to automatic output generation. They define the manner in which View Layers and their Passes are organised and rendered. **Overview** nodes don't impact shots, they are convenience interfaces.
 
-NOTE: Blender always outputs files to the 'main' output. That is, the Composite Node and scene output, even if the Composite Node is deleted. This behaviour is due to be changed sometime in the near future, Blender 4.2+.
+ Note: Blender always outputs files to the 'main' output. That is, the Composite Node and scene output, even if the Composite Node is deleted. This behaviour is due to be changed sometime in the near future, Blender 4.2+.
 
 Shot Output Node
 --------------
@@ -945,7 +946,7 @@ Primary-Switch
 
 The Primary-Switch can be used in combination with Primary Layers (see :ref:`Properties`). If a Shot has a Primary Layer, the input render layer will be set automatically to the shot's Primary Layer. This approach is intended for simple node graphs where the Primary Layer is to be the main output.
 
-Note, this will not guarantee that the Primary Layer will be enabled for render. For that, use Primary Enabled option in Unpinned Defaults or ensure the layer is pinned in the Shot's View Layer settings. 
+ Note: this will not guarantee that the Primary Layer will be enabled for render. For that, use Primary Enabled option in Unpinned Defaults or ensure the layer is pinned in the Shot's View Layer settings. 
 
 Generators
 ----------
@@ -1008,7 +1009,9 @@ The Cryptomatte Insert will assume that any incoming Render layers have Cryptoma
 
 * **Pass**, Choose between CryptoAsset, CryptoObject and CryptoMaterial passes. These options should be enabled in view Layer settings
 * **Matt ID**, A list of Asset, Material or Object names to isolate.
-* **Output**, The output socket to be used. Choose from Image (masked, full colour), Matte (Black and white mask), Pick (For colour based picking). Note: The input pass does not need to be a cryptomatte pass.
+* **Output**, The output socket to be used. Choose from Image (masked, full colour), Matte (Black and white mask), Pick (For colour based picking). 
+
+ Note: The input pass does not need to be a cryptomatte pass.
 
 Image Format Node
 -----------------

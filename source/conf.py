@@ -7,6 +7,8 @@ extensions = ['sphinx.ext.autosectionlabel',
               'sphinx.ext.autodoc',
               'sphinx.ext.autosummary']
 
+language = "en"
+
 html_theme = 'furo'
 
 html_logo = "logo_350.png"
