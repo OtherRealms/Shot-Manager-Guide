@@ -79,11 +79,13 @@ Properties that are left empty i.e. Camera or not overridden on linked shots wil
 Some 'base' properties are not heritable, these depend on the shot's type and include; 
 
 Default Shot: 
+
 * Name
 * Still Image
 * Output Generators (PRO)
 
 Regular Shot:
+
 * Name
 * Suffix
 * Still Image
@@ -164,7 +166,7 @@ UI: Shots
 * **Show Camera**, Show the **Activate Camera** buttons.
 * **Linked Shots**, Show/Hide linked Shots.
 
-**Shot Source**, Source Shot List -> Source Shot. See :ref:`Linked Shots<linked-shots>`
+**Shot Source**, Source Shot List -> Source Shot. See :ref:`Linked Shots`
 
 
 Filtering and Colour Sets
@@ -198,6 +200,7 @@ Shot Properties can be managed in the Default, Shot Data settings. The following
 * **Notes**, for shot descriptions.
 
 **Optional Properties and RNA paths**
+
 * **Background Scene** = background_set
 * **Bloom** = eevee.use_bloom
 * **Camera** = camera
@@ -242,7 +245,7 @@ Unpinned layers will fall back to the value determined by the **View Layer defau
 
 * **Primary Layer**, select a View Layer that will become activated when selecting the shot if 'Switch to Primary' is enabled in settings.
 
-* **View Layer default**, See :ref:`Settings<settings>`
+* **View Layer default**, See :ref:`UI: Settings`
 * **Clear Pins/Pin All** Save or unpin all view layer states.
 * **Enabled and Primary Only** Only displays the renderable view layers for the active shot.
 * **'AB'** icon: Rename the Primary Layer to match the shot's name.
@@ -255,7 +258,7 @@ Shot Rules
 
 .. image:: ShotRules.JPG 
 
-Here rules can be assigned, toggled and overridden (RNA, Python Variables) per shot. Rules should first be created in the Rule Book, see :ref:`Rule Book<rule-book>`.
+Here rules can be assigned, toggled and overridden (RNA, Python Variables) per shot. Rules should first be created in the Rule Book, see :ref:`UI: Rule Book`.
 
 **List Drop Down**
 * **Search**, Filter Rules by text input.
@@ -277,7 +280,9 @@ Output Settings
 * **Path Type**, Absolute or Relative output path creation. Affects; Root Folder, Temp Folder and Render Log Folder.
 * **Shot Subfolders**, When enabled, add a unique subfolder to the output path with the shot's name, separating it from other shots. Disabling this will lead to shots being rendered to the same folder which potentially could cause accidental overwrites when using generated output nodes.
 * **Use Suffix**, Add the shot's suffix to the shot's file path.
+
 **Global Batch Render Settings**
+
 * **Always Make Reports**, Generate CSV render reports after rendering the first frame of every command.
 * **Use Default Report Path**, Use the default path (output directory) or define a custom report path.
 * **Temp Path**, The directory that will store temporary job files for the integrations/ submitters. Click trash can to clear files recognised by Shot Manager.
@@ -309,9 +314,9 @@ Batch Render
 -----------
 **Pro Feature ☆**
 
-see :ref:`Batch Rendering<batch-rendering>`.
+see :ref:`Batch Rendering`.
 
-Rule Book
+UI: Rule Book
 ==========
 **Pro Feature ☆**
 
@@ -343,16 +348,17 @@ RNA Rules
 .. image:: RNA_rules.JPG
 
 RNA encompasses Blender's scene properties. 
-RNA Rules are able to override just about any data type in Blender. For example, scene render settings, object visibility and even custom properties. They are useful in extending the Shot data beyond the available options and are easier to use than Python Rules. They can also be used in combination to create Macros, see :ref:`Macros Book<macros>`.
+RNA Rules are able to override just about any data type in Blender. For example, scene render settings, object visibility and even custom properties. They are useful in extending the Shot data beyond the available options and are easier to use than Python Rules. They can also be used in combination to create Macros, see :ref:`Macros`.
 
 First choose the source type of the property you would like to override, this will be the 'Domain'. If it is a scene or render setting choose 'SCENE'. For all other types, you may then need to choose a more specific domain. Next specify the data path.
 
- Note: that Domains such as Camera, Light and Mesh will point to shared data-block, not an object, for example, to override a Camera's position, use Domain = Object -> Path = 'location'. In Blender a data-block may have several users.
- 
- To override the same camera's focal length the path should be 'data.lens', 
- To override all cameras sharing the same camera data-block, use Domain = Camera -> Path = lens.  
 
- The simplest way to find a data path is to right-click a property in Blender's interface and left click 'Copy Data Path, then paste it into the Path text box. The path should be relative to the domain's data type. 
+Note: that Domains such as Camera, Light and Mesh will point to shared data-block, not an object, for example, to override a Camera's position, use Domain = Object -> Path = 'location'. In Blender a data-block may have several users.
+
+To override the same camera's focal length the path should be 'data.lens', 
+To override all cameras sharing the same camera data-block, use Domain = Camera -> Path = lens.  
+
+The simplest way to find a data path is to right-click a property in Blender's interface and left click 'Copy Data Path, then paste it into the Path text box. The path should be relative to the domain's data type. 
 
 
 * **Domain**, Point to the specific data object which contains the property to override.
@@ -537,7 +543,7 @@ By right-clicking a shot strip, some basic shot values can be edited. If the Sho
 UI: SM Tools
 ============
 
-* **Run Macro**, Trigger a Macro, see :ref:`Macros Book<macros>`
+* **Run Macro**, Trigger a Macro, see :ref:`Macros`
 * **Delete All Shots**, Empty the active scene's Shot List. Optionally delete assigned Primary Layers or delete the scene's Rule Book.
 
 View Layer Settings
@@ -625,6 +631,7 @@ SM Batch Render
 (Windows, Linux, MacOS X)
 
 Requirements:
+
 * Shot Manager Pro
 
 .. image:: SM_render.JPG
@@ -650,6 +657,7 @@ B-Renderon! Submitter
 .. image:: BRenderon.JPG
 
 Requirements:
+
 * B-Renderon Application
 
 B-Renderon is a paid standalone local render manager especially for blender. Available on BlenderMarket.com 
@@ -664,9 +672,11 @@ Launch B-Renderon with shots preloaded. Temporary job files are created in the t
 Flamenco Submitter
 ------------------
 (Windows, Linux, MacOS X)
+
 .. image:: Flamenco.JPG
 
 Requirements:
+
 * Flamenco 3.5+, containing Manager and Worker.
 * Flamenco 3.5+ Blender Add-on
 
@@ -702,10 +712,11 @@ Deadline Submitter
 .. image:: Deadline.JPG
 
 Requirements:
+
 * Deadline Monitor 10+
 * Deadline worker 10+
 
-Thinkbox Deadline is a network distributed rendering and management software owned by Amazon. It is free but requires an AWS account and personal details for verification. Shot Manager provides a custom plug-in for Deadline 10.3+ and Deadline submitter within Blender. Cloud rendering is not recommended using this module, instead shots should be exported as separate Blend files using Batch Export see :ref:`Batch Export<batch-export>`.
+Thinkbox Deadline is a network distributed rendering and management software owned by Amazon. It is free but requires an AWS account and personal details for verification. Shot Manager provides a custom plug-in for Deadline 10.3+ and Deadline submitter within Blender. Cloud rendering is not recommended using this module, instead shots should be exported as separate Blend files using Batch Export see :ref:`Batch Export`.
 
 The Deadline Repository must be installed on a shared location. Each render node should have the most recent version of Shot Manager installed. The Deadline render Client/worker must be installed on all render machines and Deadline Monitor should be installed and accessible by the 'Master' PC. Shots should be submitted using the Master PC. 
 https://docs.thinkboxsoftware.com/products/deadline/10.1/1_User%20Manual/manual/install-db-repo.html
@@ -768,6 +779,7 @@ Export shots enabled in the shot list sequentially as a given format.
 Batch export only exports the active scene's queued shots and does not support shots from external Blend files.
 
 Export formats currently include: 
+
 * BAT, Windows Batch file
 * Blend, Shots as separate Blender files. All shots are retained but activated per output file.
 * FBX, Allows shots embedded as animation layers.
@@ -833,7 +845,7 @@ Once installed, choose a Canvas. It should be an empty, generated image. Enablin
 
 This image can then be used in the compositor. It may also be useful to insert a Scale node, Fit to Render. This will ensure the image fits if the output resolution percentage is not 100%.
 
-You may load an alternative font, the default 'DejaVu Sans' is also known as Bfont Regular, the Blender's default font. Any complete, TrueType font can be used. For non-Latin text, there are more fonts provided in "Blender Foundation\Blender 4.1\4.1\datafiles\fonts\" or your local OS Fonts folder. The top Font and font size options will be the default value text values, these can be overridden per stamp.
+You may load an alternative font, the default 'DejaVu Sans' is also known as Bfont Regular, the Blender's default font. Any complete, True Type font can be used. For non-Latin text, there are more fonts provided in Blender Foundation/Blender 4.1/4.1/datafiles/fonts or your local OS Fonts folder. The top Font and font size options will be the default value text values, these can be overridden per stamp.
 
 .. image:: NewStamp.JPG
 
@@ -858,7 +870,7 @@ Stamp Items:
 * * **Clock Time**, Current local time, 24hr.
 
 * **Box**, Create a simple box with a colour fill
-* **Image**, Insert an image, load data-block from the image editor first. Useful for logos and watermarks.
+* **Image**, Insert an image, load data-block from the image editor first. Useful for logos and watermarks. Supports most formats supported by Blender except open EXR.
 * **Group**, Contains stamps in groups to override their visibility, offset positions and colour tag them.
 
 **Understanding coordinates**
@@ -867,7 +879,11 @@ Stamp Items:
 
 Enable **Show Anchors** to see how a stamp relates to its anchor. The anchor is generally in the centre of the stamp. Text items have additional options **Alignment Left and Right and Center**. These will place text and scale with these options in relation to its anchor. Text start below the anchor. 
 
-Image Relative vs pixel position. Every position and scale parameter has the option to use pixel coordinates or relative coordinates. Note, these coordinates are always in addition to parent **Groups**. Image relative coordinates are useful when making an adaptable layout for various image ratios or for easily finding the centre of an image i.e 0,0 is the centre of the canvas when Image relative, otherwise the bottom left. If the stamp belongs to a group, 0,0 will be the group's centre anchor in both cases. Image Relative Scale always refers a 0-1 factor the canvas size otherwise XY pixel distance from centre i.e. x X 5 is 10 pixels across. The scaling centre can be offset when grouped.
+Image Relative vs pixel position. Every position and scale parameter has the option to use pixel coordinates or relative coordinates. 
+
+Note, these coordinates are always in addition to parent **Groups**. Image relative coordinates are useful when making an adaptable layout for various image ratios or for easily finding the centre of an image i.e 0,0 is the centre of the canvas when Image relative, otherwise the bottom left. 
+
+If the stamp belongs to a group, 0,0 will be the group's centre anchor in both cases. Image Relative Scale always refers a 0-1 factor the canvas size otherwise XY pixel distance from centre i.e. x X 5 is 10 pixels across. The scaling centre can be offset when grouped.
 
 
 Compositor Nodes
@@ -923,13 +939,17 @@ Primary-Switch
 
 .. image:: PrimarySwitch.JPG
 
-The Primary-Switch can be used in combination with Primary Layers (see :ref:`View Layers<view-layers>`). If a Shot has a Primary Layer, the input render layer will be set automatically to the shot's Primary Layer. This approach is intended for simple node graphs where the Primary Layer is to be the main output. Note, this will not guarantee that the Primary Layer will be enabled for render. For that, use Primary Enabled option in Unpinned Defaults or ensure the layer is pinned in the Shot's View Layer settings. 
+The Primary-Switch can be used in combination with Primary Layers (see :ref:`Properties`). If a Shot has a Primary Layer, the input render layer will be set automatically to the shot's Primary Layer. This approach is intended for simple node graphs where the Primary Layer is to be the main output.
+
+ Note, this will not guarantee that the Primary Layer will be enabled for render. For that, use Primary Enabled option in Unpinned Defaults or ensure the layer is pinned in the Shot's View Layer settings. 
 
 Generators
 ----------
 .. image:: GeneratorNodes.JPG
 
- When using Generator Nodes, file outputs can be organised in pass groups, each with their own file path and file format. Filter Render Layers and Render Passes using exclusion/inclusion keywords separated by commas. A generator chain should end at a socket on the Shot Output Node. Only Shot Manager nodes with a Bright Green Generator socket should be connected. The node graph is the same across each Shot, however Generator Sockets can be disabled per shot on the Shot Output Node. Generator chains can be split at any node by adding more sockets.
+When using Generator Nodes, file outputs can be organised in pass groups, each with their own file path and file format. Filter Render Layers and Render Passes using exclusion/inclusion keywords separated by commas. A generator chain should end at a socket on the Shot Output Node.
+ 
+Only Shot Manager nodes with a Bright Green Generator socket should be connected. The node graph is the same across each Shot, however Generator Sockets can be disabled per shot on the Shot Output Node. Generator chains can be split at any node by adding more sockets.
 
 .. image:: Filters.JPG
 
