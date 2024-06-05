@@ -12,4 +12,12 @@ html_theme = 'furo'
 html_logo = "logo_350.png"
 
 
-html_sidebars = {'**': ['util/searchbox.html', 'util/sidetoc.html','localtoc.html']}
+html_sidebars = {
+    "**": [
+        "sidebar/scroll-start.html",
+        "sidebar/brand.html",
+        "sidebar/search.html",
+        "sidebar/navigation.html",
+        "sidebar/scroll-end.html",
+    ]
+}
