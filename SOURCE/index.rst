@@ -178,7 +178,7 @@ Colour sets can be assigned to each shot within the list panel and filtered in t
 
 
 Shot data
-=========
+---------
 
 .. image:: ShotProps.JPG
 
@@ -195,8 +195,8 @@ Shot Properties can be managed in the Default, Shot Data settings. The following
 * **Suffix** Add a suffix to the shot's display name and output filename.
 * **Primary Layer**, select a View Layer that will become activated when selecting the shot if 'Switch to Primary' is enabled in settings. Also used as a default render layer if 'Unpinned default' is set to 'Primary Only' (View layer tab).
 * **Still Image** 
-* **Start** Start frame.    
-* **End** End frame.
+* **Start**, Start frame.    
+* **End**, End frame.
 * **Notes**, for shot descriptions.
 
 **Optional Properties and RNA paths**
@@ -399,6 +399,7 @@ Variables
 .. image:: Variables.JPG
 
 When making Python Rules, variables can be declared i.e. 'x = 10', and then defined in the variables list. 
+
 * **Name**, The variable name i.e. x
 * **Default**, The value first given to the variable. 
 
@@ -941,7 +942,7 @@ Primary-Switch
 
 The Primary-Switch can be used in combination with Primary Layers (see :ref:`Properties`). If a Shot has a Primary Layer, the input render layer will be set automatically to the shot's Primary Layer. This approach is intended for simple node graphs where the Primary Layer is to be the main output.
 
- Note, this will not guarantee that the Primary Layer will be enabled for render. For that, use Primary Enabled option in Unpinned Defaults or ensure the layer is pinned in the Shot's View Layer settings. 
+Note, this will not guarantee that the Primary Layer will be enabled for render. For that, use Primary Enabled option in Unpinned Defaults or ensure the layer is pinned in the Shot's View Layer settings. 
 
 Generators
 ----------
