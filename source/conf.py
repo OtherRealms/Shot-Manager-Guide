@@ -21,3 +21,14 @@ html_sidebars = {
         "sidebar/scroll-end.html",
     ]
 }
+
+html_theme_options = {
+    "sidebar_hide_name": True,
+}
+
+html_theme_options = {
+    "light_css_variables": {
+        "color-brand-primary": "#7C4DFF",
+        "color-brand-content": "#7C4DFF",
+    },
+}

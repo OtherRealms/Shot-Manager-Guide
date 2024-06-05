@@ -10,10 +10,14 @@ Getting Started
 
 Shot Manager is an add-on for Blender. Created as a tool by myself Pablo Tochez A. [contact@pablotochez.com] in order to assist in the organisation of complex files containing multiple shots, view layers and cameras. I am an artist with some coding knowledge for making time saving tools and digital artworks.
 
-Shot Manager should be installed like any .zip add-on [Blender 2.8 Install Add-ons 00:38-https://youtu.be/14G_YIVdBd0?t=38]. **Make sure you remove any previously installed versions first and restart Blender.** You will not lose shot data uninstalling the add-on/
+Shot Manager should be installed like any .zip add-on [Blender 2.8 Install Add-ons 00:38-https://youtu.be/14G_YIVdBd0?t=38]. 
+
+**Make sure you remove any previously installed versions first and restart Blender.**
+
+ You will not lose shot data uninstalling the add-on/
 This documentation encompasses both the Lite and pro versions available on Blender Market.
 
-Version 2.0 and above do not support versions of Blender less than 4.00.
+Version 2.0 and above do not support versions of Blender less than 4.0.
 
 Shot List Data-Block
 -------------------
