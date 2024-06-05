@@ -603,7 +603,7 @@ Batch Rendering
 ===============
 **Pro Feature ☆**
 
-Shot Manager Pro support the following batch render options:
+Shot Manager Pro supports the following batch render options:
 
 * **Viewport Render**, Playblast renders of the active scenes Shot List.
 * **SM Batch Render**, Oversee and submit renders within the Blender interface. Supports all render lists.
@@ -656,9 +656,10 @@ B-Renderon is a paid standalone local render manager especially for blender. Ava
 
 Launch B-Renderon with shots preloaded. Temporary job files are created in the temp folder. These files are used to access individual shots from the project render file. The render file is created in the same directory as the source .blend file with the suffix '_renderfile'. Requires B-renderon v3 or above. The executable path for B-renderon must first be entered in Blender Preferences -> add-ons -> Shot Manager settings   
 
-**Queue Name** , Open B-Renderon with shots associated with a given queue.
-**Add to existing queue** , Append the shots to the given queue if matching name, otherwise clear all shots and overwrite the queue.
-**Force Cycles Device**,to ensure the correct CPU/GPU configuration is applied to renders, assuming the submission machine is or is identical to the render machine.
+* **Queue Name**, Open B-Renderon with shots associated with a given queue.
+
+* **Add to existing queue**, Append the shots to the given queue if matching name, otherwise clear all shots and overwrite the queue.
+* **Force Cycles Device** to ensure the correct CPU/GPU configuration is applied to renders, assuming the submission machine is or is identical to the render machine.
 
 Flamenco Submitter
 ------------------
@@ -822,7 +823,7 @@ To set up Burn-Ins navigate to the Image Editor and expand the SM Burn-Ins tab. 
 
 
 Getting Started
---------------
+---------------
 
 Once installed, choose a Canvas. It should be an empty, generated image. Enabling **Match Render Size** ensures the canvas will match the output settings, even if it changes between shots. 
 
@@ -882,7 +883,7 @@ The Shot Output Node is required when using Generator Nodes and Path Constructor
 
 **A maximum of one Shot Output node should exist.**
 
-.. image:: ShotOutputNode.JPG.JPG
+.. image:: ShotOutputNode.JPG
 
 * **Refresh**, non-essential node update. Although shot Manager nodes are updated upon shot change, setting or property changes, changes outside of Shot Manager won't be reflected immediately. For example adding new light passes to a View Layer. Shot Manager will update nodes before any rendering.
 * **Sync All Output Paths**, Output nodes created by the user are updated, so their base path matches the output path set by the Shot List node and the active shot.
