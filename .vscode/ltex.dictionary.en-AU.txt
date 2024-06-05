@@ -1,3 +1,10 @@
 playhead
 Playhead
 unrenderable
+Playblast
+passerpartout
+Cryptomatte
+CryptoMaterial
+CryptoObject
+CryptoAsset
+cryptomatte
