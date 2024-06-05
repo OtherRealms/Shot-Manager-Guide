@@ -5,12 +5,6 @@ https://twitter.com/OTrealms
 
 :Version: 2.0.0
 
-.. toctree::
-   :maxdepth: 2
-
-   test
-
-
 Getting Started
 ===============
 
