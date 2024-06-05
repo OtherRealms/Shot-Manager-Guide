@@ -141,7 +141,7 @@ UI: Shots
 * **Set**, Filter visible shots by colour set.
 * **Queue All/None Toggle**, add all shots to the output/render queue.
 * **Invert Queue Toggle**, Invert the enabled shots.
-* **Shot Operations**, see :ref:`Shot Operations<shot-operations>`
+* **Shot Operations**, see :ref:`Shot Operations`
 
 **List Area**
 
@@ -610,8 +610,8 @@ Shot Manager Pro supports the following batch render options:
 * **B-Renderon**, launcher/Submitter. Supports all render lists.
 * **Flamenco**, Submitter and job type. Supports all render lists.
 * **Think Box AWS Deadline**, Submitter and plugin. Supports all render lists.
-* **Batch files**, see :ref:`Batch Export Book<batch-export>`.. Executable .bat files(Windows).
-* **Blend files**, see :ref:`Batch Export Book<batch-export>`.. Useful for cloud rendering. 
+* **Batch files**, see :ref:`Batch Export` Executable .bat files(Windows).
+* **Blend files**, see :ref:`Batch Export` Useful for cloud rendering. 
 
 **Make Pre-Render Report**
 
@@ -804,6 +804,8 @@ Batch files are used by Windows to execute command-line rendering. Either export
 
 Burn-Ins
 ========
+**Pro Feature ☆**
+
 .. image:: BurnIns.JPG
 
 Burn-Ins, also called video stamps or metadata burn-ins, are useful when reviewing and editing large numbers of scenes in an animation, while keeping track of cameras, frame ranges, time codes and files paths etc. Shot Manager provides a highly flexible Burn-Ins editor capable of displaying just about any data. This feature is **currently only for use with batch/background rendering**. 
