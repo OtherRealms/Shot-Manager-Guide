@@ -8,3 +8,7 @@ extensions = ['sphinx.ext.autosectionlabel',
               'sphinx.ext.autosummary']
 
 html_theme = 'press'
+
+
+html_sidebars = {'**': ['util/searchbox.html', 'util/sidetoc.html','localtoc.html']}
+
