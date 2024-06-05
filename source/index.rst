@@ -134,6 +134,7 @@ UI: Shots
 
 .. image:: ShotsPanel.JPG
 
+
 .. image:: Shotlist.JPG
 
 * **Queue Count**, Displays the number of shots in the local list enabled for render queue.
