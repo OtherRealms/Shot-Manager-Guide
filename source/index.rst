@@ -8,6 +8,8 @@ https://twitter.com/OTrealms
 .. toctree::
     :maxdepth: 2
 
+    test
+
 Getting Started
 ===============
 
