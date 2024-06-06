@@ -2,6 +2,8 @@
 Shot Manager
 =============
 
+.. image:: logo_350.JPG
+
 https://twitter.com/OTrealms
 
 :Version: 2.0.0
@@ -9,9 +11,6 @@ https://twitter.com/OTrealms
 
 Getting Started
 ===============
-
-.. image:: logo_350.JPG
-
 
 Shot Manager is an add-on for Blender. Created as a tool by myself Pablo Tochez A. [contact@pablotochez.com] in order to assist in the organisation of complex files containing multiple shots, view layers and cameras. I am an artist with some coding knowledge for making time saving tools and digital artworks.
 
