@@ -2,8 +2,6 @@
 Shot Manager
 =============
 
-.. image:: logo_350.JPG
-
 https://twitter.com/OTrealms
 
 :Version: 2.0.0
