@@ -1,8 +1,9 @@
-.. image:: logo_350.png
-    
 =============
 Shot Manager
 =============
+
+.. image:: logo_350.JPG
+    
 https://twitter.com/OTrealms
 
 :Version: 2.0.0
@@ -60,13 +61,14 @@ This mode enables the following settings:
 
 This work flow is designed for users who wish to create unique View Layers for each shot where different collections are visible per Shot. This work flow is most commonly used in product rendering and visualisation. When making a new Shot, a View Layer will be generated with the Shot's naming. The newly created View Layer will be set as the Shot's Primary Layer. The Primary Layer in combination with the other settings mentioned will become the active View Layer and will be renderable when the Shot is selected. It is therefore not necessary to alter the View Layer save/render states for the Shot. 
 
-Related functions:
-When a shot is deleted, an option also deleted its Primary layer will be given.
+*Related functions:
 
-If the shot name is changed, the Primary Layer name can be matched in the View Layers states editor.
+ When a shot is deleted, an option also deleted its Primary layer will be given.
 
-New collections created using SM New Collection (Outliner) may be given the Shot's name and is enabled only in the active View Layer.
-This will allow per Shot, per layer objects.
+ If the shot name is changed, the Primary Layer name can be matched in the View Layers states editor.
+
+ New collections created using SM New Collection (Outliner) may be given the Shot's name and is enabled only in the active View Layer.
+ This will allow per Shot, per layer objects.
 
 'Default Shot' and Inheritance
 ------------------------------

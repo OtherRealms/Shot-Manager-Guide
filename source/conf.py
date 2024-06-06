@@ -11,7 +11,7 @@ language = "en"
 
 html_theme = 'furo'
 
-html_logo = "logo_350.png"
+html_logo = "logo_350.JPG"
 
 
 html_sidebars = {
