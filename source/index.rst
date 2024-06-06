@@ -1,3 +1,5 @@
+.. image:: logo_350.png
+    
 =============
 Shot Manager
 =============
@@ -937,7 +939,19 @@ Multi-Switch
 
 .. image:: MultiSwitch.JPG
 
-The Multi-Switch is a handy node group that generates inputs per shot. The active input is connected internally depending on the active shot. This allows the user to have multiple node graphs pointing to the Composite Node and only render the relevant one to the active shot. **Do not modify this node group's internal nodes**.
+The Multi-Switch is a handy node group that generates inputs per shot. 
+The active input is connected internally depending on the active shot. 
+This allows the user to have multiple node graphs pointing to the Composite Node and only render the relevant one to the active shot. 
+
+In the image above, the base path of the File Output node has been automatically set by enabling Sync All Output Paths. 
+There is a risk of overwriting files as it matches the scene output. Therefore, the subpath has been manually been given the subfolder 'SecondLayer/'.
+
+.. image:: MultiSwitchAlt.JPG
+
+Alternatively, Path Constructor nodes may be used to borrow the File Output node's name and place it in the base path, the main scene output will also be given a subfolder, 
+default is Main_Output. See :ref:`Path Constructor Node` 
+
+ Do not modify this node group's internal nodes.
 
 Primary-Switch
 --------------
