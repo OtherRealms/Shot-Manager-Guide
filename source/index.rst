@@ -195,16 +195,20 @@ Each shot contains its own data set that may include any of the following:
 Properties
 -----------
 
-Shot Properties can be managed in the Default, Shot Data settings. The following properties cannot be deleted:
+ The following properties cannot be deleted:
 
 * **Shot Name**, A unique name for your shot, this will also be an output subdirectory and filename for the shot.(Best practice is to avoid spaces)
 
 * **Suffix** Add a suffix to the shot's display name and output filename.
 * **Primary Layer**, select a View Layer that will become activated when selecting the shot if 'Switch to Primary' is enabled in settings. Also used as a default render layer if 'Unpinned default' is set to 'Primary Only' (View layer tab).
 * **Still Image** 
-* **Start**, Start frame.    
+* **Start**, Start frame.
 * **End**, End frame.
 * **Notes**, for shot descriptions.
+
+.. image:: DefaultShotProps.JPG
+
+ Shot Properties can be added and managed in the Default Shot Properties.
 
 **Optional Properties and RNA paths**
 
@@ -934,6 +938,9 @@ Use Path Constructor Nodes to create your own render path format, followed by th
 * **Custom**, Enter a custom name. For example iteration number.
 * **Output Node**, Uses the custom name of the output node, useful for exporting EXRs without overriding the default output/composite (which will use the custom 'main output text'), or to avoid duplicate filenames when using multiple output nodes. Ignores generated outputs.
 * **Date**, Include the render date.
+
+.. image:: PathNodesExample.JPG
+
 
 Multi-Switch
 ------------
