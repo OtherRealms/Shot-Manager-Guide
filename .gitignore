@@ -1,4 +1,7 @@
-*.db
+/*
+
+!/source/
+
 _iframe.html
 _index.rst.html
 _inder.rst.html

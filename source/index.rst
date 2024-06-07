@@ -298,7 +298,11 @@ Output Settings
 * **Shot Subfolders**, When enabled, add a unique subfolder to the output path with the shot's name, separating it from other shots. Disabling this will lead to shots being rendered to the same folder which potentially could cause accidental overwrites when using generated output nodes.
 * **Use Suffix**, Add the shot's suffix to the shot's file path.
 
-**Global Batch Render Settings**
+Global Batch Render settings
+----------------------------
+
+.. image:: BatchSettings.JPG
+
 
 * **Always Make Reports**, Generate CSV render reports after rendering the first frame of every command.
 * **Use Default Report Path**, Use the default path (output directory) or define a custom report path.
@@ -569,7 +573,8 @@ View Layer Settings
 
 .. image:: ViewLayerSettings.JPG
 
-This interface is for overseeing the states of View Layers, in particular, their render passes and light passes. It removes the need to switch between view layers in order to edit them. These settings are built into Blender and do not show overrides and are not in any way related to Shot Manager. 
+This interface is for overseeing the states of View Layers, in particular, their render passes and light passes. It removes the need to switch between view layers in order to edit them. 
+These settings are built into Blender and do not show overrides and are not in any way related to Shot Manager. For per shot layer settings (pinning) see :ref:`View Layers`
 
 Collections Inspector
 ---------------------
@@ -913,7 +918,7 @@ For Shot Manager compositor nodes to have any effect, 'Use Nodes' should be enab
  Note: Blender always outputs files to the 'main' output. That is, the Composite Node and scene output, even if the Composite Node is deleted. This behaviour is due to be changed sometime in the near future, Blender 4.2+.
 
 Shot Output Node
---------------
+----------------
 
 The Shot Output Node is required when using Generator Nodes and Path Constructor Nodes. 
 
@@ -945,8 +950,9 @@ Use Path Constructor Nodes to create your own render path format, followed by th
 * **Output Node**, Uses the custom name of the output node, useful for exporting EXRs without overriding the default output/composite (which will use the custom 'main output text'), or to avoid duplicate filenames when using multiple output nodes. Ignores generated outputs.
 * **Date**, Include the render date.
 
-.. image:: PathNodesExample.JPG
+.. figure:: PathNodesExample.JPG
 
+    Example of an iterative render file path using 'Custom' and 'Data'.
 
 Multi-Switch
 ------------
@@ -1035,7 +1041,7 @@ Cryptomatte Insert Node
 Place between an Output Generator and Shot Output Node.
 The Cryptomatte Insert will assume that any incoming Render layers have Cryptomatte sockets.
 
-* **Pass**, Choose between CryptoAsset, CryptoObject and CryptoMaterial passes. These options should be enabled in view Layer settings
+* **Pass**, Choose between CryptoAsset, CryptoObject and CryptoMaterial passes. These options should be enabled in the view Layer's settings
 * **Matt ID**, A list of Asset, Material or Object names to isolate.
 * **Output**, The output socket to be used. Choose from Image (masked, full colour), Matte (Black and white mask), Pick (For colour based picking). 
 
@@ -1053,6 +1059,9 @@ Known Issues
 **Missing Overlay Edit Tool Icon**, This seems to be a permission issue, likely when using a shared directory. A fallback icon will be used instead. 
 
 **Missing file explorer options**, This can occur when going changing versions of Blender. SOLUTION- Restart Blender, disable 'Load UI' first when opening.
+
+**Turbo Tools** add-on fails to batch render. Turbo Tools support is in progress.
+
 
 .. image:: Load_ui.JPG
 
