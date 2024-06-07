@@ -14,12 +14,19 @@ Shot Manager is an add-on for Blender. Created as a tool by myself Pablo Tochez 
 
 Shot Manager should be installed like any .zip add-on [Blender 2.8 Install Add-ons 00:38-https://youtu.be/14G_YIVdBd0?t=38]. 
 
- Make sure you remove any previously installed versions first and restart Blender.
+ Make sure to remove any previously installed versions first and restart Blender.
 
 You will not lose shot data uninstalling the add-on/
 This documentation encompasses both the Lite and pro versions available on Blender Market.
 
  Version 2.0 and above do not support versions of Blender less than 4.0.
+
+Updating from a 0.7.7 (Blender 4.0-4.1 compatibility update) project
+----------------------------------------------------------------
+
+Before installing SM 2.0, ensure the latest SM 0.7 is installed. Then Export via JSON backup.
+Make a copy of the Blend file. Install SM2.0, load the copied file and import JSON. Some data may be missing that is no longer available. 
+It is a good idea to use an older version of Blender such as 4.0 with SM 0.7 installed and keep this version for exporting JSON backups.
 
 Shot List Data-Block
 -------------------
@@ -206,9 +213,8 @@ Properties
 * **End**, End frame.
 * **Notes**, for shot descriptions.
 
-.. image:: DefaultShotProps.JPG
 
- Shot Properties can be added and managed in the Default Shot Properties.
+ Shot Properties can be added and managed in the Default Shot Properties. See :ref:`'Default Shot' and Inheritance`
 
 **Optional Properties and RNA paths**
 
