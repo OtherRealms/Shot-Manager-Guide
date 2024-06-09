@@ -19,14 +19,42 @@ Shot Manager should be installed like any .zip add-on [Blender 2.8 Install Add-o
 You will not lose shot data uninstalling the add-on/
 This documentation encompasses both the Lite and pro versions available on Blender Market.
 
+
  Version 2.0 and above do not support versions of Blender less than 4.0.
 
-Updating from a 0.7.7 (Blender 4.0-4.1 compatibility update) project
-----------------------------------------------------------------
+Updating from an 0.7 Shot Manager project
+-----------------------------------------
+
+ SM 2.0 can attempt to rebuild the Shot List from an older project, this must be done before making any changes or saving.
+
+.. image:: LegacyLoad.JPG
+
+ Note: Shot Rules and Output Pass Groups are not recoverable.
+    
+* **Save as Copy**, After rebuilding, the project will be saved with the suffix "_converted"
+
+Render engine keys are preconfigured but may need to be re-mapped in some cases. 
+
+In 0.7.7:
+
+0=None, 
+1= BLENDER_EEVEE, 
+
+2 = BLENDER_WORKBENCH, 
+
+3 = HYDRA_STORM if the old project was saved using Blender 4.0-4.1, otherwise CYCLES. 
+
+4 = CYCLES if previously a Blender 4.0-4.1 file, otherwise a 3rd party render engine.
+
+5= 3rd party render engine.
+
+Alternatively:
 
 Before installing SM 2.0, ensure the latest SM 0.7 is installed. Then Export via JSON backup.
 Make a copy of the Blend file. Install SM2.0, load the copied file and import JSON. Some data may be missing that is no longer available. 
 It is a good idea to use an older version of Blender such as 4.0 with SM 0.7 installed and keep this version for exporting JSON backups.
+
+
 
 Shot List Data-Block
 -------------------
