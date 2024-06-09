@@ -27,7 +27,7 @@ Updating from an 0.7 Shot Manager project
 
  SM 2.0 can attempt to rebuild the Shot List from an older project, this must be done before making any changes or saving.
 
-.. image:: LegacyLoad.JPG
+.. image:: LoadLegacy.JPG
 
  Note: Shot Rules and Output Pass Groups are not recoverable.
     
