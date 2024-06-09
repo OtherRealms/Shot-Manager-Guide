@@ -22,14 +22,12 @@ This documentation encompasses both the Lite and pro versions available on Blend
 
  Version 2.0 and above do not support versions of Blender less than 4.0.
 
-Updating from an 0.7 Shot Manager project
------------------------------------------
-
- SM 2.0 can attempt to rebuild the Shot List from an older project, this must be done before making any changes or saving.
-
+Updating from v0.7 or older Shot Manager project
+------------------------------------------------
 
 .. image:: LoadLegacy.JPG
 
+SM 2.0 can attempt to rebuild the Shot List from an older project, this must be done before making any changes or saving.
 
  Note: Shot Rules and Output Pass Groups are not recoverable.
     
@@ -37,7 +35,7 @@ Updating from an 0.7 Shot Manager project
 
 Render engine keys are preconfigured but may need to be re-mapped in some cases. 
 
-In 0.7.7:
+For 0.7.7:
 
 0=None, 
 1= BLENDER_EEVEE, 
