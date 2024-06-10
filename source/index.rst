@@ -485,6 +485,7 @@ Macro's can also be executed from the SM Tools panel and the 3D view right panel
 
 UI: Settings
 ============
+
 .. image:: settings.JPG
 
 
@@ -506,6 +507,7 @@ UI: Settings
 
 Timeline Settings
 -----------------
+
 .. image:: TimelineSettings.JPG 
 
 * **Marker Set**, Activate or create a timeline marker set
