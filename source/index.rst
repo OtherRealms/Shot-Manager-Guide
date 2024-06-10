@@ -504,6 +504,18 @@ UI: Settings
 * **Use RNA Defaults**, (Shot Rules) Use default values when an RNA rule exists, but the value hasn't been set yet.
 * **Debug Mode**, For displaying extra debug messages in console
 
+Timeline Settings
+-----------------
+.. image:: TimelineSettings.JPG 
+
+* **Marker Set**, Activate or create a timeline marker set
+* **Shot Sequence Playback**, Switch shots in sequence while playing animation.
+* **Sequence Scrubbing**, Allow scrubbing through shots in sequence. Not compatible with 'Limit Playhead'
+* **Jump to First Frame**, place playhead at start of frame range when choosing shots.
+* **Keep in Range**, view timeline to playhead when choosing shots.
+* **Limit Playhead**, Don't allow frame to be selected with mouse outside of frame range.
+
+
 
 UI: Overlays
 ============
