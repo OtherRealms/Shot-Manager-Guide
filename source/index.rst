@@ -27,9 +27,9 @@ Updating from v0.7 or older Shot Manager project
 
 .. image:: LoadLegacy.JPG
 
-SM 2.0 can attempt to rebuild the Shot List from an older project, this must be done before making any changes or saving.
+While not recommended for project in progress, SM 2.0 can attempt to rebuild the Shot List from an older project, this must be done before making any changes or saving.
 
- Note: Shot Rules and Output Pass Groups are not recoverable.
+ Note: Shot Rules and Output Pass Groups are not recoverable. Old nodes should be removed. Some addon settings may have changed. 
     
 * **Save as Copy**, After rebuilding, the project will be saved with the suffix "_converted"
 
@@ -53,7 +53,6 @@ Alternatively:
 Before installing SM 2.0, ensure the latest SM 0.7 is installed. Then Export via JSON backup.
 Make a copy of the Blend file. Install SM2.0, load the copied file and import JSON. Some data may be missing that is no longer available. 
 It is a good idea to use an older version of Blender such as 4.0 with SM 0.7 installed and keep this version for exporting JSON backups.
-
 
 
 Shot List Data-Block
