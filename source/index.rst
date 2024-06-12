@@ -168,6 +168,8 @@ Main Panel
 The main interface is found in the 'Properties' panel under the Output tab.
 
 * **Enable**, The first checkbox will toggle the affect of Shot Manager on your scene. Uncheck if you need to turn off its influence, particularly if rendering alternative frame ranges or View Layers.
+ 
+ TIP: Hold SHIFT and click to enable multiple tabs.
 
 UI: Shots
 =========
@@ -225,6 +227,8 @@ Shot data
 
 
 Each shot contains its own data set that may include any of the following:
+
+ TIP: Hold SHIFT and click to enable multiple tabs.
 
 Properties
 -----------
