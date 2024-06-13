@@ -27,9 +27,9 @@ Updating from v0.7 or older Shot Manager project
 
 .. image:: LoadLegacy.JPG
 
-While not recommended for project in progress, SM 2.0 can attempt to rebuild the Shot List from an older project, this must be done before making any changes or saving.
+While not recommended for projects in progress, SM 2.0 can attempt to rebuild a Shot List from an older project, this must be done before making any changes or saving.
 
- Note: Shot Rules and Output Pass Groups are not recoverable. Old nodes should be removed. Some addon settings may have changed. 
+ Note: Shot Rules and Output Pass Groups are not recoverable. Old nodes should be removed. Some add-on settings may have changed. 
     
 * **Save as Copy**, After rebuilding, the project will be saved with the suffix "_converted"
 
@@ -153,7 +153,7 @@ Shot Operations
 1. **New Shot** , Adds a new shot to your list.
 
 2. **Duplicate** the active shot.
-3. **Join** two shots including frame ranges. Options **Delete Target** = Deletes the target shot, **Assimilate View Layers** = Adds View Layer states to existing, **Assimilate Rules** =Adds Rules to existing.
+3. **Join**, Merge the active shot into a target shot, combining their frame ranges. Options **Delete Target** = Deletes the target shot, **Assimilate View Layers** = Adds View Layer states to existing, **Assimilate Rules** =Adds Rules to existing.
 4. **Split** , Divide a shot, creating a duplicate at the given frame.
 5. **Copy From Shot** , Copy data from another shot. Select source shot name followed by specific data or 'All'. **Apply to all queued shots** will copy the source data to all queued /enabled shots.
 6. **Add Links**, 
