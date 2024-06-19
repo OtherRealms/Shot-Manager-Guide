@@ -388,6 +388,8 @@ Swap Rules - Materials, Mesh Data, Cameras, Lights
 .. image:: SwapRules.JPG
 
 Swap Rules follow the principle of; replace data A with data B, if a collection filter is defined, the affect will be restricted to that collection. Rules defined in the Rule Book can then be re-used by assigning them to the shots individually. If the following shot doesn't have a rule, the data block will be reset to its original/default state. Caution: large scenes with many objects may take longer to switch between shots.
+ 
+ Material overrides will target the first material slot only.
 
 * **Filter**, use the collections filter to limit overrides to objects within the filter collection.
 
@@ -494,7 +496,7 @@ UI: Settings
 
 * **Still Mode** , Use a single frame for shot timing.
 * **Switch to Primary**, make primary layer the active view layer when choosing shots.
-* **Generate Primary Layers**, a new View Layer will be created with the name of the newly made shot and associated as a Primary Layer
+* **Generate Primary Layers**, a new View Layer will be created with the name of the newly made shot and associated as a Primary Layer. The layer will be re-named along with shots.
 * **View Layer Default**, (On, Off, Primary Enabled and Default). The default state of View Layers if they have no saved state for the active shot. 'On' will make all unsaved layers renderable by default with each shot change/trigger. 'Off' will default to unrenderable, choose 'Off' to prevent unsaved view layers from rendering. 'Primary Enabled' will also switch all unsaved layers to unrenderable, except for the Shot's Primary Layer. 'Default' will derive unpinned states from the DEFAULT shot.
 * **Separator**, a custom separator to add between filenames and frame suffix, default is '_'
 
@@ -669,7 +671,7 @@ Marker Sets
 -----------
 .. image:: MarkerSets.JPG
 
-Marker Sets are groups of timeline markers. Only one set is visible at a given time. To setup a set, add a marker set, define a name and create timeline markers as per usual. Upon making a new set or changing the active set, the previous set will be saved. Marker sets can be assigned to shots by adding the Timeline Markers property in the Default Shot properties (PRO☆).
+Marker Sets are groups of timeline markers. Only one set is visible at a given time. To set up a set, add a marker set, define a name and create timeline markers as per usual. Upon making a new set or changing the active set, the previous set will be saved. Marker sets can be assigned to shots by adding the Timeline Markers property in the Default Shot properties (PRO☆).
 
 Simplified interface also found in timeline right panel ('N' Panel).
 
