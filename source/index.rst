@@ -4,7 +4,7 @@ Shot Manager
 
 https://twitter.com/OTrealms
 
-:Version: 2.0.0
+:Version: 2.0.5
 
 
 Getting Started
@@ -12,15 +12,14 @@ Getting Started
 
 Shot Manager is an add-on for Blender. Created as a tool by myself Pablo Tochez A. [contact@pablotochez.com] in order to assist in the organisation of complex files containing multiple shots, view layers and cameras. I am an artist with some coding knowledge for making time saving tools and digital artworks.
 
-Shot Manager should be installed like any .zip add-on [Blender 2.8 Install Add-ons 00:38-https://youtu.be/14G_YIVdBd0?t=38]. 
+Shot Manager should be installed like any .zip add-on [Blender 2-3 Install Add-ons 00:38-https://youtu.be/14G_YIVdBd0?t=38, blender 4.2 user Add-ons https://www.youtube.com/watch?v=_dJxMgMKYgU&ab_channel=GlenMadden]. 
 
  Make sure to remove any previously installed versions first and restart Blender.
 
 You will not lose shot data uninstalling the add-on/
 This documentation encompasses both the Lite and pro versions available on Blender Market.
 
-
- Version 2.0 and above do not support versions of Blender less than 4.0.
+ SM version 2.0 and above do not support versions of Blender less than 4.0.
 
 Updating from v0.7 or older Shot Manager project
 ------------------------------------------------
@@ -306,7 +305,7 @@ Shot Rules
 
 .. image:: ShotRules.JPG 
 
-Here rules can be assigned, toggled and overridden (RNA, Python Variables) per shot. Rules should first be created in the Rule Book, see :ref:`UI: Rule Book`.
+Here rules can be assigned, toggled and overridden per shot. Rules should first be created in the Rule Book, see :ref:`UI: Rule Book`.
 
 **List Drop Down**
 * **Search**, Filter Rules by text input.
@@ -375,7 +374,7 @@ UI: Rule Book
 .. image:: RuleBook.JPG 
 
 Shot rules are a powerful way to override data blocks and properties.
-Rules are defined in the Rule Book panel. Once created in the Rule Book, they can be assigned to shots. RNA Rules can be used as Macros. There are many types of rules which target various data types.
+Rules are defined in the Rule Book panel. Once created in the Rule Book, they can be assigned to shots. RNA and Python Rules can be used as Macros. There are many types of rules which target various data types.
 
 Rules and Variables are shared (global) across Scenes.
 
@@ -387,7 +386,8 @@ Swap Rules - Materials, Mesh Data, Cameras, Lights
 ----------------------------------------------
 .. image:: SwapRules.JPG
 
-Swap Rules follow the principle of; replace data A with data B, if a collection filter is defined, the affect will be restricted to that collection. Rules defined in the Rule Book can then be re-used by assigning them to the shots individually. If the following shot doesn't have a rule, the data block will be reset to its original/default state. Caution: large scenes with many objects may take longer to switch between shots.
+Swap Rules follow the principle of; replace data A with data B, if a collection filter is defined, the affect will be restricted to that collection. Rules defined in the Rule Book can then be re-used by assigning them to the shots individually. 
+If the following shot doesn't have a rule, the data block will be reset to its original/default state. Caution: large scenes with many objects may take longer to switch between shots.
  
  Material overrides will target the first material slot only.
 
@@ -442,7 +442,7 @@ Python Rules
 
 Python Rules contain python code to be executed every time an assigned Shot is activated. There is no need to import or define the following names:
 
-**'bpy', 'context','scene','data', 'Vector','rule'(assigned Rule) and 'shot'** are already provided in the name space. Please beware that very long code may slow down shot changes. Deep code might make Blender unstable. Python Rules are called after the majority of updates when activating a Shot. Python rules can be made revertible using variables as defaults values.
+**'bpy', 'context','scene','data', 'Vector','rule'(self reference assigned Rule) and 'shot'** are already provided in the name space. Please beware that very long code may slow down shot changes. Deep code might make Blender unstable. Python Rules are called after the majority of updates when activating a Shot. Python rules can be made revertible using variables as defaults values.
 
 * **Expression**, A single line of code.
 * **Text File**, Read python code from a text block.
@@ -479,7 +479,9 @@ Macros
 
 .. image:: Macros.JPG
 
-Macros in Shot Manager are a list of RNA Rules to be executed manually on click. These are useful when working with multiple settings without needing to assign RNA Rules to shots. For example, enabling/disabling camera overlays or a rig bind pose position. Macros can be reverted by using default values.
+Macros in Shot Manager are a list of RNA or Python Rules to be executed manually on click. These are useful when working with multiple settings without needing to assign RNA Rules to shots. 
+For example, enabling/disabling camera overlays or a rig bind pose position. Macros can be made revertable by setting RNA default values. 
+For python rules, macro's and use variable overrides on execution and variable default values on revert.
 
 All RNA Rules in all Rule Books within the Blender file will appear under the Macro. Enabled Rules will activate the rules 'Override' value, disabled Rules will use the Rule's 'Default' value.
 
@@ -586,7 +588,8 @@ Shot Sequence Editor
 
 The Shot Sequence Editor acts as an overlay only unless the Shot Edit tool is active.
 
-* **Left Mouse Click** on a shot strip to offset its timing or end handles to trim. Hold **SHIFT** to enable snapping to the nearest shot. 
+* **Left Mouse Click** on a shot strip to offset its timing or end handles to trim. Hold **CTRL** to enable snapping to the nearest shot. 
+Hold **SHIFT** and click to select additional shots. 
 
 * **Right Mouse Click** on a strip to bring up a context menu.
 
@@ -596,7 +599,10 @@ The Shot Sequence Editor acts as an overlay only unless the Shot Edit tool is ac
 
 * **Press K**, knife tool. Slice shots at mouse click into two. Hold click a drag to place slice.
 
+* **Press R**, Ripple tool. Slide or scale a strip forwards to ripple all shot following he modified shot's end frame. Slide or scale backwards to ripple all shots prior to the modified shot's start frame.
+
 * **Press J**, Join tool. Click and drag to merge a shot with it neighbour. A popup box with options will appear.
+
 * * **Delete Target**, Delete the target shot. Disable to keep the shot.
 
 * * **Assimilate Layers**, Add the target shot's View Layer states to the resulting combined shot.
@@ -1069,6 +1075,15 @@ The Output Generator Node is the essential input of a chain of generator nodes. 
 .. image:: JoiningOutputs.JPG
 
 It is possible to combine generated nodes if the Output Generator nodes have matching names. Sub-paths and EXR settings will only follow the first to be evaluated. Combine Outputs should be checked on both nodes and should have matching Multi-Layer EXR checkmark.
+
+**Output Pass Name Mapping**
+
+.. image:: PassNameRemap.JPG
+
+In the right panel, generated output pass names can be remapped for the given Output Generator. These will be respected in the filename and subfolder formating.
+
+* **Socket Name**, The render layer socket to override
+* **=**, Define a new name
 
 Group Insert Node
 -----------------
