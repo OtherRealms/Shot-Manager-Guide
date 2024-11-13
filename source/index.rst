@@ -2,9 +2,12 @@
 Shot Manager
 =============
 
-https://twitter.com/OTrealms
+**Socials:**
 
-:Version: 2.0.5
+BlueSky: https://bsky.app/profile/otrealms.bsky.social
+REDnote: otrealms1234
+
+:Version: 2.0.6
 
 
 Getting Started
@@ -36,8 +39,9 @@ Render engine keys are preconfigured but may need to be re-mapped in some cases.
 
 For 0.7.7:
 
-0=None, 
-1= BLENDER_EEVEE, 
+0 = None, 
+
+1 = BLENDER_EEVEE, 
 
 2 = BLENDER_WORKBENCH, 
 
@@ -45,7 +49,7 @@ For 0.7.7:
 
 4 = CYCLES if previously a Blender 4.0-4.1 file, otherwise a 3rd party render engine.
 
-5= 3rd party render engine.
+5 = 3rd party render engine.
 
 Alternatively:
 
@@ -358,6 +362,9 @@ External Scenes can be filtered by listing scene names to include.
 * **Reload External Scenes**, External shots must be reloaded to reflect any updates to the shot list and frame ranges. Only already loaded scenes will be included, and any render queue overrides will be reset.
 
 * **Show Render Time**, Display completed render times in the queue
+
+* **VSE**, Push output to vse, including frame sequences and video files, refresh source files and add new shots, without resetting sequence edits.
+
 * **Override Frame Range**, This will use an alternative frame range to batch render/submit shots, available for both internal and external shots.
 * **Inspect Output** Display shot output file path details and image preview. When opening a preview in Blender Viewer, the images contained in the directory will be displayed and played using the scene's frame rate. Use numpad buttons 0-9 to control frame rate, 9 is slowest. Arrow keys left and right will pause and increment current frame. Press Enter to play animation. Esc key to close window.
 
@@ -368,7 +375,7 @@ Batch Render
 see :ref:`Batch Rendering`.
 
 UI: Rule Book
-==========
+=============
 **Pro Feature ☆**
 
 .. image:: RuleBook.JPG 
@@ -383,7 +390,7 @@ Rules and Variables are shared (global) across Scenes.
 * **Method**, The type of Rule  you wish to define.
 
 Swap Rules - Materials, Mesh Data, Cameras, Lights
-----------------------------------------------
+--------------------------------------------------
 .. image:: SwapRules.JPG
 
 Swap Rules follow the principle of; replace data A with data B, if a collection filter is defined, the affect will be restricted to that collection. Rules defined in the Rule Book can then be re-used by assigning them to the shots individually. 
@@ -416,7 +423,6 @@ The simplest way to find a data path is to right-click a property in Blender's i
 
 
 * **Domain**, Point to the specific data object which contains the property to override.
-
 * **Path**, The property's data path relative to the source. Custom Properties should use double quotations i.e. ["Prop"]
 * **Paste Current Value**, Copy the properties current value to the default value.
 * **Default**, The default value to revert to when the rule is disabled or not assigned to the active Shot.
@@ -499,18 +505,21 @@ UI: Settings
 * **Still Mode** , Use a single frame for shot timing.
 * **Switch to Primary**, make primary layer the active view layer when choosing shots.
 * **Generate Primary Layers**, a new View Layer will be created with the name of the newly made shot and associated as a Primary Layer. The layer will be re-named along with shots.
-* **View Layer Default**, (On, Off, Primary Enabled and Default). The default state of View Layers if they have no saved state for the active shot. 'On' will make all unsaved layers renderable by default with each shot change/trigger. 'Off' will default to unrenderable, choose 'Off' to prevent unsaved view layers from rendering. 'Primary Enabled' will also switch all unsaved layers to unrenderable, except for the Shot's Primary Layer. 'Default' will derive unpinned states from the DEFAULT shot.
+* **View Layer Default**, (On, Off, Primary Enabled and Default). The default state of View Layers if they have no saved state for the active shot. 'On' will make all unsaved layers renderable by default with each shot change/trigger. 'Off' will default to un-renderable, choose 'Off' to prevent unsaved view layers from rendering. 'Primary Enabled' will also switch all unsaved layers to un-renderable, except for the Shot's Primary Layer. 'Default' will derive unpinned states from the DEFAULT shot.
 * **Separator**, a custom separator to add between filenames and frame suffix, default is '_'
 
 * **Path Type**, Absolute or relative output path creation.
 * **Sequence Scrubbing**, Allow scrubbing through shots in sequence. Not compatible with 'Limit Playhead'
 * **Shot Sequence Playback**, Switch shots in sequence while playing animation.
 * **Loop Sequence**, After playing through each shot, loop back to the start.
+* **Contiguous Mode**, Treat shots like timeline markers without adjusting scene Start-End. The Default shot will be used for render output frame range and file paths.
+Does not support View Layer State pins. Useful for simple sequences such as playblast animation as well as working around issues with simulation caches when batch rendering. 
+Youtube demonstration: https://youtube.com/shorts/YSmmYL4Tc0E?si=BTLjfHVnjRzrM5OX.
 * **Limit Playhead**, Don't allow frame to be selected with mouse outside of frame range
 * **Keep in Range**, view timeline to playhead when choosing shots.
 * **Jump to First Frame**, place playhead at start of frame range when choosing shots.
 * **Use RNA Defaults**, (Shot Rules) Use default values when an RNA rule exists, but the value hasn't been set yet.
-* **Debug Mode**, For displaying extra debug messages in console
+* **Debug Mode**, For displaying extra debug messages in console.
 
 Timeline Settings
 -----------------
@@ -523,7 +532,6 @@ Timeline Settings
 * **Jump to First Frame**, place playhead at start of frame range when choosing shots.
 * **Keep in Range**, view timeline to playhead when choosing shots.
 * **Limit Playhead**, Don't allow frame to be selected with mouse outside of frame range.
-
 
 
 UI: Overlays
@@ -681,6 +689,35 @@ Marker Sets are groups of timeline markers. Only one set is visible at a given t
 
 Simplified interface also found in timeline right panel ('N' Panel).
 
+Animation Retimer
+================
+**Pro Feature ☆**
+
+.. image:: Retimer.JPG
+
+Retime animation keyframes across multiple objects. Operations are adjustable within the redo popover. Found in 3D view right panel and timeline/dope sheet right panel.
+
+**Methods**
+
+* **Ripple**, shift keyframes around the affected time range to accommodate for retiming.
+* **Replace**, Overwrite keyframes within the To Range.
+* **Combine**, Overlay adjusted keyframes from the From Range to the To Range
+
+**Ripple Direction**, Limit backwards and forwards frame accommodation for ripple method. Uncheck 'Only Selected' to reveal scene and world types. 
+
+**Animation Data**, Filter allowed data types affected by retiming.
+
+* **Only Selected**, Only retime keyframes associated with selected objects. Otherwise affect actions associated with all data types within the filtered types. 
+* **Object Heirarchy**, Recursively select and retime child objects.
+* **Retime NLA**, Shift and slice action strips in on the NLA graphs of the included data.
+
+* **From Range**, The frame range to modify.
+* **Scale**, Calculate the To Range from a scale factor.
+* **Offset**, Add frames to the To Range, lock to avoid a re-calculation when adjusting frame ranges.
+* **To Range**, The destination for the keyframes belonging to the From Range. Transformation includes scale and offset.
+
+
+
 Batch Rendering
 ===============
 **Pro Feature ☆**
@@ -720,7 +757,7 @@ To batch render, Shot Manager will attempt to assign the hotkey Ctrl+Shift+F12, 
 
 
 Viewport Render (Play Blast)
--------------------------
+---------------------------
 
 OpenGL viewport rendering also uses the Export module. Only the local scene's shot list can be batch rendered and this is not available as a background process. Found in SM Batch Render settings and Batch Export. Supports render frame range overrides.
 
@@ -729,6 +766,8 @@ OpenGL viewport rendering also uses the Export module. Only the local scene's sh
 B-Renderon! Submitter
 ---------------------
 (Windows, Ubuntu)
+
+Job files will be saved to the Temp directory (Addon Preferences/Global Batch Render Settings)
 
 .. image:: BRenderon.JPG
 
@@ -744,6 +783,10 @@ Launch B-Renderon with shots preloaded. Temporary job files are created in the t
 
 * **Add to existing queue**, Append the shots to the given queue if matching name, otherwise clear all shots and overwrite the queue.
 * **Force Cycles Device** to ensure the correct CPU/GPU configuration is applied to renders, assuming the submission machine is or is identical to the render machine.
+* **Render As Copies**, Save and render from per-shot files rather than a single file. NOTE: Not Compatible with external render queues,
+Safe Mode or Pre-Render Reports. Filepaths will be made absolute.
+Pros- Python render setup scripts not required and Shot Manager addon installation not required for render nodes.
+Cons-Slower shot submission, may consume excessive disk space.
 
 Flamenco Submitter
 ------------------
@@ -764,11 +807,11 @@ Flamenco is a free network distribution render manager supported by the Blender 
 
 3. Install the Blender add-on of the same version (3.5+). Run Flamenco Manager in browser to find download link. i.e. Run Flamenco Manager and go to default http://localhost:8080/
 
-4. Configure the add-on in Blender Preferences. Job Storage should be a shared location.
+4. Configure the Flamenco add-on in Blender Preferences. Job Storage should be a shared location.
 
 5. Install the Shot Manager Job Type
 
-6. Run Flamenco Manager
+6. Check that Temp folder (Addon Preferences/Global Batch Render Settings) is on a shared location and Run Flamenco Manager
 
 7. Open Browser interface
 
@@ -776,11 +819,15 @@ Flamenco is a free network distribution render manager supported by the Blender 
 
 9. Run a flamenco-worker
 
+If the SM job type is updated or installed while Flamenco Manager is running, restart Flamenco Manager to recognize changes.
 
 * **Priority**, Higher numbers will give the render task higher priority
 * **Chunk Size**, The number of frames to render per task. Smaller chunks results in more sharing across render nodes. Use higher values for simulations and larger files with long build times. Too many chunks may add some extra delay in launching Blender and render engine initialisation.
 * **Ignore Version Mismatch**, Attempt to submit render even if the Flamenco add-on and submitter doesn't match the manager.
-
+* **Render As Copies**, Save and render from per-shot files rather than a single file. NOTE: Not Compatible with external render queues,
+Safe Mode or Pre-Render Reports. Filepaths will be made absolute.
+Pros- Python render setup scripts not required and Shot Manager addon installation not required for render nodes.
+Cons-Slower shot submission, may consume excessive disk space.
 
 Deadline Submitter
 --------------------
@@ -807,7 +854,7 @@ https://docs.thinkboxsoftware.com/products/deadline/10.1/1_User%20Manual/manual/
 
 Once installed, simply click **Setup/Update Plugin** in the Deadline sub-panel to install the plug-in. This will transfer required files to the repository>custom>plugins folder. 
 
-All enabled shots for enabled scenes in the render list will be submitted. Ensure that the **Temp Path** is not empty and set to the desired location. This does not need to be a shared location. In most cases the required Deadline Command will be found automatically however if using macOS/Linux there is a chance it will need to be located manually.
+All enabled shots for enabled scenes in the render list will be submitted. Ensure that the **Temp Path** (Addon Preferences/Global Batch Render Settings) is not blank and set to the desired location. This needs to be a shared location as Deadline will not ingest files. In most cases the required Deadline Command will be found automatically however if using macOS/Linux there is a chance it will need to be located manually.
 
 * Windows looks like: \Program Files\Thinkbox\Deadline10\bin 
 * Mac OS looks like: /Applications/Thinkbox/Deadline10/Resources
@@ -844,6 +891,10 @@ For example,
 * **Start Job Delay** Specifies the time, in minutes, a Slave has to start a render job before it times out.
 * **Auto Time-Out**, Automatically figure out if it has been rendering too long based on some Repository Configuration settings and the render times of previously completed tasks.
 * **Force Sequential**, Forces a slave to render the tasks of a job in order. If an earlier task is ever re-queued, the slave won't go back to that task until it has finished the remaining tasks in order.
+* **Render As Copies**, Save and render from per-shot files rather than a single file. NOTE: Not Compatible with external render queues,
+Safe Mode or Pre-Render Reports. Filepaths will be made absolute.
+Pros- Python render setup scripts not required and Shot Manager addon installation not required for render nodes.
+Cons-Slower shot submission, may consume excessive disk space.
 
 Batch Export
 ============
@@ -864,6 +915,7 @@ Export formats currently include:
 * USD (Universal Scene Description)
 * DAE (Collada)
 * Viewport Render(Playblast)
+* XML
 
 .. image:: ExportSettings.JPG
 
@@ -889,6 +941,16 @@ Embedded shots can store frame ranges and shot names as animation layers and ext
 Batch files are used by Windows to execute command-line rendering. Either export separate files, per shot or a single batch file containing an execution list. Simply open the file to begin the render process. Be sure not to move the source Blend files as references to those files will be lost.
 
 * **Relative Execution Path**, Keep paths to Blender files relative.
+
+**XML**
+
+.. image:: XML.JPG
+
+Based on Final Cut Pro 7 xml exchange. Tested in Adobe Premier and DaVinCi Resolve. Exports a timeline containing references to output media, frame sequences and video files. If no output files are found the receiving program will create placeholder error strips.
+
+**IMPORTANT** : There is a distinction between xml media files and xml timeline files. The xml should be import as a timeline. In Premier this is done via File->Open Project .xml. In DaVinci import->Timeline .xml.
+
+
 
 Burn-Ins
 ========
@@ -960,6 +1022,12 @@ Image Relative vs pixel position. Every position and scale parameter has the opt
  Note: these coordinates are always in addition to parent **Groups**. Image relative coordinates are useful when making an adaptable layout for various image ratios or for easily finding the centre of an image i.e 0,0 is the centre of the canvas when Image relative, otherwise the bottom left. 
 
 If the stamp belongs to a group, 0,0 will be the group's centre anchor in both cases. Image Relative Scale always refers a 0-1 factor the canvas size otherwise XY pixel distance from centre i.e. x X 5 is 10 pixels across. The scaling centre can be offset when grouped.
+
+Shot List Editor
+=================
+Not currently in use. This is a product of the shotlist data type being a node graph for easy appending and linking.
+Features may be developed. 
+If this intereferes with hotkeys, the name of the editor can be modified in Addon preferences->Shot Manager as the hotkeys are generated by alphabetical order.   
 
 
 Compositor Nodes
