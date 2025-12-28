@@ -5,9 +5,9 @@ Shot Manager
 **Socials:**
 
 BlueSky: https://bsky.app/profile/otrealms.bsky.social
-REDnote: otrealms1234
+Discord: https://discord.gg/NF5WZzUrxV
 
-:Version: 2.0.6
+:Version: 2.0.8.2
 
 
 Getting Started
@@ -260,6 +260,7 @@ Properties
 * **Cycles Max Samples** = cycles.samples
 * **Cycles Max Viewport Samples** = cycles.preview_samples
 * **Cycles Motion Blur** = render.use_motion_blur
+* **Compositor Nodes** = compositing_node_group (Blender 5)
 * **Eevee Motion Blur** = eevee.use_motion_blur
 * **Eevee Samples** = eevee.taa_render_samples
 * **Eevee Viewport Samples** = eevee.taa_samples
@@ -279,6 +280,7 @@ Properties
 * **World** = world
 * **Timeline Markers** = sm_general_props.marker_set (PRO☆)
 * **File Format** = render.image_settings (PRO☆)
+
 
 
 View Layers
@@ -326,11 +328,29 @@ Output Settings
 .. image:: Output.JPG
 
 * **Root Folder** will be the starting directory for shots.
-
 * **Separator**, A custom separator to add between filenames and frame suffix, default is underscore '_'.
 * **Path Type**, Absolute or Relative output path creation. Affects; Root Folder, Temp Folder and Render Log Folder.
-* **Shot Subfolders**, When enabled, add a unique subfolder to the output path with the shot's name, separating it from other shots. Disabling this will lead to shots being rendered to the same folder which potentially could cause accidental overwrites when using generated output nodes.
 * **Use Suffix**, Add the shot's suffix to the shot's file path.
+* **Shot Subfolders**, When enabled, add a unique subfolder to the output path with the shot's name, separating it from other shots. Disabling this will lead to shots being rendered to the same folder which potentially could cause accidental overwrites when using generated output nodes.
+* **Redirect Main Output**, An alternative directory for the main output (excludes compositor output nodes). Avoids overwriting files such as those passed to the Composite node and helps with organisation. Note: the main output cannot be disabled altogether.
+
+Alternative Output Profiles
+---------------------------
+
+.. image:: AltOutputProfiles.jpg
+
+Click **New+** to make a new profile. The settings displayed will look a lot like the Output module although only the most popular settings are available. 
+This feature can be used to create preview render presets or may be used for any other situation where more than one format needs to be rendered. Other methods such as SM Format Nodes, which does not support Video output, and Shot File Format overrides which are more flexiblw but are difficult to overried on mass.
+Alternative Output settings can be assigned to an entire Render List and will affect any batch render option. 
+
+* **Name**, The profile's name, optionally used as Suffix.
+* **Use As Output Suffix**, Adds the profile's name to the end of output filenames.
+* **Redirect Main Output**, Overrrides the *Redirect Main Output* in Batch Output Settings.
+*  * **Main Root folder**, define a *Main Output* folder, overrides the root folder for main outputs(non-compositor). 
+*  **Use Nodes**, Override *use Nodes*. If using Blender v5.0 or above, unchecking this will set the compositor graph to None.
+* **Add Custom Override**, Enter a Python RNA path to any attribute belonging to the Scene class. Right click on a render property to display a context menu with the option Copy Data Path, this will be relative to its super class which must be Scene.
+* **Apply Settings To Scene**, Make immediate changes to the scene, copying settings from the profile to the active scene.
+* **Remove Output Settings**,Deletes the active profile.
 
 Global Batch Render settings
 ----------------------------
@@ -341,7 +361,9 @@ Global Batch Render settings
 * **Always Make Reports**, Generate CSV render reports after rendering the first frame of every command.
 * **Use Default Report Path**, Use the default path (output directory) or define a custom report path.
 * **Temp Path**, The directory that will store temporary job files for the integrations/ submitters. Click trash can to clear files recognised by Shot Manager.
-* **Render As Copy**, Save a Blend file when using SM render specifically for rendering. Large files make take more time however it will prevent inconsistencies if the file is changed.IMPORTANT: Simulations using the Disk Cache option are not supported.
+* **Overwrite**, set the overwrite setting on batch renders, existing files will be overwritten. Not supported with settings: external blend files + per-shot files.
+* **Add Suffix To Render File**, Easily identify and avoid overwrites on batch render submission files by adding the date to the filename.
+* **Allow Auto Execution Scripts**, Allows scripted drivers and start up scripts to run during batch renders, included scripts should be from trusted sources. This may also fix some addons that fail to work while background rendering.
 * **Safe Mode**, When batch rendering, Blender will be run using factory start-up settings, disabling 3rd party add-ons that might interfere with the render process. Render devices are then forced and add-ons in the exceptions white list will be enabled.
 * **Add Exception**, Allow specific 3rd party add-ons to be enabled during batch render.
 
@@ -362,6 +384,7 @@ External Scenes can be filtered by listing scene names to include.
 * **Reload External Scenes**, External shots must be reloaded to reflect any updates to the shot list and frame ranges. Only already loaded scenes will be included, and any render queue overrides will be reset.
 
 * **Show Render Time**, Display completed render times in the queue
+* **Alternative Output**,Assign alternative output settings. First Create a setting profile in OUTPUT-> Output Settings -> Alternative Output Profiles. These can be use in combination with any batch renderer, including external .Blend files.
 
 * **VSE**, Push output to vse, including frame sequences and video files, refresh source files and add new shots, without resetting sequence edits.
 
