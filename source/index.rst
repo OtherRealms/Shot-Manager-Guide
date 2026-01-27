@@ -525,24 +525,33 @@ UI: Settings
 .. image:: settings.JPG
 
 
-* **Still Mode** , Use a single frame for shot timing.
 * **Switch to Primary**, make primary layer the active view layer when choosing shots.
+* **Preset Base**, This shot preset will be applied to new shots. Advanced preset include Rules and Macros which are used to dynamically configure the shot's and scene. Changing the preset base will no remove these from the Rulebook so be aware that they are accumulated in the Rule Book.
 * **Generate Primary Layers**, a new View Layer will be created with the name of the newly made shot and associated as a Primary Layer. The layer will be re-named along with shots.
 * **View Layer Default**, (On, Off, Primary Enabled and Default). The default state of View Layers if they have no saved state for the active shot. 'On' will make all unsaved layers renderable by default with each shot change/trigger. 'Off' will default to un-renderable, choose 'Off' to prevent unsaved view layers from rendering. 'Primary Enabled' will also switch all unsaved layers to un-renderable, except for the Shot's Primary Layer. 'Default' will derive unpinned states from the DEFAULT shot.
 * **Separator**, a custom separator to add between filenames and frame suffix, default is '_'
-
 * **Path Type**, Absolute or relative output path creation.
+* **Date Regional Format**, Select the date format you are familiar with. This wil affect all uses of date such as filenames, batch submission and burn-ins.
+
 * **Sequence Scrubbing**, Allow scrubbing through shots in sequence. Not compatible with 'Limit Playhead'
 * **Shot Sequence Playback**, Switch shots in sequence while playing animation.
+* **Flattened Playback**, this will work as if shots are in chronological sequence, if they overlap they are flattened as if they are edited, one of the overlapping shots will not be played fully.
 * **Loop Sequence**, After playing through each shot, loop back to the start.
 * **Contiguous Mode**, Treat shots like timeline markers without adjusting scene Start-End. The Default shot will be used for render output frame range and file paths.
 Does not support View Layer State pins. Useful for simple sequences such as playblast animation as well as working around issues with simulation caches when batch rendering. 
 Youtube demonstration: https://youtube.com/shorts/YSmmYL4Tc0E?si=BTLjfHVnjRzrM5OX.
-* **Limit Playhead**, Don't allow frame to be selected with mouse outside of frame range
-* **Keep in Range**, view timeline to playhead when choosing shots.
-* **Jump to First Frame**, place playhead at start of frame range when choosing shots.
+
+* **Limit Playhead**, Don't allow frame to be selected with mouse outside of frame range.
+* **Timeline Framing**, Set view to frame range when switching shots. Disabled if Sequence Scrubbing is enabled.
+* * **Start**, Jump to First Frame on shot chang and focus timeline to frame.
+* * **Frame Range**, make current frame within frame range and focus entire range.
+* * **Start Within Rang**, Make current frame the Shot's start frame and focus timeline's entire range.
 * **Use RNA Defaults**, (Shot Rules) Use default values when an RNA rule exists, but the value hasn't been set yet.
-* **Debug Mode**, For displaying extra debug messages in console.
+* **Display N-Panel Menu**, Unchecking this will hide Shot Manager from the 3D viewport's right panel.
+* **Debug Mode**, For displaying extra debug messages in console and ui helpers.
+
+* **Install Package**, Pillow is required for the Burn-ins editor, click to install and restart Blender after in finishes. Check progress in the application terminal/console. Administrator privileges are sometimes required. 
+
 
 Timeline Settings
 -----------------
@@ -551,9 +560,8 @@ Timeline Settings
 
 * **Marker Set**, Activate or create a timeline marker set
 * **Shot Sequence Playback**, Switch shots in sequence while playing animation.
+* **Flattened Playback**, this will work as if shots are in chronological sequence, if they overlap they are flattened as if they are edited, one of the overlapping shots will not be played fully.
 * **Sequence Scrubbing**, Allow scrubbing through shots in sequence. Not compatible with 'Limit Playhead'
-* **Jump to First Frame**, place playhead at start of frame range when choosing shots.
-* **Keep in Range**, view timeline to playhead when choosing shots.
 * **Limit Playhead**, Don't allow frame to be selected with mouse outside of frame range.
 
 
@@ -894,28 +902,50 @@ For example,
 
 * **Render Executable 1**
 
-* **Blender Executables** C:\Program Files (x86)\Blender Foundation\Blender 4.1\blender.exe;D:\Programs\Blender Foundation\Blender 4.1\blender.exe;/Applications/Blender/blender.app/Contents/MacOS/blender
+* **Blender Executables** C:\Program Files (x86)\Blender Foundation\Blender 5.0\blender.exe;D:\Programs\Blender Foundation\Blender 4.1\blender.exe;/Applications/Blender/blender.app/Contents/MacOS/blender
 
-* **version** 4.1
+* **version** 5.0
 
 **Submitting a Shot**
 
 .. image:: Deadline_submit.JPG
 
 * **Queue Name**, The folder name for containing job files, using unique names avoids overwriting older submissions.
-* **Force Render Device**, Force the current file's render device i.e. CUDA, Optix, CPU.
+* * **Use Blendfile Name**, When Check the queue name will use the active filename, otherwise enter a custom name.
+* * **Add Date Suffix**, Add the submission date to the end of the queue name
+* * **Add Time Suffix**, Add the submission time to the end of the queue name
+
 * **Department**, Extra info visible in Monitor.
+* **Group**, Assign jobs to a group, See Deadline's Group Management.
 * **Pool**, Assign jobs to pools defined by Monitor's Pool Management.
 * **Secondary Pool**, Specifies the secondary pool that the job can spread to if machines are available.
 * **Initial Status**, Determines the initial status for jobs. Active will start rendering immediately.
+* **On Job Complete**, Specify what should happen to the job after it is completed.
+* * **Delete Job**
+* * **Archive Job**
 * **Machine Limit**, Limit the number of machines dedicated to the submitted jobs.
-* **Priority** Determines the order in which renders will execute. Lower values indicate higher priority in the job list.
-* **Chunk Size**, The number of frames to render per task. Smaller chunks results in more sharing across render nodes. Use higher values for simulations and larger files with long build times. Too many chunks may add some extra delay in launching Blender and render engine initialisation.
+* **Priority**, Determines the order in which renders will execute. Lower values indicate higher priority in the job list.
+* * **Chunk Size**, The number of frames to render per task. Smaller chunks results in more sharing across render nodes. 
+                    Use higher values for simulations and larger files with long build times. Too many chunks may add some extra delay in launching Blender and render engine initialisation.
+
+* **Tile Job**, Splits each frame into tile jobs. Jobs will become tiles while tasks are frames. Shots will be submitted as separate queues. 
+                The number of jobs will be multiplied by the number of tasks, this is calculated from the Chunk Size property. Note that submission durations will take much longer.
+                Draft Assembly jobs will run after each chunk is completed, these will combine tiles into rendered frames in the output directory. 
+                *Note: Tile jobs will only affect the main outputs and not compositor outputs. Frame stepping is not supported.* 
+* * **Tile Folder**, Optionally specify the directory where tiles will be rendered to.
+* * **Tile Count X/Y**, Determine the number of tiles by X * Y, for example, 3 * 2 will result in 6 tiles, 3 horizontally and 2 vertically. Use more tiles if you have a large renderfarm, otherwise too many tiles will increase scene loading times and worker idle durations.
+* * **Cropped Tiles**, The output image size for each tle will match the render regions size, otherwise full image size with black pixels.
+* * **Cleanup Files**, Once the tiles have been combined by the assembler, tile images will be deleted. This does not affect job submission files.
+
+* * **Frame Order**, Uses advanced frame list formatting to render frames, see https://docs.thinkboxsoftware.com/products/deadline/10.4/1_User%20Manual/manual/job-submitting.html#frame-list-formatting-options
 * **Start Job Delay** Specifies the time, in minutes, a Slave has to start a render job before it times out.
 * **Auto Time-Out**, Automatically figure out if it has been rendering too long based on some Repository Configuration settings and the render times of previously completed tasks.
 * **Force Sequential**, Forces a slave to render the tasks of a job in order. If an earlier task is ever re-queued, the slave won't go back to that task until it has finished the remaining tasks in order.
-* **Render As Copies**, Save and render from per-shot files rather than a single file. NOTE: Not Compatible with external render queues,
-Safe Mode or Pre-Render Reports. Filepaths will be made absolute.
+* **Force Render Device**, Force the current file's render device i.e. CUDA, Optix, CPU.
+* **Overwrite**, Override the overwrite property found in Blender's main output panel. This setting will determine if existing frames are ignored of overwritten. Useful when re-rendering sections, manually delete bad frames and uncheck overwrite to only re-render those missing.  *Note: Not supported with Per-Shot Files in combination with external Blender files.*
+* **Per-Shot Files**, Save and render from per-shot files rather than a single file. *NOTE: Not Compatible with external render queues,
+Safe Mode or Pre-Render Reports.* Filepaths will be made absolute.
+
 Pros- Python render setup scripts not required and Shot Manager addon installation not required for render nodes.
 Cons-Slower shot submission, may consume excessive disk space.
 
