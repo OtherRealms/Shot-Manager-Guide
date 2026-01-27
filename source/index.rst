@@ -70,41 +70,13 @@ Creating a Shot
 
 .. image:: ModesPopup.JPG
 
-When making your first shot, you'll be asked for optional modes. These are preset settings for various workflows.
+When making your first shot, you'll see a popup with a few parameters. These options can always be changed at a later point.
+* **MODE: Still Images**, This is ideal if you expect each shot to be a still frame. All new frames will inherit this mode but can be overridden per shot in the shot's properties. Still Image inheritance can be toggled in the Default Shot's properties.
+* **Preset Base**, Assign a previously saved shot preset to all new shots, this will also add any missing shot properties. Built-in presets offer more advanced workflow options and utilise Rules and Macros. 
+                The preset base can be changed in the Settings tab, note that Rules will still be active and need to be deleted manually if not required.
 
-Three components will be created. A new **Shot List** , **Default Shot**, and a regular **Shot**.
+When making a new Shotlist, three components will be created. A new **Shot List** node-tree data-block, a **Default Shot** and a regular **Shot**.
 
-MODE: Still Images
-------------------
-
-Defined by Default Shot and inherited by new shots.
-
-Still Images are useful when rendering single frames such as product visualisation. Still Image Mode is used by the batch rendering queue like regular shot and can be rendered using any module. It uses the shot's Start frame and will output from all available output nodes.
-
-
-MODE: Generate View Layers
----------------------------
-
-.. image:: LinkedLayers.JPG
-
-Found in first shot creation popup and Settings tab.
- 
-This mode enables the following settings:
-
-* Switch to Primary Layer, 
-* Generate Primary Layers 
-* View Layer Default to 'Primary Enabled'.
-
-This work flow is designed for users who wish to create unique View Layers for each shot where different collections are visible per Shot. This work flow is most commonly used in product rendering and visualisation. When making a new Shot, a View Layer will be generated with the Shot's naming. The newly created View Layer will be set as the Shot's Primary Layer. The Primary Layer in combination with the other settings mentioned will become the active View Layer and will be renderable when the Shot is selected. It is therefore not necessary to alter the View Layer save/render states for the Shot. 
-
-*Related functions:
-
- When a shot is deleted, an option also deleted its Primary layer will be given.
-
- If the shot name is changed, the Primary Layer name can be matched in the View Layers states editor.
-
- New collections created using SM New Collection (Outliner) may be given the Shot's name and is enabled only in the active View Layer.
- This will allow per Shot, per layer objects.
 
 'Default Shot' and Inheritance
 ------------------------------
@@ -242,7 +214,8 @@ Properties
 
 * **Suffix** Add a suffix to the shot's display name and output filename.
 * **Primary Layer**, select a View Layer that will become activated when selecting the shot if 'Switch to Primary' is enabled in settings. Also used as a default render layer if 'Unpinned default' is set to 'Primary Only' (View layer tab).
-* **Still Image** 
+* **Still Image**, Still frame mode
+* **Frame Handles**, extra frames before and after the shot's frame range. 
 * **Start**, Start frame.
 * **End**, End frame.
 * **Notes**, for shot descriptions.
@@ -279,7 +252,7 @@ Properties
 * **View Transform** = view_settings.view_transform
 * **World** = world
 * **Timeline Markers** = sm_general_props.marker_set (PRO☆)
-* **File Format** = render.image_settings (PRO☆)
+* **File Format** = render.image_settings, render.ffmpeg.format (PRO☆)
 
 
 
