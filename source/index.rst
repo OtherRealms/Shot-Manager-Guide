@@ -7,19 +7,19 @@ Shot Manager
 BlueSky: https://bsky.app/profile/otrealms.bsky.social
 Discord: https://discord.gg/NF5WZzUrxV
 
-:Version: 2.0.8.2
+:Version: 2.0.8.5
 
 
 Getting Started
 ===============
 
-Shot Manager is an add-on for Blender. Created as a tool by myself Pablo Tochez A. [contact@pablotochez.com] in order to assist in the organisation of complex files containing multiple shots, view layers and cameras. I am an artist with some coding knowledge for making time saving tools and digital artworks.
+Shot Manager is an add-on for Blender. Created as a tool by myself Pablo Tochez A. [contact@pablotochez.com] in order to assist in the organisation of complex files containing multiple Shots, view layers and cameras. I am an artist with some coding knowledge for making time saving tools and digital artworks.
 
 Shot Manager should be installed like any .zip add-on [Blender 2-3 Install Add-ons 00:38-https://youtu.be/14G_YIVdBd0?t=38, blender 4.2 user Add-ons https://www.youtube.com/watch?v=_dJxMgMKYgU&ab_channel=GlenMadden]. 
 
  Make sure to remove any previously installed versions first and restart Blender.
 
-You will not lose shot data uninstalling the add-on/
+You will not lose Shot data uninstalling the add-on/
 This documentation encompasses both the Lite and pro versions available on Blender Market.
 
  SM version 2.0 and above do not support versions of Blender less than 4.0.
@@ -63,16 +63,16 @@ Shot List Data-Block
 
 .. image:: ShotListData.JPG
 
-A Shot List is a group of shots stored in a node tree data-block. This structure allows for sharing shots across scenes and blender files. A new editor type is created respectively and where new list overview nodes will become available with the development of Shot Manager 2.0.1+ . When starting on a new project, click New to create and link a Shot List to the active scene.
+A Shot List is a group of Shots stored in a node tree data-block. This structure allows for sharing Shots across scenes and blender files. A new editor type is created respectively and where new list overview nodes will become available with the development of Shot Manager 2.0.1+ . When starting on a new project, click New to create and link a Shot List to the active scene.
 
 Creating a Shot
 ---------------
 
 .. image:: ModesPopup.JPG
 
-When making your first shot, you'll see a popup with a few parameters. These options can always be changed at a later point.
-* **MODE: Still Images**, This is ideal if you expect each shot to be a still frame. All new frames will inherit this mode but can be overridden per shot in the shot's properties. Still Image inheritance can be toggled in the Default Shot's properties.
-* **Preset Base**, Assign a previously saved shot preset to all new shots, this will also add any missing shot properties. Built-in presets offer more advanced workflow options and utilise Rules and Macros. 
+When making your first Shot, you'll see a popup with a few parameters. These options can always be changed at a later point.
+* **MODE: Still Images**, This is ideal if you expect each Shot to be a still frame. All new frames will inherit this mode but can be overridden per Shot in the Shot's properties. Still Image inheritance can be toggled in the Default Shot's properties.
+* **Preset Base**, Assign a previously saved Shot preset to all new Shots, this will also add any missing Shot properties. Built-in presets offer more advanced workflow options and utilise Rules and Macros. 
                 The preset base can be changed in the Settings tab, note that Rules will still be active and need to be deleted manually if not required.
 
 When making a new Shotlist, three components will be created. A new **Shot List** node-tree data-block, a **Default Shot** and a regular **Shot**.
@@ -83,14 +83,14 @@ When making a new Shotlist, three components will be created. A new **Shot List*
 
 .. image:: ShotType.JPG
 
-The Default shot is intended for property defaults, general editing and previewing and is not recommended for batch rendering or exporting. This is the basis for regular shots. 
+The Default Shot is intended for property defaults, general editing and previewing and is not recommended for batch rendering or exporting. This is the basis for regular Shots. 
 Shot data hierarchy is as follows; 
 
 Scene Settings -> Default Shot -> Shot -> Linked Shot. 
 
-Properties that are left empty i.e. Camera or not overridden on linked shots will be inherited down the chain.
+Properties that are left empty i.e. Camera or not overridden on linked Shots will be inherited down the chain.
 
-Some 'base' properties are not heritable, these depend on the shot's type and include; 
+Some 'base' properties are not heritable, these depend on the Shot's type and include; 
 
 Default Shot: 
 
@@ -114,26 +114,26 @@ Linked Shots
 ------------
 .. image:: LinkedShots.JPG
 
-Linked shots reference data from an existing shot for all properties unless overridden. These can be used for multi-cam set-ups where multiple cameras are used to render a scene but retain the same base filename and file path. Shots can be linked from any Shot List.
+Linked Shots reference data from an existing Shot for all properties unless overridden. These can be used for multi-cam set-ups where multiple cameras are used to render a scene but retain the same base filename and file path. Shots can be linked from any Shot List.
 
- NOTE: If not overriding frame range to unique frames, these images will overwrite each other when batch rendering unless Path Constructor nodes are used to make more unique file paths. For example, overriding the shot's Camera with a Camera Path Constructor, will give a unique path or filename.
+ NOTE: If not overriding frame range to unique frames, these images will overwrite each other when batch rendering unless Path Constructor nodes are used to make more unique file paths. For example, overriding the Shot's Camera with a Camera Path Constructor, will give a unique path or filename.
 
-Linked shots can also be used to re-render sections of shots without losing their original frame range.
+Linked Shots can also be used to re-render sections of Shots without losing their original frame range.
 
 Shot Operations
 ===============
 
 .. image:: ShotOps.JPG
 
-1. **New Shot** , Adds a new shot to your list.
+1. **New Shot** , Adds a new Shot to your list.
 
-2. **Duplicate** the active shot.
-3. **Join**, Merge the active shot into a target shot, combining their frame ranges. Options **Delete Target** = Deletes the target shot, **Assimilate View Layers** = Adds View Layer states to existing, **Assimilate Rules** =Adds Rules to existing.
-4. **Split** , Divide a shot, creating a duplicate at the given frame.
-5. **Copy From Shot** , Copy data from another shot. Select source shot name followed by specific data or 'All'. **Apply to all queued shots** will copy the source data to all queued /enabled shots.
+2. **Duplicate** the active Shot.
+3. **Join**, Merge the active Shot into a target Shot, combining their frame ranges. Options **Delete Target** = Deletes the target Shot, **Assimilate View Layers** = Adds View Layer states to existing, **Assimilate Rules** =Adds Rules to existing.
+4. **Split** , Divide a Shot, creating a duplicate at the given frame.
+5. **Copy From Shot** , Copy data from another Shot. Select source Shot name followed by specific data or 'All'. **Apply to all queued Shots** will copy the source data to all queued /enabled Shots.
 6. **Add Links**, 
-7. **Move Shot to index**, Move the active shot to another index for fast reordering.
-8. **Delete** the selected shot.
+7. **Move Shot to index**, Move the active Shot to another index for fast reordering.
+8. **Delete** the selected Shot.
 
 Main Panel
 ==========
@@ -154,32 +154,32 @@ UI: Shots
 
 .. image:: Shotlist.JPG
 
-* **Queue Count**, Displays the number of shots in the local list enabled for render queue.
+* **Queue Count**, Displays the number of Shots in the local list enabled for render queue.
 
 * **PRO: Render Queued Shots** Batch render shortcut.
-* **Index**, An convenient way to activate a shot.
-* **Set**, Filter visible shots by colour set.
-* **Queue All/None Toggle**, add all shots to the output/render queue.
-* **Invert Queue Toggle**, Invert the enabled shots.
+* **Index**, An convenient way to activate a Shot.
+* **Set**, Filter visible Shots by colour set.
+* **Queue All/None Toggle**, add all Shots to the output/render queue.
+* **Invert Queue Toggle**, Invert the enabled Shots.
 * **Shot Operations**, see :ref:`Shot Operations`
 
 **List Area**
 
-* **Enable/Queue Shot**, Check Box used to add shot to output/render queue as well as perform batch functions such as Delete queued, Copy From queued.
+* **Enable/Queue Shot**, Check Box used to add Shot to output/render queue as well as perform batch functions such as Delete queued, Copy From queued.
 
-* **Lock**, Prevent accidental changes by locking a shot's interface.
-* **Arrows Up and Down** will sort your shots and render order.
-* **Activate Camera**, Activate the shot's camera if it has been defined in its properties and exists within the active view layer.
-* **Colour Set**, Assign a colour tag to the shot to use for filtering.
+* **Lock**, Prevent accidental changes by locking a Shot's interface.
+* **Arrows Up and Down** will sort your Shots and render order.
+* **Activate Camera**, Activate the Shot's camera if it has been defined in its properties and exists within the active view layer.
+* **Colour Set**, Assign a colour tag to the Shot to use for filtering.
 
 **Drop Down Area**
 
 .. image:: ShotlistExpand.JPG
 
 
-* **Search**, Filter visible shots by name or partial text.
+* **Search**, Filter visible Shots by name or partial text.
 
-* **Reverse**, Reverse the displayed order of shots.
+* **Reverse**, Reverse the displayed order of Shots.
 * **Show Suffix**, Add the Shot's suffix to it's displayed name.
 * **Show Camera**, Show the **Activate Camera** buttons.
 * **Linked Shots**, Show/Hide linked Shots.
@@ -192,7 +192,7 @@ Filtering and Colour Sets
 Shots can be filtered from the list by keyword or by colour set.
  NOTE: Filtering does not affect the render queue and is only for visibility, sequence playback and scrubbing.
 
-Colour sets can be assigned to each shot within the list panel and filtered in the dropdown below the list (properties panel) or above in the quick panel. They will also determine the strip colour in the Shot Overlay.
+Colour sets can be assigned to each Shot within the list panel and filtered in the dropdown below the list (properties panel) or above in the quick panel. They will also determine the strip colour in the Shot Overlay.
 
 
 Shot data
@@ -201,7 +201,7 @@ Shot data
 .. image:: ShotProps.JPG
 
 
-Each shot contains its own data set that may include any of the following:
+Each Shot contains its own data set that may include any of the following:
 
  TIP: Hold SHIFT and click to enable multiple tabs.
 
@@ -210,15 +210,15 @@ Properties
 
  The following properties cannot be deleted:
 
-* **Shot Name**, A unique name for your shot, this will also be an output subdirectory and filename for the shot.(Best practice is to avoid spaces)
+* **Shot Name**, A unique name for your Shot, this will also be an output subdirectory and filename for the Shot.(Best practice is to avoid spaces)
 
-* **Suffix** Add a suffix to the shot's display name and output filename.
-* **Primary Layer**, select a View Layer that will become activated when selecting the shot if 'Switch to Primary' is enabled in settings. Also used as a default render layer if 'Unpinned default' is set to 'Primary Only' (View layer tab).
+* **Suffix** Add a suffix to the Shot's display name and output filename.
+* **Primary Layer**, select a View Layer that will become activated when selecting the Shot if 'Switch to Primary' is enabled in settings. Also used as a default render layer if 'Unpinned default' is set to 'Primary Only' (View layer tab).
 * **Still Image**, Still frame mode
-* **Frame Handles**, extra frames before and after the shot's frame range. 
+* **Frame Handles**, extra frames before and after the Shot's frame range. 
 * **Start**, Start frame.
 * **End**, End frame.
-* **Notes**, for shot descriptions.
+* **Notes**, for Shot descriptions.
 
 
  Shot Properties can be added and managed in the Default Shot Properties. See :ref:`'Default Shot' and Inheritance`
@@ -269,14 +269,14 @@ View layers pinned states include ;
 
 Unpinned layers will fall back to the value determined by the **View Layer default** option.
 
-* **Primary Layer**, select a View Layer that will become activated when selecting the shot if 'Switch to Primary' is enabled in settings.
+* **Primary Layer**, select a View Layer that will become activated when selecting the Shot if 'Switch to Primary' is enabled in settings.
 
 * **View Layer default**, See :ref:`UI: Settings`
 * **Clear Pins/Pin All** Save or unpin all view layer states.
-* **Enabled and Primary Only** Only displays the renderable view layers for the active shot.
-* **'AB'** icon: Rename the Primary Layer to match the shot's name.
-* **'Link'** icon: Indicates the view layer is the shot's Primary Layer and can be clicked to reassign the layer.
-* **'Broken Link'** icon: the shot name is identical a View Layer's name, click to choose a Primary Layer.
+* **Enabled and Primary Only** Only displays the renderable view layers for the active Shot.
+* **'AB'** icon: Rename the Primary Layer to match the Shot's name.
+* **'Link'** icon: Indicates the view layer is the Shot's Primary Layer and can be clicked to reassign the layer.
+* **'Broken Link'** icon: the Shot name is identical a View Layer's name, click to choose a Primary Layer.
 
 Shot Rules
 -----------
@@ -284,7 +284,7 @@ Shot Rules
 
 .. image:: ShotRules.JPG 
 
-Here rules can be assigned, toggled and overridden per shot. Rules should first be created in the Rule Book, see :ref:`UI: Rule Book`.
+Here rules can be assigned, toggled and overridden per Shot. Rules should first be created in the Rule Book, see :ref:`UI: Rule Book`.
 
 **List Drop Down**
 * **Search**, Filter Rules by text input.
@@ -293,27 +293,27 @@ Here rules can be assigned, toggled and overridden per shot. Rules should first 
 UI: Output
 ==========
 
-Shots can be rendered using the regular 'Render Animation' or still operators (Ctrl+F12/F12). However only the active shot will be rendered. Shot Manager provides several batch rendering and export options.
+Shots can be rendered using the regular 'Render Animation' or still operators (Ctrl+F12/F12). However only the active Shot will be rendered. Shot Manager provides several batch rendering and export options.
 
 Output Settings
 ---------------
 
 .. image:: Output.JPG
 
-* **Root Folder** will be the starting directory for shots.
+* **Root Folder** will be the starting directory for Shots.
 * **Separator**, A custom separator to add between filenames and frame suffix, default is underscore '_'.
 * **Path Type**, Absolute or Relative output path creation. Affects; Root Folder, Temp Folder and Render Log Folder.
-* **Use Suffix**, Add the shot's suffix to the shot's file path.
-* **Shot Subfolders**, When enabled, add a unique subfolder to the output path with the shot's name, separating it from other shots. Disabling this will lead to shots being rendered to the same folder which potentially could cause accidental overwrites when using generated output nodes.
+* **Use Suffix**, Add the Shot's suffix to the Shot's file path.
+* **Shot Subfolders**, When enabled, add a unique subfolder to the output path with the Shot's name, separating it from other Shots. Disabling this will lead to Shots being rendered to the same folder which potentially could cause accidental overwrites when using generated output nodes.
 * **Redirect Main Output**, An alternative directory for the main output (excludes compositor output nodes). Avoids overwriting files such as those passed to the Composite node and helps with organisation. Note: the main output cannot be disabled altogether.
 
 Alternative Output Profiles
 ---------------------------
 
-.. image:: AltOutputProfiles.jpg
+.. image:: AltOutputProfiles.JPG
 
 Click **New+** to make a new profile. The settings displayed will look a lot like the Output module although only the most popular settings are available. 
-This feature can be used to create preview render presets or may be used for any other situation where more than one format needs to be rendered. Other methods such as SM Format Nodes, which does not support Video output, and Shot File Format overrides which are more flexiblw but are difficult to overried on mass.
+This feature can be used to create preview render presets or may be used for any other situation where more than one format needs to be rendered. Other methods such as SM Format Nodes, which does not support Video output, and Shot File Format overrides which are more flexible but are difficult to override on mass.
 Alternative Output settings can be assigned to an entire Render List and will affect any batch render option. 
 
 * **Name**, The profile's name, optionally used as Suffix.
@@ -325,6 +325,10 @@ Alternative Output settings can be assigned to an entire Render List and will af
 * **Apply Settings To Scene**, Make immediate changes to the scene, copying settings from the profile to the active scene.
 * **Remove Output Settings**,Deletes the active profile.
 
+.. image:: AltOutputProfilesRenderList.JPG
+
+ Alternative Output Profiles are assigned to the Render List and will override all of it's shots.
+
 Global Batch Render settings
 ----------------------------
 
@@ -334,7 +338,7 @@ Global Batch Render settings
 * **Always Make Reports**, Generate CSV render reports after rendering the first frame of every command.
 * **Use Default Report Path**, Use the default path (output directory) or define a custom report path.
 * **Temp Path**, The directory that will store temporary job files for the integrations/ submitters. Click trash can to clear files recognised by Shot Manager.
-* **Overwrite**, set the overwrite setting on batch renders, existing files will be overwritten. Not supported with settings: external blend files + per-shot files.
+* **Overwrite**, set the overwrite setting on batch renders, existing files will be overwritten. Not supported with settings: external blend files + per-Shot files.
 * **Add Suffix To Render File**, Easily identify and avoid overwrites on batch render submission files by adding the date to the filename.
 * **Allow Auto Execution Scripts**, Allows scripted drivers and start up scripts to run during batch renders, included scripts should be from trusted sources. This may also fix some addons that fail to work while background rendering.
 * **Safe Mode**, When batch rendering, Blender will be run using factory start-up settings, disabling 3rd party add-ons that might interfere with the render process. Render devices are then forced and add-ons in the exceptions white list will be enabled.
@@ -344,40 +348,62 @@ Render List
 ------------
 **Pro Feature ☆**
 
+see :ref:`Batch Rendering`for Batch Rendering.
+
 .. image:: Render_Queue.JPG
 
-**+Add Scene**, Either add scene's and their associated shot lists from the open project. Local shots will be automatically linked, so any changes will be reflected in the queue. 
+**+Add Scene**, Either add scene's and their associated Shot lists from the open project. Local Shots will be automatically linked, so any changes will be reflected in the queue. 
 
-**+Add From .blend**, Add a render list from another Blender file via JSON. External shots will not be imported, only added to the render queue.
+**+Add From .blend**, Add a render list from another Blender file via JSON. 
+
+ Note:External Shots will not be imported, only added to the render queue. They are rendered from their own files and scene settings. Some SM Global Batch render Settings and local overrides are derived form the active file.
+
+**Reload .blends**, External Shots must be reloaded to reflect any updates to the Shot list and frame ranges. Only already loaded scenes will be included, and any render queue overrides will be reset.
 
 .. image:: External.JPG
 
 External Scenes can be filtered by listing scene names to include.
 
-* **Reload External Scenes**, External shots must be reloaded to reflect any updates to the shot list and frame ranges. Only already loaded scenes will be included, and any render queue overrides will be reset.
-
-* **Show Render Time**, Display completed render times in the queue
 * **Alternative Output**,Assign alternative output settings. First Create a setting profile in OUTPUT-> Output Settings -> Alternative Output Profiles. These can be use in combination with any batch renderer, including external .Blend files.
 
-* **VSE**, Push output to vse, including frame sequences and video files, refresh source files and add new shots, without resetting sequence edits.
+* **Show Render Time**, Display completed render times and time since completion in the queue.
+* **Sync Preview Display**, Enable preview frame range in the timeline for Shots with Render List frame range overrides and *Display as Preview Range* enabled.
 
-* **Override Frame Range**, This will use an alternative frame range to batch render/submit shots, available for both internal and external shots.
-* **Inspect Output** Display shot output file path details and image preview. When opening a preview in Blender Viewer, the images contained in the directory will be displayed and played using the scene's frame rate. Use numpad buttons 0-9 to control frame rate, 9 is slowest. Arrow keys left and right will pause and increment current frame. Press Enter to play animation. Esc key to close window.
+.. image:: PreviewRange.JPG
 
-Batch Render
------------
+* **VSE**, Push output to vse, including frame sequences and video files, refresh source files and add new Shots, without resetting sequence edits.
+* **Override Frame Range**, This will use an alternative frame range to batch render/submit Shots, available for both internal and external Shots.
+
+Shot Output Inspector
+--------------------
+
+.. image:: ShotOutputMenu.JPG
+
+    There are two file counts, files ending with the output file extension and total files which may contain any extension.
+
+* **Open Output Directory**, launches a file browser addressed at the render directory.
+* **Playback** Display Shot output file path details and image preview. When opening a preview in Blender Viewer, the images contained in the directory will be displayed and played using the scene's frame rate. They may take some time to preload but usually playback smoothly on during the second loop. Use numpad buttons 0-9 to control frame rate, 9 is slowest. Arrow keys left and right will pause and increment current frame. Press Enter to play/pause animation. Esc key to close window.
+* **Encode** Launches a background process, using Blender to encode frames into video. Includes the most commonly used formats and settings within the output file browser.
+
+.. image:: EncodeVideo.JPG
+
+* **Cleanup**, Deletes all files in the Shot's render directory that contain the relevant file extension. **Cannot Be Undone!** Coming soon (option to only delete other formats or frames outside of the render frame range.)
+
+**Batch Render**
+
 **Pro Feature ☆**
 
 see :ref:`Batch Rendering`.
 
 UI: Rule Book
 =============
+
 **Pro Feature ☆**
 
 .. image:: RuleBook.JPG 
 
 Shot rules are a powerful way to override data blocks and properties.
-Rules are defined in the Rule Book panel. Once created in the Rule Book, they can be assigned to shots. RNA and Python Rules can be used as Macros. There are many types of rules which target various data types.
+Rules are defined in the Rule Book panel. Once created in the Rule Book, they can be assigned to Shots. RNA and Python Rules can be used as Macros. There are many types of rules which target various data types.
 
 Rules and Variables are shared (global) across Scenes.
 
@@ -389,8 +415,8 @@ Swap Rules - Materials, Mesh Data, Cameras, Lights
 --------------------------------------------------
 .. image:: SwapRules.JPG
 
-Swap Rules follow the principle of; replace data A with data B, if a collection filter is defined, the affect will be restricted to that collection. Rules defined in the Rule Book can then be re-used by assigning them to the shots individually. 
-If the following shot doesn't have a rule, the data block will be reset to its original/default state. Caution: large scenes with many objects may take longer to switch between shots.
+Swap Rules follow the principle of; replace data A with data B, if a collection filter is defined, the affect will be restricted to that collection. Rules defined in the Rule Book can then be re-used by assigning them to the Shots individually. 
+If the following Shot doesn't have a rule, the data block will be reset to its original/default state. Caution: large scenes with many objects may take longer to switch between Shots.
  
  Material overrides will target the first material slot only.
 
@@ -427,14 +453,14 @@ The simplest way to find a data path is to right-click a property in Blender's i
 
 .. image:: RuleFilters.JPG
 
-* **Assign Rule** to active shot
+* **Assign Rule** to active Shot
 
 **List Dropdown**
 
 * **Search**, Filter by name.
 * **Type Tabs**, Filter by method type.
 * **Sort By Type**, Order Rules by method type.
-* **Active Shot Only**, Only display rules assigned to the active shot.
+* **Active Shot Only**, Only display rules assigned to the active Shot.
 
 
 Python Rules
@@ -444,7 +470,7 @@ Python Rules
 
 Python Rules contain python code to be executed every time an assigned Shot is activated. There is no need to import or define the following names:
 
-**'bpy', 'context','scene','data', 'Vector','rule'(self reference assigned Rule) and 'shot'** are already provided in the name space. Please beware that very long code may slow down shot changes. Deep code might make Blender unstable. Python Rules are called after the majority of updates when activating a Shot. Python rules can be made revertible using variables as defaults values.
+**'bpy', 'context','scene','data', 'Vector','rule'(self reference assigned Rule) and 'Shot'** are already provided in the name space. Please beware that very long code may slow down Shot changes. Deep code might make Blender unstable. Python Rules are called after the majority of updates when activating a Shot. Python rules can be made revertible using variables as defaults values.
 
 * **Expression**, A single line of code.
 * **Text File**, Read python code from a text block.
@@ -459,9 +485,9 @@ When making Python Rules, variables can be declared i.e. 'x = 10', and then defi
 * **Name**, The variable name i.e. x
 * **Default**, The value first given to the variable. 
 
-When setting a default the data type will be determined and should remain the same wherever used. Python Variables can also be assigned values per shot when the Rule is assigned. Variables are stored within scenes but can be accessed in any scene and are therefore global.
+When setting a default the variant type will be determined and should remain the same wherever used. Python Variables can also be assigned values per Shot when the Rule is assigned. Variables are stored within scenes but can be accessed in any scene and are therefore global.
 
-Supported data types:
+Supported variants:
 
 * bool
 * int
@@ -481,7 +507,7 @@ Macros
 
 .. image:: Macros.JPG
 
-Macros in Shot Manager are a list of RNA or Python Rules to be executed manually on click. These are useful when working with multiple settings without needing to assign RNA Rules to shots. 
+Macros in Shot Manager are a list of RNA or Python Rules to be executed manually on click. These are useful when working with multiple settings without needing to assign RNA Rules to Shots. 
 For example, enabling/disabling camera overlays or a rig bind pose position. Macros can be made revertable by setting RNA default values. 
 For python rules, macro's and use variable overrides on execution and variable default values on revert.
 
@@ -498,25 +524,25 @@ UI: Settings
 .. image:: settings.JPG
 
 
-* **Switch to Primary**, make primary layer the active view layer when choosing shots.
-* **Preset Base**, This shot preset will be applied to new shots. Advanced preset include Rules and Macros which are used to dynamically configure the shot's and scene. Changing the preset base will no remove these from the Rulebook so be aware that they are accumulated in the Rule Book.
-* **Generate Primary Layers**, a new View Layer will be created with the name of the newly made shot and associated as a Primary Layer. The layer will be re-named along with shots.
-* **View Layer Default**, (On, Off, Primary Enabled and Default). The default state of View Layers if they have no saved state for the active shot. 'On' will make all unsaved layers renderable by default with each shot change/trigger. 'Off' will default to un-renderable, choose 'Off' to prevent unsaved view layers from rendering. 'Primary Enabled' will also switch all unsaved layers to un-renderable, except for the Shot's Primary Layer. 'Default' will derive unpinned states from the DEFAULT shot.
+* **Switch to Primary**, make primary layer the active view layer when choosing Shots.
+* **Preset Base**, This Shot preset will be applied to new Shots. Advanced preset include Rules and Macros which are used to dynamically configure the Shot's and scene. Changing the preset base will no remove these from the Rulebook so be aware that they are accumulated in the Rule Book.
+* **Generate Primary Layers**, a new View Layer will be created with the name of the newly made Shot and associated as a Primary Layer. The layer will be re-named along with Shots.
+* **View Layer Default**, (On, Off, Primary Enabled and Default). The default state of View Layers if they have no saved state for the active Shot. 'On' will make all unsaved layers renderable by default with each Shot change/trigger. 'Off' will default to un-renderable, choose 'Off' to prevent unsaved view layers from rendering. 'Primary Enabled' will also switch all unsaved layers to un-renderable, except for the Shot's Primary Layer. 'Default' will derive unpinned states from the DEFAULT Shot.
 * **Separator**, a custom separator to add between filenames and frame suffix, default is '_'
 * **Path Type**, Absolute or relative output path creation.
 * **Date Regional Format**, Select the date format you are familiar with. This wil affect all uses of date such as filenames, batch submission and burn-ins.
 
-* **Sequence Scrubbing**, Allow scrubbing through shots in sequence. Not compatible with 'Limit Playhead'
-* **Shot Sequence Playback**, Switch shots in sequence while playing animation.
-* **Flattened Playback**, this will work as if shots are in chronological sequence, if they overlap they are flattened as if they are edited, one of the overlapping shots will not be played fully.
-* **Loop Sequence**, After playing through each shot, loop back to the start.
-* **Contiguous Mode**, Treat shots like timeline markers without adjusting scene Start-End. The Default shot will be used for render output frame range and file paths.
+* **Sequence Scrubbing**, Allow scrubbing through Shots in sequence. Not compatible with 'Limit Playhead'
+* **Shot Sequence Playback**, Switch Shots in sequence while playing animation.
+* **Flattened Playback**, this will work as if Shots are in chronological sequence, if they overlap they are flattened as if they are edited, one of the overlapping Shots will not be played fully.
+* **Loop Sequence**, After playing through each Shot, loop back to the start.
+* **Contiguous Mode**, Treat Shots like timeline markers without adjusting scene Start-End. The Default Shot will be used for render output frame range and file paths.
 Does not support View Layer State pins. Useful for simple sequences such as playblast animation as well as working around issues with simulation caches when batch rendering. 
 Youtube demonstration: https://youtube.com/shorts/YSmmYL4Tc0E?si=BTLjfHVnjRzrM5OX.
 
 * **Limit Playhead**, Don't allow frame to be selected with mouse outside of frame range.
-* **Timeline Framing**, Set view to frame range when switching shots. Disabled if Sequence Scrubbing is enabled.
-* * **Start**, Jump to First Frame on shot chang and focus timeline to frame.
+* **Timeline Framing**, Set view to frame range when switching Shots. Disabled if Sequence Scrubbing is enabled.
+* * **Start**, Jump to First Frame on Shot chang and focus timeline to frame.
 * * **Frame Range**, make current frame within frame range and focus entire range.
 * * **Start Within Rang**, Make current frame the Shot's start frame and focus timeline's entire range.
 * **Use RNA Defaults**, (Shot Rules) Use default values when an RNA rule exists, but the value hasn't been set yet.
@@ -532,9 +558,9 @@ Timeline Settings
 .. image:: TimelineSettings.JPG 
 
 * **Marker Set**, Activate or create a timeline marker set
-* **Shot Sequence Playback**, Switch shots in sequence while playing animation.
-* **Flattened Playback**, this will work as if shots are in chronological sequence, if they overlap they are flattened as if they are edited, one of the overlapping shots will not be played fully.
-* **Sequence Scrubbing**, Allow scrubbing through shots in sequence. Not compatible with 'Limit Playhead'
+* **Shot Sequence Playback**, Switch Shots in sequence while playing animation.
+* **Flattened Playback**, this will work as if Shots are in chronological sequence, if they overlap they are flattened as if they are edited, one of the overlapping Shots will not be played fully.
+* **Sequence Scrubbing**, Allow scrubbing through Shots in sequence. Not compatible with 'Limit Playhead'
 * **Limit Playhead**, Don't allow frame to be selected with mouse outside of frame range.
 
 
@@ -543,7 +569,7 @@ UI: Overlays
 
 .. image:: Overlay.JPG 
 
-Overlays include, Output Summary, Notes, basic shot info and the Shot Sequence Editor. Toggles and opacity settings can be found within Blender's Overlay dropdown. Scaling is adjusted to follow Blender's settings in Preferences -> Interface -> Resolution Scale. Further scaling can be applied.
+Overlays include, Output Summary, Notes, basic Shot info and the Shot Sequence Editor. Toggles and opacity settings can be found within Blender's Overlay dropdown. Scaling is adjusted to follow Blender's settings in Preferences -> Interface -> Resolution Scale. Further scaling can be applied.
 
 Overlay Options
 -----------------
@@ -569,27 +595,6 @@ Detailed overlay settings are found within 3D view side panel ('N' Panel).
 * **Opacity**, Shot Sequence Editor opacity, may be overridden by camera passerpartout settings when in camera view to avoid blending issues.
 
 
-Shot Edit tool
---------------
-**Pro Feature ☆**
-
-.. image:: ShotEditTool.JPG 
-
-Many shot operations are available when using Shot Edit Tool in combination with Shot Sequence Editor. Found in the 3D view toolbar.
-
-.. image:: ToolHeader.JPG
-
-In addition to the sequence overlay, drop down menus are available in the tool header including Shot Data, View Layers and Rules.
-
-**Sequence Playback options:**
-* **Shot Sequence Playback**, Switch shots in sequence while playing animation.
-
-* **Loop Sequence**, If Shot Sequence Playback is enabled, optionally loop back to the start after playing the last shot.
-* **Flattened Playback**, If Shot Sequence Playback is enabled, play shots in linear timeline order rather by shot index. This will activate shots when they are overlapping.
-* **Sequence Scrubbing**, Switch between shots when scrubbing (sliding) the timeline or shot sequence playhead.
-
-If there were permission issues when installing, the Shot Edit Tool icon may appear as a pair of scissors.
-
 .. image:: Scissors.JPG
 
 Shot Sequence Editor
@@ -598,34 +603,54 @@ Shot Sequence Editor
 
 .. image:: ShotEditor.JPG 
 
-The Shot Sequence Editor acts as an overlay only unless the Shot Edit tool is active.
+ Note: The Shot Sequence Editor is only interactive when the Shot Edit tool is active.
 
-* **Left Mouse Click** on a shot strip to offset its timing or end handles to trim. Hold **CTRL** to enable snapping to the nearest shot. 
-Hold **SHIFT** and click to select additional shots. 
+.. image:: ShotEditTool.JPG 
 
-* **Right Mouse Click** on a strip to bring up a context menu.
+* **Left Mouse Click** on a Shot strip to offset its timing or end handles to trim. Hold **CTRL** to enable snapping to the nearest Shot. Hold **SHIFT** and click to select additional Shots. 
 
-* **Box Selection**, Click + hold outside a strip or press 'B' to start a box selection. Drag the selection box over shot handles to select them for moving and trimming.
+* **Right Mouse Click** on a strip to bring up a context menu. Some basic Shot values can be edited here. If the Shot is not active, use the button with the right arrow icon →  to activate it.
 
-* **Mouse Wheel**, scroll wheel to scale editor horizontally. Hold **SHIFT** to scale vertically.
-
-* **Press K**, knife tool. Slice shots at mouse click into two. Hold click a drag to place slice.
-
-* **Press R**, Ripple tool. Slide or scale a strip forwards to ripple all shot following he modified shot's end frame. Slide or scale backwards to ripple all shots prior to the modified shot's start frame.
-
-* **Press J**, Join tool. Click and drag to merge a shot with it neighbour. A popup box with options will appear.
-
-* * **Delete Target**, Delete the target shot. Disable to keep the shot.
-
-* * **Assimilate Layers**, Add the target shot's View Layer states to the resulting combined shot.
-
-* * **Assimilate Rules**, Add the target shot's Rules to the combined shot. 
-
-**Right Click Menu**
 
 .. image:: RightClickOverlay.JPG 
 
-By right-clicking a shot strip, some basic shot values can be edited. If the Shot is not active the right arrow → button will activate it.
+* **Box Selection**, Click + hold outside a strip or press 'B' to start a box selection. Drag the selection box over Shot handles to select them for moving and trimming.
+
+* **Mouse Wheel**, scroll wheel to scale editor horizontally. Hold **SHIFT** to scale vertically.
+
+* **Press K**, knife tool. Slice Shots at mouse click into two. Hold click a drag to place slice.
+
+* **Press R**, Ripple tool. Slide or scale a strip forwards to ripple all Shot following he modified Shot's end frame. Slide or scale backwards to ripple all Shots prior to the modified Shot's start frame.
+
+* **Press J**, Join tool. Click and drag to merge a Shot with it neighbour. A popup box with options will appear.
+
+* * **Delete Target**, Delete the target Shot. Disable to keep the Shot.
+
+* * **Assimilate Layers**, Add the target Shot's View Layer states to the resulting combined Shot.
+
+* * **Assimilate Rules**, Add the target Shot's Rules to the combined Shot. 
+
+
+
+Shot Edit tool
+--------------
+**Pro Feature ☆**
+
+.. image:: ShotEditTool.JPG 
+
+Many Shot operations are available when using Shot Edit Tool in combination with Shot Sequence Editor. Found in the 3D view toolbar.
+
+.. image:: ToolHeader.JPG
+
+In addition to interacting with the Sequence Overlay, drop down menus are available in the tool header including Shot Data, View Layers and Rules.
+
+**Sequence Playback options:**
+* **Shot Sequence Playback**, Switch Shots in sequence while playing animation.
+* **Loop Sequence**, If Shot Sequence Playback is enabled, optionally loop back to the start after playing the last Shot.
+* **Flattened Playback**, If Shot Sequence Playback is enabled, play Shots in linear timeline order rather by Shot index. This will activate Shots when they are overlapping.
+* **Sequence Scrubbing**, Switch between Shots when scrubbing (sliding) the timeline or Shot sequence playhead.
+
+If there were permission issues when installing, the Shot Edit Tool icon may appear as a pair of scissors.
 
 UI: SM Tools
 ============
@@ -639,7 +664,7 @@ View Layer Settings
 .. image:: ViewLayerSettings.JPG
 
 This interface is for overseeing the states of View Layers, in particular, their render passes and light passes. It removes the need to switch between view layers in order to edit them. 
-These settings are built into Blender and do not show overrides and are not in any way related to Shot Manager. For per shot layer settings (pinning) see :ref:`View Layers`
+These settings are built into Blender and do not show overrides and are not in any way related to Shot Manager. For per Shot layer settings (pinning) see :ref:`View Layers`
 
 Collections Inspector
 ---------------------
@@ -664,32 +689,32 @@ JSON Backup
 -------------
 .. image:: json.JPG
 
-It is a good idea to backup shots from time to time, especially when updating or re-installing the add-on. A JSON text file can store information about each Shot's properties as well as general settings for the add-on. However, it cannot store scene or object data, such as cameras. Instead, it will store the camera's name and try to find a match when loading. Other data that are **not** stored are View Layer States (they're stored in the layers themselves), Rules and Macros.
+It is a good idea to backup Shots from time to time, especially when updating or re-installing the add-on. A JSON text file can store information about each Shot's properties as well as general settings for the add-on. However, it cannot store scene or object data, such as cameras. Instead, it will store the camera's name and try to find a match when loading. Other data that are **not** stored are View Layer States (they're stored in the layers themselves), Rules and Macros.
 
 **Export JSON** 
 
-Export shot data to json to backup or transfer shots.
+Export Shot data to json to backup or transfer Shots.
 
 * **Include Shot Manager Settings**, include settings from the Shot Manager settings panel.
 
 **Import JSON**
 
-Import shot data from a saved json file. Import support Shots from version as old as SM 0.6. Some data may be lost that has no equivalent in 2.0, this includes Alias Shots.
+Import Shot data from a saved json file. Import support Shots from version as old as SM 0.6. Some data may be lost that has no equivalent in 2.0, this includes Alias Shots.
 
 .. image:: Import_json.JPG
 
 
 * **Include Shot Manager Settings**, include settings from the Shot Manager settings panel.
 
-* **Replace Default Shot**, If an imported shot is marked default use this as default. IF the Shot List is empty assign a new Default shot, may use the first index if the json is from an older version of Shot Manager, less than 2.0.
+* **Replace Default Shot**, If an imported Shot is marked default use this as default. IF the Shot List is empty assign a new Default Shot, may use the first index if the json is from an older version of Shot Manager, less than 2.0.
 * **Scenes**, Enter Scene names to include, empty imports all.
-* **Match Scenes by Name**, Importing scenes does not create new scenes, instead it appends shots to the active Shot List. Attempt to match the Shot Lists by scenes name found in the JSON.
+* **Match Scenes by Name**, Importing scenes does not create new scenes, instead it appends Shots to the active Shot List. Attempt to match the Shot Lists by scenes name found in the JSON.
 
 Marker Sets
 -----------
 .. image:: MarkerSets.JPG
 
-Marker Sets are groups of timeline markers. Only one set is visible at a given time. To set up a set, add a marker set, define a name and create timeline markers as per usual. Upon making a new set or changing the active set, the previous set will be saved. Marker sets can be assigned to shots by adding the Timeline Markers property in the Default Shot properties (PRO☆).
+Marker Sets are groups of timeline markers. Only one set is visible at a given time. To set up a set, add a marker set, define a name and create timeline markers as per usual. Upon making a new set or changing the active set, the previous set will be saved. Marker sets can be assigned to Shots by adding the Timeline Markers property in the Default Shot properties (PRO☆).
 
 Simplified interface also found in timeline right panel ('N' Panel).
 
@@ -721,10 +746,11 @@ Retime animation keyframes across multiple objects. Operations are adjustable wi
 * **To Range**, The destination for the keyframes belonging to the From Range. Transformation includes scale and offset.
 
 
-
 Batch Rendering
 ===============
 **Pro Feature ☆**
+
+see :ref:`Render List`. for Render List
 
 Shot Manager Pro supports the following batch render options:
 
@@ -738,7 +764,7 @@ Shot Manager Pro supports the following batch render options:
 
 **Make Pre-Render Report**
 
-Render the first frame of each shot and generate a report CSV containing true scene settings returned by the render process. Supported by all submitters.
+Render the first frame of each Shot and generate a report CSV containing true scene settings returned by the render process. Supported by all submitters.
 
 .. image:: Render_Button.JPG
 
@@ -753,7 +779,7 @@ Requirements:
 
 .. image:: SM_render.JPG
 
-SM Render is Shot Manager's local batch rendering module. It will perform a background render thread for each shot sequentially in the render queue for single machine rendering. It is possible to render shots from other scenes, as well as other Blend files. SM Batch Render is the only render module that will fully utilise the Render List. Render progress will be displayed in the render queue alongside estimated render time, as well as in the 3D view text overlay.  
+SM Render is Shot Manager's local batch rendering module. It will perform a background render thread for each Shot sequentially in the render queue for single machine rendering. It is possible to render Shots from other scenes, as well as other Blend files. SM Batch Render is the only render module that will fully utilise the Render List. Render progress will be displayed in the render queue alongside estimated render time, as well as in the 3D view text overlay.  
 
 TIP: If RAM is an issue, make an empty Scene as the master scene for queuing and rendering.
 
@@ -763,7 +789,7 @@ To batch render, Shot Manager will attempt to assign the hotkey Ctrl+Shift+F12, 
 Viewport Render (Play Blast)
 ---------------------------
 
-OpenGL viewport rendering also uses the Export module. Only the local scene's shot list can be batch rendered and this is not available as a background process. Found in SM Batch Render settings and Batch Export. Supports render frame range overrides.
+OpenGL viewport rendering also uses the Export module. Only the local scene's Shot list can be batch rendered and this is not available as a background process. Found in SM Batch Render settings and Batch Export. Supports render frame range overrides.
 
 .. image:: openGL.JPG
 
@@ -781,16 +807,16 @@ Requirements:
 
 B-Renderon is a paid standalone local render manager especially for blender. Available on BlenderMarket.com 
 
-Launch B-Renderon with shots preloaded. Temporary job files are created in the temp folder. These files are used to access individual shots from the project render file. The render file is created in the same directory as the source .blend file with the suffix '_renderfile'. Requires B-renderon v3 or above. The executable path for B-renderon must first be entered in Blender Preferences -> add-ons -> Shot Manager settings   
+Launch B-Renderon with Shots preloaded. Temporary job files are created in the temp folder. These files are used to access individual Shots from the project render file. The render file is created in the same directory as the source .blend file with the suffix '_renderfile'. Requires B-renderon v3 or above. The executable path for B-renderon must first be entered in Blender Preferences -> add-ons -> Shot Manager settings   
 
-* **Queue Name**, Open B-Renderon with shots associated with a given queue.
+* **Queue Name**, Open B-Renderon with Shots associated with a given queue.
 
-* **Add to existing queue**, Append the shots to the given queue if matching name, otherwise clear all shots and overwrite the queue.
+* **Add to existing queue**, Append the Shots to the given queue if matching name, otherwise clear all Shots and overwrite the queue.
 * **Force Cycles Device** to ensure the correct CPU/GPU configuration is applied to renders, assuming the submission machine is or is identical to the render machine.
-* **Render As Copies**, Save and render from per-shot files rather than a single file. NOTE: Not Compatible with external render queues,
+* **Render As Copies**, Save and render from per-Shot files rather than a single file. NOTE: Not Compatible with external render queues,
 Safe Mode or Pre-Render Reports. Filepaths will be made absolute.
 Pros- Python render setup scripts not required and Shot Manager addon installation not required for render nodes.
-Cons-Slower shot submission, may consume excessive disk space.
+Cons-Slower Shot submission, may consume excessive disk space.
 
 Flamenco Submitter
 ------------------
@@ -800,8 +826,8 @@ Flamenco Submitter
 
 Requirements:
 
-* Flamenco 3.5+, containing Manager and Worker.
-* Flamenco 3.5+ Blender Add-on
+* Flamenco 3.8+, containing Manager and Worker.
+* Flamenco 3.8+ Blender Add-on
 
 Flamenco is a free network distribution render manager supported by the Blender Foundation. It runs an in-browser interface. The following steps are required;
 
@@ -809,7 +835,7 @@ Flamenco is a free network distribution render manager supported by the Blender 
 
 2. If Flamenco has not been used, run Flamenco Manager and follow setup steps, otherwise ensure settings are correct in the flamenco-manager.yaml. 
 
-3. Install the Blender add-on of the same version (3.5+). Run Flamenco Manager in browser to find download link. i.e. Run Flamenco Manager and go to default http://localhost:8080/
+3. Install the Blender add-on of the same version (3.8+). Run Flamenco Manager in browser to find download link. i.e. Run Flamenco Manager and go to default http://localhost:8080/
 
 4. Configure the Flamenco add-on in Blender Preferences. Job Storage should be a shared location.
 
@@ -822,33 +848,44 @@ Flamenco is a free network distribution render manager supported by the Blender 
 8. Submit to Flamenco
 
 9. Run a flamenco-worker
+    
+ Note: If the SM job type is updated or installed while Flamenco Manager is running, **restart Flamenco Manager to recognize changes**.
 
-If the SM job type is updated or installed while Flamenco Manager is running, restart Flamenco Manager to recognize changes.
+.. image:: FlamencoSubmit.JPG
 
+* * **Include Filename**, When Checked, the job name will include the active filename, otherwise only Shot names.
+* * **Add Date Suffix**, Add the submission date to the end of the job name
+* * **Add Time Suffix**, Add the submission time to the end of the job name
 * **Priority**, Higher numbers will give the render task higher priority
 * **Chunk Size**, The number of frames to render per task. Smaller chunks results in more sharing across render nodes. Use higher values for simulations and larger files with long build times. Too many chunks may add some extra delay in launching Blender and render engine initialisation.
 * **Ignore Version Mismatch**, Attempt to submit render even if the Flamenco add-on and submitter doesn't match the manager.
-* **Render As Copies**, Save and render from per-shot files rather than a single file. NOTE: Not Compatible with external render queues,
+* **Render As Copies**, Save and render from per-Shot files rather than a single file. NOTE: Not Compatible with external render queues,
+* **On Load Python Script**, an additional script to execute within Blender directly after the job script is executed.
+* **Blender Arguments**, enter additional render command arguments, e.g. enable debugging with --debug in the blender args leaving value empty, this will display all of the commandline arguments in the Monitor task terminal before rendering frames.  https://docs.blender.org/manual/en/dev/advanced/command_line/arguments.html?utm_source=blender-5.1.0
+
 Safe Mode or Pre-Render Reports. Filepaths will be made absolute.
 Pros- Python render setup scripts not required and Shot Manager addon installation not required for render nodes.
-Cons-Slower shot submission, may consume excessive disk space.
+Cons-Slower Shot submission, may consume excessive disk space.
 
 Deadline Submitter
 --------------------
 (Windows, Linux, MacOS X)
+
 .. image:: Deadline.JPG
 
 Requirements:
 
-* Deadline Monitor 10+
-* Deadline worker 10+
+* Deadline Monitor 10.3+
+* Deadline worker 10.3+
 
-Thinkbox Deadline is a network distributed rendering and management software owned by Amazon. It is free but requires an AWS account and personal details for verification. Shot Manager provides a custom plug-in for Deadline 10.3+ and Deadline submitter within Blender. Cloud rendering is not recommended using this module, instead shots should be exported as separate Blend files using Batch Export see :ref:`Batch Export`.
+Remote server may not be supported.
+
+Thinkbox Deadline is a network distributed rendering and management software owned by Amazon. It is free but requires an AWS account and personal details for verification. Shot Manager provides a custom plug-in for Deadline 10.3+ and Deadline submitter within Blender. Cloud rendering is not recommended using this module, instead Shots should be exported as separate Blend files using Batch Export see :ref:`Batch Export`.
 
 The Deadline Repository must be installed on a shared location. Each render node should have the most recent version of Shot Manager installed. The Deadline render Client/worker must be installed on all render machines and Deadline Monitor should be installed and accessible by the 'Master' PC. Shots should be submitted using the Master PC. 
 https://docs.thinkboxsoftware.com/products/deadline/10.1/1_User%20Manual/manual/install-db-repo.html
 
-* **'Error encountered when loading the configured Client Certificate'** This is a certificate issue with your install of Deadline, please see: https://forums.thinkboxsoftware.com/t/basic-setup-issue/24229/9 When installing the Deadline repository it is simplest to leave 'use SSL' unchecked and set 'full read/write access' in the install wizard.
+* **'Error encountered when loading the configured Client Certificate'** This is a certificate issue with your install of Deadline, please see: https://forums.thinkboxsoftware.com/t/basic-setup-issue/24229/9 When installing the Deadline repository on an offline LAN network, it is simplest to leave 'use SSL' unchecked and set 'full read/write access' in the install wizard.
 
 .. image:: Deadline_access.JPG
 
@@ -858,7 +895,7 @@ https://docs.thinkboxsoftware.com/products/deadline/10.1/1_User%20Manual/manual/
 
 Once installed, simply click **Setup/Update Plugin** in the Deadline sub-panel to install the plug-in. This will transfer required files to the repository>custom>plugins folder. 
 
-All enabled shots for enabled scenes in the render list will be submitted. Ensure that the **Temp Path** (Addon Preferences/Global Batch Render Settings) is not blank and set to the desired location. This needs to be a shared location as Deadline will not ingest files. In most cases the required Deadline Command will be found automatically however if using macOS/Linux there is a chance it will need to be located manually.
+All enabled Shots for enabled scenes in the render list will be submitted. Ensure that the **Temp Path** (Addon Preferences/Global Batch Render Settings) is not blank and set to the desired location. This needs to be a shared location as Deadline will not ingest files. In most cases the required Deadline Command will be found automatically however if using macOS/Linux there is a chance it will need to be located manually.
 
 * Windows looks like: \Program Files\Thinkbox\Deadline10\bin 
 * Mac OS looks like: /Applications/Thinkbox/Deadline10/Resources
@@ -883,8 +920,10 @@ For example,
 
 .. image:: Deadline_submit.JPG
 
+**GENERAL**
+
 * **Queue Name**, The folder name for containing job files, using unique names avoids overwriting older submissions.
-* * **Use Blendfile Name**, When Check the queue name will use the active filename, otherwise enter a custom name.
+* * **Include Filename**, When Checked, the queue name will use the active filename, otherwise enter a custom name.
 * * **Add Date Suffix**, Add the submission date to the end of the queue name
 * * **Add Time Suffix**, Add the submission time to the end of the queue name
 
@@ -916,11 +955,26 @@ For example,
 * **Force Sequential**, Forces a slave to render the tasks of a job in order. If an earlier task is ever re-queued, the slave won't go back to that task until it has finished the remaining tasks in order.
 * **Force Render Device**, Force the current file's render device i.e. CUDA, Optix, CPU.
 * **Overwrite**, Override the overwrite property found in Blender's main output panel. This setting will determine if existing frames are ignored of overwritten. Useful when re-rendering sections, manually delete bad frames and uncheck overwrite to only re-render those missing.  *Note: Not supported with Per-Shot Files in combination with external Blender files.*
-* **Per-Shot Files**, Save and render from per-shot files rather than a single file. *NOTE: Not Compatible with external render queues,
+* **Per-Shot Files**, Save and render from per-Shot files rather than a single file. *NOTE: Not Compatible with external render queues,
 Safe Mode or Pre-Render Reports.* Filepaths will be made absolute.
-
 Pros- Python render setup scripts not required and Shot Manager addon installation not required for render nodes.
-Cons-Slower shot submission, may consume excessive disk space.
+Cons-Slower Shot submission, may consume excessive disk space.
+
+
+.. image:: DeadlineAdvanced.JPG
+
+**ADVANCED**
+
+* **Deadline Extra Arguments**, These API keys that can used to assign submission parameters. See Deadline manual for a list of commands; https://docs.thinkboxsoftware.com/products/deadline/10.3/1_User%20Manual/manual/manual-submission.html
+* **Blender Arguments**, enter additional render command arguments, e.g. enable debugging with --debug in the blender args leaving value empty, this will display all of the commandline arguments in the Monitor task terminal before rendering frames.  https://docs.blender.org/manual/en/dev/advanced/command_line/arguments.html?utm_source=blender-5.1.0
+* **Extra Info**, These will be displayed in the Extra Info columns in the Monitor job list interface.
+
+.. image:: DeadlineScripts.JPG
+
+**SCRIPTS**
+
+* **Jobs Scripts**, these are executed within Deadline such as cleanup tasks.
+* **Blender Script**, an additional script to execute within Blender directly after the job script is executed.
 
 Batch Export
 ============
@@ -928,14 +982,14 @@ Batch Export
 
 .. image:: BatchExport.JPG
 
-Export shots enabled in the shot list sequentially as a given format.
-Batch export only exports the active scene's queued shots and does not support shots from external Blend files.
+Export Shots enabled in the Shot list sequentially as a given format.
+Batch export only exports the active scene's queued Shots and does not support Shots from external Blend files.
 
 Export formats currently include: 
 
 * BAT, Windows Batch file
-* Blend, Shots as separate Blender files. All shots are retained but activated per output file.
-* FBX, Allows shots embedded as animation layers.
+* Blend, Shots as separate Blender files. All Shots are retained but activated per output file.
+* FBX, Allows Shots embedded as animation layers.
 * OBJ
 * ABC (Alembic)
 * USD (Universal Scene Description)
@@ -951,20 +1005,20 @@ Options **BAT** and **BLEND** Will automatically remap relative output paths to 
 
 **FBX** 
 
-The FBX Exporter is a modified exporter capable of embedding shots as Animation Layers. This is suitable for linear timelines as traditionally used by game animators and later split into sections in a game engine. This will make some options in the Animation tab unavailable.
+The FBX Exporter is a modified exporter capable of embedding Shots as Animation Layers. This is suitable for linear timelines as traditionally used by game animators and later split into sections in a game engine. This will make some options in the Animation tab unavailable.
 FBX version 7400  
 
-.. image:: embed_shots_a.JPG
+.. image:: embed_Shots_a.JPG
 
-Embedded shots can store frame ranges and shot names as animation layers and extracted in other software i.e. Unity.
+Embedded Shots can store frame ranges and Shot names as animation layers and extracted in other software i.e. Unity.
 
-.. image:: embed_shots_b.JPG
+.. image:: embed_Shots_b.JPG
 
 **BAT** 
 
 .. image:: BAT.JPG
 
-Batch files are used by Windows to execute command-line rendering. Either export separate files, per shot or a single batch file containing an execution list. Simply open the file to begin the render process. Be sure not to move the source Blend files as references to those files will be lost.
+Batch files are used by Windows to execute command-line rendering. Either export separate files, per Shot or a single batch file containing an execution list. Simply open the file to begin the render process. Be sure not to move the source Blend files as references to those files will be lost.
 
 * **Relative Execution Path**, Keep paths to Blender files relative.
 
@@ -1003,7 +1057,7 @@ To set up Burn-Ins navigate to the Image Editor and expand the SM Burn-Ins tab. 
 Getting Started
 ---------------
 
-Once installed, choose a Canvas. It should be an empty, generated image. Enabling **Match Render Size** ensures the canvas will match the output settings, even if it changes between shots. 
+Once installed, choose a Canvas. It should be an empty, generated image. Enabling **Match Render Size** ensures the canvas will match the output settings, even if it changes between Shots. 
 
 .. image:: BurnInMix.JPG
 
@@ -1022,12 +1076,12 @@ Stamp Items:
 * **Property**, Similar to a text stamp with the addition of deriving input from a property. Include Label will prefix the text with the stamp name. The property RNA path belongs to a given domain.  Domains include: 
 * * **Scene**, The active scene, e.g. path = name to gather the scene's name 
 * * **Context**, e.g. path = camera.name to gather the active camera's name 
-* * **Active Shot**, Shot properties are not accessed like typical RNA paths. See text suggestions in path input text box. If the property is a data-block such as World, there is no need to access world.name. Suggested property names are derived from the Default Shot but will use the active shot's values or inherited values. 
+* * **Active Shot**, Shot properties are not accessed like typical RNA paths. See text suggestions in path input text box. If the property is a data-block such as World, there is no need to access world.name. Suggested property names are derived from the Default Shot but will use the active Shot's values or inherited values. 
 * * **bpy**, The base path for accessing the Blender API. e.g. Path = data.filepath will access the Blender file path.
 
 * **Time-Date**, Add timecode, time and date information. Include label refers to labels of individual options.
 * * **Time Code**, Linear Time Code, Hours/Minutes/Seconds/Frames. For total scene time.
-* * **Shot Time Code**, Linear Time Code for shot time, shot always starts at 00/00/00/00.
+* * **Shot Time Code**, Linear Time Code for Shot time, Shot always starts at 00/00/00/00.
 * * **Time Duration**, Shot duration in clock time.
 * * **Frame Duration**, Shot duration in frames.
 * * **Date**, Current Date. Uses Date Regional Format in Shot Manager -> Settings tab.
@@ -1051,7 +1105,7 @@ If the stamp belongs to a group, 0,0 will be the group's centre anchor in both c
 
 Shot List Editor
 =================
-Not currently in use. This is a product of the shotlist data type being a node graph for easy appending and linking.
+Not currently in use. This is a product of the Shotlist data type being a node graph for easy appending and linking.
 Features may be developed. 
 If this intereferes with hotkeys, the name of the editor can be modified in Addon preferences->Shot Manager as the hotkeys are generated by alphabetical order.   
 
@@ -1060,7 +1114,7 @@ Compositor Nodes
 =================
 
 For Shot Manager compositor nodes to have any effect, 'Use Nodes' should be enabled. Node groups containing Shot Manager nodes are partially supported. 
-**Generators** are nodes that relate to automatic output generation. They define the manner in which View Layers and their Passes are organised and rendered. **Overview** nodes don't impact shots, they are convenience interfaces.
+**Generators** are nodes that relate to automatic output generation. They define the manner in which View Layers and their Passes are organised and rendered. **Overview** nodes don't impact Shots, they are convenience interfaces.
 
  Note: Blender always outputs files to the 'main' output. That is, the Composite Node and scene output, even if the Composite Node is deleted. This behaviour is due to be changed sometime in the near future, Blender 4.2+.
 
@@ -1073,12 +1127,12 @@ The Shot Output Node is required when using Generator Nodes and Path Constructor
 
 .. image:: ShotOutputNode.JPG
 
-* **Refresh**, non-essential node update. Although shot Manager nodes are updated upon shot change, setting or property changes, changes outside of Shot Manager won't be reflected immediately. For example adding new light passes to a View Layer. Shot Manager will update nodes before any rendering.
-* **Sync All Output Paths**, Output nodes created by the user are updated, so their base path matches the output path set by the Shot List node and the active shot.
+* **Refresh**, non-essential node update. Although Shot Manager nodes are updated upon Shot change, setting or property changes, changes outside of Shot Manager won't be reflected immediately. For example adding new light passes to a View Layer. Shot Manager will update nodes before any rendering.
+* **Sync All Output Paths**, Output nodes created by the user are updated, so their base path matches the output path set by the Shot List node and the active Shot.
 
 * **Directory/Filename** a path structure modified by Path Constructor Nodes. Keywords are evaluated and replaced with relevant values.
 
-* **Output Generator States**, Per shot activation of Generator sockets.
+* **Output Generator States**, Per Shot activation of Generator sockets.
 * **Add Generator Socket**, Add additional Generator sockets to make new output 'branches'.
 
 Path Constructor Node
@@ -1086,16 +1140,28 @@ Path Constructor Node
 
 .. image:: Path_Contructor.JPG
 
-Use Path Constructor Nodes to create your own render path format, followed by the shot name. Connect to the Shot List Node's 'Path Format' or 'Filename Format' socket. Options;
+Use Path Constructor Nodes to create your own render path format, followed by the Shot name. Connect to the Shot List Node's 'Path Format' or 'Filename Format' socket. Options;
 
 * **Root Folder**, The same folder set in the main panel. Must only be used as the first linked node.
 * **.Blend File**, Add the Blender filename to the path. Useful for iterations.
 * **Scene**, Active scene name.
-* **Shot Name**, Use the active shot's name.
+* **Shot Name**, Use the active Shot's name.
 * **Camera**, Render camera name.
 * **Custom**, Enter a custom name. For example iteration number.
-* **Output Node**, Uses the custom name of the output node, useful for exporting EXRs without overriding the default output/composite (which will use the custom 'main output text'), or to avoid duplicate filenames when using multiple output nodes. Ignores generated outputs.
+* **Output Node**, Use with Sync Directories or Sync Filenames. Adds the name of output nodes, useful for exporting EXRs without overriding the default output/composite (which will use the custom 'main output text'), or to avoid duplicate filenames when using multiple output nodes. Ignores generated nodes.
 * **Date**, Include the render date.
+* **Combine Words**, Constructor nodes on the second socket will be combined into a single word, following the input on the first socket. Separators such as / or _ are not added. See example image.
+* **Python Script**, Assign a python script to construct a custom path. The resulting string should be entered into the variable *text_out*. Included global variables include *bpy Shot scene Shot_index node_tree Shotlist separator*. node_tree is the active node tree, Shotlist belongs to the node tree.
+
+.. image:: CombineWords.JPG
+
+    **Combine Words**, Mostly useful when connected to a directory input in order to make more complex folder names.
+
+.. image:: PythonScriptConstructor.JPG
+    **Python Script**, An example of a python expression using string formatting to include render resolution in the filename.
+
+.. image:: OutputNodeConstructor.JPG
+    **Output Node**, The Composite Node is the permanent(B5.1-) main output and synced outputs in the compositor use their own names in the resulting filepath.
 
 .. figure:: PathNodesExample.JPG
 
@@ -1106,26 +1172,17 @@ Multi-Switch
 
 .. image:: MultiSwitch.JPG
 
-The Multi-Switch is a handy node group that generates inputs per shot. 
-The active input is connected internally depending on the active shot. 
-This allows the user to have multiple node graphs pointing to the Composite Node and only render the relevant one to the active shot. 
-
-In the image above, the base path of the File Output node has been automatically set by enabling Sync All Output Paths. 
-There is a risk of overwriting files as it matches the scene output. Therefore, the subpath has been manually been given the subfolder 'SecondLayer/'.
-
-.. image:: MultiSwitchAlt.JPG
-
-Alternatively, Path Constructor nodes may be used to borrow the File Output node's name and place it in the base path, the main scene output will also be given a subfolder, 
-default is Main_Output. See :ref:`Path Constructor Node` 
-
- Do not modify this node group's internal nodes.
+The Multi-Switch is a handy node group that generates inputs per Shot. 
+The active input is connected internally depending on the active Shot. 
+This allows the user to have multiple node chains pointing to the Composite Node and only render the relevant one to the active Shot. 
+This will not affect Generated Outputs as they have their own render pipeline.
 
 Primary-Switch
 --------------
 
 .. image:: PrimarySwitch.JPG
 
-The Primary-Switch can be used in combination with Primary Layers (see :ref:`Properties`). If a Shot has a Primary Layer, the input render layer will be set automatically to the shot's Primary Layer. This approach is intended for simple node graphs where the Primary Layer is to be the main output.
+The Primary-Switch can be used in combination with Primary Layers (see :ref:`Properties`). If a Shot has a Primary Layer, the input render layer will be set automatically to the Shot's Primary Layer. This approach is intended for simple node graphs where the Primary Layer is to be the main output.
 
  Note: this will not guarantee that the Primary Layer will be enabled for render. For that, use Primary Enabled option in Unpinned Defaults or ensure the layer is pinned in the Shot's View Layer settings. 
 
@@ -1135,7 +1192,7 @@ Generators
 
 When using Generator Nodes, file outputs can be organised in pass groups, each with their own file path and file format. Filter Render Layers and Render Passes using exclusion/inclusion keywords separated by commas. A generator chain should end at a socket on the Shot Output Node.
  
-Only Shot Manager nodes with a Bright Green Generator socket should be connected. The node graph is the same across each Shot, however Generator Sockets can be disabled per shot on the Shot Output Node. Generator chains can be split at any node by adding more sockets.
+Only Shot Manager nodes with a Bright Green Generator socket should be connected. The node graph is the same across each Shot, however Generator Sockets can be disabled per Shot on the Shot Output Node. Generator chains can be split at any node by adding more sockets.
 
 .. image:: Filters.JPG
 
