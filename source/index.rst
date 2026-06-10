@@ -1158,9 +1158,11 @@ Use Path Constructor Nodes to create your own render path format, followed by th
     **Combine Words**, Mostly useful when connected to a directory input in order to make more complex folder names.
 
 .. image:: PythonScriptConstructor.JPG
+
     **Python Script**, An example of a python expression using string formatting to include render resolution in the filename.
 
 .. image:: OutputNodeConstructor.JPG
+    
     **Output Node**, The Composite Node is the permanent(B5.1-) main output and synced outputs in the compositor use their own names in the resulting filepath.
 
 .. figure:: PathNodesExample.JPG
