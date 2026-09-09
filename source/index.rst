@@ -7,7 +7,7 @@ Shot Manager
 BlueSky: https://bsky.app/profile/otrealms.bsky.social
 Discord: https://discord.gg/NF5WZzUrxV
 
-:Version: 2.0.8.5
+:Version: 2.0.8.7
 
 
 Getting Started
@@ -126,12 +126,11 @@ Shot Operations
 .. image:: ShotOps.JPG
 
 1. **New Shot** , Adds a new Shot to your list.
-
 2. **Duplicate** the active Shot.
 3. **Join**, Merge the active Shot into a target Shot, combining their frame ranges. Options **Delete Target** = Deletes the target Shot, **Assimilate View Layers** = Adds View Layer states to existing, **Assimilate Rules** =Adds Rules to existing.
 4. **Split** , Divide a Shot, creating a duplicate at the given frame.
 5. **Copy From Shot** , Copy data from another Shot. Select source Shot name followed by specific data or 'All'. **Apply to all queued Shots** will copy the source data to all queued /enabled Shots.
-6. **Add Links**, 
+6. **Add Linked Shot**, Makes a shot that refernces the active shot as its source. All heritable properties are linked until overriden. This is particularly useful for re-rendering sections or making minor variations.
 7. **Move Shot to index**, Move the active Shot to another index for fast reordering.
 8. **Delete** the selected Shot.
 
@@ -151,13 +150,12 @@ UI: Shots
 
 .. image:: ShotsPanel.JPG
 
-
 .. image:: Shotlist.JPG
 
 * **Queue Count**, Displays the number of Shots in the local list enabled for render queue.
-
 * **PRO: Render Queued Shots** Batch render shortcut.
 * **Index**, An convenient way to activate a Shot.
+* **Scene Favourite**, when activate, scenes can be assigned a preferred Shot index. The chosen index will be activated when the Scene is loaded/activated. This is especially useful when linking a Shotlist between scenes.
 * **Set**, Filter visible Shots by colour set.
 * **Queue All/None Toggle**, add all Shots to the output/render queue.
 * **Invert Queue Toggle**, Invert the enabled Shots.
@@ -284,7 +282,7 @@ Shot Rules
 
 .. image:: ShotRules.JPG 
 
-Here rules can be assigned, toggled and overridden per Shot. Rules should first be created in the Rule Book, see :ref:`UI: Rule Book`.
+Here rules can be assigned, toggled and overridden per Shot. Rules should first be created in the Rule Book, see :ref:`UI: Rule Book` .
 
 **List Drop Down**
 * **Search**, Filter Rules by text input.
@@ -341,6 +339,8 @@ Global Batch Render settings
 * **Overwrite**, set the overwrite setting on batch renders, existing files will be overwritten. Not supported with settings: external blend files + per-Shot files.
 * **Add Suffix To Render File**, Easily identify and avoid overwrites on batch render submission files by adding the date to the filename.
 * **Allow Auto Execution Scripts**, Allows scripted drivers and start up scripts to run during batch renders, included scripts should be from trusted sources. This may also fix some addons that fail to work while background rendering.
+* **Cycles Device**, Allows defining the device type i.e CUDA, Optix, to be used by render nodes. 'Current' will use device type settings from the machine submitting the jobs.
+* **Use Available Devices (Cycles)**, Enables all devices that support the device type i.e. CUDA, Optix, available on render nodes.
 * **Safe Mode**, When batch rendering, Blender will be run using factory start-up settings, disabling 3rd party add-ons that might interfere with the render process. Render devices are then forced and add-ons in the exceptions white list will be enabled.
 * **Add Exception**, Allow specific 3rd party add-ons to be enabled during batch render.
 
@@ -348,13 +348,18 @@ Render List
 ------------
 **Pro Feature ☆**
 
-see :ref:`Batch Rendering`for Batch Rendering.
+see :ref:`Batch Rendering` for Batch Rendering.
 
 .. image:: Render_Queue.JPG
 
 **+Add Scene**, Either add scene's and their associated Shot lists from the open project. Local Shots will be automatically linked, so any changes will be reflected in the queue. 
 
+**+Multi-Scene Shotlist**, A render list that allows for scene selection per Shot. A common use case is when a Shot List is reused across multiple scenes and the Shots should only render their respective scenes.
+
+.. image:: MultiSceneList.JPG
+
 **+Add From .blend**, Add a render list from another Blender file via JSON. 
+
 
  Note:External Shots will not be imported, only added to the render queue. They are rendered from their own files and scene settings. Some SM Global Batch render Settings and local overrides are derived form the active file.
 
@@ -393,7 +398,7 @@ Shot Output Inspector
 
 **Pro Feature ☆**
 
-see :ref:`Batch Rendering`.
+see :ref:`Batch Rendering' .
 
 UI: Rule Book
 =============
@@ -413,6 +418,7 @@ Rules and Variables are shared (global) across Scenes.
 
 Swap Rules - Materials, Mesh Data, Cameras, Lights
 --------------------------------------------------
+
 .. image:: SwapRules.JPG
 
 Swap Rules follow the principle of; replace data A with data B, if a collection filter is defined, the affect will be restricted to that collection. Rules defined in the Rule Book can then be re-used by assigning them to the Shots individually. 
@@ -424,6 +430,30 @@ If the following Shot doesn't have a rule, the data block will be reset to its o
 
 * **Type**, Material overrides have two source types. 'Data' refers to materials stored in the objects mesh data block. 'Object' refers to the containing object data. See Blender's documentation for material link. https://docs.blender.org/manual/en/latest/render/materials/assignment.html#material-slots
 * **Use A as Default**, Revert data back to data-block A when a Rule is not assigned or enabled.
+
+**Grease Pencil Data Rule**
+
+Intended for rapid storyboarding, this rule can swap out the stroke data for a grease pencil object. Its a good idea to rename the inital stroke data, for exmaple Stroke > Page.001. 
+This will make it easier to iterate them when creating blank copies. 
+
+.. image:: GreasePencilRule.JPG
+
+Leaving the second data target empty will simply mean the first target will be used as a default fallback, then we can create per shot overrides. Simply enter the pre-exisitng stroke and click the + button to make a blank copy.
+Making a copy this way will retain material slots as well as layers while keeping strokes blank for a new drawing. 
+
+.. image:: GreasePencilShotRule.JPG
+
+
+
+Collection State Rule
+---------------------
+
+.. image:: CollectionRule.JPG
+
+Collection Rules can be used to override the viewport visibility and render state of a single collection. Once assigned to a shot, the toggle states can be overriden per Shot to make variations.
+
+.. image:: CollectionShotRule.JPG
+
 
 RNA Rules
 -----------
@@ -750,7 +780,7 @@ Batch Rendering
 ===============
 **Pro Feature ☆**
 
-see :ref:`Render List`. for Render List
+see :ref:`Render List` . for Render List
 
 Shot Manager Pro supports the following batch render options:
 
@@ -812,7 +842,6 @@ Launch B-Renderon with Shots preloaded. Temporary job files are created in the t
 * **Queue Name**, Open B-Renderon with Shots associated with a given queue.
 
 * **Add to existing queue**, Append the Shots to the given queue if matching name, otherwise clear all Shots and overwrite the queue.
-* **Force Cycles Device** to ensure the correct CPU/GPU configuration is applied to renders, assuming the submission machine is or is identical to the render machine.
 * **Render As Copies**, Save and render from per-Shot files rather than a single file. NOTE: Not Compatible with external render queues,
 Safe Mode or Pre-Render Reports. Filepaths will be made absolute.
 Pros- Python render setup scripts not required and Shot Manager addon installation not required for render nodes.
@@ -880,7 +909,7 @@ Requirements:
 
 Remote server may not be supported.
 
-Thinkbox Deadline is a network distributed rendering and management software owned by Amazon. It is free but requires an AWS account and personal details for verification. Shot Manager provides a custom plug-in for Deadline 10.3+ and Deadline submitter within Blender. Cloud rendering is not recommended using this module, instead Shots should be exported as separate Blend files using Batch Export see :ref:`Batch Export`.
+Thinkbox Deadline is a network distributed rendering and management software owned by Amazon. It is free but requires an AWS account and personal details for verification. Shot Manager provides a custom plug-in for Deadline 10.3+ and Deadline submitter within Blender. Cloud rendering is not recommended using this module, instead Shots should be exported as separate Blend files using Batch Export see :ref:`Batch Export` .
 
 The Deadline Repository must be installed on a shared location. Each render node should have the most recent version of Shot Manager installed. The Deadline render Client/worker must be installed on all render machines and Deadline Monitor should be installed and accessible by the 'Master' PC. Shots should be submitted using the Master PC. 
 https://docs.thinkboxsoftware.com/products/deadline/10.1/1_User%20Manual/manual/install-db-repo.html
@@ -953,7 +982,6 @@ For example,
 * **Start Job Delay** Specifies the time, in minutes, a Slave has to start a render job before it times out.
 * **Auto Time-Out**, Automatically figure out if it has been rendering too long based on some Repository Configuration settings and the render times of previously completed tasks.
 * **Force Sequential**, Forces a slave to render the tasks of a job in order. If an earlier task is ever re-queued, the slave won't go back to that task until it has finished the remaining tasks in order.
-* **Force Render Device**, Force the current file's render device i.e. CUDA, Optix, CPU.
 * **Overwrite**, Override the overwrite property found in Blender's main output panel. This setting will determine if existing frames are ignored of overwritten. Useful when re-rendering sections, manually delete bad frames and uncheck overwrite to only re-render those missing.  *Note: Not supported with Per-Shot Files in combination with external Blender files.*
 * **Per-Shot Files**, Save and render from per-Shot files rather than a single file. *NOTE: Not Compatible with external render queues,
 Safe Mode or Pre-Render Reports.* Filepaths will be made absolute.
@@ -1105,18 +1133,9 @@ If the stamp belongs to a group, 0,0 will be the group's centre anchor in both c
 
 Shot List Editor
 =================
-Not currently in use. This is a product of the Shotlist data type being a node graph for easy appending and linking.
-Features may be developed. 
+SM cusotm nodes have moved to the Shot List editor, formerly in the compositor.
+
 If this intereferes with hotkeys, the name of the editor can be modified in Addon preferences->Shot Manager as the hotkeys are generated by alphabetical order.   
-
-
-Compositor Nodes
-=================
-
-For Shot Manager compositor nodes to have any effect, 'Use Nodes' should be enabled. Node groups containing Shot Manager nodes are partially supported. 
-**Generators** are nodes that relate to automatic output generation. They define the manner in which View Layers and their Passes are organised and rendered. **Overview** nodes don't impact Shots, they are convenience interfaces.
-
- Note: Blender always outputs files to the 'main' output. That is, the Composite Node and scene output, even if the Composite Node is deleted. This behaviour is due to be changed sometime in the near future, Blender 4.2+.
 
 Shot Output Node
 ----------------
@@ -1162,39 +1181,24 @@ Use Path Constructor Nodes to create your own render path format, followed by th
     **Python Script**, An example of a python expression using string formatting to include render resolution in the filename.
 
 .. image:: OutputNodeConstructor.JPG
-    
+
     **Output Node**, The Composite Node is the permanent(B5.1-) main output and synced outputs in the compositor use their own names in the resulting filepath.
 
 .. figure:: PathNodesExample.JPG
 
     Example of an iterative render file path using 'Custom' and 'Data'.
 
-Multi-Switch
-------------
-
-.. image:: MultiSwitch.JPG
-
-The Multi-Switch is a handy node group that generates inputs per Shot. 
-The active input is connected internally depending on the active Shot. 
-This allows the user to have multiple node chains pointing to the Composite Node and only render the relevant one to the active Shot. 
-This will not affect Generated Outputs as they have their own render pipeline.
-
-Primary-Switch
---------------
-
-.. image:: PrimarySwitch.JPG
-
-The Primary-Switch can be used in combination with Primary Layers (see :ref:`Properties`). If a Shot has a Primary Layer, the input render layer will be set automatically to the Shot's Primary Layer. This approach is intended for simple node graphs where the Primary Layer is to be the main output.
-
- Note: this will not guarantee that the Primary Layer will be enabled for render. For that, use Primary Enabled option in Unpinned Defaults or ensure the layer is pinned in the Shot's View Layer settings. 
-
 Generators
 ----------
 .. image:: GeneratorNodes.JPG
 
-When using Generator Nodes, file outputs can be organised in pass groups, each with their own file path and file format. Filter Render Layers and Render Passes using exclusion/inclusion keywords separated by commas. A generator chain should end at a socket on the Shot Output Node.
+When using Generator Nodes, file outputs can be organised in pass groups, each with their own file path and file format. Filter Render Layers and Render Passes using exclusion/inclusion keywords separated by commas. 
+A generator chain should end at a socket on the Shot Output Node.
  
-Only Shot Manager nodes with a Bright Green Generator socket should be connected. The node graph is the same across each Shot, however Generator Sockets can be disabled per Shot on the Shot Output Node. Generator chains can be split at any node by adding more sockets.
+Only Shot Manager nodes with a Bright Green Generator socket should be connected. The node graph is the same across each Shot, however Generator Sockets can be disabled per Shot on the Shot Output Node. 
+Generator chains can be split at any node by adding more sockets.
+
+ Note: The resulting generated nodes will appear in the Compositor.
 
 .. image:: Filters.JPG
 
@@ -1269,14 +1273,45 @@ Image Format Node
 
 Place between an Output Generator and Shot Output Node. Modify the file format used by generated outputs. Format overrides are per-pass. Ignored when connected in sequence to an Output Generator with Multi-Layer EXR enabled.
 
+
+Compositor Nodes
+=================
+
+For Shot Manager compositor nodes to have any effect, 'Use Nodes' should be enabled. Node groups containing Shot Manager nodes are partially supported. 
+**Generators** are nodes that relate to automatic output generation. They define the manner in which View Layers and their Passes are organised and rendered. **Overview** nodes don't impact Shots, they are convenience interfaces.
+
+ Note: Blender always outputs files to the 'main' output. That is, the Composite Node and scene output, even if the Composite Node is deleted. This behaviour is due to be changed sometime in the near future, Blender 4.2+.
+
+
+Multi-Switch
+------------
+
+.. image:: MultiSwitch.JPG
+
+The Multi-Switch is a handy node group that generates inputs per Shot. 
+The active input is connected internally depending on the active Shot. 
+This allows the user to have multiple node chains pointing to the Composite Node and only render the relevant one to the active Shot. 
+This will not affect Generated Outputs as they have their own render pipeline.
+
+Primary-Switch
+--------------
+
+.. image:: PrimarySwitch.JPG
+
+The Primary-Switch can be used in combination with Primary Layers (see :ref:`Properties`). If a Shot has a Primary Layer, the input render layer will be set automatically to the Shot's Primary Layer. This approach is intended for simple node graphs where the Primary Layer is to be the main output.
+
+ Note: this will not guarantee that the Primary Layer will be enabled for render. For that, use Primary Enabled option in Unpinned Defaults or ensure the layer is pinned in the Shot's View Layer settings. 
+
+
 Known Issues
 =============
+Please report any issues to contact@pablotochez.com
+
 **Missing Overlay Edit Tool Icon**, This seems to be a permission issue, likely when using a shared directory. A fallback icon will be used instead. 
 
 **Missing file explorer options**, This can occur when going changing versions of Blender. SOLUTION- Restart Blender, disable 'Load UI' first when opening.
 
 **Turbo Tools** add-on fails to batch render. Turbo Tools support is in progress.
-
 
 .. image:: Load_ui.JPG
 
